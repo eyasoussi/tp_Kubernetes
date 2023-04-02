@@ -1,8 +1,15 @@
 import React from 'react'
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Modal from '../../components/Modal';
+import JsScripts from '../../components/JsScripts';
+import Preloader from '../../components/Preloader';
 
 export default function index() {
   return (
         <div>
+        <Preloader/>
+        <Header />
         <section class="hero">
         <div class="hero__slider owl-carousel">
             <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
@@ -58,10 +65,11 @@ export default function index() {
                     <div class="banner__item">
                         <div class="banner__item__pic">
                             <img src="img/banner/banner-1.jpg" alt=""/>
+
                         </div>
                         <div class="banner__item__text">
-                            <h2>Clothing Collections 2030</h2>
-                            <a href="#">Shop now</a>
+                            <h2>Nouvel arrivage 2022</h2>
+                            <a href="#">Achetez maintenant</a>
                         </div>
                     </div>
                 </div>
@@ -504,6 +512,9 @@ export default function index() {
             </div>
         </div>
     </section>
+    <Footer />
+    <Modal />
+    <JsScripts />
     </div>
   )
 }
