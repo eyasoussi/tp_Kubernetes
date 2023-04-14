@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import Preloader from '../../components/Preloader';
+import MyContext from '../../context';
+import ActiveTabs from '../../components/ActiveTabs';
+import Poulaier from '../../components/Poulaier';
+import Ovin from '../../components/Ovin';
 
-export default function index() {
+export default function Shop() {
+    const myTabs = ["poulaier", "ovin"];
+    const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
+
+    const handleFilterClick = (filter) => {
+        setActiveFilter(filter); // Update the active filter state when a filter is clicked
+    };
+
   return (
     <div>
         <Preloader propsToForceUpdate="1" />
@@ -28,56 +39,20 @@ export default function index() {
    
     <section class="shop spad">
         <div class="container">
+        <div class="row">
+        <MyContext.Provider value={{ activeFilter, handleFilterClick}}>
+            <ActiveTabs 
+                myTabs = {myTabs}
+            >
+            </ActiveTabs>
+        </MyContext.Provider>
+        </div>
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="shop__sidebar">
-                        <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search..."/>
-                                <button type="submit"><span class="icon_search"></span></button>
-                            </form>
-                        </div>
-                        <div class="shop__sidebar__accordion">
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__categories">
-                                                <ul class="nice-scroll">
-                                                    <li><a href="#">Men (20)</a></li>
-                                                    <li><a href="#">Women (20)</a></li>
-                                                    <li><a href="#">Bags (20)</a></li>
-                                                    <li><a href="#">Clothing (20)</a></li>
-                                                    <li><a href="#">Shoes (20)</a></li>
-                                                    <li><a href="#">Accessories (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__brand">
-                                                <ul>
-                                                    <li><a href="#">Louis Vuitton</a></li>
-                                                    <li><a href="#">Chanel</a></li>
-                                                    <li><a href="#">Hermes</a></li>
-                                                    <li><a href="#">Gucci</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    
+                        
+                                
+                               
                                 <div class="card">
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
