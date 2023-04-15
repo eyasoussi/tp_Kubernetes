@@ -3,15 +3,13 @@ import Home from './pages/Home/Home';
 import AboutUs from './pages/AboutUs';
 import Cart from './pages/Cart';
 import Shop from './pages/Shop/Shop';
-import ShopDetails from './pages/ShopDetails';
+import ShopDetails from './pages/ShopDetails/ShopDetails';
 import CheckOut from './pages/CheckOut';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import routes from './routes';
 
 function App() {
   return (
-    
-      
       <Router>
         <Routes>
             <Route exact path= {routes.HOME} element={<Home />} />
@@ -23,9 +21,6 @@ function App() {
             <Route path={routes.NOT_FOUND_PAGE} element={<ShopDetails />} />
         </Routes>      
       </Router>
-      
-      
-  
   );
 }
 

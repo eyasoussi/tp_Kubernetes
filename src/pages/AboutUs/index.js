@@ -8,7 +8,6 @@ import Preloader from '../../components/Preloader';
 export default function index() {
   return (
     <div>
-        <Preloader />
         <Header />
         <section class="breadcrumb-option">
         <div class="container">
