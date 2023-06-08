@@ -29,9 +29,9 @@ export default function Shop() {
         {isLoading && <Preloader/>}
         <Header />
         <InfoBar/>
-        <section class="shop spad">
-            <div class="container">
-                <div class="row">
+        <section className="shop spad">
+            <div className="container">
+                <div className="row">
                 <MyContext.Provider value={{ activeFilter, handleFilterClick}}>
                     <ActiveTabs 
                         myTabs = {myTabs}
