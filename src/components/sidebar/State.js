@@ -3,13 +3,13 @@ import React from 'react'
 export default function State() {
   return (
     //size
-    <div class="card">
-      <div class="card-heading">
+    <div className="card">
+      <div className="card-heading">
           <a data-toggle="collapse" data-target="#collapseFour">Size</a>
       </div>
-      <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
-          <div class="card-body">
-              <div class="shop__sidebar__size">
+      <div id="collapseFour" className="collapse show" data-parent="#accordionExample">
+          <div className="card-body">
+              <div className="shop__sidebar__size">
                   <label for="xs">xs
                       <input type="radio" id="xs"/>
                   </label>

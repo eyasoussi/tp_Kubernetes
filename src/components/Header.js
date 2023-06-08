@@ -23,23 +23,23 @@ export default function Header() {
       }, []);
 
   return (
-    <header class="header">
+    <header className="header">
           
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-3 col-md-3">
+                    <div className="header__logo">
                         <a href="./index.html"><h3 style={{color:'green'}}>Aalouchi.tn</h3></a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
+                <div className="col-lg-6 col-md-6">
+                    <nav className="header__menu mobile-menu">
                         <ul>
                             <li><Link to={routes.HOME}>Acceuil</Link></li>
                             <li><Link to={routes.SHOP}>Boutique</Link></li>
                             <li><Link to={routes.ABOUTUS}>A Propos</Link></li>
                             <li><a href="#">Pages</a>
-                                <ul class="dropdown">
+                                <ul className="dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
@@ -49,16 +49,16 @@ export default function Header() {
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""/></a>
+                <div className="col-lg-3 col-md-3">
+                    <div className="header__nav__option">
+                        <a href="#" className="search-switch"><img src="img/icon/search.png" alt=""/></a>
                         <a href="#"><img src="img/icon/heart.png" alt=""/></a>
                         <Link to={routes.CART}><img src="img/icon/cart.png" alt=""/> <span>0</span></Link>
-                        <div class="price">$0.00</div>
+                        <div className="price">$0.00</div>
                     </div>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            <div className="canvas__open"><i className="fa fa-bars"></i></div>
         </div>
     </header>
   )

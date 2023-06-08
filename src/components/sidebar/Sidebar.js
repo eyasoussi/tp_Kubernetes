@@ -24,8 +24,8 @@ export default function Sidebar() {
   
   return (
     <div>
-        <div class="shop__sidebar__accordion">
-            <div class="accordion" id="accordionExample">
+        <div className="shop__sidebar__accordion">
+            <div className="accordion" id="accordionExample">
                 <Category setCategory={setCategory}/>
                 <Type setType={setType}/>
                 <Race setRace={setRace}/>

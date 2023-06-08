@@ -4,14 +4,14 @@ import Card from './Card'
 export default function MainShop() {
   return (
     <div>
-        <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="shop__product__option__left">
+        <div className="row">
+        <div className="col-lg-6 col-md-6 col-sm-6">
+            <div className="shop__product__option__left">
                 <p>Showing 1–12 of 126 results</p>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="shop__product__option__right">
+        <div className="col-lg-6 col-md-6 col-sm-6">
+            <div className="shop__product__option__right">
                 <p>Sort by Price:</p>
                 <select>
                     <option value="">Low To High</option>
@@ -21,13 +21,13 @@ export default function MainShop() {
             </div>
         </div>
     </div>                
-    <div class="row">
+    <div className="row">
         <Card/>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="product__pagination">
-                <a class="active" href="#">1</a>
+    <div className="row">
+        <div className="col-lg-12">
+            <div className="product__pagination">
+                <a className="active" href="#">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
                 <span>...</span>

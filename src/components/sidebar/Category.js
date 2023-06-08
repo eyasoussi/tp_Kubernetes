@@ -20,14 +20,14 @@ export default function Category({setCategory}) {
 
   return (
     //category
-    <div class="card">
-        <div class="card-heading">
+    <div className="card">
+        <div className="card-heading">
             <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
         </div>
-        <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-            <div class="card-body">
-                <div class="shop__sidebar__categories">
-                    <ul class="nice-scroll">
+        <div id="collapseOne" className="collapse show" data-parent="#accordionExample">
+            <div className="card-body">
+                <div className="shop__sidebar__categories">
+                    <ul className="nice-scroll">
                         <li><a className="clickable-element" onClick={()=>setCategory("Men")}>Men ({quantities?.menQuantity})</a></li>
                     <li><a className="clickable-element" onClick={()=>setCategory("Women")}>Women ({quantities?.womenQuantity}) </a></li>
                         <li><a className="clickable-element" onClick={()=>setCategory("Bags")}>Bags ({quantities?.bagsQuantity})</a></li>

@@ -3,13 +3,13 @@ import React from 'react'
 export default function Weight() {
   return (
     //price 
-    <div class="card">
-        <div class="card-heading">
+    <div className="card">
+        <div className="card-heading">
             <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
         </div>
-        <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
-            <div class="card-body">
-                <div class="shop__sidebar__price">
+        <div id="collapseThree" className="collapse show" data-parent="#accordionExample">
+            <div className="card-body">
+                <div className="shop__sidebar__price">
                     <ul>
                         <li><a href="#">$0.00 - $50.00</a></li>
                         <li><a href="#">$50.00 - $100.00</a></li>
