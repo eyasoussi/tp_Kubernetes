@@ -15,7 +15,7 @@ export default function Type({setType}) {
     //branding
     <div className="card">
     <div className="card-heading">
-        <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+        <a data-toggle="collapse" data-target="#collapseTwo">Type de Poulaier</a>
     </div>
     <div id="collapseTwo" className="collapse show" data-parent="#accordionExample">
         <div className="card-body">

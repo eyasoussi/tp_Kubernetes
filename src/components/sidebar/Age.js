@@ -5,7 +5,7 @@ export default function Age() {
     //price
     <div className="card">
         <div className="card-heading">
-            <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+            <a data-toggle="collapse" data-target="#collapseThree">Age</a>
         </div>
         <div id="collapseThree" className="collapse show" data-parent="#accordionExample">
             <div className="card-body">
