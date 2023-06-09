@@ -9,7 +9,7 @@ export default function Ovin() {
         <div className="col-lg-3"> 
             <div className="shop__sidebar"> 
                 <Search/>
-                <Sidebar/>     
+                <Sidebar articles={"Ovin Engraissement"}/>     
             </div>
         </div>
         <div className="col-lg-9">

@@ -9,9 +9,10 @@ import ActiveTabs from '../../components/ActiveTabs';
 import InfoBar from '../../components/InfoBar';
 import Poulaier from '../../components/Poulaier';
 import Ovin from '../../components/Ovin';
-
+import OvinB from '../../components/OvinB';
+import PoulaierB from '../../components/PoulaierB';
 export default function Shop() {
-    const myTabs = ["poulaier", "ovin"];
+    const myTabs = ["Ovin Engraissement", "Ovin B", "Poulaier Engraissement", "Poulaier B"];
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
     const [isLoading, setIsLoading] = useState(true);
     const handleFilterClick = (filter) => {
@@ -21,7 +22,7 @@ export default function Shop() {
     const loadingEffect = () => {
        let id = setInterval(()=>{
             setIsLoading(false);
-        },2000)
+        }, 2000)
     }
     
   return (
@@ -39,8 +40,10 @@ export default function Shop() {
                     </ActiveTabs>
                 </MyContext.Provider>
                 </div>
-                { activeFilter ==='poulaier' && <Poulaier/>}
-                { activeFilter ==='ovin' && <Ovin/>}
+                { activeFilter ==='Ovin Engraissement' && <Ovin/>}
+                { activeFilter ==='Ovin B' && <OvinB/>}
+                { activeFilter ==='Poulaier Engraissement' && <Poulaier/>}
+                { activeFilter ==='Poulaier B' && <PoulaierB/>}
             </div>
         </section>  
     <Footer />
