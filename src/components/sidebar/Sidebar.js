@@ -16,7 +16,7 @@ export default function Sidebar({articles}) {
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [state, setState] = useState("");
+  const [stat, setStat] = useState("");
   const [filters, setFilters] = useState({});
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Sidebar({articles}) {
             Prix: true,
             Poids: true,
             Age: true,
-            State: false
+            Stat: false
           })
       }
       else if(articles === "Ovin B") {
@@ -37,7 +37,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: false,
           Age: true,
-          State: true
+          Stat: true
         })
       }
       else if(articles === "Poulaier Engraissement") {
@@ -47,7 +47,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: true,
           Age: true,
-          State: false,
+          Stat: false,
         })
       }
       else {
@@ -57,7 +57,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: false,
           Age: true,
-          State: true,
+          Stat: true,
         })
       }
   },[articles])
@@ -65,7 +65,7 @@ export default function Sidebar({articles}) {
   console.log("hey I am ", articles, " my filters are ",filters);
   useEffect(()=>{
     console.log("category changed: ", category);
-  },[category,type,race,price,weight,age,state]);
+  },[category,type,race,price,weight,age,stat]);
   
   return (
     <div>
@@ -76,7 +76,7 @@ export default function Sidebar({articles}) {
                 {filters.Prix && <Price setPrice={setPrice}/>}
                 {filters.Poids && <Weight setWeight={setWeight}/>}
                 {filters.Age && <Age setAge={setAge}/>}
-                {filters.State && <State state={setState}/>} 
+                {filters.Stat && <State stat={setStat}/>} 
                 <Category setCategory={setCategory}/>
             </div>
         </div>

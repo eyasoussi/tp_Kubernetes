@@ -1,42 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
-export default function State() {
-  return (
-    //size
-    <div className="card">
-      <div className="card-heading">
-          <a data-toggle="collapse" data-target="#collapseFour">Size</a>
-      </div>
-      <div id="collapseFour" className="collapse show" data-parent="#accordionExample">
-          <div className="card-body">
-              <div className="shop__sidebar__size">
-                  <label for="xs">xs
-                      <input type="radio" id="xs"/>
-                  </label>
-                  <label for="sm">s
-                      <input type="radio" id="sm"/>
-                  </label>
-                  <label for="md">m
-                      <input type="radio" id="md"/>
-                  </label>
-                  <label for="xl">xl
-                      <input type="radio" id="xl"/>
-                  </label>
-                  <label for="2xl">2xl
-                      <input type="radio" id="2xl"/>
-                  </label>
-                  <label for="xxl">xxl
-                      <input type="radio" id="xxl"/>
-                  </label>
-                  <label for="3xl">3xl
-                      <input type="radio" id="3xl"/>
-                  </label>
-                  <label for="4xl">4xl
-                      <input type="radio" id="4xl"/>
-                  </label>
-              </div>
-          </div>
-      </div>
-  </div>
-  )
+export default function State({ setStat }) {
+    const [quantities, setQuantities] = useState({})
+    useEffect(() => {
+        setQuantities({
+            WeldaQuantity: 12,
+            OochraQuantity: 15,
+            FerghaQuantity: 13,
+        })
+    }, []);
+    const [isActive, setIsActive] = useState(false);
+
+    const toggle = () => {
+        setIsActive(!isActive);
+    };
+
+    return (
+        <div className={`card ${isActive ? 'active' : ''}`}>
+            <div className="card-heading">
+                <a
+                    onClick={toggle}
+                    className={`accordion-toggle ${isActive ? 'active' : ''}`}
+                >
+                    Etat
+                    {isActive ? <ExpandLess /> : <ExpandMore />}
+                </a>
+            </div>
+            <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
+                <div className="card-body">
+                    <div className="shop__sidebar__brand">
+                        <ul>
+                            <li><a className="clickable-element" onClick={() => setStat("Welda")}>Welda ({quantities?.WeldaQuantity})</a></li>
+                            <li><a className="clickable-element" onClick={() => setStat("Oochra")}>Oochra ({quantities?.OochraQuantity}) </a></li>
+                            <li><a className="clickable-element" onClick={() => setStat("Fergha")}>Fergha({quantities?.FerghaQuantity})</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
