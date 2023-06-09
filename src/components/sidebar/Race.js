@@ -5,7 +5,7 @@ export default function Race({setRace}) {
     const [quantities, setQuantities] = useState({})
     useEffect(()=>{
         setQuantities ({
-            TubarQuantity: 12,
+            TibarQuantity: 12,
             GharbiQuantity : 15,
             HoutiQuantity : 13,
             DmenQuantity : 16,
@@ -22,11 +22,11 @@ export default function Race({setRace}) {
         <div className="card-body">
             <div className="shop__sidebar__brand">
                 <ul>
-                    <li><a className="clickable-element" onClick={()=>setRace("Men")}>Tubar ({quantities?.TubarQuantity})</a></li>
-                    <li><a className="clickable-element" onClick={()=>setRace("Women")}>Gharbi ({quantities?.GharbiQuantity}) </a></li>
-                    <li><a className="clickable-element" onClick={()=>setRace("Bags")}>Houti ({quantities?.HoutiQuantity})</a></li>
-                    <li><a className="clickable-element" onClick={()=>setRace("Clothing")}>Dmen ({quantities?.DmenQuantity})</a></li>
-                    <li><a className="clickable-element" onClick={()=>setRace("Shoes")}>Sordi ({quantities?.SordiQuantity})</a></li>
+                    <li><a className="clickable-element" onClick={()=>setRace("Tibar")}>Tibar ({quantities?.TibarQuantity})</a></li>
+                    <li><a className="clickable-element" onClick={()=>setRace("Gharbi")}>Gharbi ({quantities?.GharbiQuantity}) </a></li>
+                    <li><a className="clickable-element" onClick={()=>setRace("Houti")}>Houti ({quantities?.HoutiQuantity})</a></li>
+                    <li><a className="clickable-element" onClick={()=>setRace("Dmen")}>Dmen ({quantities?.DmenQuantity})</a></li>
+                    <li><a className="clickable-element" onClick={()=>setRace("Sordi")}>Sordi ({quantities?.SordiQuantity})</a></li>
                 </ul>
             </div>
         </div>
