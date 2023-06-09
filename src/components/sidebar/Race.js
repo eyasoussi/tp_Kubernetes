@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export default function Race({setRace}) {
     const [quantities, setQuantities] = useState({})
@@ -12,13 +13,24 @@ export default function Race({setRace}) {
             SordiQuantity : 18,
         })
     },[]);
-  return (
-    //branding
-    <div className="card">
-    <div className="card-heading">
-        <a data-toggle="collapse" data-target="#collapseTwo">Race</a>
-    </div>
-    <div id="collapseTwo" className="collapse show" data-parent="#accordionExample">
+    const [isActive, setIsActive] = useState(false);
+
+    const toggle = () => {
+        setIsActive(!isActive);
+    };
+
+    return (
+        <div className={`card ${isActive ? 'active' : ''}`}>
+            <div className="card-heading">
+                <a
+                    onClick={toggle}
+                    className={`accordion-toggle ${isActive ? 'active' : ''}`}
+                >
+                    Race
+                    {isActive ? <ExpandLess /> : <ExpandMore />}
+                </a>
+            </div>
+            <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
         <div className="card-body">
             <div className="shop__sidebar__brand">
                 <ul>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export default function Category({setCategory}) {
     const [quantities, setQuantities] = useState({})
@@ -17,14 +18,24 @@ export default function Category({setCategory}) {
             kidsQuantity : 11
         })
     },[]);
+    const [isActive, setIsActive] = useState(false);
 
-  return (
-    //category
-    <div className="card">
-        <div className="card-heading">
-            <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-        </div>
-        <div id="collapseOne" className="collapse show" data-parent="#accordionExample">
+    const toggle = () => {
+        setIsActive(!isActive);
+    };
+
+    return (
+        <div className={`card ${isActive ? 'active' : ''}`}>
+            <div className="card-heading">
+                <a
+                    onClick={toggle}
+                    className={`accordion-toggle ${isActive ? 'active' : ''}`}
+                >
+                    Catégorie
+                    {isActive ? <ExpandLess /> : <ExpandMore />}
+                </a>
+            </div>
+            <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
             <div className="card-body">
                 <div className="shop__sidebar__categories">
                     <ul className="nice-scroll">

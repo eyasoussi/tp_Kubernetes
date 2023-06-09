@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export default function State({ setStat }) {
     const [quantities, setQuantities] = useState({})
@@ -15,26 +10,34 @@ export default function State({ setStat }) {
             FerghaQuantity: 13,
         })
     }, []);
+    const [isActive, setIsActive] = useState(false);
+
+    const toggle = () => {
+        setIsActive(!isActive);
+    };
+
     return (
-        <div className="card">
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
+        <div className={`card ${isActive ? 'active' : ''}`}>
+            <div className="card-heading">
+                <a
+                    onClick={toggle}
+                    className={`accordion-toggle ${isActive ? 'active' : ''}`}
                 >
-                    <div className="card-heading">
-                        <Typography variant="h6" display="block" gutterBottom>Etat</Typography>
+                    Etat
+                    {isActive ? <ExpandLess /> : <ExpandMore />}
+                </a>
+            </div>
+            <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
+                <div className="card-body">
+                    <div className="shop__sidebar__brand">
+                        <ul>
+                            <li><a className="clickable-element" onClick={() => setStat("Welda")}>Welda ({quantities?.WeldaQuantity})</a></li>
+                            <li><a className="clickable-element" onClick={() => setStat("Oochra")}>Oochra ({quantities?.OochraQuantity}) </a></li>
+                            <li><a className="clickable-element" onClick={() => setStat("Fergha")}>Fergha({quantities?.FerghaQuantity})</a></li>
+                        </ul>
                     </div>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <ul>
-                        <li><a onClick={() => setStat("Welda")}> <Typography variant="subtitle2" >Welda</Typography> ({quantities?.WeldaQuantity})</a></li>
-                        <li><a onClick={() => setStat("Oochra")}> <Typography variant="subtitle2" >Oochra</Typography> ({quantities?.OochraQuantity})</a></li>
-                        <li><a onClick={() => setStat("Fergha")}> <Typography variant="subtitle2" >Fergha</Typography>({quantities?.FerghaQuantity})</a></li>
-                    </ul>
-                </AccordionDetails>
-            </Accordion>
+                </div>
+            </div>
         </div>
     )
 }
