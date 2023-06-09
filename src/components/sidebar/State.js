@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 export default function State({ setStat }) {
     const [quantities, setQuantities] = useState({})
@@ -10,22 +16,25 @@ export default function State({ setStat }) {
         })
     }, []);
     return (
-        //size
         <div className="card">
-            <div className="card-heading">
-                <a data-toggle="collapse" data-target="#collapseTwo">Etat</a>
-            </div>
-            <div id="collapseTwo" className="collapse show" data-parent="#accordionExample">
-                <div className="card-body">
-                    <div className="shop__sidebar__brand">
-                        <ul>
-                            <li><a className="clickable-element" onClick={() => setStat("Welda")}>Welda ({quantities?.WeldaQuantity})</a></li>
-                            <li><a className="clickable-element" onClick={() => setStat("Oochra")}>Oochra ({quantities?.OochraQuantity}) </a></li>
-                            <li><a className="clickable-element" onClick={() => setStat("Fergha")}>Fergha({quantities?.FerghaQuantity})</a></li>
-                        </ul>
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                >
+                    <div className="card-heading">
+                        <Typography variant="h6" display="block" gutterBottom>Etat</Typography>
                     </div>
-                </div>
-            </div>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <ul>
+                        <li><a onClick={() => setStat("Welda")}> <Typography variant="subtitle2" >Welda</Typography> ({quantities?.WeldaQuantity})</a></li>
+                        <li><a onClick={() => setStat("Oochra")}> <Typography variant="subtitle2" >Oochra</Typography> ({quantities?.OochraQuantity})</a></li>
+                        <li><a onClick={() => setStat("Fergha")}> <Typography variant="subtitle2" >Fergha</Typography>({quantities?.FerghaQuantity})</a></li>
+                    </ul>
+                </AccordionDetails>
+            </Accordion>
         </div>
     )
 }
