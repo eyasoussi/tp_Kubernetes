@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 export default function Category({setCategory}) {
-     const [quantities, setQuantities] = useState({})
+    const [quantities, setQuantities] = useState({})
     const handleClick = () => {
         console.log("hello");
     }
