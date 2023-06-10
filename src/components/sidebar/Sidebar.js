@@ -14,7 +14,7 @@ export default function Sidebar({setAllFilters, articles}) {
   const [race, setRace] = useState("");
   const [price, setPrice] = useState([]);
   const [weight, setWeight] = useState([]);
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState([]);
   const [stat, setStat] = useState("");
   const [filters, setFilters] = useState({});
 

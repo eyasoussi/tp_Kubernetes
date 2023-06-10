@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 
-export default function Age() {
+export default function Age({setAge}) {
     const [isActive, setIsActive] = useState(true);
 
     const toggle = () => {
@@ -24,22 +24,16 @@ export default function Age() {
                     <div className="shop__sidebar__price">
                         <ul>
                             <li>
-                                <a href="#">$0.00 - $50.00</a>
+                                <a className="clickable-element" onClick={()=>setAge([0,0.5])}>0 - 6mois</a>
                             </li>
                             <li>
-                                <a href="#">$50.00 - $100.00</a>
+                                <a className="clickable-element" onClick={()=>setAge([0.5,1])}>6mois - 1ans</a>
                             </li>
                             <li>
-                                <a href="#">$100.00 - $150.00</a>
+                                <a className="clickable-element" onClick={()=>setAge([1,1.5])}>1an - 1an & 6mois</a>
                             </li>
                             <li>
-                                <a href="#">$150.00 - $200.00</a>
-                            </li>
-                            <li>
-                                <a href="#">$200.00 - $250.00</a>
-                            </li>
-                            <li>
-                                <a href="#">250.00+</a>
+                                <a className="clickable-element" onClick={()=>setAge([1.5,2])}>2ans+</a>
                             </li>
                         </ul>
                     </div>
