@@ -34,7 +34,7 @@ export default function Shop() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://mocki.io/v1/4be70bce-45f6-4978-8e8c-0d692e0b9206');
+            const response = await axios.get('/dummy.json');
             const data = response.data;
             setData(data.articles);
         } catch (error) {

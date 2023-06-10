@@ -11,7 +11,7 @@ export default function Ovin({data}) {
         console.log(filteredData);
         //doTheFilteringHere
         //setFilteredData(data);
-    },[]);
+    },[allFilters]);
 
   return (
     <div className="row">
