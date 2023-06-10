@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
@@ -18,12 +19,29 @@ export default function Shop() {
     const handleFilterClick = (filter) => {
         setActiveFilter(filter); // Update the active filter state when a filter is clicked
     };
+    const [data, setData] = useState({});
 
     const loadingEffect = () => {
        let id = setInterval(()=>{
             setIsLoading(false);
         }, 2000)
     }
+    
+    const fetchData = async () => {
+        try {
+          const response = await axios.get('https://dummyjson.com/products');
+          const data = response.data;
+          setData(data);
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+    useEffect(()=>{
+        fetchData();
+    },[])
+   
     
   return (
     <div>
@@ -40,10 +58,10 @@ export default function Shop() {
                     </ActiveTabs>
                 </MyContext.Provider>
                 </div>
-                { activeFilter ==='Ovin Engraissement' && <Ovin/>}
-                { activeFilter ==='Ovin B' && <OvinB/>}
-                { activeFilter ==='Poulaier Engraissement' && <Poulaier/>}
-                { activeFilter ==='Poulaier B' && <PoulaierB/>}
+                { activeFilter ==='Ovin Engraissement' && <Ovin data={data} />}
+                { activeFilter ==='Ovin B' && <OvinB data={data} />}
+                { activeFilter ==='Poulaier Engraissement' && <Poulaier data={data} />}
+                { activeFilter ==='Poulaier B' && <PoulaierB data={data} />}
             </div>
         </section>  
     <Footer />

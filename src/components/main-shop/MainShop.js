@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Card from './Card'
 
-export default function MainShop() {
+export default function MainShop({filteredData}) {
+    const [data,setData] = useState({});
+
+    useEffect(()=>{
+        setData(filteredData);
+        console.log(data);
+    },[filteredData])
+
   return (
     <div>
         <div className="row">

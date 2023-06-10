@@ -3,11 +3,14 @@ import Sidebar from './sidebar/Sidebar';
 import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
 
-export default function Ovin() {
+export default function Ovin({data}) {
     const [allFilters, setAllFilters] = useState({});
+    const[filteredData, setFilteredData] = useState({});
 
     useEffect(()=>{
         console.log("hey here are all the filters: ", allFilters);
+        //doTheFilteringHere
+        setFilteredData(data);
     },[allFilters]);
 
   return (
@@ -20,7 +23,7 @@ export default function Ovin() {
         </div>
         <div className="col-lg-9">
             <div className="shop__product__option">
-                <MainShop/>
+                <MainShop filteredData={filteredData}/>
             </div>  
         </div>
      </div>
