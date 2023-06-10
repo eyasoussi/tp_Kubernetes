@@ -6,7 +6,7 @@ function valuetext(value) {
     return `${value} ${"Kg"}`;
   }
 
-export default function Weight({articles}) {
+export default function Weight({articles, setWeight}) {
     const [minMax, setMinMax] = useState([]);
 
     useEffect(() => {
@@ -21,10 +21,11 @@ export default function Weight({articles}) {
         }
     }, [articles])
 
-    const [value, setValue] = useState([0, 2000]);
+    const [value, setValue] = useState([0, 40]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setWeight(value);
     };
     
 const marks = [

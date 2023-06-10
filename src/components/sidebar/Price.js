@@ -6,7 +6,7 @@ function valuetext(value) {
     return `${value} ${"DT"}`;
   }
 
-export default function Price({articles}) {
+export default function Price({articles, setPrice}) {
     const [minMax, setMinMax] = useState([]);
     
     useEffect(() => {
@@ -24,9 +24,10 @@ export default function Price({articles}) {
         }
     }, [articles])
 
-    const [value, setValue] = useState([0,2000]);
+    const [value, setValue] = useState([0,1750]);
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setPrice(value);
     };
     
 const marks = [

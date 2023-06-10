@@ -8,12 +8,12 @@ import Race from './Race'
 import Age from './Age'
 
 
-export default function Sidebar({articles}) {
+export default function Sidebar({setAllFilters, articles}) {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const [race, setRace] = useState("");
-  const [price, setPrice] = useState("");
-  const [weight, setWeight] = useState("");
+  const [price, setPrice] = useState([]);
+  const [weight, setWeight] = useState([]);
   const [age, setAge] = useState("");
   const [stat, setStat] = useState("");
   const [filters, setFilters] = useState({});
@@ -61,11 +61,19 @@ export default function Sidebar({articles}) {
       }
   },[articles])
 
-  console.log("hey I am ", articles, " my filters are ",filters);
   useEffect(()=>{
-    console.log("category changed: ", category);
-  },[category,type,race,price,weight,age,stat]);
-  
+    setAllFilters(
+      {
+        price: price,
+        race: race,
+        type: type,
+        age: age,
+        weight: weight,
+        stat: stat        
+      }
+    );    
+  },[price, race, type, age, weight, stat])
+
   return (
     <div>
         <div className="shop__sidebar__accordion">
