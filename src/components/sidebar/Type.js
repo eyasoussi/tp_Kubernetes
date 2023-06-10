@@ -12,7 +12,7 @@ export default function Type({setType}) {
             SimmenQuantity : 16,
         })
     },[]);
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
     const toggle = () => {
         setIsActive(!isActive);

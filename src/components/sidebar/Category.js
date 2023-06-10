@@ -18,7 +18,7 @@ export default function Category({setCategory}) {
             kidsQuantity : 11
         })
     },[]);
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
     const toggle = () => {
         setIsActive(!isActive);

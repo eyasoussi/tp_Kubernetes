@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
 
 export default function Age() {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
     const toggle = () => {
         setIsActive(!isActive);

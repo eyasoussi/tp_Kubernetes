@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './styles.css';
-import Category from './Category'
 import State from './State'
 import Price from './Price'
 import Weight from './Weight'
@@ -16,7 +15,7 @@ export default function Sidebar({articles}) {
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [stat, setStat] = useState("");
+  const [state, setState] = useState("");
   const [filters, setFilters] = useState({});
 
   useEffect(() => {
@@ -27,7 +26,7 @@ export default function Sidebar({articles}) {
             Prix: true,
             Poids: true,
             Age: true,
-            Stat: false
+            State: false
           })
       }
       else if(articles === "Ovin B") {
@@ -37,7 +36,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: false,
           Age: true,
-          Stat: true
+          State: true
         })
       }
       else if(articles === "Poulaier Engraissement") {
@@ -47,7 +46,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: true,
           Age: true,
-          Stat: false,
+          State: false,
         })
       }
       else {
@@ -57,7 +56,7 @@ export default function Sidebar({articles}) {
           Prix: true,
           Poids: false,
           Age: true,
-          Stat: true,
+          State: true,
         })
       }
   },[articles])
@@ -65,19 +64,18 @@ export default function Sidebar({articles}) {
   console.log("hey I am ", articles, " my filters are ",filters);
   useEffect(()=>{
     console.log("category changed: ", category);
-  },[category,type,race,price,weight,age,stat]);
+  },[category,type,race,price,weight,age,state]);
   
   return (
     <div>
         <div className="shop__sidebar__accordion">
-            <div className="accordion" id="accordionExample">
+            <div id="accordionExample">
+                {filters.Prix && <Price articles={articles} setPrice={setPrice}/>}
                 {filters.Race && <Race setRace={setRace}/>}
                 {filters.Type && <Type setType={setType}/>}
-                {filters.Prix && <Price setPrice={setPrice}/>}
-                {filters.Poids && <Weight setWeight={setWeight}/>}
                 {filters.Age && <Age setAge={setAge}/>}
-                {filters.Stat && <State stat={setStat}/>} 
-                <Category setCategory={setCategory}/>
+                {filters.Poids && <Weight articles={articles} setWeight={setWeight}/>}
+                {filters.State && <State state={setState}/>} 
             </div>
         </div>
     </div>
