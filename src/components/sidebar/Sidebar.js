@@ -15,7 +15,7 @@ export default function Sidebar({articles}) {
   const [price, setPrice] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [state, setState] = useState("");
+  const [stat, setStat] = useState("");
   const [filters, setFilters] = useState({});
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function Sidebar({articles}) {
   console.log("hey I am ", articles, " my filters are ",filters);
   useEffect(()=>{
     console.log("category changed: ", category);
-  },[category,type,race,price,weight,age,state]);
+  },[category,type,race,price,weight,age,stat]);
   
   return (
     <div>
@@ -75,7 +75,7 @@ export default function Sidebar({articles}) {
                 {filters.Type && <Type setType={setType}/>}
                 {filters.Age && <Age setAge={setAge}/>}
                 {filters.Poids && <Weight articles={articles} setWeight={setWeight}/>}
-                {filters.State && <State state={setState}/>} 
+                {filters.State && <State setStat={setStat}/>} 
             </div>
         </div>
     </div>
