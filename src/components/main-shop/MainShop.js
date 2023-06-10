@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react'
 import Card from './Card'
 
 export default function MainShop({filteredData}) {
-    const [data,setData] = useState({});
+    const [data,setData] = useState(filteredData);
 
     useEffect(()=>{
-        setData(filteredData);
         console.log(data);
-    },[filteredData])
+        //setData(filteredData);
+    },[])
 
   return (
     <div>

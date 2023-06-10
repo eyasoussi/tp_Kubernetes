@@ -5,13 +5,13 @@ import MainShop from './main-shop/MainShop';
 
 export default function PoulaierB({data}) {
     const [allFilters, setAllFilters] = useState({});
-    const[filteredData, setFilteredData] = useState({});
+    const[filteredData, setFilteredData] = useState(data);
 
     useEffect(()=>{
-        console.log("hey here are all the filters: ", allFilters);
-         //doTheFilteringHere
-         setFilteredData(data);
-    },[allFilters]);
+        console.log(filteredData);
+        //doTheFilteringHere
+        //setFilteredData(data);
+    },[]);
 
   return (
     <div className="row">
