@@ -7,7 +7,7 @@ function valuetext(value) {
   }
 
 export default function Price({articles, setPrice}) {
-    const [minMax, setMinMax] = useState([]);
+    const [minMax, setMinMax] = useState([0,2000]);
     
     useEffect(() => {
         if(articles === "Ovin Engraissement") {

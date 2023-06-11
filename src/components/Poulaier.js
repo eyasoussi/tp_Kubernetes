@@ -2,16 +2,18 @@ import React, {useState, useEffect} from 'react'
 import Sidebar from './sidebar/Sidebar';
 import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
+import { applyFilters } from '../methods';
 
 export default function Poulaier({data}) {
     const [allFilters, setAllFilters] = useState({});
     const[filteredData, setFilteredData] = useState(data);
 
-    useEffect(()=>{
-        console.log(filteredData);
-        //doTheFilteringHere
-        //setFilteredData(data);
-    },[]);
+    useEffect(() => {
+        const filteredRes = applyFilters(data, allFilters);
+        setFilteredData(filteredRes);
+        console.log(filteredData); // Accessible, but will log the initial state of filteredData
+        console.log(allFilters);
+    }, [allFilters, data]);
 
   return (
     <div className="row">
