@@ -5,7 +5,16 @@ import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import AwesomeSlider from 'react-awesome-slider';
+import Preloader from '../../components/Preloader';
 import { useParams } from 'react-router-dom';
+import './css/style.css'
+import './css/bootstrap.min.css'
+import './css/nice-select.css'
+import './css/magnific-popup.css'
+import './css/slicknav.min.css'
+import './css/style.css.map'
+import './css/elegant-icons.css'
+import './css/font-awesome.min.css'
 
 export default function ShopDetails() {
   const { id } = useParams();
@@ -44,7 +53,7 @@ export default function ShopDetails() {
   }, [articles, id]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Preloader />;
   }
 
   return (
@@ -138,13 +147,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$67.24</h5>
                             <div className="product__color__select">
-                                <label for="pc-1">
+                                <label htmlFor="pc-1">
                                     <input type="radio" id="pc-1"/>
                                 </label>
-                                <label className="active black" for="pc-2">
+                                <label className="active black" htmlFor="pc-2">
                                     <input type="radio" id="pc-2"/>
                                 </label>
-                                <label className="grey" for="pc-3">
+                                <label className="grey" htmlFor="pc-3">
                                     <input type="radio" id="pc-3"/>
                                 </label>
                             </div>
@@ -172,13 +181,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$67.24</h5>
                             <div className="product__color__select">
-                                <label for="pc-4">
+                                <label htmlFor="pc-4">
                                     <input type="radio" id="pc-4"/>
                                 </label>
-                                <label className="active black" for="pc-5">
+                                <label className="active black" htmlFor="pc-5">
                                     <input type="radio" id="pc-5"/>
                                 </label>
-                                <label className="grey" for="pc-6">
+                                <label className="grey" htmlFor="pc-6">
                                     <input type="radio" id="pc-6"/>
                                 </label>
                             </div>
@@ -207,13 +216,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$43.48</h5>
                             <div className="product__color__select">
-                                <label for="pc-7">
+                                <label htmlFor="pc-7">
                                     <input type="radio" id="pc-7"/>
                                 </label>
-                                <label className="active black" for="pc-8">
+                                <label className="active black" htmlFor="pc-8">
                                     <input type="radio" id="pc-8"/>
                                 </label>
-                                <label className="grey" for="pc-9">
+                                <label className="grey" htmlFor="pc-9">
                                     <input type="radio" id="pc-9"/>
                                 </label>
                             </div>
@@ -241,13 +250,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$60.9</h5>
                             <div className="product__color__select">
-                                <label for="pc-10">
+                                <label htmlFor="pc-10">
                                     <input type="radio" id="pc-10"/>
                                 </label>
-                                <label className="active black" for="pc-11">
+                                <label className="active black" htmlFor="pc-11">
                                     <input type="radio" id="pc-11"/>
                                 </label>
-                                <label className="grey" for="pc-12"/>
+                                <label className="grey" htmlFor="pc-12"/>
                                     <input type="radio" id="pc-12"/>
                                 <label/>
                             </div>
