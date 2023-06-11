@@ -24,7 +24,9 @@ export const applyFilters = (data, allFilters) => {
       (item) => item.price >= minPrice && item.price <= maxPrice
     );
   }
+
   console.log("price filter: ",filteredResults);
+
   if (allFilters.weight && allFilters.weight[1] !== 80 && allFilters.weight[0] !== 0) {
     const [minWeight, maxWeight] = allFilters.weight;
     filteredResults = filteredResults.filter(
@@ -32,6 +34,7 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("weight filter: ",filteredResults);
+  
   if (allFilters.race && allFilters.race.length > 0) {
     // Apply race filter logic
     filteredResults = filteredResults.filter(
