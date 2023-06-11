@@ -10,8 +10,8 @@ export default function Age({ setAge }) {
   };
 
   const toggleAge = (age) => {
-    if (selectedAges.includes(age)) {
-      setSelectedAges(selectedAges.filter((selectedAge) => selectedAge !== age));
+    if (selectedAges.some((selectedAge) => selectedAge[0] === age[0] && selectedAge[1] === age[1])) {
+      setSelectedAges(selectedAges.filter((selectedAge) => selectedAge[0] !== age[0] || selectedAge[1] !== age[1]));
     } else {
       setSelectedAges([...selectedAges, age]);
     }
