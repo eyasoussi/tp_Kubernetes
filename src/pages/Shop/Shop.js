@@ -26,25 +26,23 @@ export default function Shop() {
     const [ovinBData, setOvinBData] = useState([]);
     const [poulaierData, setPoulaierData] = useState([]);
     const [poulaierBData, setPoulaierBData] = useState([]);
-    const loadingEffect = () => {
-        let id = setInterval(() => {
-            setIsLoading(false);
-        }, 2000)
-    }
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('/dummy.json');
+    const fetchData = () => {
+        axios
+          .get('/dummy.json')
+          .then((response) => {
             const data = response.data;
             setData(data.articles);
-        } catch (error) {
+            setIsLoading(false);
+          })
+          .catch((error) => {
             console.error(error);
-        }
-    };
-
+          });
+      };
+    
     useEffect(() => {
-        if (Object.keys(data).length === 0) {
-            fetchData();
+        if(data.length===0){
+        fetchData();
         }
         let filteredData = getObjectsByCategory(data, "Ovin Engraissement");
         setOvinData(filteredData);
@@ -54,8 +52,10 @@ export default function Shop() {
         setPoulaierData(filteredData);
         filteredData = getObjectsByCategory(data, "Poulaier B");
         setPoulaierBData(filteredData);
+        setIsLoading(false);
     }, [data])
-
+    
+    let oData = getObjectsByCategory(data, "Ovin Engraissement");
 
     return (
         <div>

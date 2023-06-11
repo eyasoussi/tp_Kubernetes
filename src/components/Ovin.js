@@ -8,10 +8,10 @@ export default function Ovin({data}) {
     const[filteredData, setFilteredData] = useState(data);
 
     useEffect(()=>{
-        console.log(filteredData);
+        console.log(data);
         //doTheFilteringHere
-        //setFilteredData(data);
-    },[allFilters]);
+        setFilteredData(data);
+    },[allFilters,data]);
 
   return (
     <div className="row">

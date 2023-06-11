@@ -64,8 +64,8 @@ export default function ShopDetails() {
                 </div>
                 <div className="row">
                         <AwesomeSlider>
-                            <div data-src={article.thumbnail} />
-                            <div data-src={article.thumbnail} />
+                            <div><img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
+                            <div><img src={article?.images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
                         </AwesomeSlider>    
                 </div>
             </div>
