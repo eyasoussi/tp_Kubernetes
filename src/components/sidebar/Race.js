@@ -3,8 +3,8 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export default function Race({ setRace }) {
   const [quantities, setQuantities] = useState({});
-  const [selectedRaces, setSelectedRaces] = useState([]);
-  const [isActive, setIsActive] = useState(true);
+  const [selectedRaces, setSelectedRaces] = useState([]); // to store the selected races
+  const [isActive, setIsActive] = useState(true); //determines whether the race filter is currently active or not.
 
   useEffect(() => {
     setQuantities({
@@ -22,11 +22,12 @@ export default function Race({ setRace }) {
     } else {
       setSelectedRaces([...selectedRaces, race]);
     }
-  };
+  }; //if the clickd race is already selected remove it from selectedRaces 
+    //sinon put it in selectedRaces
 
   useEffect(() => {
     setRace(selectedRaces);
-  }, [selectedRaces, setRace]);
+  }, [selectedRaces, setRace]); //aalech setRace ??
 
   return (
     <div className={`card ${isActive ? 'active' : ''}`}>
@@ -43,6 +44,7 @@ export default function Race({ setRace }) {
               <li>
                 <a
                   className={`clickable-element ${selectedRaces.includes('Tibar') ? 'active' : ''}`}
+                  //if 'Tibar' is selected, it will have both 'clickable-element' and 'active' classes; otherwise, it will only have the 'clickable-element' class.
                   onClick={() => toggleRace('Tibar')}
                   style={{
                     backgroundColor: selectedRaces.includes('Tibar') ? '#f5f5f5' : '',
