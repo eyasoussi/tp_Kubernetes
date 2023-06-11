@@ -10,3 +10,7 @@ export const getObjectsByCategory = (data, category) => {
     return objects;
   }
   
+  export const getItemById = (articles, id) => {
+    const item = articles.find((item) => item.id === id);
+    return item;
+  }

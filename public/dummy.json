@@ -11,6 +11,7 @@
             "age": 0.3,
             "weight": 53,
             "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/1/1.jpg",
                 "https://i.dummyjson.com/data/products/1/2.jpg",
@@ -522,9 +523,124 @@
                 "https://i.dummyjson.com/data/products/27/4.jpg",
                 "https://i.dummyjson.com/data/products/27/thumbnail.webp"
             ]
+        },
+        {
+            "id": 28,
+            "title": "Aalouche 11",
+            "description": "Aalouche 11",
+            "price": 999,
+            "discountPercentage": 5,
+            "rating": 4.0,
+            "race": "Dmen",
+            "age": 0.2,
+            "weight": 45,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+            "images": [
+                "https://i.dummyjson.com/data/products/5/1.jpg",
+                "https://i.dummyjson.com/data/products/5/2.jpg",
+                "https://i.dummyjson.com/data/products/5/3.jpg"
+            ]
+        },
+        {
+            "id": 29,
+            "title": "Aalouche 12",
+            "description": "Aalouche 12",
+            "price": 1300,
+            "discountPercentage": 10.94,
+            "rating": 4.44,
+            "race": "Tibar",
+            "age": 0.9,
+            "weight": 70,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+            "images": [
+                "https://i.dummyjson.com/data/products/6/1.png",
+                "https://i.dummyjson.com/data/products/6/2.jpg",
+                "https://i.dummyjson.com/data/products/6/3.png",
+                "https://i.dummyjson.com/data/products/6/4.jpg"
+            ]
+        },
+        {
+            "id": 30,
+            "title": "Aalouche 13",
+            "description": "Aalouche 13",
+            "price": 699,
+            "discountPercentage": 10.0,
+            "rating": 4.44,
+            "race": "Sordi",
+            "age": 1.6,
+            "weight": 50,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+            "images": [
+                "https://i.dummyjson.com/data/products/7/1.jpg",
+                "https://i.dummyjson.com/data/products/7/2.jpg",
+                "https://i.dummyjson.com/data/products/7/3.jpg",
+                "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+            ]
+        },
+        {
+            "id": 31,
+            "title": "Aalouche 14",
+            "description": "Aalouche 14",
+            "price": 1099,
+            "discountPercentage": 15.0,
+            "rating": 4.74,
+            "race": "Gharbi",
+            "age": 0.6,
+            "weight": 67,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+            "images": [
+                "https://i.dummyjson.com/data/products/8/1.jpg",
+                "https://i.dummyjson.com/data/products/8/2.jpg",
+                "https://i.dummyjson.com/data/products/8/3.jpg",
+                "https://i.dummyjson.com/data/products/8/4.jpg",
+                "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
+            ]
+        },
+        {
+            "id": 32,
+            "title": "Aalouche 15",
+            "description": "Aalouche 15",
+            "price": 1499,
+            "discountPercentage": 18.0,
+            "rating": 4.0,
+            "race": "Gharbi",
+            "age": 0.9,
+            "weight": 77,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+            "images": [
+                "https://i.dummyjson.com/data/products/9/1.jpg",
+                "https://i.dummyjson.com/data/products/9/2.png",
+                "https://i.dummyjson.com/data/products/9/3.png",
+                "https://i.dummyjson.com/data/products/9/4.jpg",
+                "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
+            ]
+        },
+        {
+            "id": 33,
+            "title": "Aalouche 16",
+            "description": "Aalouche 16",
+            "price": 699,
+            "discountPercentage": 17.94,
+            "rating": 4.44,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 40,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+            "images": [
+                "https://i.dummyjson.com/data/products/10/1.jpg",
+                "https://i.dummyjson.com/data/products/10/2.jpg",
+                "https://i.dummyjson.com/data/products/10/3.jpg",
+                "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
+            ]
         }
     ],
-    "total": 27,
+    "total": 33,
     "skip": 0,
-    "limit": 30
+    "limit": 33
 }

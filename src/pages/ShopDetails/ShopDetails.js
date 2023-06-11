@@ -1,31 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
-import Preloader from '../../components/Preloader';
 import AwesomeSlider from 'react-awesome-slider';
+import { useParams } from 'react-router-dom';
 
 export default function ShopDetails() {
+  const { id } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getItemById = (articles, id) => {
+    return articles.find((article) => Number(article.id) === Number(id));
+  };  
+
+  const fetchData = () => {
+    axios
+      .get('/dummy.json')
+      .then((response) => {
+        const data = response.data;
+        setArticles(data.articles);
+        console.log("hey");
+        const obj = articles.find((article) => Number(article.id) === Number(id));
+        console.log(obj);
+        setArticle(obj);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    if(typeof article === 'null' || typeof article === 'undefined' || articles.length === 0){
+    fetchData();
+    }
+    console.log(id)
+    console.log(articles);
+    console.log(article);
+  }, [articles, id]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
-        <Header />
+        <Header /> 
         <section className="shop-details">
         <div className="product__details__pic">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="product__details__breadcrumb">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a>Home</a>
+                            <a>Shop</a>
                             <span>Product Details</span>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                         <AwesomeSlider>
-                            <div data-src="img/hero/hero-1.jpg" />
-                            <div data-src="img/hero/hero-1.jpg" />
+                            <div data-src={article.thumbnail} />
+                            <div data-src={article.thumbnail} />
                         </AwesomeSlider>    
                 </div>
             </div>
@@ -35,19 +75,9 @@ export default function ShopDetails() {
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-8">
                         <div className="product__details__text">
-                            <h4>Aalouche101</h4>
-                            <div className="rating">
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div>
-                            <h3>970.00 <span>1200.00</span></h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                            <h4>{article?.title}</h4>
+                            <h3>{article?.price}<span>{article?.price*0.1+article?.price}</span></h3>
+                            <p>{article?.description}</p>
                             <div className="product__details__option">
                                 
                             </div>
@@ -57,20 +87,19 @@ export default function ShopDetails() {
                                         <input type="text" value="1"/>
                                     </div>
                                 </div>
-                                <a href="#" className="primary-btn">Passez une commande</a>
+                                <a className="primary-btn">Passez une commande</a>
                             </div>
                             <div className="product__details__btns__option">
-                                <a href="#"><i className="fa fa-heart"></i> add to wishlist</a>
-                                <a href="#"><i className="fa fa-exchange"></i> Add To Compare</a>
+                                <a><i className="fa fa-heart"></i> add to wishlist</a>
+                                <a><i className="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div className="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt=""/>
                                 <ul>
-                                    <li><span>Categories:</span> Clothes</li>
-                                    <li><span>Sexe:</span> M </li>
-                                    <li><span>Age:</span> 1an</li>
-                                    <li><span>Poids:</span> 28Kg</li>
+                                    <li><span>Catégorie: </span>{article?.category}</li>
+                                    <li><span>Age: </span>{article?.age} an</li>
+                                    <li><span>Poids: </span>{article?.weight} kg</li>
                                 </ul>
                             </div>
                         </div>
@@ -79,7 +108,6 @@ export default function ShopDetails() {
             </div>
         </div>
     </section>
-   
     <section className="related spad">
         <div className="container">
             <div className="row">

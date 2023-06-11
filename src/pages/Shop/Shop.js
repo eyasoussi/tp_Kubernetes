@@ -42,8 +42,6 @@ export default function Shop() {
         }
     };
 
-
-
     useEffect(() => {
         if (Object.keys(data).length === 0) {
             fetchData();
