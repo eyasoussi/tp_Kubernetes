@@ -1,31 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
-import Preloader from '../../components/Preloader';
 import AwesomeSlider from 'react-awesome-slider';
+import Preloader from '../../components/Preloader';
+import { useParams } from 'react-router-dom';
+import './css/style.css'
+import './css/bootstrap.min.css'
+import './css/nice-select.css'
+import './css/magnific-popup.css'
+import './css/slicknav.min.css'
+import './css/style.css.map'
+import './css/elegant-icons.css'
+import './css/font-awesome.min.css'
 
 export default function ShopDetails() {
+  const { id } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getItemById = (articles, id) => {
+    return articles.find((article) => Number(article.id) === Number(id));
+  };  
+
+  const fetchData = () => {
+    axios
+      .get('/dummy.json')
+      .then((response) => {
+        const data = response.data;
+        setArticles(data.articles);
+        console.log("hey");
+        const obj = articles.find((article) => Number(article.id) === Number(id));
+        console.log(obj);
+        setArticle(obj);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    if(typeof article === 'null' || typeof article === 'undefined' || articles.length === 0){
+    fetchData();
+    }
+    console.log(id)
+    console.log(articles);
+    console.log(article);
+  }, [articles, id]);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
+
   return (
     <div>
-        <Header />
+        <Header /> 
         <section className="shop-details">
         <div className="product__details__pic">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="product__details__breadcrumb">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a>Home</a>
+                            <a>Shop</a>
                             <span>Product Details</span>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                         <AwesomeSlider>
-                            <div data-src="img/hero/hero-1.jpg" />
-                            <div data-src="img/hero/hero-1.jpg" />
+                            <div><img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
+                            <div><img src={article?.images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
                         </AwesomeSlider>    
                 </div>
             </div>
@@ -35,19 +84,9 @@ export default function ShopDetails() {
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-8">
                         <div className="product__details__text">
-                            <h4>Aalouche101</h4>
-                            <div className="rating">
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star"></i>
-                                <i className="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div>
-                            <h3>970.00 <span>1200.00</span></h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                            <h4>{article?.title}</h4>
+                            <h3>{article?.price}<span>{article?.price*0.1+article?.price}</span></h3>
+                            <p>{article?.description}</p>
                             <div className="product__details__option">
                                 
                             </div>
@@ -57,20 +96,19 @@ export default function ShopDetails() {
                                         <input type="text" value="1"/>
                                     </div>
                                 </div>
-                                <a href="#" className="primary-btn">Passez une commande</a>
+                                <a className="primary-btn">Passez une commande</a>
                             </div>
                             <div className="product__details__btns__option">
-                                <a href="#"><i className="fa fa-heart"></i> add to wishlist</a>
-                                <a href="#"><i className="fa fa-exchange"></i> Add To Compare</a>
+                                <a><i className="fa fa-heart"></i> add to wishlist</a>
+                                <a><i className="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div className="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt=""/>
                                 <ul>
-                                    <li><span>Categories:</span> Clothes</li>
-                                    <li><span>Sexe:</span> M </li>
-                                    <li><span>Age:</span> 1an</li>
-                                    <li><span>Poids:</span> 28Kg</li>
+                                    <li><span>Catégorie: </span>{article?.category}</li>
+                                    <li><span>Age: </span>{article?.age} an</li>
+                                    <li><span>Poids: </span>{article?.weight} kg</li>
                                 </ul>
                             </div>
                         </div>
@@ -79,7 +117,6 @@ export default function ShopDetails() {
             </div>
         </div>
     </section>
-   
     <section className="related spad">
         <div className="container">
             <div className="row">
@@ -110,13 +147,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$67.24</h5>
                             <div className="product__color__select">
-                                <label for="pc-1">
+                                <label htmlFor="pc-1">
                                     <input type="radio" id="pc-1"/>
                                 </label>
-                                <label className="active black" for="pc-2">
+                                <label className="active black" htmlFor="pc-2">
                                     <input type="radio" id="pc-2"/>
                                 </label>
-                                <label className="grey" for="pc-3">
+                                <label className="grey" htmlFor="pc-3">
                                     <input type="radio" id="pc-3"/>
                                 </label>
                             </div>
@@ -144,13 +181,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$67.24</h5>
                             <div className="product__color__select">
-                                <label for="pc-4">
+                                <label htmlFor="pc-4">
                                     <input type="radio" id="pc-4"/>
                                 </label>
-                                <label className="active black" for="pc-5">
+                                <label className="active black" htmlFor="pc-5">
                                     <input type="radio" id="pc-5"/>
                                 </label>
-                                <label className="grey" for="pc-6">
+                                <label className="grey" htmlFor="pc-6">
                                     <input type="radio" id="pc-6"/>
                                 </label>
                             </div>
@@ -179,13 +216,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$43.48</h5>
                             <div className="product__color__select">
-                                <label for="pc-7">
+                                <label htmlFor="pc-7">
                                     <input type="radio" id="pc-7"/>
                                 </label>
-                                <label className="active black" for="pc-8">
+                                <label className="active black" htmlFor="pc-8">
                                     <input type="radio" id="pc-8"/>
                                 </label>
-                                <label className="grey" for="pc-9">
+                                <label className="grey" htmlFor="pc-9">
                                     <input type="radio" id="pc-9"/>
                                 </label>
                             </div>
@@ -213,13 +250,13 @@ export default function ShopDetails() {
                             </div>
                             <h5>$60.9</h5>
                             <div className="product__color__select">
-                                <label for="pc-10">
+                                <label htmlFor="pc-10">
                                     <input type="radio" id="pc-10"/>
                                 </label>
-                                <label className="active black" for="pc-11">
+                                <label className="active black" htmlFor="pc-11">
                                     <input type="radio" id="pc-11"/>
                                 </label>
-                                <label className="grey" for="pc-12"/>
+                                <label className="grey" htmlFor="pc-12"/>
                                     <input type="radio" id="pc-12"/>
                                 <label/>
                             </div>

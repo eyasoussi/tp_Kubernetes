@@ -7,6 +7,7 @@ export default function Ovin({data}) {
     const [allFilters, setAllFilters] = useState({});
     const [filteredData, setFilteredData] = useState(data);
 
+
     useEffect(() => {
         // Apply filters to data and update filteredData
         const applyFilters = () => {
