@@ -9,12 +9,12 @@ import Age from './Age'
 
 
 export default function Sidebar({setAllFilters, articles}) {
-  const [type, setType] = useState("");
+  const [type, setType] = useState([]);
   const [race, setRace] = useState([]);
   const [price, setPrice] = useState([0,1750]);
   const [weight, setWeight] = useState([0,80]);
   const [age, setAge] = useState([]);
-  const [stat, setStat] = useState("");
+  const [stat, setStat] = useState([]);
   const [filters, setFilters] = useState({});
 
   useEffect(() => {

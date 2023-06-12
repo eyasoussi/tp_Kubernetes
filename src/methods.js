@@ -34,7 +34,7 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("weight filter: ",filteredResults);
-  
+
   if (allFilters.race && allFilters.race.length > 0) {
     // Apply race filter logic
     filteredResults = filteredResults.filter(
@@ -42,6 +42,7 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("race filter: ",filteredResults);
+
   if (allFilters.age && allFilters.age.length > 0) {
     filteredResults = filteredResults.filter((item) =>
       allFilters.age.some((ageRange) =>
@@ -50,6 +51,7 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("age filter", filteredResults);
+
   if (allFilters.type && allFilters.type.length > 0) {
     // Apply type filter logic
     filteredResults = filteredResults.filter(
@@ -57,6 +59,7 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("type filter: ",filteredResults);
+
   if (allFilters.stat && allFilters.stat.length > 0) {
     // Apply stat filter logic
     filteredResults = filteredResults.filter(
@@ -64,5 +67,6 @@ export const applyFilters = (data, allFilters) => {
     );
   }
   console.log("state filter: ",filteredResults);
+  
   return filteredResults;
 };
