@@ -1,46 +1,98 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
-export default function Type({setType}) {
-    const [quantities, setQuantities] = useState({})
-    useEffect(()=>{
-        setQuantities ({
-            DjejQuantity: 12,
-            DindonQuantity : 15,
-            OeufQuantity : 13,
-            SimmenQuantity : 16,
-        })
-    },[]);
-    const [isActive, setIsActive] = useState(true);
+export default function Type({ setType }) {
+  const [quantities, setQuantities] = useState({});
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [isActive, setIsActive] = useState(true);
 
-    const toggle = () => {
-        setIsActive(!isActive);
-    };
+  useEffect(() => {
+    setQuantities({
+      DjejQuantity: 12,
+      DindonQuantity: 15,
+      OeufQuantity: 13,
+      SimmenQuantity: 16,
+    });
+  }, []);
 
-    return (
-        <div className={`card ${isActive ? 'active' : ''}`}>
-            <div className="card-heading">
-                <a
-                    onClick={toggle}
-                    className={`accordion-toggle ${isActive ? 'active' : ''}`}
-                >
-                    Type
-                    {isActive ? <ExpandLess /> : <ExpandMore />}
-                </a>
-            </div>
-            <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
+  const toggleType = (type) => {
+    if (selectedTypes.includes(type)) {
+      setSelectedTypes(selectedTypes.filter((selectedType) => selectedType !== type));
+    } else {
+      setSelectedTypes([...selectedTypes, type]);
+    }
+  };
+
+  useEffect(() => {
+    setType(selectedTypes);
+  }, [selectedTypes, setType]);
+
+  const isTypeSelected = (type) => selectedTypes.includes(type);
+
+  return (
+    <div className={`card ${isActive ? 'active' : ''}`}>
+      <div className="card-heading">
+        <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
+          Type
+          {isActive ? <ExpandLess /> : <ExpandMore />}
+        </a>
+      </div>
+      <div className={`collapse ${isActive ? 'show' : ''}`} id="collapseThree">
         <div className="card-body">
-            <div className="shop__sidebar__brand">
-                <ul>
-                    <li><a className="clickable-element" onClick={()=>setType("Djej")}>Djej ({quantities?.DjejQuantity})</a></li>
-                    <li><a className="clickable-element" onClick={()=>setType("Dindon")}>Dindon ({quantities?.DindonQuantity}) </a></li>
-                    <li><a className="clickable-element" onClick={()=>setType("Oeuf")}>Oeuf ({quantities?.OeufQuantity})</a></li>
-                    <li><a className="clickable-element" onClick={()=>setType("Simmen")}>Simmen({quantities?.SimmenQuantity})</a></li>
-                </ul>
-            </div>
+          <div className="shop__sidebar__brand">
+            <ul>
+              <li>
+                <a
+                  className={`clickable-element ${isTypeSelected('Djej') ? 'active' : ''}`}
+                  onClick={() => toggleType('Djej')}
+                  style={{
+                    backgroundColor: isTypeSelected('Djej') ? '#f5f5f5' : '',
+                    color: isTypeSelected('Djej') ? '#333' : '',
+                  }}
+                >
+                  Djej ({quantities?.DjejQuantity})
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`clickable-element ${isTypeSelected('Dindon') ? 'active' : ''}`}
+                  onClick={() => toggleType('Dindon')}
+                  style={{
+                    backgroundColor: isTypeSelected('Dindon') ? '#f5f5f5' : '',
+                    color: isTypeSelected('Dindon') ? '#333' : '',
+                  }}
+                >
+                  Dindon ({quantities?.DindonQuantity})
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`clickable-element ${isTypeSelected('Oeuf') ? 'active' : ''}`}
+                  onClick={() => toggleType('Oeuf')}
+                  style={{
+                    backgroundColor: isTypeSelected('Oeuf') ? '#f5f5f5' : '',
+                    color: isTypeSelected('Oeuf') ? '#333' : '',
+                  }}
+                >
+                  Oeuf ({quantities?.OeufQuantity})
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`clickable-element ${isTypeSelected('Simmen') ? 'active' : ''}`}
+                  onClick={() => toggleType('Simmen')}
+                  style={{
+                    backgroundColor: isTypeSelected('Simmen') ? '#f5f5f5' : '',
+                    color: isTypeSelected('Simmen') ? '#333' : '',
+                  }}
+                >
+                  Simmen ({quantities?.SimmenQuantity})
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-  )
+  );
 }
