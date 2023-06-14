@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './styles.css';
 import State from './State';
 import Price from './Price';
@@ -17,6 +17,8 @@ export default function Sidebar({ setAllFilters, articles }) {
   const [stat, setStat] = useState([]);
   const [filters, setFilters] = useState({});
   const [isFilterOptionsVisible, setIsFilterOptionsVisible] = useState(false);
+
+  const sidebarRef = useRef(null); // Ref for the outermost div container
 
   useEffect(() => {
     if (articles === 'Ovin Engraissement') {
@@ -68,6 +70,7 @@ export default function Sidebar({ setAllFilters, articles }) {
       stat: stat,
     });
   }, [price, race, type, age, weight, stat]);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 992) {
@@ -77,14 +80,28 @@ export default function Sidebar({ setAllFilters, articles }) {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target) &&
+        !event.target.classList.contains('filter-button')
+      ) {
+        setIsFilterOptionsVisible(false);
+      }
+    };
+
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);
+    // Add event listener for clicks outside the filter options
+    document.addEventListener('mousedown', handleClickOutside);
 
     // Check initial window width on component mount
     handleResize();
-    // Clean up event listener on component unmount
+
+    // Clean up event listeners on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -93,31 +110,29 @@ export default function Sidebar({ setAllFilters, articles }) {
   };
 
   return (
-    <div>
-      <div className="shop__sidebar__accordion">
-        <div id="accordionExample">
-          {window.innerWidth < 992 && (
-            <button
+    <div ref={sidebarRef} className="shop__sidebar__accordion">
+      <div id="accordionExample">
+        {window.innerWidth < 992 && (
+          <button
             className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
-              onClick={toggleFilterOptions}
-            >
-              Filtrer<FilterAltOutlinedIcon />
-            </button>
-          )}
-          {(isFilterOptionsVisible || window.innerWidth >= 992) && (
-            <div className="filter-options">
-              {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
-              {filters.Race && <Race setRace={setRace} />}
-              {filters.Type && <Type setType={setType} />}
-              {filters.Age && <Age setAge={setAge} />}
-              {filters.Poids && (
-                <Weight articles={articles} setWeight={setWeight} />
-              )}
-              {filters.State && <State setStat={setStat} />}
-            </div>
-          )}
+            onClick={toggleFilterOptions}
+          >
+            Filtrer<FilterAltOutlinedIcon />
+          </button>
+        )}
+        {(isFilterOptionsVisible || window.innerWidth >= 992) && (
+          <div className="filter-options">
+            {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
+            {filters.Race && <Race setRace={setRace} />}
+            {filters.Type && <Type setType={setType} />}
+            {filters.Age && <Age setAge={setAge} />}
+            {filters.Poids && (
+              <Weight articles={articles} setWeight={setWeight} />
+            )}
+            {filters.State && <State setStat={setStat} />}
           </div>
-          </div>
-        </div>
-      );
-    }
+        )}
+      </div>
+    </div>
+  );
+}

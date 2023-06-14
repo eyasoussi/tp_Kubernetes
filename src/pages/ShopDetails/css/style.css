@@ -3407,7 +3407,8 @@ ol {
 	}
 	.shop__sidebar {
 		padding-right: 0;
-		padding-top: 40px;
+		padding-top: 20px;
+		padding-bottom: 10px;
 	}
 	.cart__discount {
 		margin-top: 40px;
@@ -3827,7 +3828,7 @@ ol {
 }
 
   
-  @media (max-width: 991px) {
+@media (max-width: 991px) {
 	.filter-button {
 	  top: 20px;
 	  right: 20px;
@@ -3859,28 +3860,14 @@ ol {
 	  color: #333333;
 	}
 
-	/* .shop__sidebar {
-		padding-right: 20px;
-	  }
-	  
-	  .shop__sidebar__accordion {
-		width: 30%;
-		float: left;
-	  }
-	  
-	  .shop__sidebar__search {
-		width: 70%;
-		float: left;
-	  }
-	   */
-	   .shop__sidebar {
-		padding-right: 20px;
+	 .shop__sidebar {
+		padding-right: 20px; 
 	  }
 	  
 	  .shop__sidebar__accordion {
 		width: 15%;
 		float: left;
-		margin-bottom: 10px;
+		margin-bottom: 10px !important;
 		
 	  }
 	  
