@@ -13,10 +13,10 @@ export default function Price({articles, setPrice}) {
         if(articles === "Ovin Engraissement") {
             setMinMax([700,1750]);
         }
-        else if(articles === "Ovin B") {
+        else if(articles === "Brebis") {
             setMinMax([400,650]);
         }
-        else if(articles === "Poulaier Engraissement") {
+        else if(articles === "Poulailler Engraissement") {
             setMinMax([7,14]);
         }
         else {

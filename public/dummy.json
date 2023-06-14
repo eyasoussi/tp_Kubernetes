@@ -200,7 +200,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Welda",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/11/1.jpg",
@@ -219,7 +219,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Oochra",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/12/1.jpg",
@@ -239,7 +239,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Fergha",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/13/thumbnail.webp",
             "images": [
                 "https://i.dummyjson.com/data/products/13/1.jpg",
@@ -259,7 +259,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Welda",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/14/1.jpg",
@@ -278,7 +278,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Oochra",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/15/1.jpg",
@@ -298,7 +298,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Fergha",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/16/1.png",
@@ -318,7 +318,7 @@
             "race": "Tibar",
             "age": 0.6,
             "state": "Welda",
-            "category":"Ovin B",
+            "category":"Brebis",
             "thumbnail": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/17/1.jpg",
@@ -337,7 +337,7 @@
             "type": "Djej",
             "age": 0.6,
             "weight": 3,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/18/1.jpg",
@@ -357,7 +357,7 @@
             "type": "Djej",
             "age": 0.4,
             "weight": 4,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/19/1.jpg",
@@ -376,7 +376,7 @@
             "type": "Djej",
             "age": 0.2,
             "weight": 2.5,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/20/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/20/1.jpg",
@@ -396,7 +396,7 @@
             "type": "Djej",
             "age": 0.6,
             "weight": 3,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/21/thumbnail.png",
             "images": [
                 "https://i.dummyjson.com/data/products/21/1.png",
@@ -414,7 +414,7 @@
             "type": "Dindon",
             "age": 0.6,
             "weight": 3,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
 
             "thumbnail": "https://i.dummyjson.com/data/products/22/thumbnail.jpg",
             "images": [
@@ -433,7 +433,7 @@
             "type": "Dindon",
             "age": 0.4,
             "weight": 4,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/23/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/23/1.jpg",
@@ -453,7 +453,7 @@
             "type": "Dindon",
             "age": 0.2,
             "weight": 2.5,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/24/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/24/1.jpg",
@@ -473,7 +473,7 @@
             "type": "Dindon",
             "age": 0.6,
             "weight": 3,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/25/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/25/1.png",
@@ -493,7 +493,7 @@
             "type": "Oeuf",
             "age": 0.6,
             "weight": 1,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/26/thumbnail.jpg",
             "images": [
                 "https://i.dummyjson.com/data/products/26/1.jpg",
@@ -514,7 +514,7 @@
             "type": "Oeuf",
             "age": 0.6,
             "weight": 1,
-            "category":"Poulaier Engraissement",
+            "category":"Poulailler Engraissement",
             "thumbnail": "https://i.dummyjson.com/data/products/27/thumbnail.webp",
             "images": [
                 "https://i.dummyjson.com/data/products/27/1.jpg",

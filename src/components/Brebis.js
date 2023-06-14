@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Sidebar from './sidebar/Sidebar';
 import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
 import { applyFilters } from '../methods';
 
-export default function Poulaier({data}) {
+export default function Brebis({ data }) {
     const [allFilters, setAllFilters] = useState({});
-    const[filteredData, setFilteredData] = useState(data);
+    const [filteredData, setFilteredData] = useState(data);
 
     useEffect(() => {
         const filteredRes = applyFilters(data, allFilters);
@@ -15,19 +15,19 @@ export default function Poulaier({data}) {
         console.log(allFilters);
     }, [allFilters, data]);
 
-  return (
+return (
     <div className="row">
-        <div className="col-lg-3"> 
-            <div className="shop__sidebar"> 
-                <Search/>
-                <Sidebar setAllFilters={setAllFilters} articles={"Poulaier Engraissement"}/>     
+        <div className="col-lg-3">
+            <div className="shop__sidebar">
+                <Search />
+                <Sidebar setAllFilters={setAllFilters} articles={"Brebis"} />
             </div>
         </div>
         <div className="col-lg-9">
             <div className="shop__product__option">
-                <MainShop filteredData={filteredData}/>
-            </div>  
+                <MainShop filteredData={filteredData} />
+            </div>
         </div>
     </div>
-  )
+)
 }

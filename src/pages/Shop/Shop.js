@@ -8,14 +8,14 @@ import Preloader from '../../components/Preloader';
 import MyContext from '../../context';
 import ActiveTabs from '../../components/ActiveTabs';
 import InfoBar from '../../components/InfoBar';
-import Poulaier from '../../components/Poulaier';
+import Poulailler from '../../components/Poulailler';
 import Ovin from '../../components/Ovin';
-import OvinB from '../../components/OvinB';
-import PoulaierB from '../../components/PoulaierB';
+import Brebis from '../../components/Brebis';
+import PoulesPondeuses from '../../components/PoulesPondeuses';
 import { getObjectsByCategory } from '../../methods';
 
 export default function Shop() {
-    const myTabs = ["Ovin Engraissement", "Ovin B", "Poulaier Engraissement", "Poulaier B"];
+    const myTabs = ["Ovin Engraissement", "Brebis", "Poulailler Engraissement", "Poules Pondeuses"];
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
     const [isLoading, setIsLoading] = useState(true);
     const handleFilterClick = (filter) => {
@@ -23,9 +23,9 @@ export default function Shop() {
     };
     const [data, setData] = useState([]);
     const [ovinData, setOvinData] = useState([]);
-    const [ovinBData, setOvinBData] = useState([]);
-    const [poulaierData, setPoulaierData] = useState([]);
-    const [poulaierBData, setPoulaierBData] = useState([]);
+    const [BrebisData, setBrebisData] = useState([]);
+    const [PoulaillerData, setPoulaillerData] = useState([]);
+    const [PoulesPondeusesData, setPoulesPondeusesData] = useState([]);
 
     const fetchData = () => {
         axios
@@ -46,12 +46,12 @@ export default function Shop() {
         }
         let filteredData = getObjectsByCategory(data, "Ovin Engraissement");
         setOvinData(filteredData);
-        filteredData = getObjectsByCategory(data, "Ovin B")
-        setOvinBData(filteredData);
-        filteredData = getObjectsByCategory(data, "Poulaier Engraissement")
-        setPoulaierData(filteredData);
-        filteredData = getObjectsByCategory(data, "Poulaier B");
-        setPoulaierBData(filteredData);
+        filteredData = getObjectsByCategory(data, "Brebis")
+        setBrebisData(filteredData);
+        filteredData = getObjectsByCategory(data, "Poulailler Engraissement")
+        setPoulaillerData(filteredData);
+        filteredData = getObjectsByCategory(data, "Poules Pondeuses");
+        setPoulesPondeusesData(filteredData);
         setIsLoading(false);
     }, [data])
     
@@ -73,9 +73,9 @@ export default function Shop() {
                         </MyContext.Provider>
                     </div>
                     {activeFilter === 'Ovin Engraissement' && <Ovin data={ovinData} />}
-                    {activeFilter === 'Ovin B' && <OvinB data={ovinBData} />}
-                    {activeFilter === 'Poulaier Engraissement' && <Poulaier data={poulaierData} />}
-                    {activeFilter === 'Poulaier B' && <PoulaierB data={poulaierBData} />}
+                    {activeFilter === 'Brebis' && <Brebis data={BrebisData} />}
+                    {activeFilter === 'Poulailler Engraissement' && <Poulailler data={PoulaillerData} />}
+                    {activeFilter === 'Poules Pondeuses' && <PoulesPondeuses data={PoulesPondeusesData} />}
                 </div>
             </section>
             <Footer />

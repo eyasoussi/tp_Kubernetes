@@ -3,7 +3,7 @@ import MyContext from '../context';
 import AdviceAlfa from './AdviceAlfa';
 import AdviceElevage from './AdviceElevage';
 import AdviceVaccin from './AdviceVaccin';
-import Poulaier from './Poulaier';
+import Poulailler from './Poulailler';
 import Ovin from './Ovin';
 
 export default function ActiveTabs(props) {
@@ -19,16 +19,14 @@ export default function ActiveTabs(props) {
                             onClick={() => handleFilterClick(element)}
                             >
                             {element}
-                            </li>)
-                        )
-                    }
+                            </li>
+                        ))}
                     </ul>
+
                     {/* Render different views based on active filter */}
                 {activeFilter === 'advice_alfa' && <AdviceAlfa />}
                 {activeFilter === 'advice_elevage' && <AdviceElevage />}
                 {activeFilter === 'advice_vaccin' && <AdviceVaccin />}
-                {activeFilter === 'poulaier' && <Poulaier />}
-                {activeFilter === 'ovin' && <Ovin />}
                 </div>
            
   )
