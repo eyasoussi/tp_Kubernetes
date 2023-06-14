@@ -3823,4 +3823,40 @@ ol {
 	.categories__text:before {
 		height: 250px;
 	}
+	/* Filter Button */
+@media (max-width: 991px) {
+    .shop__sidebar__accordion {
+        display: none;
+    }
+    .filter-button {
+        display: block;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        color: #333;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .filter-options {
+        display: none;
+        border: 1px solid #ddd;
+        border-top: none;
+        background-color: #f5f5f5;
+        padding: 10px 20px;
+    }
+    .filter-toggle.open {
+        display: block;
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+/* Hide Filter Button */
+@media (min-width: 992px) {
+    .filter-button {
+        display: none;
+    }
+}
+
 }
