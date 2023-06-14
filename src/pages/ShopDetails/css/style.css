@@ -138,7 +138,7 @@ ol {
 }
 
 .spad {
-	padding-top: 100px;
+	padding-top: 50px;
 	padding-bottom: 100px;
 }
 
@@ -912,7 +912,7 @@ ol {
 	padding-bottom: 60px;
 }
 
-.filter__controls {
+/* .filter__controls {
 	text-align: center;
 	margin-bottom: 45px;
 }
@@ -933,7 +933,9 @@ ol {
 
 .filter__controls li.active {
 	color: #111111;
-}
+} */
+
+
 
 .product__item {
 	overflow: hidden;
@@ -3344,6 +3346,53 @@ ol {
 	.container {
 		max-width: 1170px;
 	}
+	.filter__controls {
+		text-align: center;
+		margin-bottom: 45px;
+	}
+	
+	.filter__controls li {
+		display: inline-block;
+		margin-right: 30px; /* Adjust this value as needed */
+		position: relative;
+	}
+	
+	.filter__controls li::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -15px; /* Adjust this value to control the spacing between the vertical lines */
+		height: 100%;
+		width: 1px;
+		background-color: #b7b7b7; /* Adjust the color of the vertical lines */
+	}
+	
+	.filter__controls li:last-child::after {
+		display: none; /* Hide the vertical line after the last list item */
+	}
+	
+	.filter__controls li a {
+		display: inline-block;
+		padding: 10px 20px;
+		color: #b7b7b7;
+		font-size: 24px;
+		font-weight: 700;
+		text-decoration: none;
+		background-color: #f2f2f2;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+	
+	.filter__controls li:hover {
+		background-color: #e0e0e0;
+	}
+	
+	.filter__controls li.active {
+		color: #111111;
+		background-color: #dcdcdc;
+	}
 }
 
 /* Medium Device = 1200px */
@@ -3363,6 +3412,36 @@ ol {
 	}
 	.testimonial__text {
 		padding: 130px 45px 175px;
+	}
+	.filter__controls {
+		text-align: center;
+		margin-bottom: 45px;
+	}
+	
+	.filter__controls li {
+		display: inline-block;
+		margin-right: 30px; /* Adjust this value as needed */
+		position: relative;
+	}
+	
+	.filter__controls li::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -15px; /* Adjust this value to control the spacing between the vertical lines */
+		height: 100%;
+		width: 1px;
+		background-color: #b7b7b7; /* Adjust the color of the vertical lines */
+	}
+	
+	.filter__controls li:last-child::after {
+		display: none; /* Hide the vertical line after the last list item */
+	}
+	
+	
+	.filter__controls li.active {
+		color: #111111;
+		background-color: #dcdcdc;
 	}
 }
 
@@ -3433,6 +3512,39 @@ ol {
 	.blog__details__share ul li:last-child {
 		margin-right: 0;
 	}
+
+	.filter__controls {
+		text-align: center;
+		margin-bottom: 45px;
+	}
+	
+	.filter__controls li {
+		display: inline-block;
+		margin-right: 30px; /* Adjust this value as needed */
+		position: relative;
+	}
+	
+	.filter__controls li::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -15px; /* Adjust this value to control the spacing between the vertical lines */
+		height: 100%;
+		width: 1px;
+		background-color: #b7b7b7; /* Adjust the color of the vertical lines */
+	}
+	
+	.filter__controls li:last-child::after {
+		display: none; /* Hide the vertical line after the last list item */
+	}
+	
+	
+	
+	.filter__controls li.active {
+		color: #111111;
+		background-color: #dcdcdc;
+	}
+	
 }
 
 /* Wide Mobile = 480px */
@@ -3769,6 +3881,35 @@ ol {
 	.hero__social {
 		margin-top: 180px;
 	}
+	.filter__controls {
+		text-align: center;
+		margin-bottom: 45px;
+	}
+	
+	.filter__controls li {
+		display: inline-block;
+		margin-right: 30px; /* Adjust this value as needed */
+		position: relative;
+	}
+	
+	.filter__controls li::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: -15px; /* Adjust this value to control the spacing between the vertical lines */
+		height: 100%;
+		width: 1px;
+		background-color: #b7b7b7; /* Adjust the color of the vertical lines */
+	}
+	
+	.filter__controls li:last-child::after {
+		display: none; /* Hide the vertical line after the last list item */
+	}
+	.filter__controls li.active {
+		color: #111111;
+		background-color: #dcdcdc;
+	}
+	
 }
 
 /* Small Device = 320px */
@@ -3825,8 +3966,21 @@ ol {
 	.categories__text:before {
 		height: 250px;
 	}
+	.filter__controls {
+		text-align: center;
+		margin-bottom: 45px;
+	  }
+	  
+	.filter__controls li {
+		display: inline-block;
+		margin-right: 30px; 
+	}
+	
+	.filter__controls li.active {
+		color: #111111;
+		background-color: #dcdcdc;
+	}
 }
-
   
 @media (max-width: 991px) {
 	.filter-button {

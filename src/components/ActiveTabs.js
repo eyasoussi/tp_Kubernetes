@@ -19,16 +19,14 @@ export default function ActiveTabs(props) {
                             onClick={() => handleFilterClick(element)}
                             >
                             {element}
-                            </li>)
-                        )
-                    }
+                            </li>
+                        ))}
                     </ul>
+
                     {/* Render different views based on active filter */}
                 {activeFilter === 'advice_alfa' && <AdviceAlfa />}
                 {activeFilter === 'advice_elevage' && <AdviceElevage />}
                 {activeFilter === 'advice_vaccin' && <AdviceVaccin />}
-                {activeFilter === 'Poulailler' && <Poulailler />}
-                {activeFilter === 'ovin' && <Ovin />}
                 </div>
            
   )

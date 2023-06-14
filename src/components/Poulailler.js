@@ -4,7 +4,7 @@ import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
 import { applyFilters } from '../methods';
 
-export default function poulailler({data}) {
+export default function Poulailler({data}) {
     const [allFilters, setAllFilters] = useState({});
     const[filteredData, setFilteredData] = useState(data);
 
