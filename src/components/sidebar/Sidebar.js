@@ -101,7 +101,7 @@ export default function Sidebar({ setAllFilters, articles }) {
             className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
               onClick={toggleFilterOptions}
             >
-              <FilterAltOutlinedIcon />
+              Filtrer<FilterAltOutlinedIcon />
             </button>
           )}
           {(isFilterOptionsVisible || window.innerWidth >= 992) && (

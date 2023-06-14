@@ -1201,6 +1201,7 @@ ol {
 	height: 100%;
 }
 
+
 .shop__sidebar__accordion .card {
 	border: none;
 	border-radius: 0;
@@ -3857,5 +3858,51 @@ ol {
 	  height: 24px;
 	  color: #333333;
 	}
+
+	/* .shop__sidebar {
+		padding-right: 20px;
+	  }
+	  
+	  .shop__sidebar__accordion {
+		width: 30%;
+		float: left;
+	  }
+	  
+	  .shop__sidebar__search {
+		width: 70%;
+		float: left;
+	  }
+	   */
+	   .shop__sidebar {
+		padding-right: 20px;
+	  }
+	  
+	  .shop__sidebar__accordion {
+		width: 15%;
+		float: left;
+		margin-bottom: 10px;
+		
+	  }
+	  
+	  .shop__sidebar__search {
+		width: 75%; /* Reduce the width to 60% */
+		float: left;
+		margin-right: 5%; /* Add a margin of 10% on the right side */
+		margin-bottom: 0;
+	  }
+	  
+	  .filter-options {
+		position: absolute;
+		top: 100%;
+		left: 15px;
+		width: 80%;
+		background-color: #ffffff;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		z-index: 9999;
+	  }
+	  
   }
   
