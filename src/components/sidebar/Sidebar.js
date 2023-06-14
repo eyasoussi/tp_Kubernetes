@@ -8,7 +8,6 @@ import Race from './Race';
 import Age from './Age';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 
-
 export default function Sidebar({ setAllFilters, articles }) {
   const [type, setType] = useState([]);
   const [race, setRace] = useState([]);
@@ -69,6 +68,25 @@ export default function Sidebar({ setAllFilters, articles }) {
       stat: stat,
     });
   }, [price, race, type, age, weight, stat]);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 992) {
+        setIsFilterOptionsVisible(false);
+      } else {
+        setIsFilterOptionsVisible(true);
+      }
+    };
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Check initial window width on component mount
+    handleResize();
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const toggleFilterOptions = () => {
     setIsFilterOptionsVisible(!isFilterOptionsVisible);
@@ -78,11 +96,15 @@ export default function Sidebar({ setAllFilters, articles }) {
     <div>
       <div className="shop__sidebar__accordion">
         <div id="accordionExample">
-        <button className="filter-button" onClick={toggleFilterOptions}>
-            <FilterAltOutlinedIcon />
-        </button>
-
-          {isFilterOptionsVisible && (
+          {window.innerWidth < 992 && (
+            <button
+            className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
+              onClick={toggleFilterOptions}
+            >
+              <FilterAltOutlinedIcon />
+            </button>
+          )}
+          {(isFilterOptionsVisible || window.innerWidth >= 992) && (
             <div className="filter-options">
               {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
               {filters.Race && <Race setRace={setRace} />}
@@ -94,8 +116,8 @@ export default function Sidebar({ setAllFilters, articles }) {
               {filters.State && <State setStat={setStat} />}
             </div>
           )}
+          </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-}
+      );
+    }

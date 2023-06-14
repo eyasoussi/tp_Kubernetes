@@ -3823,40 +3823,39 @@ ol {
 	.categories__text:before {
 		height: 250px;
 	}
-	/* Filter Button */
-@media (max-width: 991px) {
-    .shop__sidebar__accordion {
-        display: none;
-    }
-    .filter-button {
-        display: block;
-        background-color: #f5f5f5;
-        border: 1px solid #ddd;
-        color: #333;
-        padding: 10px 20px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .filter-options {
-        display: none;
-        border: 1px solid #ddd;
-        border-top: none;
-        background-color: #f5f5f5;
-        padding: 10px 20px;
-    }
-    .filter-toggle.open {
-        display: block;
-        border-bottom: none;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
 }
 
-/* Hide Filter Button */
-@media (min-width: 992px) {
-    .filter-button {
-        display: none;
-    }
-}
-
-}
+  
+  @media (max-width: 991px) {
+	.filter-button {
+	  top: 20px;
+	  right: 20px;
+	  z-index: 999;
+	  background-color: #ffffff;
+	  border: none;
+	  border-radius: 50%;
+	  width: 50px;
+	  height: 50px;
+	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	  cursor: pointer;
+	}
+  
+	.filter-button.clicked {
+	  background-color: #f1f1f1; /* Apply a different background color when the button is clicked */
+	}
+  
+	.filter-button:focus {
+	  outline: none; /* Remove the focus outline when the button is clicked */
+	}
+  
+	.filter-button:hover {
+	  background-color: #f1f1f1; /* Apply a different background color when the button is hovered */
+	}
+  
+	.filter-button svg {
+	  width: 24px;
+	  height: 24px;
+	  color: #333333;
+	}
+  }
+  
