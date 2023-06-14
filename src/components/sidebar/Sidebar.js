@@ -30,7 +30,7 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: false,
       });
-    } else if (articles === 'Ovin B') {
+    } else if (articles === 'Brebis') {
       setFilters({
         Race: true,
         Type: false,
@@ -39,7 +39,7 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: true,
       });
-    } else if (articles === 'Poulaier Engraissement') {
+    } else if (articles === 'Poulailler Engraissement') {
       setFilters({
         Race: false,
         Type: true,

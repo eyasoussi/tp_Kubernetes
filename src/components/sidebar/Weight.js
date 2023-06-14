@@ -13,7 +13,7 @@ export default function Weight({articles, setWeight}) {
         if(articles === "Ovin Engraissement") {
             setMinMax([25,80]);
         }
-        else if(articles === "Poulaier Engraissement") {
+        else if(articles === "Poulailler Engraissement") {
             setMinMax([1,4]);
         }
         else {

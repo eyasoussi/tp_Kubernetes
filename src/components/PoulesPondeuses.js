@@ -4,7 +4,7 @@ import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
 import { applyFilters } from '../methods';
 
-export default function Poulaier({data}) {
+export default function PoulesPondeuses({data}) {
     const [allFilters, setAllFilters] = useState({});
     const[filteredData, setFilteredData] = useState(data);
 
@@ -20,7 +20,7 @@ export default function Poulaier({data}) {
         <div className="col-lg-3"> 
             <div className="shop__sidebar"> 
                 <Search/>
-                <Sidebar setAllFilters={setAllFilters} articles={"Poulaier Engraissement"}/>     
+                <Sidebar setAllFilters={setAllFilters} articles={"Poules Pondeuses"}/>     
             </div>
         </div>
         <div className="col-lg-9">

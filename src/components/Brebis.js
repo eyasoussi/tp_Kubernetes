@@ -4,7 +4,7 @@ import Search from './sidebar/Search';
 import MainShop from './main-shop/MainShop';
 import { applyFilters } from '../methods';
 
-export default function OvinB({ data }) {
+export default function Brebis({ data }) {
     const [allFilters, setAllFilters] = useState({});
     const [filteredData, setFilteredData] = useState(data);
 
@@ -20,7 +20,7 @@ return (
         <div className="col-lg-3">
             <div className="shop__sidebar">
                 <Search />
-                <Sidebar setAllFilters={setAllFilters} articles={"Ovin B"} />
+                <Sidebar setAllFilters={setAllFilters} articles={"Brebis"} />
             </div>
         </div>
         <div className="col-lg-9">
