@@ -7,8 +7,11 @@ import Type from './Type';
 import Race from './Race';
 import Age from './Age';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function Sidebar({ setAllFilters, articles }) {
+  const { language } = useContext(LanguageContext);
   const [type, setType] = useState([]);
   const [race, setRace] = useState([]);
   const [price, setPrice] = useState([0, 1750]);
@@ -117,7 +120,7 @@ export default function Sidebar({ setAllFilters, articles }) {
             className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
             onClick={toggleFilterOptions}
           >
-            Filtrer<FilterAltOutlinedIcon />
+            {language === "fr" ? "Filtrer" : "فرز"}<FilterAltOutlinedIcon />
           </button>
         )}
         {(isFilterOptionsVisible || window.innerWidth >= 992) && (

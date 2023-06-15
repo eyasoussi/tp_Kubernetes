@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
+
 
 export default function Type({ setType }) {
+  const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [isActive, setIsActive] = useState(true);
@@ -33,7 +37,7 @@ export default function Type({ setType }) {
     <div className={`card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
-          Type
+        {language==="fr" ? "Type" : "النوع"}
           {isActive ? <ExpandLess /> : <ExpandMore />}
         </a>
       </div>
@@ -50,7 +54,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Djej') ? '#333' : '',
                   }}
                 >
-                  Djej ({quantities?.DjejQuantity})
+                 {language==="fr" ? "Djej" : "دجاج"}({quantities?.DjejQuantity})
                 </a>
               </li>
               <li>
@@ -62,19 +66,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Dindon') ? '#333' : '',
                   }}
                 >
-                  Dindon ({quantities?.DindonQuantity})
-                </a>
-              </li>
-              <li>
-                <a
-                  className={`clickable-element ${isTypeSelected('Oeuf') ? 'active' : ''}`}
-                  onClick={() => toggleType('Oeuf')}
-                  style={{
-                    backgroundColor: isTypeSelected('Oeuf') ? '#f5f5f5' : '',
-                    color: isTypeSelected('Oeuf') ? '#333' : '',
-                  }}
-                >
-                  Oeuf ({quantities?.OeufQuantity})
+                  {language==="fr" ? "Dindon" : "ديك رومي"}({quantities?.DindonQuantity})
                 </a>
               </li>
               <li>
@@ -86,7 +78,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Simmen') ? '#333' : '',
                   }}
                 >
-                  Simmen ({quantities?.SimmenQuantity})
+                  {language==="fr" ? "Simmen" : "سمان"} ({quantities?.SimmenQuantity})
                 </a>
               </li>
             </ul>

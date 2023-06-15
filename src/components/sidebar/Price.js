@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
+
 
 function valuetext(value) {
     return `${value} ${"DT"}`;
   }
 
 export default function Price({articles, setPrice}) {
+    const { language } = useContext(LanguageContext);
     const [minMax, setMinMax] = useState([0,2000]);
     
     useEffect(() => {
@@ -48,7 +52,7 @@ const marks = [
     return (
         <div className="card">
             <div className="card-heading">
-                <a data-toggle="collapse" data-target="#collapseThree">Prix</a>
+                <a data-toggle="collapse" data-target="#collapseThree">{language==="fr" ? "Prix" : "الثمن"}</a>
             </div>
             <div>
                 <div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -15,8 +15,11 @@ import './css/slicknav.min.css'
 import './css/style.css.map'
 import './css/elegant-icons.css'
 import './css/font-awesome.min.css'
+import MyContext from '../../context';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function ShopDetails() {
+    const { language } = useContext(LanguageContext);
     const { id } = useParams();
     const [articles, setArticles] = useState([]);
     const [article, setArticle] = useState({});
@@ -62,9 +65,9 @@ export default function ShopDetails() {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="product__details__breadcrumb">
-                                    <a>Home</a>
-                                    <a>Shop</a>
-                                    <span>Product Details</span>
+                                    <a>{language==="fr"? "Acceuil":"الصفحة الرئيسية"}</a>
+                                    <a>{language==="fr"? "Boutique":"المتجر"}</a>
+                                    <span>{language === "fr" ? 'Détails du produit' : 'تفاصيل المنت"'}</span>
                                 </div>
                             </div>
                         </div>

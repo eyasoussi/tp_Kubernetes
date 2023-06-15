@@ -8,10 +8,30 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import ActiveTabs from '../../components/ActiveTabs';
 import MyContext from '../../context';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function Home() {
     const myTabs = ["advice_alfa", "advice_elevage", "advice_vaccin"];
+    const { language } = useContext(LanguageContext);
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
+
+    const HomeTranslations = {
+        "fr" : {
+            "Nouvel arrivage 2023" : "Nouvel arrivage 2023",
+            "Achetez maintenant" : "Achetez maintenant",
+            "Ovins & Brebis" : "Ovins & Brebis",
+            "Consultez Notre Shop" : "Consultez Notre Shop",
+            "Poulailler & Poules Pondeuses":"Poulailler & Poules Pondeuses",
+
+        },
+        "ar" : {
+            "Nouvel arrivage 2023": "وصول جديد 2023",
+            "Achetez maintenant": "اشترِ الآن",
+            "Ovins & Brebis": "أغنام و نِعاج",
+            "Consultez Notre Shop": "تصفح متجرنا",
+            "Poulailler & Poules Pondeuses": "دواجن و دجاج للبيض"
+        }
+    }
 
     const handleFilterClick = (filter) => {
         setActiveFilter(filter); // Update the active filter state when a filter is clicked
@@ -38,8 +58,8 @@ export default function Home() {
 
                         </div>
                         <div class="banner__item__text">
-                            <h2>Nouvel arrivage 2022</h2>
-                            <a href="#">Achetez maintenant</a>
+                            <h2>{HomeTranslations[language]["Nouvel arrivage 2023"]}</h2>
+                            <a href="#">{HomeTranslations[language]["Achetez maintenant"]}</a>
                         </div>
                     </div>
                 </div>
@@ -49,8 +69,8 @@ export default function Home() {
                             <img src="img/banner/banner-2.jpg" alt=""/>
                         </div>
                         <div class="banner__item__text">
-                            <h2>Accessories</h2>
-                            <a href="#">Shop now</a>
+                            <h2>{HomeTranslations[language]["Ovins & Brebis"]}</h2>
+                            <a href="#">{HomeTranslations[language]["Consultez Notre Shop"]}</a>
                         </div>
                     </div>
                 </div>
@@ -60,8 +80,8 @@ export default function Home() {
                             <img src="img/banner/banner-3.jpg" alt=""/>
                         </div>
                         <div class="banner__item__text">
-                            <h2>Shoes Spring 2030</h2>
-                            <a href="#">Shop now</a>
+                            <h2>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
+                            <a href="#">{HomeTranslations[language]["Consultez Notre Shop"]}</a>
                         </div>
                     </div>
                 </div>

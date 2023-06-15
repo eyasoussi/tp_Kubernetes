@@ -3,8 +3,7 @@ import MyContext from '../context';
 import AdviceAlfa from './AdviceAlfa';
 import AdviceElevage from './AdviceElevage';
 import AdviceVaccin from './AdviceVaccin';
-import Poulailler from './Poulailler';
-import Ovin from './Ovin';
+
 
 export default function ActiveTabs(props) {
     const { activeFilter, handleFilterClick } = useContext(MyContext);

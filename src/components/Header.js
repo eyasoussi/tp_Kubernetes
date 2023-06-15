@@ -1,13 +1,29 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LanguageSelector from './LanguageSelector';
 import routes from '../routes';
 import './styles.css';
+import { useContext } from 'react';
+import { LanguageContext } from '../LanguageContext';
 
 const Header = () => {
+    const { language } = useContext(LanguageContext);
     const offcanvasMenuWrapperRef = useRef(null);
     const offcanvasMenuOverlayRef = useRef(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const HeaderTranslations = {
+        "fr" : {
+            "Acceuil" : "Acceuil",
+            "Boutique" : "Boutique",
+            "A Propos" : "A Propos"
+        },
+        "ar" : {
+            "Acceuil": "الصفحة الرئيسية",
+            "Boutique": "المتجر",
+            "A Propos": "نبذة عنا"
+        }
+    }
     const handleOpenClick = () => {
         setMenuOpen(true);
     };
@@ -32,40 +48,32 @@ const Header = () => {
                             <ul>
                                 <li>
                                     <Link to={routes.HOME}>
-                                        Acceuil
+                                    {HeaderTranslations[language]["Acceuil"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.SHOP}>
-                                        Boutique
+                                    {HeaderTranslations[language]["Boutique"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.ABOUTUS}>
-                                        A Propos
+                                    {HeaderTranslations[language]["A Propos"]}
                                     </Link>
-                                </li>
-                                <li>
-                                    <a href="./shopping-cart.html">Shopping Cart</a>
-                                </li>
-                                <li>
-                                    <a href="./checkout.html">Check Out</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div className="col-lg-3 col-md-3">
                         <div className="header__nav__option">
-                            <a href="#" className="search-switch">
-                                <img src="img/icon/search.png" alt="" />
-                            </a>
+                            <LanguageSelector />
                             <a href="#">
                                 <img src="img/icon/heart.png" alt="" />
                             </a>
                             <Link to={routes.CART}>
                                 <img src="img/icon/cart.png" alt="" /> <span>0</span>
                             </Link>
-                            <div className="price">$0.00</div>
+                            <div className="price">0.00DT</div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +97,7 @@ const Header = () => {
                             to={routes.HOME}
                             style={menuOpen ? { color: 'red' } : {}}
                         >
-                            Acceuil
+                            {HeaderTranslations[language]["Acceuil"]}
                         </Link>
                     </li>
                     <li className="li-item">
@@ -97,7 +105,7 @@ const Header = () => {
                             className="li-a-item"
                             to={routes.SHOP}
                         >
-                            Boutique
+                            {HeaderTranslations[language]["Boutique"]}
                         </Link>
                     </li>
                     <li className="li-item">
@@ -105,7 +113,7 @@ const Header = () => {
                             className="li-a-item"
                             to={routes.ABOUTUS}
                         >
-                            A Propos
+                            {HeaderTranslations[language]["A Propos"]}
                         </Link>
                     </li>
                 </ul>

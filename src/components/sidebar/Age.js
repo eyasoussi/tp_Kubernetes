@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function Age({ setAge }) {
+  const { language } = useContext(LanguageContext);
   const [isActive, setIsActive] = useState(true);
   const [selectedAges, setSelectedAges] = useState([]);
 

@@ -1,10 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function Race({ setRace }) {
+  const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedRaces, setSelectedRaces] = useState([]); // to store the selected races
   const [isActive, setIsActive] = useState(true); //determines whether the race filter is currently active or not.
+
+  const RaceTranslations = {
+    "fr": {
+      "Arbi": "Arbi",
+      "Gharbi": "Gharbi",
+      "Tibar": "Tibar",
+      "Houti": "Houti",
+      "Dmen": "Dmen",
+      "Sordi": "Sordi",
+      "Lacaune": "Lacaune",
+      "Race": "Race"
+    },
+    "ar": {
+      "Arbi": "عربي",
+      "Gharbi": "غربي",
+      "Tibar": "تيبار",
+      "Houti": "حوتي",
+      "Dmen": "دمن",
+      "Sordi": "صوردي",
+      "Lacaune": "لكاون",
+      "Race": "السلالة"
+    }
+  }
 
   useEffect(() => {
     setQuantities({
@@ -23,17 +49,17 @@ export default function Race({ setRace }) {
       setSelectedRaces([...selectedRaces, race]);
     }
   }; //if the clickd race is already selected remove it from selectedRaces 
-    //sinon put it in selectedRaces
+  //sinon put it in selectedRaces
 
   useEffect(() => {
     setRace(selectedRaces);
-  }, [selectedRaces, setRace]); //aalech setRace ??
+  }, [selectedRaces, setRace]);
 
   return (
     <div className={`card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
-          Race
+          {RaceTranslations[language]["Race"]}
           {isActive ? <ExpandLess /> : <ExpandMore />}
         </a>
       </div>
@@ -51,7 +77,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Tibar') ? '#333' : '',
                   }}
                 >
-                  Tibar ({quantities?.TibarQuantity})
+                  {RaceTranslations[language]["Tibar"]} ({quantities?.TibarQuantity})
                 </a>
               </li>
               <li>
@@ -63,7 +89,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Gharbi') ? '#333' : '',
                   }}
                 >
-                  Gharbi ({quantities?.GharbiQuantity})
+                  {RaceTranslations[language]["Gharbi"]} ({quantities?.GharbiQuantity})
                 </a>
               </li>
               <li>
@@ -75,7 +101,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Houti') ? '#333' : '',
                   }}
                 >
-                  Houti ({quantities?.HoutiQuantity})
+                  {RaceTranslations[language]["Houti"]} ({quantities?.HoutiQuantity})
                 </a>
               </li>
               <li>
@@ -87,7 +113,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Dmen') ? '#333' : '',
                   }}
                 >
-                  Dmen ({quantities?.DmenQuantity})
+                  {RaceTranslations[language]["Dmen"]} ({quantities?.DmenQuantity})
                 </a>
               </li>
               <li>
@@ -99,7 +125,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Sordi') ? '#333' : '',
                   }}
                 >
-                  Sordi ({quantities?.SordiQuantity})
+                  {RaceTranslations[language]["Sordi"]} ({quantities?.SordiQuantity})
                 </a>
               </li>
             </ul>

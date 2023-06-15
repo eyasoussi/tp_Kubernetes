@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from "./Card";
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function MainShop({ filteredData }) {
+  const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [data, setData] = useState(filteredData);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,15 +37,12 @@ export default function MainShop({ filteredData }) {
       <div className="row">
         <div className="col-lg-6 col-md-6 col-sm-6">
           <div className="shop__product__option__left">
-            <p>Showing {indexOfFirstItem + 1}–{indexOfLastItem} of {data.length} results</p>
-          </div>
-        </div>
-        <div className="col-lg-6 col-md-6 col-sm-6">
-          <div className="shop__product__option__right">
-            <p>Sort by Price:</p>
-            <select>
-              <option value="">Low To High</option>
-            </select>
+            {language === "fr" ? (
+              <p>Affichage de {indexOfFirstItem + 1} à {indexOfLastItem} sur {data.length} résultats</p>
+            ) : (
+              <p>عرض {indexOfFirstItem + 1} إلى {indexOfLastItem} من {data.length} نتيجة</p>
+            )}
+
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function MainShop({ filteredData }) {
       <div className="row">
         {/* Render the current page's items */}
         {currentItems.map((item, index) => (
-            <Card key={item.id} item={item} handleShopItemClick={handleShopItemClick} />
+          <Card key={item.id} item={item} handleShopItemClick={handleShopItemClick} />
         ))}
       </div>
 

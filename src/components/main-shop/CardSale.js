@@ -1,6 +1,9 @@
 import React from 'react'
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
 export default function CardSale() {
+    const { language } = useContext(LanguageContext);
   return (
     <div className="col-lg-4 col-md-6 col-sm-6">
                             <div className="product__item sale">
