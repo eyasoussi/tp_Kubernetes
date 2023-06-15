@@ -6,6 +6,7 @@ import Weight from './Weight';
 import Type from './Type';
 import Race from './Race';
 import Age from './Age';
+import Search from './Search';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 
 export default function Sidebar({ setAllFilters, articles }) {
@@ -17,6 +18,7 @@ export default function Sidebar({ setAllFilters, articles }) {
   const [stat, setStat] = useState([]);
   const [filters, setFilters] = useState({});
   const [isFilterOptionsVisible, setIsFilterOptionsVisible] = useState(false);
+  const [enteredWord, setEnteredWord] = useState("");
 
   const sidebarRef = useRef(null); // Ref for the outermost div container
 
@@ -68,8 +70,9 @@ export default function Sidebar({ setAllFilters, articles }) {
       age: age,
       weight: weight,
       stat: stat,
+      enteredWord: enteredWord
     });
-  }, [price, race, type, age, weight, stat]);
+  }, [price, race, type, age, weight, stat, enteredWord]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -122,6 +125,7 @@ export default function Sidebar({ setAllFilters, articles }) {
         )}
         {(isFilterOptionsVisible || window.innerWidth >= 992) && (
           <div className="filter-options">
+            <Search setEnteredWord={setEnteredWord} wordEntered={enteredWord}></Search>
             {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
             {filters.Race && <Race setRace={setRace} />}
             {filters.Type && <Type setType={setType} />}

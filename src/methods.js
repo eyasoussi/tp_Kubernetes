@@ -15,6 +15,20 @@ export const getItemById = (articles, id) => {
   return item;
 }
 
+function filterObjectsByTitle(objects, searchTerm) {
+  if(searchTerm?.length!==0){
+  const lowercaseSearchTerm = searchTerm?.toLowerCase();
+  return objects.filter((obj) => {
+    const jsonString = JSON.stringify(obj);
+    const lowercaseTitle = jsonString.toLowerCase();
+    return lowercaseTitle?.includes(lowercaseSearchTerm);
+  });
+  }
+  else{
+    return objects;
+  }
+}
+
 // Apply filters to data and update filteredData
 export const applyFilters = (data, allFilters) => {
   let filteredResults = data;
@@ -66,6 +80,9 @@ export const applyFilters = (data, allFilters) => {
       (item) => allFilters.stat.includes(item.state)
     );
   }
+
+  filteredResults = filterObjectsByTitle(filteredResults, allFilters.enteredWord);
+
   console.log("state filter: ",filteredResults);
   
   return filteredResults;
