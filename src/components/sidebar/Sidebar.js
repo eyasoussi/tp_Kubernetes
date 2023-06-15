@@ -84,14 +84,17 @@ export default function Sidebar({ setAllFilters, articles }) {
     };
 
     const handleClickOutside = (event) => {
+      const filterButton = document.querySelector('.filter-button');
+    
       if (
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target) &&
-        !event.target.classList.contains('filter-button')
+        event.target !== filterButton
       ) {
         setIsFilterOptionsVisible(false);
       }
     };
+    
 
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);
@@ -116,16 +119,19 @@ export default function Sidebar({ setAllFilters, articles }) {
     <div ref={sidebarRef} className="shop__sidebar__accordion">
       <div id="accordionExample">
         {window.innerWidth < 992 && (
+          <div className="teya"> 
+          <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
           <button
             className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
             onClick={toggleFilterOptions}
           >
             Filtrer<FilterAltOutlinedIcon />
           </button>
+          </div>
         )}
         {(isFilterOptionsVisible || window.innerWidth >= 992) && (
           <div className="filter-options">
-            <Search setEnteredWord={setEnteredWord} wordEntered={enteredWord}></Search>
+            <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
             {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
             {filters.Race && <Race setRace={setRace} />}
             {filters.Type && <Type setType={setType} />}
