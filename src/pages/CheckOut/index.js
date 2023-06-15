@@ -4,161 +4,145 @@ import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import Preloader from '../../components/Preloader';
+import { CartContext } from '../../CartContext';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
+import { Link } from 'react-router-dom';
+import routes from '../../routes';
 
-export default function index() {
-  return (
-    <div>
-        <Preloader />
-        <Header />
-       <section className="breadcrumb-option">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-12">
-                    <div className="breadcrumb__text">
-                        <h4>Check Out</h4>
-                        <div className="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
-                            <span>Check Out</span>
+export default function Checkout() {
+    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const { language } = useContext(LanguageContext);
+
+    const translation = {
+        "fr": {
+            "contact1": "Riadh",
+            "contact2": "Mohamed Ali",
+            "country": "Tunisie",
+            "address": "Rue Ahmed Becha",
+            "city": "Bizerte",
+            "state": "Bizerte",
+            "postcode": "7000",
+            "phone": "26211344",
+            "email": "falleh.tn@gmail.com"
+        },
+        "ar": {
+            "contact1": "رياض",
+            "contact2": "محمد علي",
+            "country": "تونس",
+            "address": "شارع أحمد بشا",
+            "city": "بنزرت",
+            "state": "بنزرت",
+            "postcode": "7000",
+            "phone": "26211344",
+            "email": "falleh.tn@gmail.com"
+        }
+    }
+    const translations = translation[language];
+
+    const handlePhoneCall = () => {
+        window.location.href = `tel:${26211344}`;
+    };
+
+    return (
+        <div>
+            <Preloader />
+            <Header />
+            <section className="breadcrumb-option">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="breadcrumb__text">
+                                <h4>{language === "fr" ? 'Passer Une Commande' : 'أتمم الطلب'}</h4>
+                                <div className="breadcrumb__links">
+                                    <Link to={routes.HOME}>
+                                        {language === "fr" ? "Acceuil" : "الصفحة الرئيسية"}
+                                    </Link>
+                                    <Link to={routes.SHOP}>
+                                        {language === "fr" ? "Boutique" : "المتجر"}
+                                    </Link>
+                                    <span>{language === "fr" ? 'Passer Une Commande' : 'أتمم الطلب'}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-   
-    <section className="checkout spad">
-        <div className="container">
-            <div className="checkout__form">
-                <form action="#">
-                    <div className="row">
-                        <div className="col-lg-8 col-md-6">
-                            <h6 className="coupon__code"><span className="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
-                            <h6 className="checkout__title">Billing Details</h6>
+            </section>
+
+            <section className="checkout spad">
+                <div className="container">
+                    <div className="checkout__form">
+                        <form action="#">
                             <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-8 col-md-6">
+                                    <h6 className="coupon__code"><span className="icon_tag_alt"></span> {language === "fr" ? "Voulez vous continuer vos achats?" : "هل تريدون مواصلة التسوق؟"} <Link to={routes.SHOP}><a>{language === "fr" ? "Cliquez Ici" : "اضغط هنا"}</a></Link> {language === "fr" ? "pour retourner à la boutique" : "من أجل الرجوع الى المتجر"}</h6>
+                                    <h6 className="checkout__title">{language === 'fr' ? 'Détails de contact' : 'تفاصيل التواصل'}</h6>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <div className="checkout__input">
+                                                <p>{language === 'fr' ? 'Contact 1' : 'المتواصل 1'}<span>*</span></p>
+                                                <input type="text" readOnly value={translations.contact1} />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="checkout__input">
+                                                <p>{language === 'fr' ? 'Contact 2' : 'المتواصل 2'}<span>*</span></p>
+                                                <input type="text" readOnly value={translations.contact2} />
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div className="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text"/>
+                                        <p>{language === 'fr' ? 'Ville' : 'المدينة'}<span>*</span></p>
+                                        <input type="text" readOnly value={translations.city} />
+                                    </div>
+                                    <div className="checkout__input">
+                                        <p>{language === 'fr' ? 'Adresse' : 'العنوان'}<span>*</span></p>
+                                        <input type="text" readOnly value={translations.address} placeholder={language === 'fr' ? 'Adresse de rue' : 'عنوان الشارع'} className="checkout__input__add" />
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <div className="checkout__input">
+                                                <p>{language === 'fr' ? 'Téléphone' : 'الهاتف'}<span>*</span></p>
+                                                <input type="text" readOnly value={translations.phone} />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="checkout__input">
+                                                <p>{language === 'fr' ? 'Email' : 'البريد الإلكتروني'}<span>*</span></p>
+                                                <input type="text" readOnly value={translations.email} />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
-                                    <div className="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text"/>
+                                <div className="col-lg-4 col-md-6">
+                                    <div className="checkout__order">
+                                        <h4 className="order__title">{language === "fr" ? "Votre Ordre" : "محتوى طلبكم"}</h4>
+                                        <div className="checkout__order__products">
+                                            {language === "fr" ? "Produit" : "المنتج"} <span>{language === "fr" ? "Total" : "الثمن"}</span>
+                                        </div>
+                                        <ul className="checkout__total__products">
+                                            {cartItems.map((item, index) => (
+                                                <li key={index}>
+                                                    {`${index + 1}. ${item.title}`} <span>${item.price}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <ul className="checkout__total__all">
+                                            <li>
+                                                {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>${cartItems.reduce((total, item) => total + item.price, 0)}</span>
+                                            </li>
+                                        </ul>
+                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text"/>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" className="checkout__input__add"/>
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)"/>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text"/>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text"/>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text"/>
-                            </div>
-                            <div className="row">
-                                <div className="col-lg-6">
-                                    <div className="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text"/>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <div className="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc"/>
-                                    <span className="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text"/>
-                            </div>
-                            <div className="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" id="diff-acc"/>
-                                    <span className="checkmark"></span>
-                                </label>
-                            </div>
-                            <div className="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery."/>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="checkout__order">
-                                <h4 className="order__title">Your order</h4>
-                                <div className="checkout__order__products">Product <span>Total</span></div>
-                                <ul className="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
-                                </ul>
-                                <ul className="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
-                                </ul>
-                                <div className="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or"/>
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div className="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment"/>
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal"/>
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" className="site-btn">PLACE ORDER</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
-            </div>
+                </div>
+            </section>
+            <Footer />
+            <Modal />
+            <JsScripts />
         </div>
-    </section> 
-    <Footer />
-    <Modal />
-    <JsScripts />
-    </div>
-  )
+    )
 }

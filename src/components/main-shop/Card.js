@@ -18,7 +18,7 @@ export default function Card({item,key,handleShopItemClick}) {
                                 </div>
                                 <div className="product__item__text">
                                     <h6>{item.title}</h6>
-                                    <a className="add-cart">{ language==="fr"? "Ajouter au panier": "أضف الى السلة"}</a>
+                                    <a className="add-cart">{ language==="fr"? "Voir les details de l'article": "أنقر لترى تفاصيل المنتج"}</a>
                                     <h5>{item.price} { language==="fr"? "TND": "دينار"}</h5>
                                     <div className="product__color__select">
                                         <label for="pc-4">

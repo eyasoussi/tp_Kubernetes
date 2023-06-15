@@ -54,7 +54,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Djej') ? '#333' : '',
                   }}
                 >
-                 {language==="fr" ? "Djej" : "دجاج"}({quantities?.DjejQuantity})
+                 {language==="fr" ? "Djej" : "دجاج"}  - {quantities?.DjejQuantity}
                 </a>
               </li>
               <li>
@@ -66,7 +66,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Dindon') ? '#333' : '',
                   }}
                 >
-                  {language==="fr" ? "Dindon" : "ديك رومي"}({quantities?.DindonQuantity})
+                  {language==="fr" ? "Dindon" : "ديك رومي"} - {quantities?.DindonQuantity}
                 </a>
               </li>
               <li>
@@ -78,7 +78,7 @@ export default function Type({ setType }) {
                     color: isTypeSelected('Simmen') ? '#333' : '',
                   }}
                 >
-                  {language==="fr" ? "Simmen" : "سمان"} ({quantities?.SimmenQuantity})
+                  {language==="fr" ? "Simmen" : "سمان"} - {quantities?.SimmenQuantity}
                 </a>
               </li>
             </ul>

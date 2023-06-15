@@ -26,7 +26,7 @@ function LanguageSelector() {
     <div className="language-selector">
       <label htmlFor="language"></label>
       <select id="language" value={language} onChange={handleLanguageChange}>
-        <option value="">-- {language ==='fr' ? translations['fr']['question'] : translations['ar']['question']} --</option>
+        <option value="" disabled>-- {language ==='fr' ? translations['fr']['question'] : translations['ar']['question']} --</option>
         <option value="ar" className='ar'>
           <span className="flag-icon flag-icon-tn"></span> Arabic
         </option>

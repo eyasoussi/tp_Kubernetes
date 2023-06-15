@@ -1,5 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import routes from '../routes';
 import { LanguageContext } from '../LanguageContext';
 
 export default function InfoBar() {
@@ -12,7 +14,9 @@ export default function InfoBar() {
                     <div className="breadcrumb__text">
                         <h4>{language==="fr" ? "Boutique" : "المتجر"}</h4>
                         <div className="breadcrumb__links">
-                            <a href="./index.html">{language==="fr" ? "Acceuil" : "الصفحة الرئيسية"}</a>
+                            <Link to={routes.HOME}>
+                            {language==="fr" ? "Acceuil" : "الصفحة الرئيسية"}
+                            </Link>
                             <span>{language==="fr" ? "Boutique" : "المتجر"}</span>
                         </div>
                     </div>

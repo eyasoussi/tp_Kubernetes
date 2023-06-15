@@ -13,15 +13,15 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const HeaderTranslations = {
-        "fr" : {
-            "Acceuil" : "Acceuil",
-            "Boutique" : "Boutique",
-            "A Propos" : "A Propos"
+        "fr": {
+            "Acceuil": "Acceuil",
+            "Boutique": "Boutique",
+            "A Propos": "Contactez Nous"
         },
-        "ar" : {
+        "ar": {
             "Acceuil": "الصفحة الرئيسية",
             "Boutique": "المتجر",
-            "A Propos": "نبذة عنا"
+            "A Propos": "اتصل بنا"
         }
     }
     const handleOpenClick = () => {
@@ -38,9 +38,10 @@ const Header = () => {
                 <div className="row">
                     <div className="col-lg-3 col-md-3">
                         <div className="header__logo">
-                            <a href="./index.html">
+                            <Link to={routes.HOME}>
+
                                 <h3 style={{ color: 'green' }}>Aalouchi.tn</h3>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-6">
@@ -48,17 +49,17 @@ const Header = () => {
                             <ul>
                                 <li>
                                     <Link to={routes.HOME}>
-                                    {HeaderTranslations[language]["Acceuil"]}
+                                        {HeaderTranslations[language]["Acceuil"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.SHOP}>
-                                    {HeaderTranslations[language]["Boutique"]}
+                                        {HeaderTranslations[language]["Boutique"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.ABOUTUS}>
-                                    {HeaderTranslations[language]["A Propos"]}
+                                        {HeaderTranslations[language]["A Propos"]}
                                     </Link>
                                 </li>
                             </ul>

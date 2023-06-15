@@ -35,10 +35,12 @@ export default function Race({ setRace }) {
   useEffect(() => {
     setQuantities({
       TibarQuantity: 12,
+      ArbiQuantity:19,
       GharbiQuantity: 15,
       HoutiQuantity: 13,
       DmenQuantity: 16,
       SordiQuantity: 18,
+      LacauneQuantity: 4
     });
   }, []);
 
@@ -77,7 +79,19 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Tibar') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Tibar"]} ({quantities?.TibarQuantity})
+                  {RaceTranslations[language]["Tibar"]} - {quantities?.TibarQuantity}
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`clickable-element ${selectedRaces.includes('Arbi') ? 'active' : ''}`}
+                  onClick={() => toggleRace('Arbi')}
+                  style={{
+                    backgroundColor: selectedRaces.includes('Arbi') ? '#f5f5f5' : '',
+                    color: selectedRaces.includes('Arbi') ? '#333' : '',
+                  }}
+                >
+                  {RaceTranslations[language]["Arbi"]} - {quantities?.ArbiQuantity}
                 </a>
               </li>
               <li>
@@ -89,7 +103,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Gharbi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Gharbi"]} ({quantities?.GharbiQuantity})
+                  {RaceTranslations[language]["Gharbi"]} - {quantities?.GharbiQuantity}
                 </a>
               </li>
               <li>
@@ -101,7 +115,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Houti') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Houti"]} ({quantities?.HoutiQuantity})
+                  {RaceTranslations[language]["Houti"]} - {quantities?.HoutiQuantity}
                 </a>
               </li>
               <li>
@@ -113,7 +127,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Dmen') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Dmen"]} ({quantities?.DmenQuantity})
+                  {RaceTranslations[language]["Dmen"]} - {quantities?.DmenQuantity}
                 </a>
               </li>
               <li>
@@ -125,7 +139,19 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Sordi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Sordi"]} ({quantities?.SordiQuantity})
+                  {RaceTranslations[language]["Sordi"]} - {quantities?.SordiQuantity}
+                </a>
+              </li>
+              <li>
+                <a
+                  className={`clickable-element ${selectedRaces.includes('Lacaune') ? 'active' : ''}`}
+                  onClick={() => toggleRace('Lacaune')}
+                  style={{
+                    backgroundColor: selectedRaces.includes('Lacaune') ? '#f5f5f5' : '',
+                    color: selectedRaces.includes('Lacaune') ? '#333' : '',
+                  }}
+                >
+                  {RaceTranslations[language]["Lacaune"]} - {quantities?.LacauneQuantity}
                 </a>
               </li>
             </ul>

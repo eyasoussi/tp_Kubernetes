@@ -128,7 +128,7 @@ export default function Sidebar({ setAllFilters, articles }) {
             {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
             {filters.Race && <Race setRace={setRace} />}
             {filters.Type && <Type setType={setType} />}
-            {filters.Age && <Age setAge={setAge} />}
+            {filters.Age && <Age articles={articles} setAge={setAge} />}
             {filters.Poids && (
               <Weight articles={articles} setWeight={setWeight} />
             )}

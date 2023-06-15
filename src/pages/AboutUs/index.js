@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import Preloader from '../../components/Preloader';
+import { Link } from 'react-router-dom';
+import routes from '../../routes';
+import { LanguageContext } from '../../LanguageContext';
 
-export default function index() {
+export default function AboutUs() {
+    const { language } = useContext(LanguageContext);
   return (
     <div>
         <Header />
@@ -13,12 +17,14 @@ export default function index() {
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">
-                    <div className="breadcrumb__text">
-                        <h4>About Us</h4>
+                <div className="breadcrumb__text">
+                        <h4>{language==="fr" ? "Contactez Nous" : "اتصل بنا"}</h4>
                         <div className="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>About Us</span>
-                        </div>
+                            <Link to={routes.HOME}>
+                            {language==="fr" ? "Acceuil" : "الصفحة الرئيسية"}
+                            </Link>
+                            <span>{language==="fr" ? "Contactez Nous" : "اتصل بنا"}</span>
+                    </div>
                     </div>
                 </div>
             </div>
