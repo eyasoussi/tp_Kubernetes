@@ -936,7 +936,6 @@ ol {
 } */
 
 
-
 .product__item {
 	overflow: hidden;
 	margin-bottom: 40px;
@@ -3422,6 +3421,7 @@ ol {
 		display: inline-block;
 		margin-right: 30px; /* Adjust this value as needed */
 		position: relative;
+		font-size: 25px;
 	}
 	
 	.filter__controls li::after {
@@ -3522,6 +3522,7 @@ ol {
 		display: inline-block;
 		margin-right: 30px; /* Adjust this value as needed */
 		position: relative;
+		font-size: 20px;
 	}
 	
 	.filter__controls li::after {
@@ -3785,6 +3786,7 @@ ol {
 	}
 	.filter__controls li {
 		margin-right: 15px;
+		font-size: 20px;
 	}
 	.categories__text {
 		margin-bottom: 40px;
@@ -3890,6 +3892,7 @@ ol {
 		display: inline-block;
 		margin-right: 30px; /* Adjust this value as needed */
 		position: relative;
+		font-size: 17px;
 	}
 	
 	.filter__controls li::after {
