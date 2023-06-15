@@ -21,7 +21,6 @@ export default function Ovin({ data }) {
         <div className="shop__sidebar">
           {window.innerWidth < 991 ? (
             <div className="filter-bar">
-              <Search />
               <Sidebar
                 setAllFilters={setAllFilters}
                 articles={"Ovin Engraissement"}
@@ -29,7 +28,6 @@ export default function Ovin({ data }) {
             </div>
           ) : (
             <React.Fragment>
-              <Search />
               <Sidebar
                 setAllFilters={setAllFilters}
                 articles={"Ovin Engraissement"}
