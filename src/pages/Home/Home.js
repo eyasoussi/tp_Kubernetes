@@ -76,7 +76,6 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            
                             <div className="banner__item__text" style={{paddingBottom:"40px"}}>
                                     <h2>{HomeTranslations[language]["Ovins & Brebis"]}</h2>
                                     <Link to={routes.SHOP}>
@@ -88,7 +87,6 @@ export default function Home() {
                             <div className="banner__item">
                                 <div className="banner__item__pic">
                                     <img src="img/banner/banner-3.jpg" alt="" />
-
                                 </div>
                                 <div className="banner__item__text">
                                     <h2>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
