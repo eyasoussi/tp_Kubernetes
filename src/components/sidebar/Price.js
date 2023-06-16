@@ -15,20 +15,20 @@ export default function Price({articles, setPrice}) {
     
     useEffect(() => {
         if(articles === "Ovin Engraissement") {
-            setMinMax([700,1750]);
+            setMinMax([450,2000]);
         }
         else if(articles === "Brebis") {
-            setMinMax([400,650]);
+            setMinMax([300,1500]);
         }
         else if(articles === "Poulailler Engraissement") {
-            setMinMax([7,14]);
+            setMinMax([3,50]);
         }
         else {
-            setMinMax([1,3]);
+            setMinMax([3,50]);
         }
     }, [articles])
 
-    const [value, setValue] = useState([0,1750]);
+    const [value, setValue] = useState([0,2000]);
     const handleChange = (event, newValue) => {
         setValue(newValue);
         setPrice(value);

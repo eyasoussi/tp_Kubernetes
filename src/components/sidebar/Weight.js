@@ -15,17 +15,17 @@ export default function Weight({articles, setWeight}) {
 
     useEffect(() => {
         if(articles === "Ovin Engraissement") {
-            setMinMax([25,80]);
+            setMinMax([20,150]);
         }
         else if(articles === "Poulailler Engraissement") {
-            setMinMax([1,4]);
+            setMinMax([0.1,5]);
         }
         else {
-            setMinMax([1,3]);
+            setMinMax([0.1,5]);
         }
     }, [articles])
 
-    const [value, setValue] = useState([0, 80]);
+    const [value, setValue] = useState([0, 150]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
