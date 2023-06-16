@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
@@ -13,37 +12,22 @@ import Ovin from '../../components/Ovin';
 import Brebis from '../../components/Brebis';
 import PoulesPondeuses from '../../components/PoulesPondeuses';
 import { getObjectsByCategory } from '../../methods';
+import { articles } from '../../articles';
 
 export default function Shop() {
     const myTabs = ["Ovin Engraissement", "Brebis", "Poulailler Engraissement", "Poules Pondeuses"];
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const handleFilterClick = (filter) => {
         setActiveFilter(filter); // Update the active filter state when a filter is clicked
     };
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(articles);
     const [ovinData, setOvinData] = useState([]);
     const [BrebisData, setBrebisData] = useState([]);
     const [PoulaillerData, setPoulaillerData] = useState([]);
     const [PoulesPondeusesData, setPoulesPondeusesData] = useState([]);
 
-    const fetchData = () => {
-        axios
-          .get('/dummy.json')
-          .then((response) => {
-            const data = response.data;
-            setData(data.articles);
-            setIsLoading(false);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
-    
     useEffect(() => {
-        if(data.length===0){
-        fetchData();
-        }
         let filteredData = getObjectsByCategory(data, "Ovin Engraissement");
         setOvinData(filteredData);
         filteredData = getObjectsByCategory(data, "Brebis")

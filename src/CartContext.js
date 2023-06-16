@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import axios from 'axios';
 import { articles } from './articles';
 // Create the CartContext
 export const CartContext = createContext();
