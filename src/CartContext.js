@@ -658,10 +658,17 @@ const [cartItems, setCartItems] = useState(() => {
     }
   });
 
-  // Function to add an item to the cart
-  const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
+// Function to add an item to the cart
+const addToCart = (item) => {
+    // Check if the item's id already exists in the cartItems list
+    const itemExists = cartItems.some((prevItem) => prevItem.id === item.id);
+  
+    // If the item doesn't exist, add it to the cart
+    if (!itemExists) {
+      setCartItems((prevItems) => [...prevItems, item]);
+    }
   };
+  
 
   // Function to remove an item from the cart
   const removeFromCart = (item) => {

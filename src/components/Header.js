@@ -123,9 +123,9 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to={routes.CART}>
-                            <img src="img/icon/cart.png" alt="" /> <span></span>
+                            <img src="img/icon/cart.png" alt="" /> <span></span></Link>
+                            <Link to={routes.CART}><a>{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</a>
                         </Link>
-                        <div className="price">{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</div>
                     </li>
                 </ul>
             </div>

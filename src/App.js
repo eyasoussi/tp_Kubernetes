@@ -8,13 +8,15 @@ import CheckOut from './pages/CheckOut';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import routes from './routes';
 import { LanguageProvider } from './LanguageContext';
-import { CartProvicer, CartProvider } from './CartContext' 
+import { CartProvicer, CartProvider } from './CartContext'
+import ScrollToTop from './ScrollToTop'; 
 
 function App() {
   return (
     <LanguageProvider>
       <CartProvider>
         <Router>
+        <ScrollToTop />
           <Routes>
             <Route exact path={routes.HOME} element={<Home />} />
             <Route exact path={routes.ABOUTUS} element={<AboutUs />} />

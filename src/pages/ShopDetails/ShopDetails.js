@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -22,7 +23,10 @@ import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
 
 export default function ShopDetails() {
-    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const navigate = useNavigate();
+
+
+    const { cartItems, addToCart } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
     const { id } = useParams();
     const [articles, setArticles] = useState([]);
@@ -31,55 +35,56 @@ export default function ShopDetails() {
 
     const shopDetailsTranslations = {
         "en": {
-          "addToWishlist": 'ADD TO WISHLIST',
-          "addToCompare": 'ADD TO COMPARE',
-          "safeCheckout": 'Guaranteed Safe Checkout',
-          "category": 'Catégorie:',
-          "ovinEngraissement": 'Ovin Engraissement',
-          "age": 'Age:',
-          "poids": 'Poids:',
-          "relatedProducts": 'Related Products'
+            "addToWishlist": 'ADD TO WISHLIST',
+            "addToCompare": 'ADD TO COMPARE',
+            "safeCheckout": 'Guaranteed Safe Checkout',
+            "category": 'Catégorie:',
+            "ovinEngraissement": 'Ovin Engraissement',
+            "age": 'Age:',
+            "poids": 'Poids:',
+            "relatedProducts": 'Related Products'
         },
         "fr": {
-          "addToWishlist": 'AJOUTER AU PANIER',
-          "addToCompare": 'AJOUTER À LA LISTE DE SOUHAITS',
-          "safeCheckout": 'La Qualité de nos Produits est une Garantie',
-          "category": 'Catégorie :',
-          "age": 'Âge :',
-          "poids": 'Poids :',
-          "mois": "mois",
-          "ans":"ans",
-          "relatedProducts": 'Produits Associés',
-          "unitePoids":"Kg",
-          "Ovin Engraissement": 'Ovin Engraissement',
-          "Brebis":"Brebis",
-          "Poulailler Engraissement":"Poulailler Engraissement",
-          "Poules Pondeuses":"Poules Pondeuses"
+            "addToWishlist": 'AJOUTER AU PANIER',
+            "addToCompare": 'AJOUTER À LA LISTE DE SOUHAITS',
+            "safeCheckout": 'La Qualité de nos Produits est une Garantie',
+            "category": 'Catégorie :',
+            "age": 'Âge :',
+            "poids": 'Poids :',
+            "mois": "mois",
+            "ans": "ans",
+            "relatedProducts": 'Produits Associés',
+            "unitePoids": "Kg",
+            "Ovin Engraissement": 'Ovin Engraissement',
+            "Brebis": "Brebis",
+            "Poulailler Engraissement": "Poulailler Engraissement",
+            "Poules Pondeuses": "Poules Pondeuses"
         },
         "ar": {
-          "addToWishlist": 'إضافة إلى سلة المقتنيات',
-          "addToCompare": 'إضافة إلى قائمة الرغبات',
-          "safeCheckout": 'جودة منتوجاتنا عهد و ضمان',
-          "category": 'الفئة:',
-          "age": 'العمر:',
-          "poids": 'الوزن:',
-          "mois":"شهور",
-          "ans":"سنة",
-          "unitePoids":"كغ",
-          "relatedProducts": 'منتجات ذات صلة',
-          "Ovin Engraissement": 'أغنام التسمين',
-          "Brebis":"النعاج",
-          "Poulailler Engraissement":"دواجن التسمين",
-          "Poules Pondeuses":"دجاج البيض"
+            "addToWishlist": 'إضافة إلى سلة المقتنيات',
+            "addToCompare": 'إضافة إلى قائمة الرغبات',
+            "safeCheckout": 'جودة منتوجاتنا عهد و ضمان',
+            "category": 'الفئة:',
+            "age": 'العمر:',
+            "poids": 'الوزن:',
+            "mois": "شهور",
+            "ans": "سنة",
+            "unitePoids": "كغ",
+            "relatedProducts": 'منتجات ذات صلة',
+            "Ovin Engraissement": 'أغنام التسمين',
+            "Brebis": "النعاج",
+            "Poulailler Engraissement": "دواجن التسمين",
+            "Poules Pondeuses": "دجاج البيض"
         },
-      };
-      
-      // Your code here...
-      
+    };
+
+    // Your code here...
+
 
     const getItemById = (articles, id) => {
         return articles.find((article) => Number(article.id) === Number(id));
     };
+
 
     const fetchData = () => {
         axios
@@ -98,6 +103,27 @@ export default function ShopDetails() {
             });
     };
 
+    function getRandomArticlesByCategory(articles, category) {
+        // Filter articles with the specified category
+        const filteredArticles = articles.filter(article => article.category === category);
+
+        // Shuffle the filtered articles randomly
+        const shuffledArticles = shuffleArray(filteredArticles);
+
+        // Return up to 4 articles from the shuffled list
+        return shuffledArticles.slice(0, 4);
+    }
+
+    // Function to shuffle an array using Fisher-Yates algorithm
+    function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
     useEffect(() => {
         if (typeof article === 'null' || typeof article === 'undefined' || articles.length === 0) {
             fetchData();
@@ -107,11 +133,11 @@ export default function ShopDetails() {
         console.log(article);
     }, [articles, id]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const selectedItemsIds = cartItems.map(item => item.id);
         localStorage.setItem('selectedItemsIds', JSON.stringify(selectedItemsIds));
-    },[cartItems]);
-    
+    }, [cartItems]);
+
     const handleAddToCart = () => {
         addToCart(article);
     }
@@ -119,6 +145,16 @@ export default function ShopDetails() {
     const handlePhoneCall = () => {
         window.location.href = `tel:${26211344}`;
     };
+
+    const randomArticles = getRandomArticlesByCategory(articles, article?.category);
+
+    const handleClickNavigate = (productId) => {
+        navigate(`${routes.SHOP}/${productId}`);
+    };
+
+    const handleClick = (article) => {
+        addToCart(article);
+    }
 
     return (
         <div>
@@ -134,7 +170,7 @@ export default function ShopDetails() {
                                             {language === "fr" ? "Acceuil" : "الصفحة الرئيسية"}
                                         </Link>
                                         <Link to={routes.SHOP}>
-                                          {language === "fr" ? "Boutique" : "المتجر"}
+                                            {language === "fr" ? "Boutique" : "المتجر"}
                                         </Link>
                                         <span>{language === "fr" ? 'Détails du produit' : 'تفاصيل المنتج'}</span>
                                     </div>
@@ -166,7 +202,7 @@ export default function ShopDetails() {
                                                 </div>
                                             </div>
                                             <Link to={routes.CART}>
-                                            <a className="primary-btn" onClick={handleAddToCart}>{shopDetailsTranslations[language]["addToWishlist"]}</a>
+                                                <a className="primary-btn" onClick={handleAddToCart}>{shopDetailsTranslations[language]["addToWishlist"]}</a>
                                             </Link>
                                         </div>
                                         <div className="product__details__btns__option">
@@ -196,143 +232,53 @@ export default function ShopDetails() {
                             </div>
                         </div>
                         <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                                <div className="product__item">
-                                    <div className="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                        <ul className="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                            <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="product__item__text">
-                                        <h6>Piqué Biker Jacket</h6>
-                                        <a href="#" className="add-cart">+ Add To Cart</a>
-                                        <div className="rating">
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
+                            {randomArticles.map((article, index) => (
+                                <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6" key={index}>
+                                    <div className="product__item">
+                                        <div className="product__item__pic set-bg" data-setbg={article.thumbnail}>
+                                            <img src={article.thumbnail} alt="" />
+                                            <ul className="product__hover">
+                                                <li>
+                                                    <Link onClick={() => handleClick(article)} to={routes.CART}>
+                                                        <a>
+                                                            <img src="img/icon/cart.png" alt="" />
+                                                        </a>
+                                                        <span>{language === "fr" ? "Ajouter à la Carte" : "أضف الى عربة المقتنيات"}</span>
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={() => handleClickNavigate(article?.id)}>
+                                                        <a>
+                                                            <img src="img/icon/search.png" alt="" />
+                                                        </a>
+                                                        <span>{language === "fr" ? "Voir le Produit" : "النضر الى المنتج"}</span>
+                                                    </Link>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <h5>$67.24</h5>
-                                        <div className="product__color__select">
-                                            <label htmlFor="pc-4">
-                                                <input type="radio" id="pc-4" />
-                                            </label>
-                                            <label className="active black" htmlFor="pc-5">
-                                                <input type="radio" id="pc-5" />
-                                            </label>
-                                            <label className="grey" htmlFor="pc-6">
-                                                <input type="radio" id="pc-6" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                                <div className="product__item">
-                                    <div className="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                                        <ul className="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                            <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="product__item__text">
-                                        <h6>Piqué Biker Jacket</h6>
-                                        <a href="#" className="add-cart">+ Add To Cart</a>
-                                        <div className="rating">
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                        </div>
-                                        <h5>$67.24</h5>
-                                        <div className="product__color__select">
-                                            <label htmlFor="pc-4">
-                                                <input type="radio" id="pc-4" />
-                                            </label>
-                                            <label className="active black" htmlFor="pc-5">
-                                                <input type="radio" id="pc-5" />
-                                            </label>
-                                            <label className="grey" htmlFor="pc-6">
-                                                <input type="radio" id="pc-6" />
-                                            </label>
+                                        <div className="product__item__text">
+                                            <h6>{article.title}</h6>
+                                           <Link onClick={() => handleClick(article)} to={routes.CART}>
+                                                {language === "fr" ? "Ajouter à la Carte" : "أضف الى عربة المقتنيات"}
+                                            </Link>
+                                            <h5>{article.price} {language === "fr" ? "TND" : "دينار"}</h5>
+                                            <div className="product__color__select">
+                                                <label htmlFor={`pc-${index + 1}`}>
+                                                    <input type="radio" id={`pc-${index + 1}`} />
+                                                </label>
+                                                <label className="active black" htmlFor={`pc-${index + 2}`}>
+                                                    <input type="radio" id={`pc-${index + 2}`} />
+                                                </label>
+                                                <label className="grey" htmlFor={`pc-${index + 3}`}>
+                                                    <input type="radio" id={`pc-${index + 3}`} />
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                                <div className="product__item sale">
-                                    <div className="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                                        <ul className="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                            <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="product__item__text">
-                                        <h6>Multi-pocket Chest Bag</h6>
-                                        <a href="#" className="add-cart">+ Add To Cart</a>
-                                        <div className="rating">
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star-o"></i>
-                                        </div>
-                                        <h5>$43.48</h5>
-                                        <div className="product__color__select">
-                                            <label htmlFor="pc-7">
-                                                <input type="radio" id="pc-7" />
-                                            </label>
-                                            <label className="active black" htmlFor="pc-8">
-                                                <input type="radio" id="pc-8" />
-                                            </label>
-                                            <label className="grey" htmlFor="pc-9">
-                                                <input type="radio" id="pc-9" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                                <div className="product__item">
-                                    <div className="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                                        <ul className="product__hover">
-                                            <li><a href="#"><img src="img/icon/heart.png" alt="" /></a></li>
-                                            <li><a href="#"><img src="img/icon/compare.png" alt="" /> <span>Compare</span></a></li>
-                                            <li><a href="#"><img src="img/icon/search.png" alt="" /></a></li>
-                                        </ul>
-                                    </div>
-                                    <div className="product__item__text">
-                                        <h6>Diagonal Textured Cap</h6>
-                                        <a href="#" className="add-cart">+ Add To Cart</a>
-                                        <div className="rating">
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                            <i className="fa fa-star-o"></i>
-                                        </div>
-                                        <h5>$60.9</h5>
-                                        <div className="product__color__select">
-                                            <label htmlFor="pc-10">
-                                                <input type="radio" id="pc-10" />
-                                            </label>
-                                            <label className="active black" htmlFor="pc-11">
-                                                <input type="radio" id="pc-11" />
-                                            </label>
-                                            <label className="grey" htmlFor="pc-12" />
-                                            <input type="radio" id="pc-12" />
-                                            <label />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
+
                     </div>
                 </section>
                 <Footer />
