@@ -1921,7 +1921,8 @@ ol {
 }
 
 .footer__about .footer__logo {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
+	width: 190px;
 }
 
 .footer__about .footer__logo a {
