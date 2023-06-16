@@ -164,8 +164,8 @@ ol {
 	text-transform: uppercase;
 	padding: 14px 30px;
 	color: #ffffff;
-	background: #000000;
-	letter-spacing: 4px;
+	background: beige;
+	letter-spacing: 1px;
 }
 
 .site-btn {
@@ -721,7 +721,7 @@ ol {
 	color: #111111;
 	font-size: 13px;
 	font-weight: 700;
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 	padding: 3px 0;
 	position: relative;
@@ -1773,7 +1773,7 @@ ol {
 	display: inline-block;
 	font-size: 13px;
 	color: #3d3d3d;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	font-weight: 700;
 	margin-right: 20px;
@@ -2374,7 +2374,7 @@ ol {
 
 .continue__btn.update__btn a {
 	color: #ffffff;
-	background: #111111;
+	background:beige;
 	border-color: #111111;
 }
 
@@ -2453,6 +2453,7 @@ ol {
 }
 
 .cart__total {
+	margin-top:30px;
 	background: #f3f2ee;
 	padding: 35px 40px 40px;
 }
@@ -2759,7 +2760,7 @@ ol {
 	color: #111111;
 	font-size: 13px;
 	font-weight: 700;
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 	padding: 3px 0;
 	position: relative;
@@ -3212,7 +3213,7 @@ ol {
 }
 
 .blog__details__comment form button {
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 	padding: 14px 35px;
 }
 
@@ -3331,7 +3332,7 @@ ol {
 }
 
 .contact__form button {
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 	padding: 14px 35px;
 }
 

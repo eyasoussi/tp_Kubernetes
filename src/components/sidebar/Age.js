@@ -1,9 +1,180 @@
 import React, { useState, useEffect } from 'react';
 import { ExpandMore, ExpandLess } from '@mui/icons-material';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
 
-export default function Age({ setAge }) {
+export default function Age({ articles, setAge }) {
+  const { language } = useContext(LanguageContext);
   const [isActive, setIsActive] = useState(true);
   const [selectedAges, setSelectedAges] = useState([]);
+  const [ageTable, setAgeTable] = useState([]);
+  const [ageFilteringTable, setAgeFilteringTable] = useState([]);
+
+  useEffect(() => {
+    if (articles === "Ovin Engraissement" && language === "fr") {
+      setAgeTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+      setAgeFilteringTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+    }
+    else if (articles === "Ovin Engraissement" && language === "ar") {
+      setAgeTable([
+        "علوش",
+        "ثني",
+        "رباع",
+        "سداس",
+        "جامع"
+      ],
+      );
+      setAgeFilteringTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+    }
+    else if (articles === "Brebis" && language === "fr") {
+      setAgeTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+      setAgeFilteringTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+    }
+    else if (articles === "Brebis" && language === "ar") {
+      setAgeTable([
+        "فطيمة",
+        "حولية",
+        "ربعة",
+        "سدسة",
+        "جامعة"
+      ],
+      );
+      setAgeFilteringTable([
+        "0 - 1 ans",
+        "1 - 2 ans",
+        "2 - 3 ans",
+        "3 - 4 ans",
+        "4 - 5 ans"
+      ],
+      );
+    }
+    else if (articles === "Poulailler Engraissement" && language === "fr") {
+      setAgeTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+      setAgeFilteringTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+    }
+    else if (articles === "Poulailler Engraissement" && language === "ar") {
+      setAgeTable([
+        "شهر",
+        "من شهر الى 3 شهور",
+        "من 3 شهور الى 6 شهور",
+        "من 6 شهور الى سنة"
+      ]
+      );
+      setAgeFilteringTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+    }
+    else if (articles === "Poules Pondeuses" && language === "fr") {
+      setAgeTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+      setAgeFilteringTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+    }
+    else if (articles === "Poules Pondeuses" && language === "ar") {
+      setAgeTable([
+        "شهر",
+        "من شهر الى 3 شهور",
+        "من 3 شهور الى 6 شهور",
+        "من 6 شهور الى سنة"
+      ]
+      );
+      setAgeFilteringTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+    }
+    else {
+      if (language === "fr") {
+        setAgeTable([
+          "0 - 1 mois",
+          "1 mois - 3 mois",
+          "3 mois - 6 mois",
+          "6 mois - 1 ans"
+        ]
+        );
+      }
+      else {
+        setAgeTable([
+          "شهر",
+          "من شهر الى 3 شهور",
+          "من 3 شهور الى 6 شهور",
+          "من 6 شهور الى سنة"
+        ]
+        );
+      }
+      setAgeFilteringTable([
+        "0 - 1 mois",
+        "1 mois - 3 mois",
+        "3 mois - 6 mois",
+        "6 mois - 1 ans"
+      ]
+      );
+    }
+  }, [articles, language])
 
   const toggle = () => {
     setIsActive(!isActive);
@@ -29,7 +200,7 @@ export default function Age({ setAge }) {
     <div className={`card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={toggle} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
-          Age
+          {language === 'fr' ? 'Age' : 'العمر'}
           {isActive ? <ExpandLess /> : <ExpandMore />}
         </a>
       </div>
@@ -39,56 +210,70 @@ export default function Age({ setAge }) {
             <ul>
               <li>
                 <a
-                  className={`clickable-element ${isActiveAge([0, 0.5]) ? 'active' : ''}`}
-                  onClick={() => toggleAge([0, 0.5])}
+                  className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? 'active' : ''}`}
+                  onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083])}
                   style={{
-                    backgroundColor: isActiveAge([0, 0.5]) ? '#f5f5f5' : '',
-                    color: isActiveAge([0, 0.5]) ? '#333' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#f5f5f5' : '',
+                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#333' : '',
                   }}
                 >
-                  0 - 6 mois
+                  {ageTable[0]}
                 </a>
               </li>
               <li>
                 <a
-                  className={`clickable-element ${isActiveAge([0.5, 1]) ? 'active' : ''}`}
-                  onClick={() => toggleAge([0.5, 1])}
+                  className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? 'active' : ''}`}
+                  onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25])}
                   style={{
-                    backgroundColor: isActiveAge([0.5, 1]) ? '#f5f5f5' : '',
-                    color: isActiveAge([0.5, 1]) ? '#333' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? '#f5f5f5' : '',
+                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? '#333' : '',
                   }}
                 >
-                  6 mois - 1 an
+                  {ageTable[1]}
                 </a>
               </li>
               <li>
                 <a
-                  className={`clickable-element ${isActiveAge([1, 1.5]) ? 'active' : ''}`}
-                  onClick={() => toggleAge([1, 1.5])}
+                  className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? 'active' : ''}`}
+                  onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5])}
                   style={{
-                    backgroundColor: isActiveAge([1, 1.5]) ? '#f5f5f5' : '',
-                    color: isActiveAge([1, 1.5]) ? '#333' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? '#f5f5f5' : '',
+                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? '#333' : '',
                   }}
                 >
-                  1 an - 1 an & 6 mois
+                  {ageTable[2]}
                 </a>
               </li>
               <li>
                 <a
-                  className={`clickable-element ${isActiveAge([1.5, 2]) ? 'active' : ''}`}
-                  onClick={() => toggleAge([1.5, 2])}
+                  className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? 'active' : ''}`}
+                  onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1])}
                   style={{
-                    backgroundColor: isActiveAge([1.5, 2]) ? '#f5f5f5' : '',
-                    color: isActiveAge([1.5, 2]) ? '#333' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? '#f5f5f5' : '',
+                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? '#333' : '',
                   }}
                 >
-                  2 ans +
+                  {ageTable[3]}
                 </a>
               </li>
+              {(articles === "Ovin Engraissement" || articles === "Brebis") &&
+                <li>
+                  <a
+                    className={`clickable-element ${isActiveAge([4, 5]) ? 'active' : ''}`}
+                    onClick={() => toggleAge([4, 5])}
+                    style={{
+                      backgroundColor: isActiveAge([4, 5]) ? '#f5f5f5' : '',
+                      color: isActiveAge([4, 5]) ? '#333' : '',
+                    }}
+                  >
+                    {ageTable[4]}
+                  </a>
+                </li>
+              }
             </ul>
           </div>
         </div>
       </div>
     </div>
   );
-}
+}  

@@ -7,20 +7,26 @@ import ShopDetails from './pages/ShopDetails/ShopDetails';
 import CheckOut from './pages/CheckOut';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import routes from './routes';
+import { LanguageProvider } from './LanguageContext';
+import { CartProvicer, CartProvider } from './CartContext' 
 
 function App() {
   return (
-      <Router>
-        <Routes>
-            <Route exact path= {routes.HOME} element={<Home />} />
-            <Route exact path= {routes.ABOUTUS} element={<AboutUs />} />
-            <Route exact path= {routes.CART} element={<Cart />} />
-            <Route exact path= {routes.CHECKOUT} element={<CheckOut />} />
-            <Route path= {routes.SHOP} element={<Shop />} />
-            <Route path= {routes.SHOPDETAILS} element={<ShopDetails />} />
+    <LanguageProvider>
+      <CartProvider>
+        <Router>
+          <Routes>
+            <Route exact path={routes.HOME} element={<Home />} />
+            <Route exact path={routes.ABOUTUS} element={<AboutUs />} />
+            <Route exact path={routes.CART} element={<Cart />} />
+            <Route exact path={routes.CHECKOUT} element={<CheckOut />} />
+            <Route path={routes.SHOP} element={<Shop />} />
+            <Route path={routes.SHOPDETAILS} element={<ShopDetails />} />
             <Route path={routes.NOT_FOUND_PAGE} element={<ShopDetails />} />
-        </Routes>      
-      </Router>
+          </Routes>
+        </Router>
+      </CartProvider>
+    </LanguageProvider>
   );
 }
 

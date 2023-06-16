@@ -1,13 +1,31 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LanguageSelector from './LanguageSelector';
 import routes from '../routes';
 import './styles.css';
+import { useContext } from 'react';
+import { LanguageContext } from '../LanguageContext';
+import { CartContext } from '../CartContext';
 
 const Header = () => {
+    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const { language } = useContext(LanguageContext);
     const offcanvasMenuWrapperRef = useRef(null);
     const offcanvasMenuOverlayRef = useRef(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const HeaderTranslations = {
+        "fr": {
+            "Acceuil": "Acceuil",
+            "Boutique": "Boutique",
+            "A Propos": "Contactez Nous"
+        },
+        "ar": {
+            "Acceuil": "الصفحة الرئيسية",
+            "Boutique": "المتجر",
+            "A Propos": "اتصل بنا"
+        }
+    }
     const handleOpenClick = () => {
         setMenuOpen(true);
     };
@@ -22,9 +40,12 @@ const Header = () => {
                 <div className="houssam">
                     <div className="col-lg-3 col-md-3" style={{display:"flex"}}>
                         <div className="header__logo">
-                            <a href="./index.html">
-                            <img src="./logo1.png" alt="Your Image"  />
-                            </a>
+
+                            <Link to={routes.HOME}>
+
+                                <img src="./logo1.png" alt="Your Image"  />
+                            </Link>
+
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-6" style={{display:"flex"}}>
@@ -32,40 +53,32 @@ const Header = () => {
                             <ul>
                                 <li>
                                     <Link to={routes.HOME}>
-                                        Acceuil
+                                        {HeaderTranslations[language]["Acceuil"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.SHOP}>
-                                        Boutique
+                                        {HeaderTranslations[language]["Boutique"]}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to={routes.ABOUTUS}>
-                                        A Propos
+                                        {HeaderTranslations[language]["A Propos"]}
                                     </Link>
-                                </li>
-                                <li>
-                                    <a href="./shopping-cart.html">Shopping Cart</a>
-                                </li>
-                                <li>
-                                    <a href="./checkout.html">Check Out</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                     <div className="col-lg-3 col-md-3">
                         <div className="header__nav__option">
-                            <a href="#" className="search-switch">
-                                <img src="img/icon/search.png" alt="" />
-                            </a>
+                            <LanguageSelector />
                             <a href="#">
                                 <img src="img/icon/heart.png" alt="" />
                             </a>
                             <Link to={routes.CART}>
-                                <img src="img/icon/cart.png" alt="" /> <span>0</span>
+                                <img src="img/icon/cart.png" alt="" /> <span></span>
                             </Link>
-                            <div className="price">$0.00</div>
+                            <div className="price">{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +102,7 @@ const Header = () => {
                             to={routes.HOME}
                             style={menuOpen ? { color: 'red' } : {}}
                         >
-                            Acceuil
+                            {HeaderTranslations[language]["Acceuil"]}
                         </Link>
                     </li>
                     <li className="li-item">
@@ -97,7 +110,7 @@ const Header = () => {
                             className="li-a-item"
                             to={routes.SHOP}
                         >
-                            Boutique
+                            {HeaderTranslations[language]["Boutique"]}
                         </Link>
                     </li>
                     <li className="li-item">
@@ -105,7 +118,7 @@ const Header = () => {
                             className="li-a-item"
                             to={routes.ABOUTUS}
                         >
-                            A Propos
+                            {HeaderTranslations[language]["A Propos"]}
                         </Link>
                     </li>
                 </ul>

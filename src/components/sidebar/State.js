@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { useContext } from 'react';
+import { LanguageContext } from '../../LanguageContext';
+
 
 export default function State({ setStat }) {
+  const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedStates, setSelectedStates] = useState([]);
   const [isActive, setIsActive] = useState(true);
@@ -30,7 +34,7 @@ export default function State({ setStat }) {
     <div className={`card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
-          Etat
+          {language==="fr" ? "Etat" : "الحالة"}
           {isActive ? <ExpandLess /> : <ExpandMore />}
         </a>
       </div>
@@ -47,7 +51,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Welda') ? '#333' : '',
                   }}
                 >
-                  Welda ({quantities?.WeldaQuantity})
+                  {language==="fr" ? "Welda" : "والدة"} - {quantities?.WeldaQuantity}
                 </a>
               </li>
               <li>
@@ -59,7 +63,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Oochra') ? '#333' : '',
                   }}
                 >
-                  Oochra ({quantities?.OochraQuantity})
+                  {language==="fr" ? "Oochra" : "عشرة"} - {quantities?.OochraQuantity}
                 </a>
               </li>
               <li>
@@ -71,7 +75,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Fergha') ? '#333' : '',
                   }}
                 >
-                  Fergha ({quantities?.FerghaQuantity})
+                  {language==="fr" ? "Chkaf" : "شقف"} - {quantities?.FerghaQuantity}
                 </a>
               </li>
             </ul>
