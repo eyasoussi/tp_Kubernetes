@@ -10,6 +10,7 @@ import { LanguageContext } from '../../LanguageContext';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 
+
 export default function Checkout() {
     const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
@@ -78,37 +79,46 @@ export default function Checkout() {
                                     <h6 className="coupon__code"><span className="icon_tag_alt"></span> {language === "fr" ? "Voulez vous continuer vos achats?" : "هل تريدون مواصلة التسوق؟"} <Link to={routes.SHOP}><a>{language === "fr" ? "Cliquez Ici" : "اضغط هنا"}</a></Link> {language === "fr" ? "pour retourner à la boutique" : "من أجل الرجوع الى المتجر"}</h6>
                                     <h6 className="checkout__title">{language === 'fr' ? 'Détails de contact' : 'تفاصيل التواصل'}</h6>
                                     <div className="row">
+                                    <div className="col-lg-8">
+                                    <p>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</p>   
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102074.0719990612!2d9.932173565734095!3d36.9186933991964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2d248dd06d4a5%3A0x9685846321d6715b!2sSidi%20Thabet!5e0!3m2!1sen!2stn!4v1686872795340!5m2!1sen!2stn" width={600}
+                                            height={450}
+                                            style={{ border: "0" }}
+                                            allowFullScreen=""
+                                            loading="lazy"
+                                            referrerPolicy="no-referrer-when-downgrade"></iframe>
+                                            </div>
                                         <div className="col-lg-6">
                                             <div className="checkout__input">
-                                                <p>{language === 'fr' ? 'Contact 1' : 'المتواصل 1'}<span>*</span></p>
+                                                <p>{language === 'fr' ? 'Contact 1:' : ' :المتواصل 1'}</p>
                                                 <input type="text" readOnly value={translations.contact1} />
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="checkout__input">
-                                                <p>{language === 'fr' ? 'Contact 2' : 'المتواصل 2'}<span>*</span></p>
+                                                <p>{language === 'fr' ? 'Contact 2:' : ' :المتواصل 2'}</p>
                                                 <input type="text" readOnly value={translations.contact2} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="checkout__input">
-                                        <p>{language === 'fr' ? 'Ville' : 'المدينة'}<span>*</span></p>
+                                        <p>{language === 'fr' ? 'Ville:' : ':المدينة'}</p>
                                         <input type="text" readOnly value={translations.city} />
                                     </div>
                                     <div className="checkout__input">
-                                        <p>{language === 'fr' ? 'Adresse' : 'العنوان'}<span>*</span></p>
+                                        <p>{language === 'fr' ? 'Adresse:' : ':العنوان'}</p>
                                         <input type="text" readOnly value={translations.address} placeholder={language === 'fr' ? 'Adresse de rue' : 'عنوان الشارع'} className="checkout__input__add" />
                                     </div>
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="checkout__input">
-                                                <p>{language === 'fr' ? 'Téléphone' : 'الهاتف'}<span>*</span></p>
+                                                <p>{language === 'fr' ? 'Téléphone:' : ':الهاتف'}</p>
                                                 <input type="text" readOnly value={translations.phone} />
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="checkout__input">
-                                                <p>{language === 'fr' ? 'Email' : 'البريد الإلكتروني'}<span>*</span></p>
+                                                <p>{language === 'fr' ? 'Email:' : ':البريد الإلكتروني'}</p>
                                                 <input type="text" readOnly value={translations.email} />
                                             </div>
                                         </div>
@@ -129,7 +139,7 @@ export default function Checkout() {
                                         </ul>
                                         <ul className="checkout__total__all">
                                             <li>
-                                                {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>${cartItems.reduce((total, item) => total + item.price, 0)}</span>
+                                                {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>{}{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</span>
                                             </li>
                                         </ul>
                                         <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>

@@ -5,8 +5,10 @@ import routes from '../routes';
 import './styles.css';
 import { useContext } from 'react';
 import { LanguageContext } from '../LanguageContext';
+import { CartContext } from '../CartContext';
 
 const Header = () => {
+    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
     const offcanvasMenuWrapperRef = useRef(null);
     const offcanvasMenuOverlayRef = useRef(null);
@@ -72,9 +74,9 @@ const Header = () => {
                                 <img src="img/icon/heart.png" alt="" />
                             </a>
                             <Link to={routes.CART}>
-                                <img src="img/icon/cart.png" alt="" /> <span>0</span>
+                                <img src="img/icon/cart.png" alt="" /> <span></span>
                             </Link>
-                            <div className="price">0.00DT</div>
+                            <div className="price">{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</div>
                         </div>
                     </div>
                 </div>

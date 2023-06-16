@@ -6,7 +6,10 @@ export const LanguageContext = createContext();
 
 // Create the LanguageProvider component
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('fr');
+  const [language, setLanguage] = useState(() => {
+    const selectedLanguage = localStorage.getItem('selectedLanguage');
+    return selectedLanguage ? selectedLanguage : 'fr';
+  });
 
   // Update the language value and notify subscribers
   const updateLanguage = (newLanguage) => {

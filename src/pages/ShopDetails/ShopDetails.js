@@ -41,9 +41,9 @@ export default function ShopDetails() {
           "relatedProducts": 'Related Products'
         },
         "fr": {
-          "addToWishlist": 'AJOUTER À LA PANIER',
+          "addToWishlist": 'AJOUTER AU PANIER',
           "addToCompare": 'AJOUTER À LA LISTE DE SOUHAITS',
-          "safeCheckout": 'Paiement Sécurisé Garanti',
+          "safeCheckout": 'La Qualité de nos Produits est une Garantie',
           "category": 'Catégorie :',
           "age": 'Âge :',
           "poids": 'Poids :',
@@ -59,7 +59,7 @@ export default function ShopDetails() {
         "ar": {
           "addToWishlist": 'إضافة إلى سلة المقتنيات',
           "addToCompare": 'إضافة إلى قائمة الرغبات',
-          "safeCheckout": 'تأكيد الدفع بأمان',
+          "safeCheckout": 'جودة منتوجاتنا عهد و ضمان',
           "category": 'الفئة:',
           "age": 'العمر:',
           "poids": 'الوزن:',
@@ -107,9 +107,18 @@ export default function ShopDetails() {
         console.log(article);
     }, [articles, id]);
 
+    useEffect(()=>{
+        const selectedItemsIds = cartItems.map(item => item.id);
+        localStorage.setItem('selectedItemsIds', JSON.stringify(selectedItemsIds));
+    },[cartItems]);
+    
     const handleAddToCart = () => {
         addToCart(article);
     }
+
+    const handlePhoneCall = () => {
+        window.location.href = `tel:${26211344}`;
+    };
 
     return (
         <div>
@@ -153,7 +162,7 @@ export default function ShopDetails() {
                                         <div className="product__details__cart__option">
                                             <div className="quantity">
                                                 <div className="pro-qty">
-                                                    <input type="text" value="1" />
+                                                    <input type="text" value="1" disabled />
                                                 </div>
                                             </div>
                                             <Link to={routes.CART}>
@@ -161,7 +170,8 @@ export default function ShopDetails() {
                                             </Link>
                                         </div>
                                         <div className="product__details__btns__option">
-                                            <a><img src="img/icon/heart.png" alt="" /> {shopDetailsTranslations[language]["addToCompare"]}</a>
+                                            <Link><img src="img/icon/heart.png" alt="" /> {shopDetailsTranslations[language]["addToCompare"]}</Link>
+                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>
                                         </div>
                                         <div className="product__details__last__option">
                                             <h5><span>{shopDetailsTranslations[language]["safeCheckout"]}</span></h5>

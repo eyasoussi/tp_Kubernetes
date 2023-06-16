@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
@@ -32,6 +32,11 @@ export default function Cart() {
             "Poules Pondeuses": "دجاج البيض"
         },
     };
+
+    useEffect(()=>{
+        const selectedItemsIds = cartItems.map(item => item.id);
+        localStorage.setItem('selectedItemsIds', JSON.stringify(selectedItemsIds));
+    },[cartItems]);
 
     return (
         <div>
