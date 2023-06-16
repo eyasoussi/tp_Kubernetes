@@ -3577,6 +3577,24 @@ ol {
 	.header__menu.mobile-menu {
 		flex:40%
 	}
+	.c3{
+		display:none ;
+	}
+	.c5{
+		display:none ;
+	}
+	.product__cart__item__text{
+		display:none ;
+	}
+	.product__cart__categ{
+		display:none ;
+	}
+	c1{
+		padding-left: 15px !important;
+	}
+	c2{
+		margin-right: 10px;
+	}
 
 }
 
@@ -3870,13 +3888,36 @@ ol {
 	.product__details__tab .nav-tabs .nav-item {
 		margin-bottom: 15px;
 	}
+	/* aaaaaaaaaaaaaaaaa  only screen and (max-width: 767px) */
 	.shopping__cart__table {
 		overflow-y: auto;
+	}
+	.c3{
+		display:none ;
+	}
+	.c5{
+		display:none ;
+	}
+	.product__cart__item__text{
+		display:none ;
+	}
+	.product__cart__categ{
+		display:none ;
 	}
 	.shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
 		float: none;
 		margin-right: 0;
 	}
+	.shopping__cart__table table thead tr th {
+		font-size: 12px;
+    	font-weight: 700;
+	}
+	.shopping__cart__table table tbody tr td.cart__price{
+		font-size: 10px;
+    	font-weight: 700;
+    	width: 140px;
+	}
+
 	.continue__btn {
 		text-align: center;
 	}
@@ -4041,6 +4082,20 @@ ol {
 	.footer {
 		background: #E5F9DB ;
 		padding-top: 0px;
+	}
+	.shopping__cart__table table tbody tr td.product__cart__id {
+		font-size: 12px;
+	}
+
+	
+	.shopping__cart__table table thead tr th {
+		font-size: 9px;
+    	font-weight: 700;
+	}
+	.shopping__cart__table table tbody tr td.cart__price{
+		font-size: 10px;
+    	font-weight: 700;
+    	width: 60px;
 	}
 }
   

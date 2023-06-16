@@ -73,37 +73,31 @@ export default function Cart() {
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>{language === "fr" ? "Identifiant" : "المعرف"}</th>
-                                                <th>{language === "fr" ? "Produit" : "المنتج"}</th>
-                                                <th>{language === "fr" ? "Titre" : "الاسم"}</th>
-                                                <th>{language === "fr" ? "Prix" : "الثمن"}</th>
-                                                <th>{language === "fr" ? "Catégorie" : "الفئة"}</th>
-                                                <th>{language === "fr" ? "Consulter" : "تفاصيل المنتج"}</th>
-                                                <th>{language === "fr" ? "Supprimer" : "فسخ المنتج"}</th>
+                                                <th className='c1'>{language === "fr" ? "Réf" : "المعرف"}</th>
+                                                <th className='c2'>{language === "fr" ? "Produit" : "المنتج"}</th>
+                                                <th className='c3'>{language === "fr" ? "Titre" : "الاسم"}</th>
+                                                <th className='c4'>{language === "fr" ? "Prix" : "الثمن"}</th>
+                                                <th className='c5'>{language === "fr" ? "Catégorie" : "الفئة"}</th>
+                                                <th className='c6'>{language === "fr" ? "Consulter" : "تفاصيل المنتج"}</th>
+                                                <th className='c7'>{language === "fr" ? "Supprimer" : "فسخ المنتج"}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {cartItems.map((item, index) => (
                                                 <tr key={index}>
-                                                    <td>{item.id}</td>
+                                                    <td className='product__cart__id'> {item.id}</td>
                                                     <td>
-                                                        <div>
-                                                            <img src={item.thumbnail} alt={item.title} width="40" height="40" />
-                                                        </div>
+                                                            <img src={item.thumbnail} alt={item.title} width="40" height="40" />                                                        
                                                     </td>
-                                                    <td>
-                                                        <div className="product__cart__item__text">
+                                                    <td className="product__cart__item__text">
                                                             {item.title}
-                                                        </div>
                                                     </td>
                                                     <td className="cart__price">
-                                                        {item.price} {language === "fr" ? "Dinars" : "دينار"}
+                                                        {item.price} {language === "fr" ? "Dt" : "دينار"}
                                                     </td>
-                                                    <td>{translationTable[language][item.category]}</td>
-                                                    <td className="quantity__item">
+                                                    <td className='product__cart__categ'>{translationTable[language][item.category]}</td>
                                                     <td className="cart__close">
                                                         <Link to={`${routes.SHOP}/${item.id}`} style={{width:1}}><i className="fa fa-eye"></i></Link>
-                                                    </td>
                                                     </td>
                                                     <td className="cart__close">
                                                         <i onClick={() => removeFromCart(item)} className="fa fa-close"></i>
