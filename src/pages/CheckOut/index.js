@@ -142,7 +142,7 @@ export default function Checkout() {
                                                 {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>{}{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</span>
                                             </li>
                                         </ul>
-                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>
+                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Appelez Maintenant : 26211344" : "اتصل بنا الان : 26211344 "}</button>
                                     </div>
                                 </div>
                             </div>

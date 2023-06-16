@@ -207,7 +207,7 @@ export default function ShopDetails() {
                                         </div>
                                         <div className="product__details__btns__option">
                                             <Link><img src="img/icon/heart.png" alt="" /> {shopDetailsTranslations[language]["addToCompare"]}</Link>
-                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>
+                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 26211344" : "اتصل بنا الان : 26211344 "}</button>
                                         </div>
                                         <div className="product__details__last__option">
                                             <h5><span>{shopDetailsTranslations[language]["safeCheckout"]}</span></h5>
