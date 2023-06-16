@@ -8,7 +8,7 @@ import { LanguageContext } from '../LanguageContext';
 import { CartContext } from '../CartContext';
 
 const Header = () => {
-    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
     const offcanvasMenuWrapperRef = useRef(null);
     const offcanvasMenuOverlayRef = useRef(null);
@@ -72,9 +72,6 @@ const Header = () => {
                     <div className="col-lg-3 col-md-3">
                         <div className="header__nav__option">
                             <LanguageSelector />
-                            <a href="#">
-                                <img src="img/icon/heart.png" alt="" />
-                            </a>
                             <Link to={routes.CART}>
                                 <img src="img/icon/cart.png" alt="" /> <span></span>
                             </Link>
