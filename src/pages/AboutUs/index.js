@@ -36,7 +36,7 @@ export default function AboutUs() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="about__pic">
-                        <img src="img/about/about-us.jpg" alt=""/>
+                        <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" alt=""/>
                     </div>
                 </div>
             </div>
