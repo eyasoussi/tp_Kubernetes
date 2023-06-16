@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="col-lg-3 col-md-6 col-sm-6">
                     <div className="footer__about">
                         <div className="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""/></a>
+                            <a href="#"><img src="./logo1.png" alt=""/></a>
                         </div>
                         <p>The customer is at the heart of our unique business model, which includes design.</p>
                         <a href="#"><img src="img/payment.png" alt=""/></a>
