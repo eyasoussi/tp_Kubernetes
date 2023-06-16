@@ -47,7 +47,7 @@ export default function Home() {
             <section className="hero">
                 <AwesomeSlider>
                     <div data-src="img/hero/hero-1.jpg" />
-                    <div data-src="img/hero/hero-1.jpg" />
+                    <div data-src="img/hero/hero-2.jpg" />
                 </AwesomeSlider>
             </section>
 
@@ -71,7 +71,7 @@ export default function Home() {
                         <div class="col-lg-5">
                             <div class="banner__item banner__item--middle">
                                 <div class="banner__item__pic">
-                                    <img src="img/banner/banner-2.jpg" alt="" />
+                                    <img src="img/banner/banner-4.jpg" alt="" />
                                 </div>
                                 <div class="banner__item__text">
                                     <h2>{HomeTranslations[language]["Ovins & Brebis"]}</h2>
@@ -84,7 +84,7 @@ export default function Home() {
                         <div class="col-lg-7">
                             <div class="banner__item banner__item--last">
                                 <div class="banner__item__pic">
-                                    <img src="img/banner/banner-1.jpg" alt="" />
+                                    <img src="img/banner/banner-3.jpg" alt="" />
                                 </div>
                                 <div class="banner__item__text">
                                     <h2>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
