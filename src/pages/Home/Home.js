@@ -57,7 +57,7 @@ export default function Home() {
                         <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <img src="img/banner/banner-1.jpg" alt="" />
+                                    <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/311493749_678030923502945_1668701050765048863_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Oeo2H_gcMncAX8n4OXk&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRaMTNpFTtGFPR9ByKR8ujEEhcoL4bukAbCGCKHF7dHKQ&oe=64B40132" alt="" />
 
                                 </div>
                                 <div className="banner__item__text">
@@ -71,7 +71,7 @@ export default function Home() {
                         <div className="col-lg-6" style={{paddingBottom:"0px", marginBottom:"0px"}}>
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <img src="img/banner/banner-4.jpg" alt="" />
+                                    <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/351104555_691626939439165_282033389171931222_n.jpg?stp=dst-jpg_s2048x2048&_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=cHEZ1ryA-iEAX9zDM1l&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRvrBuihMjE82nYu0k0SxPuh6WnLgStDFg4MFbyfKXtwg&oe=64B41A58" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export default function Home() {
                         <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <img src="img/banner/banner-3.jpg" alt="" />
+                                    <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354387420_232395069575148_8789793081750067042_n.jpg?stp=dst-jpg_s2048x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=sHSiHAeLXhcAX-wpegC&_nc_ht=scontent.ftun1-2.fna&oh=03_AdT5NRapFqXjzrQo2FUtLXIaLmvOP2Ags0UdkeQbE54QmA&oe=64B405D4" alt="" />
                                 </div>
                                 <div className="banner__item__text">
                                     <h2>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
