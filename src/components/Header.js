@@ -43,7 +43,7 @@ const Header = () => {
 
                             <Link to={routes.HOME}>
 
-                                <img src="./logo1.png" alt="Your Image" />
+                                <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354489994_258818066739367_6080175949998551953_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UEjHlc23qeoAX8FectC&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTIL1OR_JFRMcq2hfu7_zVlSTVHGI6b7qbNlb2ZYuf0TQ&oe=64B37E9D" alt="Your Image" />
                             </Link>
 
                         </div>
@@ -73,7 +73,7 @@ const Header = () => {
                         <div className="header__nav__option" style={{ display: "flex" }}>
                             <LanguageSelector />
                             <Link to={routes.CART}>
-                                <img src="img/icon/cart.png" alt="" /> <span></span>
+                                <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/334893072_159526017014858_6086972990484068810_n.png?stp=cp0_dst-png&_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=xnxic3Gk-3AAX-w5QBx&_nc_ht=scontent.ftun4-2.fna&oh=03_AdQyVl7vOqCZOxbbZajXbeQQ2xncvT2Ld4PQ5iWCFZ7z5A&oe=64B3695F" alt="" /> <span></span>
                             </Link>
                             <div className="price">{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</div>
                         </div>
