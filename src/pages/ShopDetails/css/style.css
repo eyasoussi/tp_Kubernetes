@@ -404,7 +404,7 @@ ol {
 }
 
 .header__logo {
-	padding: 30px 0;
+	padding: 20px 0px;
 }
 
 .header__logo a {
@@ -2027,7 +2027,7 @@ ol {
 -----------------------*/
 
 .breadcrumb-option {
-	background: #f3f2ee;
+	background: #E5F9DB;
 	padding: 40px 0;
 }
 
@@ -3386,7 +3386,16 @@ ol {
 	
 	.filter__controls li.active {
 		color: #111111;
-		background-color: #dcdcdc;
+		background-color: #E5F9DB;
+	}
+	.houssam{
+		display: flex;
+	}
+	.header__logo {
+		flex:4		
+	}
+	.header__menu.mobile-menu {
+		flex:6
 	}
 }
 
@@ -3437,7 +3446,16 @@ ol {
 	
 	.filter__controls li.active {
 		color: #111111;
-		background-color: #dcdcdc;
+		background-color: #E5F9DB;
+	}
+	.houssam{
+		display: flex;
+	}
+	.header__logo {
+		flex:6		
+	}
+	.header__menu.mobile-menu {
+		flex:4
 	}
 }
 
@@ -3542,9 +3560,18 @@ ol {
 	
 	.filter__controls li.active {
 		color: #111111;
-		background-color: #dcdcdc;
+		background-color: #E5F9DB;
 	}
-	
+	.houssam{
+		display: flex;
+	}
+	.header__logo {
+		flex:60%		
+	}
+	.header__menu.mobile-menu {
+		flex:40%
+	}
+
 }
 
 /* Wide Mobile = 480px */
@@ -3912,7 +3939,12 @@ ol {
 	}
 	.filter__controls li.active {
 		color: #111111;
-		background-color: #dcdcdc;
+		background-color: #E5F9DB;
+	}
+	.header__logo {
+		padding:  30px 0px;
+		padding-bottom: 10px;
+		
 	}
 	
 }
@@ -3986,7 +4018,12 @@ ol {
 	
 	.filter__controls li.active {
 		color: #111111;
-		background-color: #dcdcdc;
+		background-color: #E5F9DB;
+	}
+	.header__logo {
+		padding: 30px 0px;
+		padding-bottom: 10px;
+		
 	}
 
 }
