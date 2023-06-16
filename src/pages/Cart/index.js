@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
+import { NoEncryption, Style } from '@mui/icons-material';
 
 export default function Cart() {
     const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
@@ -77,7 +78,7 @@ export default function Cart() {
                                                 <th>{language === "fr" ? "Titre" : "الاسم"}</th>
                                                 <th>{language === "fr" ? "Prix" : "الثمن"}</th>
                                                 <th>{language === "fr" ? "Catégorie" : "الفئة"}</th>
-                                                <th>{language === "fr" ? "Quantité" : "الكمية"}</th>
+                                                <th>{language === "fr" ? "Consulter" : "تفاصيل المنتج"}</th>
                                                 <th>{language === "fr" ? "Supprimer" : "فسخ المنتج"}</th>
                                             </tr>
                                         </thead>
@@ -100,11 +101,9 @@ export default function Cart() {
                                                     </td>
                                                     <td>{translationTable[language][item.category]}</td>
                                                     <td className="quantity__item">
-                                                        <div className="quantity">
-                                                            <div className="pro-qty-2">
-                                                                <input type="text" value="1" disabled />
-                                                            </div>
-                                                        </div>
+                                                    <td className="cart__close">
+                                                        <Link to={`${routes.SHOP}/${item.id}`} style={{width:1}}><i className="fa fa-eye"></i></Link>
+                                                    </td>
                                                     </td>
                                                     <td className="cart__close">
                                                         <i onClick={() => removeFromCart(item)} className="fa fa-close"></i>
