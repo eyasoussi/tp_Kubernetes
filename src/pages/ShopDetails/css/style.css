@@ -3337,7 +3337,7 @@ ol {
 	padding: 14px 35px;
 }
 
-/*--------------------------------- Responsive Media Quaries -----------------------------*/
+/*--------------------------------- Responsive Quaries -----------------------------*/
 
 @media only screen and (min-width: 1200px) {
 	.container {
@@ -3395,7 +3395,7 @@ ol {
 	}
 	.header__logo {
 		flex:4;
-		padding : 20px 0;		
+		padding : 8px 0;
 	}
 	.header__menu.mobile-menu {
 		flex:6
