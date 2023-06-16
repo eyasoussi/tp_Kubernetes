@@ -23,10 +23,10 @@ function LanguageSelector() {
   };
 
   return (
-    <div className="language-selector">
+    <div className="language-selector" style={{marginBottom:"20px"}}>
       <label htmlFor="language"></label>
       <select id="language" value={language} onChange={handleLanguageChange}>
-        <option value="" disabled>-- {language ==='fr' ? translations['fr']['question'] : translations['ar']['question']} --</option>
+        {/* <option value="" disabled>-- {language ==='fr' ? translations['fr']['question'] : translations['ar']['question']} --</option> */}
         <option value="ar" className='ar'>
           <span className="flag-icon flag-icon-tn"></span> {language === "fr" ? "Arabe" : "العربية"}
         </option>

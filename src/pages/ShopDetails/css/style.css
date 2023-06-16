@@ -3800,7 +3800,7 @@ ol {
 	}
 	.header__nav__option {
 		padding-top: 0px;
-        padding-bottom: 10px;
+        padding-bottom: 0px;
 		display: none;
 	}
 	.search-model-form input {
@@ -4076,7 +4076,7 @@ ol {
 	}
 	.header__nav__option {
 		padding-top: 0px;
-        padding-bottom: 10px;
+        padding-bottom: 0px;
 		display: none;
 	}
 	.footer {
