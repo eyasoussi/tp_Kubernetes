@@ -95,7 +95,7 @@ export default function Footer() {
                                 </form>
                             </div>
                         </div>
-                        <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
+                        <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 50 128 000 "}</button>
                     </div>
                 </div>
                 <div className="row">

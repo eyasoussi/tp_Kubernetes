@@ -21,15 +21,14 @@ import './css/font-awesome.min.css'
 import MyContext from '../../context';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
+import { articles } from '../../articles';
 
 export default function ShopDetails() {
     const navigate = useNavigate();
-
-
     const { cartItems, addToCart } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
-    const { id } = useParams();
-    const [articles, setArticles] = useState([]);
+    let { id } = useParams();
+    const [idP, setIdP] = useState(id);
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
@@ -78,29 +77,9 @@ export default function ShopDetails() {
         },
     };
 
-    // Your code here...
-
 
     const getItemById = (articles, id) => {
         return articles.find((article) => Number(article.id) === Number(id));
-    };
-
-
-    const fetchData = () => {
-        axios
-            .get('/dummy.json')
-            .then((response) => {
-                const data = response.data;
-                setArticles(data.articles);
-                console.log("hey");
-                const obj = articles.find((article) => Number(article.id) === Number(id));
-                console.log(obj);
-                setArticle(obj);
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
     };
 
     function getRandomArticlesByCategory(articles, category) {
@@ -125,13 +104,15 @@ export default function ShopDetails() {
     }
 
     useEffect(() => {
-        if (typeof article === 'null' || typeof article === 'undefined' || articles.length === 0) {
-            fetchData();
-        }
+        const newId = idP
+        console.log(newId);
+        setArticle(articles.find((article) => Number(article.id) === Number(newId)));
+        console.log(article);
+        setIsLoading(false);
         console.log(id)
         console.log(articles);
         console.log(article);
-    }, [articles, id]);
+    }, [ id, idP]);
 
     useEffect(() => {
         const selectedItemsIds = cartItems.map(item => item.id);
@@ -148,8 +129,9 @@ export default function ShopDetails() {
 
     const randomArticles = getRandomArticlesByCategory(articles, article?.category);
 
-    const handleClickNavigate = (productId) => {
-        navigate(`${routes.SHOP}/${productId}`);
+    const handleNavigation = (productId) => {
+        navigate(`/boutique/${productId}`);
+        setIdP(productId);
     };
 
     const handleClick = (article) => {
@@ -206,10 +188,10 @@ export default function ShopDetails() {
                                             </Link>
                                         </div>
                                         <div className="product__details__btns__option">
-                                        <Link to={routes.SHOP}>
-                                            {shopDetailsTranslations[language]["addToCompare"]}
-                                        </Link>
-                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
+                                            <Link to={routes.SHOP}>
+                                                {shopDetailsTranslations[language]["addToCompare"]}
+                                            </Link>
+                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 50 128 000 "}</button>
                                         </div>
                                         <div className="product__details__last__option">
                                             <h5><span>{shopDetailsTranslations[language]["safeCheckout"]}</span></h5>
@@ -243,24 +225,22 @@ export default function ShopDetails() {
                                                 <li>
                                                     <Link onClick={() => handleClick(article)} to={routes.CART}>
                                                         <a>
-                                                            <img src="img/icon/cart.png" alt="" />
+                                                            <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/334893072_159526017014858_6086972990484068810_n.png?stp=cp0_dst-png&_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=xnxic3Gk-3AAX-w5QBx&_nc_ht=scontent.ftun4-2.fna&oh=03_AdQyVl7vOqCZOxbbZajXbeQQ2xncvT2Ld4PQ5iWCFZ7z5A&oe=64B3695F" alt="" />
                                                         </a>
                                                         <span>{language === "fr" ? "Ajouter à la Carte" : "أضف الى عربة المقتنيات"}</span>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link onClick={() => handleClickNavigate(article?.id)}>
-                                                        <a>
-                                                            <img src="img/icon/search.png" alt="" />
-                                                        </a>
-                                                        <span>{language === "fr" ? "Voir le Produit" : "النضر الى المنتج"}</span>
-                                                    </Link>
+                                                    <a onClick={() => handleNavigation(article?.id)}>
+                                                        <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/336654487_900125547873341_6166048667323514090_n.png?stp=cp0_dst-png&_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Mb4hbxlE8skAX_5qCm1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTI78i9uLmSmmwp6xychRTb4ztIgAZSCmRRaY82kZfPPA&oe=64B3C3D5" alt="" />
+                                                    </a>
+                                                    <span>{language === "fr" ? "Voir le Produit" : "النضر الى المنتج"}</span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div className="product__item__text">
                                             <h6>{article.title}</h6>
-                                           <Link onClick={() => handleClick(article)} to={routes.CART}>
+                                            <Link onClick={() => handleClick(article)} to={routes.CART}>
                                                 {language === "fr" ? "Ajouter à la Carte" : "أضف الى عربة المقتنيات"}
                                             </Link>
                                             <h5>{article.price} {language === "fr" ? "TND" : "دينار"}</h5>
@@ -280,7 +260,6 @@ export default function ShopDetails() {
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </section>
                 <Footer />

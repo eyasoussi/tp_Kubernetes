@@ -24,7 +24,7 @@ export default function Checkout() {
             "city": "Ariana",
             "state": "Ariana",
             "postcode": "2080",
-            "phone": "50128000",
+            "phone": "50 128 000",
             "email": "falleh.tn@gmail.com"
         },
         "ar": {
@@ -35,7 +35,7 @@ export default function Checkout() {
             "city": "أريانة",
             "state": "أريانة",
             "postcode": "2080",
-            "phone": "50128000",
+            "phone": "50 128 000",
             "email": "falleh.tn@gmail.com"
         }
     }
@@ -142,7 +142,7 @@ export default function Checkout() {
                                                 {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>{}{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</span>
                                             </li>
                                         </ul>
-                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
+                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 50 128 000 "}</button>
                                     </div>
                                 </div>
                             </div>
