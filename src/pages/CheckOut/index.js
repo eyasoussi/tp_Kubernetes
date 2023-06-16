@@ -17,32 +17,32 @@ export default function Checkout() {
 
     const translation = {
         "fr": {
-            "contact1": "Riadh",
-            "contact2": "Mohamed Ali",
+            "contact1": "Riadh Madani",
+            "contact2": "Mohamed Ali Trabelsi",
             "country": "Tunisie",
-            "address": "Rue Ahmed Becha",
-            "city": "Bizerte",
-            "state": "Bizerte",
-            "postcode": "7000",
-            "phone": "26211344",
+            "address": "Ferme Dmen, Ariana 2021",
+            "city": "Ariana",
+            "state": "Ariana",
+            "postcode": "2080",
+            "phone": "50128000",
             "email": "falleh.tn@gmail.com"
         },
         "ar": {
-            "contact1": "رياض",
-            "contact2": "محمد علي",
+            "contact1": "رياض المدني",
+            "contact2": "محمد علي الطرابلسي",
             "country": "تونس",
-            "address": "شارع أحمد بشا",
-            "city": "بنزرت",
-            "state": "بنزرت",
-            "postcode": "7000",
-            "phone": "26211344",
+            "address": "2021 ضيعة دمان بأريانة",
+            "city": "أريانة",
+            "state": "أريانة",
+            "postcode": "2080",
+            "phone": "50128000",
             "email": "falleh.tn@gmail.com"
         }
     }
     const translations = translation[language];
 
     const handlePhoneCall = () => {
-        window.location.href = `tel:${26211344}`;
+        window.location.href = `tel:${50128000}`;
     };
 
     return (
@@ -81,7 +81,7 @@ export default function Checkout() {
                                     <div className="row">
                                     <div className="col-lg-8">
                                     <p>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</p>   
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102074.0719990612!2d9.932173565734095!3d36.9186933991964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2d248dd06d4a5%3A0x9685846321d6715b!2sSidi%20Thabet!5e0!3m2!1sen!2stn!4v1686872795340!5m2!1sen!2stn" width={600}
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus" width={600}
                                             height={450}
                                             style={{ border: "0" }}
                                             allowFullScreen=""
@@ -142,7 +142,7 @@ export default function Checkout() {
                                                 {language === "fr" ? "Prix Total" : "الثمن الجملي"} <span>{}{cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}</span>
                                             </li>
                                         </ul>
-                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Appelez Maintenant : 26211344" : "اتصل بنا الان : 26211344 "}</button>
+                                        <button type="submit" className="site-btn" onClick={handlePhoneCall} disabled={cartItems.length === 0}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
                                     </div>
                                 </div>
                             </div>

@@ -10,11 +10,11 @@ export default function AdviceAlfa() {
     "ar": "يجب توفير تغذية متوازنة ومتنوعة للأغنام لتلبية احتياجاتها الغذائية. تأكد من تقديم مزيج من المكونات الغذائية الأساسية مثل العلف النباتي والحبوب والأعلاف المركبة الغنية بالبروتين والفيتامينات والمعادن الضرورية. لا تنسى توفير الأعشاب الطازجة والأعلاف الخضراء لتعزيز التنوع الغذائي وتحسين صحة الأغنام. من المستحسن استشارة خبير في التغذية الحيوانية لضبط النظام الغذائي وفقًا لاحتياجاتها الدقيقة."
   }
   const videoId = 'noYy1lrvaLs';
+  const isMobileView = window.innerWidth < 768; 
   const opts = {
-    height: '360',
-    width: '440',
+    height: isMobileView ? '240' : '360',
+    width: isMobileView ? '300' : '440',
     playerVars: {
-      // Additional player parameters (optional)
       autoplay: 0,
     },
   };
@@ -40,7 +40,7 @@ export default function AdviceAlfa() {
           </div>
           <div className="col-lg-8">
             <div className="video-container">
-              <YouTube videoId={videoId} />
+              <YouTube videoId={videoId} opts={opts} />
             </div>
           </div>
         </div>

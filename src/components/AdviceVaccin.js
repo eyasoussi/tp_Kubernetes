@@ -10,14 +10,15 @@ export default function AdviceVaccin() {
     "ar": "تطعيم الأغنام أمر ضروري للوقاية من الأمراض وضمان صحتها. استشر طبيب بيطري متخصص في الأغنام لوضع برنامج تطعيم مناسب لأغنامك. تأكد من احترام جداول التطعيم الموصى بها واتباع التوجيهات الخاصة بكل لقاح. يساعد التطعيم المنتظم في تعزيز جهاز المناعة لدى الأغنام وتقليل مخاطر الأمراض المعدية."
   };
   const videoId = 'gCfy4tw7hlo';
+  const isMobileView = window.innerWidth < 768; 
   const opts = {
-    height: '360',
-    width: '440',
+    height: isMobileView ? '240' : '360',
+    width: isMobileView ? '300' : '440',
     playerVars: {
-      // Additional player parameters (optional)
       autoplay: 0,
     },
   };
+  
   return (
     <section className="testimonial">
       <div className="container-fluid">
@@ -40,7 +41,7 @@ export default function AdviceVaccin() {
           </div>
           <div className="col-lg-8">
             <div className="video-container">
-              <YouTube videoId={videoId} />
+              <YouTube videoId={videoId} opts={opts} />
             </div>
           </div>
         </div>

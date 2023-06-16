@@ -24,7 +24,7 @@ export default function Footer() {
     }
 
     const handlePhoneCall = () => {
-        window.location.href = `tel:${26211344}`;
+        window.location.href = `tel:${50128000}`;
     };
 
     return (
@@ -95,7 +95,7 @@ export default function Footer() {
                                 </form>
                             </div>
                         </div>
-                        <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 26211344" : "اتصل بنا الان : 26211344 "}</button>
+                        <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
                     </div>
                 </div>
                 <div className="row">

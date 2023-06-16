@@ -10,15 +10,15 @@ export default function AdviceElevage() {
     "ar": "تربية ورعاية الأغنام أمران أساسيان لضمان رفاهيتها وصحتها العامة. تأكد من توفير بيئة نظيفة وآمنة لهم، مع مأوى مناسب لحمايتهم من العوامل الجوية. توفر لهم تغذية متوازنة وكافية وفقًا لاحتياجاتهم الغذائية. من المهم أيضًا توفير وصولهم إلى مياه نظيفة في جميع الأوقات. قم بإجراء فحوصات صحية بانتظام واستشر طبيب بيطري للحصول على الرعاية الوقائية والعلاجات في حالة الإصابة بمرض. أخيرًا، قدم لهم بيئة اجتماعية عن طريق إدخال ماعز آخرين أو السماح لهم بالرعي معًا، مما يعزز رفاهيتهم العقلية والاجتماعية."
   };
   const videoId = 'lcJ3N_PmzV0';
-  const isMobileView = window.innerWidth < 768; // Adjust the breakpoint as needed
 
-const opts = {
-  height: isMobileView ? '140' : '360',
-  width: isMobileView ? '140' : '440',
-  playerVars: {
-    autoplay: 0,
-  },
-};
+  const isMobileView = window.innerWidth < 768; 
+  const opts = {
+    height: isMobileView ? '240' : '360',
+    width: isMobileView ? '300' : '440',
+    playerVars: {
+      autoplay: 0,
+    },
+  };
 
 return (
     <section className="testimonial">
@@ -42,7 +42,7 @@ return (
           </div>
           <div className="col-lg-8">
             <div className="video-container">
-              <YouTube videoId={videoId} />
+              <YouTube videoId={videoId} opts={opts} />
             </div>
           </div>
         </div>
