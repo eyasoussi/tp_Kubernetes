@@ -505,10 +505,11 @@ ol {
 
 .header__nav__option {
 	text-align: right;
-	padding: 30px 0;
+	padding: 45px 0;
 }
 
 .header__nav__option a {
+	margin-left: 10px;
 	display: inline-block;
 	margin-right: 26px;
 	position: relative;
@@ -3393,7 +3394,8 @@ ol {
 		display: flex;
 	}
 	.header__logo {
-		flex:4		
+		flex:4;
+		padding : 20px 0;		
 	}
 	.header__menu.mobile-menu {
 		flex:6
@@ -3453,7 +3455,8 @@ ol {
 		display: flex;
 	}
 	.header__logo {
-		flex:6		
+		flex:6;	
+		padding : 20px 0;		
 	}
 	.header__menu.mobile-menu {
 		flex:4
@@ -3567,7 +3570,8 @@ ol {
 		display: flex;
 	}
 	.header__logo {
-		flex:60%		
+		flex:60%;
+		padding : 35px 0;			
 	}
 	.header__menu.mobile-menu {
 		flex:40%
@@ -3776,6 +3780,8 @@ ol {
 		display: none;
 	}
 	.header__nav__option {
+		padding-top: 0px;
+        padding-bottom: 10px;
 		display: none;
 	}
 	.search-model-form input {
@@ -4026,7 +4032,11 @@ ol {
 		padding-bottom: 10px;
 		
 	}
-
+	.header__nav__option {
+		padding-top: 0px;
+        padding-bottom: 10px;
+		display: none;
+	}
 }
   
  @media (max-width: 991px) {
