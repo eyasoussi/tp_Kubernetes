@@ -1913,7 +1913,7 @@ ol {
 
 .footer {
 	background: #E5F9DB ;
-	padding-top: 70px;
+	padding-top: 15px;
 }
 
 .footer__about {
@@ -4037,6 +4037,10 @@ ol {
 		padding-top: 0px;
         padding-bottom: 10px;
 		display: none;
+	}
+	.footer {
+		background: #E5F9DB ;
+		padding-top: 0px;
 	}
 }
   
