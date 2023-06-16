@@ -24,7 +24,7 @@ function App() {
             <Route exact path={routes.CHECKOUT} element={<CheckOut />} />
             <Route path={routes.SHOP} element={<Shop />} />
             <Route path={routes.SHOPDETAILS} element={<ShopDetails />} />
-            <Route path={routes.NOT_FOUND_PAGE} element={<ShopDetails />} />
+            <Route path={routes.NOT_FOUND_PAGE} element={<Home />} />
           </Routes>
         </Router>
       </CartProvider>
