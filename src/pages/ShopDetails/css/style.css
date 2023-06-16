@@ -1911,7 +1911,7 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #111111;
+	background: #E5F9DB ;
 	padding-top: 70px;
 }
 
@@ -1928,7 +1928,7 @@ ol {
 }
 
 .footer__about p {
-	color: #b7b7b7;
+	color: #5F7161 ;
 	margin-bottom: 30px;
 }
 
@@ -1937,7 +1937,7 @@ ol {
 }
 
 .footer__widget h6 {
-	color: #ffffff;
+	color: #4C4B16;
 	font-size: 15px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -1951,12 +1951,12 @@ ol {
 }
 
 .footer__widget ul li a {
-	color: #b7b7b7;
+	color: #4C4B16;
 	font-size: 15px;
 }
 
 .footer__widget .footer__newslatter p {
-	color: #b7b7b7;
+	color: #5F7161;
 }
 
 .footer__widget .footer__newslatter form {
@@ -1970,27 +1970,27 @@ ol {
 	background: transparent;
 	border: none;
 	padding: 15px 0;
-	border-bottom: 2px solid #ffffff;
+	border-bottom: 2px solid #000000;
 }
 
 .footer__widget .footer__newslatter form input::-webkit-input-placeholder {
-	color: #3d3d3d;
+	color: #030303;
 }
 
 .footer__widget .footer__newslatter form input::-moz-placeholder {
-	color: #3d3d3d;
+	color: #050505;
 }
 
 .footer__widget .footer__newslatter form input:-ms-input-placeholder {
-	color: #3d3d3d;
+	color: #030303;
 }
 
 .footer__widget .footer__newslatter form input::-ms-input-placeholder {
-	color: #3d3d3d;
+	color: #000000;
 }
 
 .footer__widget .footer__newslatter form input::placeholder {
-	color: #3d3d3d;
+	color: rgb(0, 0, 0);
 }
 
 .footer__widget .footer__newslatter form button {
