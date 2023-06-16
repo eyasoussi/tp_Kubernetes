@@ -6,6 +6,7 @@ import Weight from './Weight';
 import Type from './Type';
 import Race from './Race';
 import Age from './Age';
+import Search from './Search';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
@@ -20,6 +21,7 @@ export default function Sidebar({ setAllFilters, articles }) {
   const [stat, setStat] = useState([]);
   const [filters, setFilters] = useState({});
   const [isFilterOptionsVisible, setIsFilterOptionsVisible] = useState(false);
+  const [enteredWord, setEnteredWord] = useState("");
 
   const sidebarRef = useRef(null); // Ref for the outermost div container
 
@@ -71,8 +73,9 @@ export default function Sidebar({ setAllFilters, articles }) {
       age: age,
       weight: weight,
       stat: stat,
+      enteredWord: enteredWord
     });
-  }, [price, race, type, age, weight, stat]);
+  }, [price, race, type, age, weight, stat, enteredWord]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -84,14 +87,17 @@ export default function Sidebar({ setAllFilters, articles }) {
     };
 
     const handleClickOutside = (event) => {
+      const filterButton = document.querySelector('.filter-button');
+    
       if (
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target) &&
-        !event.target.classList.contains('filter-button')
+        event.target !== filterButton
       ) {
         setIsFilterOptionsVisible(false);
       }
     };
+    
 
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);
@@ -116,15 +122,19 @@ export default function Sidebar({ setAllFilters, articles }) {
     <div ref={sidebarRef} className="shop__sidebar__accordion">
       <div id="accordionExample">
         {window.innerWidth < 992 && (
+          <div className="teya"> 
+          <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
           <button
             className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
             onClick={toggleFilterOptions}
           >
             {language === "fr" ? "Filtrer" : "فرز"}<FilterAltOutlinedIcon />
           </button>
+          </div>
         )}
         {(isFilterOptionsVisible || window.innerWidth >= 992) && (
           <div className="filter-options">
+            <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
             {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
             {filters.Race && <Race setRace={setRace} />}
             {filters.Type && <Type setType={setType} />}

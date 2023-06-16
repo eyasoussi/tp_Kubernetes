@@ -37,16 +37,18 @@ const Header = () => {
     return (
         <header className="header">
             <div className="container">
-                <div className="row">
-                    <div className="col-lg-3 col-md-3">
+                <div className="houssam">
+                    <div className="col-lg-3 col-md-3" style={{display:"flex"}}>
                         <div className="header__logo">
+
                             <Link to={routes.HOME}>
 
-                                <h3 style={{ color: 'green' }}>Aalouchi.tn</h3>
+                                <img src="./logo1.png" alt="Your Image"  />
                             </Link>
+
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-6">
+                    <div className="col-lg-6 col-md-6" style={{display:"flex"}}>
                         <nav className="header__menu mobile-menu">
                             <ul>
                                 <li>

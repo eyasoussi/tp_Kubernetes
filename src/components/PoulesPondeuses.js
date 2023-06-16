@@ -19,7 +19,6 @@ export default function PoulesPondeuses({data}) {
     <div className="row">
         <div className="col-lg-3"> 
             <div className="shop__sidebar"> 
-                <Search/>
                 <Sidebar setAllFilters={setAllFilters} articles={"Poules Pondeuses"}/>     
             </div>
         </div>
