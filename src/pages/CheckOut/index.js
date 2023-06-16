@@ -133,7 +133,7 @@ export default function Checkout() {
                                         <ul className="checkout__total__products">
                                             {cartItems.map((item, index) => (
                                                 <li key={index}>
-                                                    {`${index + 1}. ${item.title}`} <span>${item.price}</span>
+                                                    {`${index + 1}. ${item.title}`} <span>{item.price} {language === "fr" ? "Dinars" : "دينار"}</span>
                                                 </li>
                                             ))}
                                         </ul>
