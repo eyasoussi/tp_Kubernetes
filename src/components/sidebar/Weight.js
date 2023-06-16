@@ -50,7 +50,7 @@ const marks = [
     return (
         <div className="card">
             <div className="card-heading">
-                <a data-toggle="collapse" data-target="#collapseThree">{language==="fr" ? "Poids" : "الوزن"}</a>
+                <a data-toggle="collapse" data-target="#collapseThree">{language==="fr" ? "Poids Vif" : "الوزن الحي"}</a>
             </div>
             <div>
                 <div>

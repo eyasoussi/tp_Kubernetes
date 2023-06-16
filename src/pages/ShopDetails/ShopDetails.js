@@ -46,7 +46,7 @@ export default function ShopDetails() {
         },
         "fr": {
             "addToWishlist": 'AJOUTER AU PANIER',
-            "addToCompare": 'AJOUTER À LA LISTE DE SOUHAITS',
+            "addToCompare": 'RETOURNEZ A LA BOUTIQUE',
             "safeCheckout": 'La Qualité de nos Produits est une Garantie',
             "category": 'Catégorie :',
             "age": 'Âge :',
@@ -62,7 +62,7 @@ export default function ShopDetails() {
         },
         "ar": {
             "addToWishlist": 'إضافة إلى سلة المقتنيات',
-            "addToCompare": 'إضافة إلى قائمة الرغبات',
+            "addToCompare": 'الرجوع الى المتجر',
             "safeCheckout": 'جودة منتوجاتنا عهد و ضمان',
             "category": 'الفئة:',
             "age": 'العمر:',
@@ -143,7 +143,7 @@ export default function ShopDetails() {
     }
 
     const handlePhoneCall = () => {
-        window.location.href = `tel:${26211344}`;
+        window.location.href = `tel:${50128000}`;
     };
 
     const randomArticles = getRandomArticlesByCategory(articles, article?.category);
@@ -206,8 +206,10 @@ export default function ShopDetails() {
                                             </Link>
                                         </div>
                                         <div className="product__details__btns__option">
-                                            <Link><img src="img/icon/heart.png" alt="" /> {shopDetailsTranslations[language]["addToCompare"]}</Link>
-                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Contactez Nous & Placez Une Commande" : "اتصل بنا و ثبت الطلب"}</button>
+                                        <Link to={routes.SHOP}>
+                                            {shopDetailsTranslations[language]["addToCompare"]}
+                                        </Link>
+                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
                                         </div>
                                         <div className="product__details__last__option">
                                             <h5><span>{shopDetailsTranslations[language]["safeCheckout"]}</span></h5>

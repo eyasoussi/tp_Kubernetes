@@ -26,6 +26,7 @@ const Header = () => {
             "A Propos": "اتصل بنا"
         }
     }
+    
     const handleOpenClick = () => {
         setMenuOpen(true);
     };

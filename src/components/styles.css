@@ -3,6 +3,13 @@
     padding: 0 !important;
     margin: 0 !important;
   }
+
+  .video-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
   
   .li-item {
     font-size: 18px !important;

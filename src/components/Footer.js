@@ -1,70 +1,119 @@
 import React from 'react'
+import { useContext } from 'react';
+import { LanguageContext } from '../LanguageContext';
+import routes from '../routes';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  return (
-    <footer className="footer">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-3 col-md-6 col-sm-6">
-                    <div className="footer__about">
-                        <div className="footer__logo">
-                            <a href="#"><img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354489994_258818066739367_6080175949998551953_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UEjHlc23qeoAX8FectC&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTIL1OR_JFRMcq2hfu7_zVlSTVHGI6b7qbNlb2ZYuf0TQ&oe=64B37E9D" alt=""/></a>
+    const { language } = useContext(LanguageContext);
+    const FooterTranslations = {
+        "fr": {
+            "Acceuil": "Acceuil",
+            "Boutique": "Boutique",
+            "A Propos": "Contactez Nous",
+            "cart":"Panier",
+            "checkout":"Finalisation du Shopping"
+        },
+        "ar": {
+            "Acceuil": "الصفحة الرئيسية",
+            "Boutique": "المتجر",
+            "A Propos": "اتصل بنا",
+            "cart":"عربة المقتنيات",
+            "checkout":"انهاء التسوق و التواصل معنا"
+        }
+    }
+
+    const handlePhoneCall = () => {
+        window.location.href = `tel:${50128000}`;
+    };
+
+    return (
+        <footer className="footer">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
+                        <div className="footer__about">
+                            <div className="footer__logo">
+                                <a href="#"><img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354489994_258818066739367_6080175949998551953_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UEjHlc23qeoAX8FectC&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTIL1OR_JFRMcq2hfu7_zVlSTVHGI6b7qbNlb2ZYuf0TQ&oe=64B37E9D" alt="" /></a>
+                            </div>
+                            <p>{language === "fr" ? "Découvrez notre boutique en ligne de vente de moutons et poulets! Nous proposons des produits de haute qualité et une expérience d'achat fluide. Trouvez tout ce dont vous avez besoin dans notre boutique. Contactez-nous maintenant!" : "اكتشف متجرنا الإلكتروني لبيع الأغنام والدجاج! هدفنا الرئيسي هو تقديم أفضل تجربة يمكن أن نقدمها للعملاء. نحن نقدم منتجات عالية الجودة وتجربة تسوق سلسة. ابحث عن كل ما تحتاجه في متجرنا. اتصل بنا الآن!"}</p>
+                            <Link to={routes.CART}><img src="img/payment.png" alt="" /></Link>
                         </div>
-                        <p>The customer is at the heart of our unique business model, which includes design.</p>
-                        <a href="#"><img src="img/payment.png" alt=""/></a>
+                    </div>
+                    <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                        <div className="footer__widget">
+                            <h6>{language === "fr" ? "Nos Pages" : "صفحاتنا"}</h6>
+                            <ul>
+                                <li>
+                                    <Link to={routes.HOME}>
+                                        {FooterTranslations[language]["Acceuil"]}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={routes.SHOP}>
+                                        {FooterTranslations[language]["Boutique"]}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={routes.ABOUTUS}>
+                                        {FooterTranslations[language]["A Propos"]}
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-lg-2 col-md-3 col-sm-6">
+                        <div className="footer__widget">
+                            <h6>{language === "fr" ? "Shopping" : "التسوق"}</h6>
+                            <ul>
+                                <li>
+                                    <Link to={routes.SHOP}>
+                                        {FooterTranslations[language]["Boutique"]}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={routes.CART}>
+                                        {FooterTranslations[language]["cart"]}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to={routes.CHECKOUT}>
+                                        {FooterTranslations[language]["checkout"]}
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                        <div className="footer__widget">
+                            <h6>{language==="fr"? "Contactez Nous" : "اتصل بنا"}</h6>
+                            <div className="footer__newslatter">
+                                <p> {language==="fr"? "Pour plus d'informations sur nos produits, ou pour installer une commande ou une enquête, veuillez nous contacter et communiquer avec nous sur notre e-mail ou via notre numéro de téléphone." : "لمزيد من المعلومات حول منتوجاتنا أو من أجل تثبيت طلب أو الاستفسار الرجاء الاتصال بنا و التواصل معنا على بريدنا الالكتروني أو عبر رقم الهاتف"}</p>
+                                <form action="#">
+                                <input type="text" placeholder="Your email" readOnly value="falleh.tn@gmail.com" />
+                                    <button type="submit"><span class="icon_mail_alt"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50128000" : "اتصل بنا الان : 50128000 "}</button>
                     </div>
                 </div>
-                <div className="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div className="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Clothing Store</a></li>
-                            <li><a href="#">Trending Shoes</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Sale</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="col-lg-2 col-md-3 col-sm-6">
-                    <div className="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Delivary</a></li>
-                            <li><a href="#">Return & Exchanges</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
-                    <div className="footer__widget">
-                        <h6>NewLetter</h6>
-                        <div className="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                            <form action="#">
-                                <input type="text" placeholder="Your email"/>
-                                <button type="submit"><span class="icon_mail_alt"></span></button>
-                            </form>
+                <div className="row">
+                    <div className="col-lg-12 text-center">
+                        <div className="footer__copyright__text">
+
+                            <p>Copyright ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> 2023
+                                {language==="fr" ? " Tous droits réservés | Ce site web est réalisé avec":"جميع الحقوق محفوظة | هذا الموقع تم إنشاؤه بكل"} <i class="fa fa-heart-o"
+                                    aria-hidden="true"></i> {language==="fr" ? "par ":"من قبل"} <a href="" target="_blank">EaglesDevClub.tn</a>
+                            </p>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-lg-12 text-center">
-                    <div className="footer__copyright__text">
-                       
-                        <p>Copyright ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>2020
-                            All rights reserved | This template is made with <i class="fa fa-heart-o"
-                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        </p>
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-  )
+        </footer>
+    )
 }
