@@ -51,16 +51,16 @@ export default function Home() {
                 </AwesomeSlider>
             </section>
 
-            <section class="banner spad">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7 offset-lg-4">
-                            <div class="banner__item">
-                                <div class="banner__item__pic">
+            <section className="banner spad">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-7 offset-lg-4">
+                            <div className="banner__item">
+                                <div className="banner__item__pic">
                                     <img src="img/banner/banner-1.jpg" alt="" />
 
                                 </div>
-                                <div class="banner__item__text">
+                                <div className="banner__item__text">
                                     <h2>{HomeTranslations[language]["Nouvel arrivage 2023"]}</h2>
                                     <Link to={routes.SHOP}>
                                         {HomeTranslations[language]["Achetez maintenant"]}
@@ -68,25 +68,29 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="banner__item banner__item--middle">
-                                <div class="banner__item__pic">
+                        <div className="col-lg-6" style={{paddingBottom:"0px", marginBottom:"0px"}}>
+                            <div className="banner__item">
+                                <div className="banner__item__pic">
                                     <img src="img/banner/banner-4.jpg" alt="" />
                                 </div>
-                                <div class="banner__item__text">
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            
+                            <div className="banner__item__text" style={{paddingBottom:"40px"}}>
                                     <h2>{HomeTranslations[language]["Ovins & Brebis"]}</h2>
                                     <Link to={routes.SHOP}>
                                         {HomeTranslations[language]["Consultez Notre Shop"]}
                                     </Link>
                                 </div>
-                            </div>
                         </div>
-                        <div class="col-lg-7">
-                            <div class="banner__item banner__item--last">
-                                <div class="banner__item__pic">
+                        <div className="col-lg-7 offset-lg-4">
+                            <div className="banner__item">
+                                <div className="banner__item__pic">
                                     <img src="img/banner/banner-3.jpg" alt="" />
+
                                 </div>
-                                <div class="banner__item__text">
+                                <div className="banner__item__text">
                                     <h2>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
                                     <Link to={routes.ABOUTUS}>
                                         {HomeTranslations[language]["Contactez Nous"]}

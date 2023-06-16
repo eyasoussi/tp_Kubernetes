@@ -726,6 +726,7 @@ ol {
 	text-transform: uppercase;
 	padding: 3px 0;
 	position: relative;
+	margin-bottom: 20px;
 }
 
 .banner__item__text a:after {
