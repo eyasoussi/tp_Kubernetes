@@ -35,7 +35,7 @@ export const applyFilters = (data, allFilters) => {
   if (allFilters.price) {
     const [minPrice, maxPrice] = allFilters.price;
     filteredResults = filteredResults.filter(
-      (item) => item.price >= minPrice && item.price <= maxPrice
+      (item) => (item.price >= minPrice && item.price <= maxPrice) || item.price === 0
     );
   }
 
@@ -44,7 +44,7 @@ export const applyFilters = (data, allFilters) => {
   if (allFilters.weight && allFilters.weight[1] !== 80 && allFilters.weight[0] !== 0) {
     const [minWeight, maxWeight] = allFilters.weight;
     filteredResults = filteredResults.filter(
-      (item) => item.weight >= minWeight && item.weight <= maxWeight
+      (item) => (item.weight >= minWeight && item.weight <= maxWeight) || item.weight === 0
     );
   }
   console.log("weight filter: ",filteredResults);
@@ -52,7 +52,7 @@ export const applyFilters = (data, allFilters) => {
   if (allFilters.race && allFilters.race.length > 0) {
     // Apply race filter logic
     filteredResults = filteredResults.filter(
-      (item) => allFilters.race.includes(item.race)
+      (item) => allFilters.race.includes(item.race) 
     );
   }
   console.log("race filter: ",filteredResults);
@@ -77,7 +77,7 @@ export const applyFilters = (data, allFilters) => {
   if (allFilters.stat && allFilters.stat.length > 0) {
     // Apply stat filter logic
     filteredResults = filteredResults.filter(
-      (item) => allFilters.stat.includes(item.state)
+      (item) => ( item.state === 0 || allFilters.stat.includes(item.state))
     );
   }
 

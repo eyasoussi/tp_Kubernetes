@@ -40,7 +40,8 @@ export default function ShopDetails() {
             "ovinEngraissement": 'Ovin Engraissement',
             "age": 'Age:',
             "poids": 'Poids:',
-            "relatedProducts": 'Related Products'
+            "relatedProducts": 'Related Products',
+            "Entre 6mois et 9mois":"Entre 6mois et 9mois"
         },
         "fr": {
             "addToWishlist": 'AJOUTER AU PANIER',
@@ -56,7 +57,8 @@ export default function ShopDetails() {
             "Ovin Engraissement": 'Ovin Engraissement',
             "Brebis": "Brebis",
             "Poulailler Engraissement": "Poulailler Engraissement",
-            "Poules Pondeuses": "Poules Pondeuses"
+            "Poules Pondeuses": "Poules Pondeuses",
+            "Entre":"Entre 6 mois et 9 mois"
         },
         "ar": {
             "addToWishlist": 'إضافة إلى سلة المقتنيات',
@@ -72,7 +74,8 @@ export default function ShopDetails() {
             "Ovin Engraissement": 'أغنام التسمين',
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
-            "Poules Pondeuses": "دجاج البيض"
+            "Poules Pondeuses": "دجاج البيض",
+            "Entre":"بين 6 شهور و 9 شهور"
         },
     };
 
@@ -171,7 +174,7 @@ export default function ShopDetails() {
                                 <div className="col-lg-8">
                                     <div className="product__details__text">
                                         <h4>{article?.title}</h4>
-                                        <h3>{article?.price}<span>{article?.price * 0.1 + article?.price}</span></h3>
+                                        <h3>{article?.price}<span style={{display:"none"}}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
                                         <p>{article?.description}</p>
                                         <div className="product__details__option">
 
@@ -197,7 +200,7 @@ export default function ShopDetails() {
                                             <img src="img/shop-details/details-payment.png" alt="" />
                                             <ul>
                                                 <li><span>{shopDetailsTranslations[language]["category"]} </span>{shopDetailsTranslations[language][article?.category]}</li>
-                                                <li><span>{shopDetailsTranslations[language]["age"]} </span>{article?.age < 1 ? Math.round(article?.age * 12) : article?.age} {article?.age < 1 ? shopDetailsTranslations[language]["mois"] : shopDetailsTranslations[language]["ans"]} </li>
+                                                <li><span>{shopDetailsTranslations[language]["age"]} </span>{(article?.age < 1 && article?.category==="Ovin Engraissement") ? shopDetailsTranslations[language]["Entre"] : article?.age} {article?.age < 1 ? "" : shopDetailsTranslations[language]["ans"]} </li>
                                                 <li><span>{shopDetailsTranslations[language]["poids"]} </span>{article?.weight} {shopDetailsTranslations[language]["unitePoids"]}</li>
                                             </ul>
                                         </div>
