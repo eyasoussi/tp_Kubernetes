@@ -4,7 +4,7 @@ import { LanguageContext } from '../LanguageContext';
 import routes from '../routes';
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
+export default function BlogDetails() {
     const { language } = useContext(LanguageContext);
     const FooterTranslations = {
         "fr": {
@@ -46,7 +46,7 @@ export default function Footer() {
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12">
                             <div class="blog__details__pic">
-                                <img src="img/blog/details/blog-details.jpg" alt="">
+                                <img src="img/blog/details/blog-details.jpg" alt=""/>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -91,7 +91,7 @@ export default function Footer() {
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="blog__details__author">
                                                 <div class="blog__details__author__pic">
-                                                    <img src="img/blog/details/blog-author.jpg" alt="">
+                                                    <img src="img/blog/details/blog-author.jpg" alt=""/>
                                                 </div>
                                                 <div class="blog__details__author__text">
                                                     <h5>Aiden Blair</h5>
@@ -128,13 +128,13 @@ export default function Footer() {
                                     <form action="#">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4">
-                                                <input type="text" placeholder="Name">
+                                                <input type="text" placeholder="Name" />
                                             </div>
                                             <div class="col-lg-4 col-md-4">
-                                                <input type="text" placeholder="Email">
+                                                <input type="text" placeholder="Email" />
                                             </div>
                                             <div class="col-lg-4 col-md-4">
-                                                <input type="text" placeholder="Phone">
+                                                <input type="text" placeholder="Phone"/>
                                             </div>
                                             <div class="col-lg-12 text-center">
                                                 <textarea placeholder="Comment"></textarea>
@@ -150,3 +150,4 @@ export default function Footer() {
             </section>
         </div>
     );
+}

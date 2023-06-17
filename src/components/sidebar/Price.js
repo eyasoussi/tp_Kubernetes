@@ -9,7 +9,7 @@ function valuetext(value) {
     return `${value} ${"DT"}`;
   }
 
-export default function Price({articles, setPrice}) {
+export default function Price({articles, setPrice, fromSideMenu}) {
     const { language } = useContext(LanguageContext);
     const [minMax, setMinMax] = useState([0,2000]);
     
@@ -50,7 +50,7 @@ const marks = [
       }
 
     return (
-        <div className="card">
+        <div className={fromSideMenu? "": "card"}>
             <div className="card-heading">
                 <a data-toggle="collapse" data-target="#collapseThree">{language==="fr" ? "Prix" : "الثمن"}</a>
             </div>
