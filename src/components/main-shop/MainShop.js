@@ -13,6 +13,7 @@ export default function MainShop({ filteredData }) {
 
   useEffect(() => {
     setData(filteredData);
+    setCurrentPage(1);
   }, [filteredData]);
 
   const handleShopItemClick = (index) => {
