@@ -51,7 +51,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Welda') ? '#333' : '',
                   }}
                 >
-                  {language==="fr" ? "Welda" : "والدة"} - {quantities?.WeldaQuantity}
+                  {language==="fr" ? "Welda" : "والدة"}
                 </a>
               </li>
               <li>
@@ -63,7 +63,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Oochra') ? '#333' : '',
                   }}
                 >
-                  {language==="fr" ? "Oochra" : "عشرة"} - {quantities?.OochraQuantity}
+                  {language==="fr" ? "Oochra" : "عشرة"}
                 </a>
               </li>
               <li>
@@ -75,7 +75,7 @@ export default function State({ setStat }) {
                     color: selectedStates.includes('Fergha') ? '#333' : '',
                   }}
                 >
-                  {language==="fr" ? "Chkaf" : "شقف"} - {quantities?.FerghaQuantity}
+                  {language==="fr" ? "Chkaf" : "شقف"}
                 </a>
               </li>
             </ul>

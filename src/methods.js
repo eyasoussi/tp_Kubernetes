@@ -74,12 +74,20 @@ export const applyFilters = (data, allFilters) => {
   }
   console.log("type filter: ",filteredResults);
 
+  const disabled = false;
+  if(!disabled){
   if (allFilters.stat && allFilters.stat.length > 0) {
-    // Apply stat filter logic
-    filteredResults = filteredResults.filter(
-      (item) => ( item.state === 0 || allFilters.stat.includes(item.state))
-    );
+    filteredResults = filteredResults.filter((item) => {
+      if (item.category === "Poules Pondeuses") {
+        return true; // Keep the item if it matches the specified conditions
+      }
+      else{
+      return allFilters.stat.includes(item.state);
+      }
+    });
   }
+}
+  
 
   filteredResults = filterObjectsByTitle(filteredResults, allFilters.enteredWord);
 

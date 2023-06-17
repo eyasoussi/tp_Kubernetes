@@ -79,7 +79,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Tibar') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Tibar"]} - {quantities?.TibarQuantity}
+                  {RaceTranslations[language]["Tibar"]}
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Arbi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Arbi"]} - {quantities?.ArbiQuantity}
+                  {RaceTranslations[language]["Arbi"]}
                 </a>
               </li>
               <li>
@@ -103,7 +103,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Gharbi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Gharbi"]} - {quantities?.GharbiQuantity}
+                  {RaceTranslations[language]["Gharbi"]}
                 </a>
               </li>
               <li>
@@ -115,7 +115,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Houti') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Houti"]} - {quantities?.HoutiQuantity}
+                  {RaceTranslations[language]["Houti"]}
                 </a>
               </li>
               <li>
@@ -127,7 +127,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Dmen') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Dmen"]} - {quantities?.DmenQuantity}
+                  {RaceTranslations[language]["Dmen"]}
                 </a>
               </li>
               <li>
@@ -139,7 +139,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Sordi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Sordi"]} - {quantities?.SordiQuantity}
+                  {RaceTranslations[language]["Sordi"]}
                 </a>
               </li>
               <li>
@@ -151,7 +151,7 @@ export default function Race({ setRace }) {
                     color: selectedRaces.includes('Lacaune') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Lacaune"]} - {quantities?.LacauneQuantity}
+                  {RaceTranslations[language]["Lacaune"]}
                 </a>
               </li>
             </ul>

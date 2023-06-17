@@ -193,7 +193,7 @@ export default function ShopDetails() {
                                             <Link to={routes.SHOP}>
                                                 {shopDetailsTranslations[language]["addToCompare"]}
                                             </Link>
-                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 50 128 000 "}</button>
+                                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 000 128 50"}</button>
                                         </div>
                                         <div className="product__details__last__option">
                                             <h5><span>{shopDetailsTranslations[language]["safeCheckout"]}</span></h5>

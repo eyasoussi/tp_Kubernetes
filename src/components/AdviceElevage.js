@@ -13,8 +13,8 @@ export default function AdviceElevage() {
 
   const isMobileView = window.innerWidth < 768; 
   const opts = {
-    height: isMobileView ? '240' : '360',
-    width: isMobileView ? '300' : '440',
+    height: isMobileView ? '240' : '460',
+    width: isMobileView ? '300' : '540',
     playerVars: {
       autoplay: 0,
     },
@@ -30,13 +30,13 @@ return (
               <p>“{advice[language]}”
               </p>
               <div className="testimonial__author">
-                <div className="testimonial__author__pic">
+                {/* <div className="testimonial__author__pic">
                   <img src="img/about/testimonial-author.jpg" alt="" />
-                </div>
-                <div className="testimonial__author__text">
+                </div> */}
+                {/* <div className="testimonial__author__text">
                   <h5>{language === "fr" ? "Dr. Mohamed Mbarki" : "الدكتور محمد المباركي"}</h5>
                   <p>{language === "fr" ? "Vétérinaire" : "طبيب بيطري"}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

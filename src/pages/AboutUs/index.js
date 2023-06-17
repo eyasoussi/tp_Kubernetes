@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
@@ -7,24 +7,35 @@ import Preloader from '../../components/Preloader';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 import { LanguageContext } from '../../LanguageContext';
+import YouTube from 'react-youtube';
 
 export default function AboutUs() {
     const { language } = useContext(LanguageContext);
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+    const videoId3 = 'Z-DF8L_gwHw';
+    const videoId2 = "BIDDOO6wo_Y";
+    const videoId1 = "IwSnen4ojMg";
+    const opts = {
+        height: isMobileView ? '360' : '360',
+        width: isMobileView ? '340' : '340',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
 
     useEffect(() => {
-      const handleResize = () => {
-        setIsMobileView(window.innerWidth < 768);
-      };
-  
-      window.addEventListener('resize', handleResize);
-      handleResize();
-  
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        const handleResize = () => {
+            setIsMobileView(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
-  
+
     const mapWidth = isMobileView ? '300px' : '400px';
     const mapHeight = isMobileView ? '240px' : '300px';
 
@@ -62,28 +73,27 @@ export default function AboutUs() {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-6">
-                            <div className="about__item">
-                                <h4>Who We Are ?</h4>
-                                <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                                    Let’s take Google as an example.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-6">
-                            <div className="about__item">
-                                <h4>Who We Do ?</h4>
-                                <p>In this digital generation where information can be easily obtained within seconds, business
-                                    cards still have retained their importance.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-6">
-                            <div className="about__item">
-                                <h4>Why Choose Us</h4>
-                                <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                                    sits, but for older or infirm people.</p>
-                            </div>
-                        </div>
-                    </div>
+  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+    <div className="about__item">
+      <h4>{language === "fr" ? "Aalfa - Aalouche Eid 2023" : "علفة علوش العيد 2023"}</h4>
+      <YouTube videoId={videoId1} opts={opts} />
+    </div>
+  </div>
+  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+    <div className="about__item">
+      <h4>{language === "fr" ? "Aalfa Djej" : "علفة الدجاج"}</h4>
+      <YouTube videoId={videoId2} opts={opts} />
+    </div>
+  </div>
+  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+    <div className="about__item">
+      <h4>{language === "fr" ? "Prix Aalfa 2023" : "كلفة علفة علوش العيد 2023"}</h4>
+      <YouTube videoId={videoId3} opts={opts} />
+    </div>
+  </div>
+</div>
+
+
                 </div>
             </section>
 
@@ -110,7 +120,7 @@ export default function AboutUs() {
                                     </form>
                                 </div>
                             </div>
-                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 50 128 000 "}</button>
+                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 000 128 50"}</button>
                         </div>
                         <div className="col-lg-1">
                         </div>
@@ -126,7 +136,7 @@ export default function AboutUs() {
                                 <div className="counter__item__number">
                                     <h2 className="cn_num">102</h2>
                                 </div>
-                                <span>{language==="fr"?"Nos":""} <br />{language==="fr"? "Clients" : "حرفاءنا"}</span>
+                                <span>{language === "fr" ? "Nos" : ""} <br />{language === "fr" ? "Clients" : "حرفاءنا"}</span>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-3">
@@ -134,7 +144,7 @@ export default function AboutUs() {
                                 <div className="counter__item__number">
                                     <h2 className="cn_num">4+</h2>
                                 </div>
-                                <span>{language==="fr"?"Nos":"كل"} <br />{language==="fr"? "Nos Catégories":"الفئات"}</span>
+                                <span>{language === "fr" ? "Nos" : "كل"} <br />{language === "fr" ? "Nos Catégories" : "الفئات"}</span>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-3">
@@ -142,7 +152,7 @@ export default function AboutUs() {
                                 <div className="counter__item__number">
                                     <h2 className="cn_num">6+</h2>
                                 </div>
-                                <span>{language==="fr"?"Presence":"حضور"} <br />{language==="fr"?"gouvernemental":"عبر الولايات"}</span>
+                                <span>{language === "fr" ? "Presence" : "حضور"} <br />{language === "fr" ? "gouvernemental" : "عبر الولايات"}</span>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-3">
@@ -151,7 +161,7 @@ export default function AboutUs() {
                                     <h2 className="cn_num">98</h2>
                                     <strong>%</strong>
                                 </div>
-                                <span>{language==="fr"?"Client":"حريف"}<br />{language==="fr"?"Heureux":"سعيد"}</span>
+                                <span>{language === "fr" ? "Client" : "حريف"}<br />{language === "fr" ? "Heureux" : "سعيد"}</span>
                             </div>
                         </div>
                     </div>
@@ -159,34 +169,34 @@ export default function AboutUs() {
             </section>
 
             <section className="team spad">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="section-title">
-              <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
-              <h2>{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-4"></div>
-        <div className="col-lg-4 d-flex justify-content-center">
-          <div className="col-lg-12">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
-              width={mapWidth}
-              height={mapHeight}
-              style={{ border: '0' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-        <div className="col-lg-4"></div>
-      </div>
-    </section>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title">
+                                <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
+                                <h2>{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-4"></div>
+                    <div className="col-lg-4 d-flex justify-content-center">
+                        <div className="col-lg-12">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
+                                width={mapWidth}
+                                height={mapHeight}
+                                style={{ border: '0' }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div className="col-lg-4"></div>
+                </div>
+            </section>
 
             <section className="clients spad">
                 <div className="container">

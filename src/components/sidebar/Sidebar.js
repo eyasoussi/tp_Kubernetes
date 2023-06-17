@@ -35,7 +35,16 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: false,
       });
-    } else if (articles === 'Brebis') {
+    } else if (articles === 'Poules Pondeuses') {
+      setFilters({
+        Race: false,
+        Type: true,
+        Prix: true,
+        Poids: false,
+        Age: true,
+        State: true
+      });
+    }  else if (articles === 'Brebis') {
       setFilters({
         Race: true,
         Type: false,
@@ -44,7 +53,7 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: true,
       });
-    } else if (articles === 'Poulailler Engraissement') {
+    } else {
       setFilters({
         Race: false,
         Type: true,
@@ -52,15 +61,6 @@ export default function Sidebar({ setAllFilters, articles }) {
         Poids: true,
         Age: true,
         State: false,
-      });
-    } else {
-      setFilters({
-        Race: false,
-        Type: true,
-        Prix: true,
-        Poids: false,
-        Age: true,
-        State: true,
       });
     }
   }, [articles]);

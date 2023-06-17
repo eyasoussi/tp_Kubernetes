@@ -9,11 +9,11 @@ export default function AdviceAlfa() {
     "fr": "Pour répondre aux besoins nutritionnels des moutons, il est essentiel de leur fournir une alimentation équilibrée et variée. Assurez-vous de leur offrir un mélange d'aliments essentiels tels que des végétaux, des céréales et des aliments composés riches en protéines, vitamines et minéraux. N'oubliez pas d'inclure également de l'herbe fraîche et des aliments verts pour favoriser la diversité nutritionnelle et améliorer leur santé. Il est recommandé de consulter un expert en nutrition animale pour ajuster le régime alimentaire en fonction de leurs besoins spécifiques.",
     "ar": "يجب توفير تغذية متوازنة ومتنوعة للأغنام لتلبية احتياجاتها الغذائية. تأكد من تقديم مزيج من المكونات الغذائية الأساسية مثل العلف النباتي والحبوب والأعلاف المركبة الغنية بالبروتين والفيتامينات والمعادن الضرورية. لا تنسى توفير الأعشاب الطازجة والأعلاف الخضراء لتعزيز التنوع الغذائي وتحسين صحة الأغنام. من المستحسن استشارة خبير في التغذية الحيوانية لضبط النظام الغذائي وفقًا لاحتياجاتها الدقيقة."
   }
-  const videoId = 'noYy1lrvaLs';
+  const videoId = 'H2V4R2REoOw';
   const isMobileView = window.innerWidth < 768; 
   const opts = {
-    height: isMobileView ? '240' : '360',
-    width: isMobileView ? '300' : '440',
+    height: isMobileView ? '240' : '460',
+    width: isMobileView ? '300' : '540',
     playerVars: {
       autoplay: 0,
     },
@@ -28,13 +28,13 @@ export default function AdviceAlfa() {
               <p>“{advice[language]}”
               </p>
               <div className="testimonial__author">
-                <div className="testimonial__author__pic">
+                {/* <div className="testimonial__author__pic">
                   <img src="img/about/testimonial-author.jpg" alt="" />
-                </div>
-                <div className="testimonial__author__text">
+                </div> */}
+                {/* <div className="testimonial__author__text">
                   <h5>{language === "fr" ? "Dr. Mohamed Mbarki" : "الدكتور محمد المباركي"}</h5>
                   <p>{language === "fr" ? "Vétérinaire" : "طبيب بيطري"}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

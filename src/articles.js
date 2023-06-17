@@ -1410,7 +1410,7 @@ export const  articles= [
             "discountPercentage": 0,
             "type": "Djej",
             "age": 0,
-            "state": 0,
+            "state": "0",
             "category":"Poules Pondeuses",
             "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg",
             "images": [
@@ -1427,7 +1427,7 @@ export const  articles= [
             "discountPercentage": 0,
             "type": "Djej",
             "age": 0,
-            "state": 0,
+            "state": "0",
             "category":"Poules Pondeuses",
             "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg",
             "images": [
