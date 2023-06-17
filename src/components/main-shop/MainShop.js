@@ -31,6 +31,7 @@ export default function MainShop({ filteredData }) {
   // Handle pagination click
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
+    window.scrollTo(152, 152);
   };
 
   return (
