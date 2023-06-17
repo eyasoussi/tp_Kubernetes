@@ -10,6 +10,8 @@ import Search from './Search';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
+import { Link } from 'react-router-dom';
+import routes from '../../routes';
 
 export default function Sidebar({ setAllFilters, articles }) {
   const { language } = useContext(LanguageContext);
@@ -20,11 +22,26 @@ export default function Sidebar({ setAllFilters, articles }) {
   const [age, setAge] = useState([]);
   const [stat, setStat] = useState([]);
   const [filters, setFilters] = useState({});
-  const [isFilterOptionsVisible, setIsFilterOptionsVisible] = useState(false);
   const [enteredWord, setEnteredWord] = useState("");
+  const offcanvasMenuWrapperRef = useRef(null);
+  const offcanvasMenuOverlayRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [resize, setResize] = useState(false);
+  const[topVal, setTopVal] = useState("-7px")
 
   const sidebarRef = useRef(null); // Ref for the outermost div container
-
+  const HeaderTranslations = {
+    "fr": {
+      "Acceuil": "Acceuil",
+      "Boutique": "Boutique",
+      "A Propos": "Contactez Nous"
+    },
+    "ar": {
+      "Acceuil": "الصفحة الرئيسية",
+      "Boutique": "المتجر",
+      "A Propos": "اتصل بنا"
+    }
+  }
   useEffect(() => {
     if (articles === 'Ovin Engraissement') {
       setFilters({
@@ -44,7 +61,7 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: true
       });
-    }  else if (articles === 'Brebis') {
+    } else if (articles === 'Brebis') {
       setFilters({
         Race: true,
         Type: false,
@@ -80,29 +97,20 @@ export default function Sidebar({ setAllFilters, articles }) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 992) {
-        setIsFilterOptionsVisible(false);
+        setResize(false);
       } else {
-        setIsFilterOptionsVisible(true);
+        setResize(true);
+      }
+      if(window.innerWidth>768){
+        setTopVal("35px");
+      }
+      else{
+        setTopVal("-5.1px")
       }
     };
-
-    const handleClickOutside = (event) => {
-      const filterButton = document.querySelector('.filter-button');
-    
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target) &&
-        event.target !== filterButton
-      ) {
-        setIsFilterOptionsVisible(false);
-      }
-    };
-    
 
     // Add event listener for window resize
     window.addEventListener('resize', handleResize);
-    // Add event listener for clicks outside the filter options
-    document.addEventListener('mousedown', handleClickOutside);
 
     // Check initial window width on component mount
     handleResize();
@@ -110,42 +118,72 @@ export default function Sidebar({ setAllFilters, articles }) {
     // Clean up event listeners on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
-      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [window.innerWidth]);
 
-  const toggleFilterOptions = () => {
-    setIsFilterOptionsVisible(!isFilterOptionsVisible);
+  //sidebar responsive:
+  const handleOpenClick = () => {
+    setMenuOpen(true);
+  };
+
+  const handleOverlayClick = () => {
+    setMenuOpen(false);
   };
 
   return (
-    <div ref={sidebarRef} className="shop__sidebar__accordion">
-      <div id="accordionExample">
-        {window.innerWidth < 992 && (
-          <div className="teya"> 
-          <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
-          <button
-            className={`filter-button ${isFilterOptionsVisible ? 'clicked' : ''}`}
-            onClick={toggleFilterOptions}
-          >
-            {language === "fr" ? "Filtrer" : "فرز"}<FilterAltOutlinedIcon />
-          </button>
-          </div>
-        )}
-        {(isFilterOptionsVisible || window.innerWidth >= 992) && (
-          <div className="filter-options">
-            <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
-            {filters.Prix && <Price articles={articles} setPrice={setPrice} />}
-            {filters.Race && <Race setRace={setRace} />}
-            {filters.Type && <Type setType={setType} />}
-            {filters.Age && <Age articles={articles} setAge={setAge} />}
-            {filters.Poids && (
-              <Weight articles={articles} setWeight={setWeight} />
-            )}
-            {filters.State && <State setStat={setStat} />}
-          </div>
-        )}
+    <div>
+      <div ref={sidebarRef} className="shop__sidebar__accordion">
+        <div id="accordionExample">
+          {window.innerWidth < 992 && (
+            <div className="teya">
+              <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
+            </div>
+          )}
+          {(window.innerWidth >= 992) && (
+            <div>
+              <Search setEnteredWord={setEnteredWord} enteredWord={enteredWord}></Search>
+              {filters.Prix && <Price articles={articles} setPrice={setPrice} fromSideMenu={false}/>}
+              {filters.Race && <Race setRace={setRace} fromSideMenu={false}/>}
+              {filters.Type && <Type setType={setType} fromSideMenu={false}/>}
+              {filters.Age && <Age articles={articles} setAge={setAge} fromSideMenu={false}/>}
+              {filters.Poids && (
+                <Weight articles={articles} setWeight={setWeight} fromSideMenu={false}/>
+              )}
+              {filters.State && <State setStat={setStat} fromSideMenu={false}/>}
+            </div>
+          )}
+        </div>
       </div>
+      <div>
+        <div
+          className={`canvas__open ${menuOpen ? 'active' : ''}`}
+          onClick={handleOpenClick}
+          style={{ color: menuOpen ? 'red' : 'black', top: topVal }}
+        >
+          <i className="fa fa-filter"></i>
+        </div>
+      </div>
+      <div
+        className={`offcanvas-menu-wrapper ${menuOpen ? 'active' : ''}`}
+        ref={offcanvasMenuWrapperRef}
+        style={{ backgroundColor: menuOpen ? '#F3F2EE' : 'transparent', top: '21.3%', width: 319, height:"79%" }}
+      >
+        <div>
+          {filters.Prix && <Price articles={articles} setPrice={setPrice} fromSideMenu={true}/>}
+          {filters.Race && <Race setRace={setRace} fromSideMenu={true} />}
+          {filters.Type && <Type setType={setType} fromSideMenu={true} />}
+          {filters.Age && <Age articles={articles} setAge={setAge} fromSideMenu={true} />}
+          {filters.Poids && (
+            <Weight articles={articles} setWeight={setWeight} fromSideMenu={true} />
+          )}
+          {filters.State && <State setStat={setStat} fromSideMenu={true} />}
+        </div>
+      </div>
+      <div
+        className={`offcanvas-menu-overlay ${menuOpen ? 'active' : ''}`}
+        ref={offcanvasMenuOverlayRef}
+        onClick={handleOverlayClick}
+      />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 
 
-export default function Type({ setType }) {
+export default function Type({ setType,fromSideMenu }) {
   const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -34,7 +34,7 @@ export default function Type({ setType }) {
   const isTypeSelected = (type) => selectedTypes.includes(type);
 
   return (
-    <div className={`card ${isActive ? 'active' : ''}`}>
+    <div className={fromSideMenu? "": `card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
         {language==="fr" ? "Type" : "النوع"}
@@ -50,7 +50,7 @@ export default function Type({ setType }) {
                   className={`clickable-element ${isTypeSelected('Djej') ? 'active' : ''}`}
                   onClick={() => toggleType('Djej')}
                   style={{
-                    backgroundColor: isTypeSelected('Djej') ? '#f5f5f5' : '',
+                    backgroundColor: isTypeSelected('Djej') ? '#E5F9DB' : '',
                     color: isTypeSelected('Djej') ? '#333' : '',
                   }}
                 >
@@ -62,7 +62,7 @@ export default function Type({ setType }) {
                   className={`clickable-element ${isTypeSelected('Dindon') ? 'active' : ''}`}
                   onClick={() => toggleType('Dindon')}
                   style={{
-                    backgroundColor: isTypeSelected('Dindon') ? '#f5f5f5' : '',
+                    backgroundColor: isTypeSelected('Dindon') ? '#E5F9DB' : '',
                     color: isTypeSelected('Dindon') ? '#333' : '',
                   }}
                 >
@@ -74,7 +74,7 @@ export default function Type({ setType }) {
                   className={`clickable-element ${isTypeSelected('Simmen') ? 'active' : ''}`}
                   onClick={() => toggleType('Simmen')}
                   style={{
-                    backgroundColor: isTypeSelected('Simmen') ? '#f5f5f5' : '',
+                    backgroundColor: isTypeSelected('Simmen') ? '#E5F9DB' : '',
                     color: isTypeSelected('Simmen') ? '#333' : '',
                   }}
                 >

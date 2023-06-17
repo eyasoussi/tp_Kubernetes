@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 
 
-export default function State({ setStat }) {
+export default function State({ setStat,fromSideMenu }) {
   const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedStates, setSelectedStates] = useState([]);
@@ -31,7 +31,7 @@ export default function State({ setStat }) {
   }, [selectedStates, setStat]);
 
   return (
-    <div className={`card ${isActive ? 'active' : ''}`}>
+    <div className={fromSideMenu? "": `card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
           {language==="fr" ? "Etat" : "الحالة"}
@@ -47,7 +47,7 @@ export default function State({ setStat }) {
                   className={`clickable-element ${selectedStates.includes('Welda') ? 'active' : ''}`}
                   onClick={() => toggleState('Welda')}
                   style={{
-                    backgroundColor: selectedStates.includes('Welda') ? '#f5f5f5' : '',
+                    backgroundColor: selectedStates.includes('Welda') ? '#E5F9DB' : '',
                     color: selectedStates.includes('Welda') ? '#333' : '',
                   }}
                 >
@@ -59,7 +59,7 @@ export default function State({ setStat }) {
                   className={`clickable-element ${selectedStates.includes('Oochra') ? 'active' : ''}`}
                   onClick={() => toggleState('Oochra')}
                   style={{
-                    backgroundColor: selectedStates.includes('Oochra') ? '#f5f5f5' : '',
+                    backgroundColor: selectedStates.includes('Oochra') ? '#E5F9DB' : '',
                     color: selectedStates.includes('Oochra') ? '#333' : '',
                   }}
                 >
@@ -71,7 +71,7 @@ export default function State({ setStat }) {
                   className={`clickable-element ${selectedStates.includes('Fergha') ? 'active' : ''}`}
                   onClick={() => toggleState('Fergha')}
                   style={{
-                    backgroundColor: selectedStates.includes('Fergha') ? '#f5f5f5' : '',
+                    backgroundColor: selectedStates.includes('Fergha') ? '#E5F9DB' : '',
                     color: selectedStates.includes('Fergha') ? '#333' : '',
                   }}
                 >
