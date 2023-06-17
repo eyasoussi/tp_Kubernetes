@@ -10,6 +10,8 @@ import routes from './routes';
 import { LanguageProvider } from './LanguageContext';
 import { CartProvicer, CartProvider } from './CartContext'
 import ScrollToTop from './ScrollToTop'; 
+import Blog from './pages/Blog';
+import BlogDetails from './pages/BlogDetails';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route exact path={routes.CHECKOUT} element={<CheckOut />} />
             <Route path={routes.SHOP} element={<Shop />} />
             <Route path={routes.SHOPDETAILS} element={<ShopDetails />} />
+            <Route path={routes.BLOG} element={<Blog/>} />
+            <Route path={routes.BLOGDETAILS} element={<BlogDetails />} />
             <Route path={routes.NOT_FOUND_PAGE} element={<Home />} />
           </Routes>
         </Router>

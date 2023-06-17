@@ -9,7 +9,7 @@ function valuetext(value) {
     return `${value} ${"Kg"}`;
   }
 
-export default function Weight({articles, setWeight}) {
+export default function Weight({articles, setWeight,fromSideMenu}) {
     const { language } = useContext(LanguageContext);
     const [minMax, setMinMax] = useState([]);
 
@@ -48,7 +48,7 @@ const marks = [
       }
 
     return (
-        <div className="card">
+        <div className={fromSideMenu? "": 'card'}>
             <div className="card-heading">
                 <a data-toggle="collapse" data-target="#collapseThree">{language==="fr" ? "Poids Vif" : "الوزن الحي"}</a>
             </div>

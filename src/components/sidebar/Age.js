@@ -3,7 +3,7 @@ import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 
-export default function Age({ articles, setAge }) {
+export default function Age({ articles, setAge, fromSideMenu }) {
   const { language } = useContext(LanguageContext);
   const [isActive, setIsActive] = useState(true);
   const [selectedAges, setSelectedAges] = useState([]);
@@ -197,7 +197,7 @@ export default function Age({ articles, setAge }) {
   };
 
   return (
-    <div className={`card ${isActive ? 'active' : ''}`}>
+    <div className={fromSideMenu? "": `card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={toggle} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
           {language === 'fr' ? 'Age' : 'العمر'}
@@ -213,8 +213,9 @@ export default function Age({ articles, setAge }) {
                   className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? 'active' : ''}`}
                   onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083])}
                   style={{
-                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#f5f5f5' : '',
-                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#333' : '',
+                    fontWeight:"bold",
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#E5F9DB' : '',
+                    color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [0, 1] : [0, 0.083]) ? '#FFF' : '',
                   }}
                 >
                   {ageTable[0]}
@@ -225,7 +226,7 @@ export default function Age({ articles, setAge }) {
                   className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? 'active' : ''}`}
                   onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25])}
                   style={{
-                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? '#f5f5f5' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? '#E5F9DB' : '',
                     color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [1, 2] : [0.0830001, 0.25]) ? '#333' : '',
                   }}
                 >
@@ -237,7 +238,7 @@ export default function Age({ articles, setAge }) {
                   className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? 'active' : ''}`}
                   onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5])}
                   style={{
-                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? '#f5f5f5' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? '#E5F9DB' : '',
                     color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [2, 3] : [0.2500001, 0.5]) ? '#333' : '',
                   }}
                 >
@@ -249,7 +250,7 @@ export default function Age({ articles, setAge }) {
                   className={`clickable-element ${isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? 'active' : ''}`}
                   onClick={() => toggleAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1])}
                   style={{
-                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? '#f5f5f5' : '',
+                    backgroundColor: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? '#E5F9DB' : '',
                     color: isActiveAge(articles === 'Ovin Engraissement' || articles === 'Brebis' ? [3, 4] : [0.5000001, 1]) ? '#333' : '',
                   }}
                 >
@@ -262,7 +263,7 @@ export default function Age({ articles, setAge }) {
                     className={`clickable-element ${isActiveAge([4, 5]) ? 'active' : ''}`}
                     onClick={() => toggleAge([4, 5])}
                     style={{
-                      backgroundColor: isActiveAge([4, 5]) ? '#f5f5f5' : '',
+                      backgroundColor: isActiveAge([4, 5]) ? '#E5F9DB' : '',
                       color: isActiveAge([4, 5]) ? '#333' : '',
                     }}
                   >

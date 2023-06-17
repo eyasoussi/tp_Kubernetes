@@ -5,6 +5,8 @@ const routes = {
     ABOUTUS: "/a-propos",
     CART: "/panier",
     CHECKOUT: "/paiement",
+    BLOG:"/blog",
+    BLOGDETAILS:"/blog/:id",
     NOT_FOUND_PAGE: "*",
   };
   

@@ -3,7 +3,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 
-export default function Race({ setRace }) {
+export default function Race({ setRace, fromSideMenu }) {
   const { language } = useContext(LanguageContext);
   const [quantities, setQuantities] = useState({});
   const [selectedRaces, setSelectedRaces] = useState([]); // to store the selected races
@@ -58,7 +58,7 @@ export default function Race({ setRace }) {
   }, [selectedRaces, setRace]);
 
   return (
-    <div className={`card ${isActive ? 'active' : ''}`}>
+    <div className={fromSideMenu? "": `card ${isActive ? 'active' : ''}`}>
       <div className="card-heading">
         <a onClick={() => setIsActive(!isActive)} className={`accordion-toggle ${isActive ? 'active' : ''}`}>
           {RaceTranslations[language]["Race"]}
@@ -75,11 +75,11 @@ export default function Race({ setRace }) {
                   //if 'Tibar' is selected, it will have both 'clickable-element' and 'active' classes; otherwise, it will only have the 'clickable-element' class.
                   onClick={() => toggleRace('Tibar')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Tibar') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Tibar') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Tibar') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Tibar"]} - {quantities?.TibarQuantity}
+                  {RaceTranslations[language]["Tibar"]}
                 </a>
               </li>
               <li>
@@ -87,11 +87,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Arbi') ? 'active' : ''}`}
                   onClick={() => toggleRace('Arbi')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Arbi') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Arbi') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Arbi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Arbi"]} - {quantities?.ArbiQuantity}
+                  {RaceTranslations[language]["Arbi"]}
                 </a>
               </li>
               <li>
@@ -99,11 +99,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Gharbi') ? 'active' : ''}`}
                   onClick={() => toggleRace('Gharbi')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Gharbi') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Gharbi') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Gharbi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Gharbi"]} - {quantities?.GharbiQuantity}
+                  {RaceTranslations[language]["Gharbi"]}
                 </a>
               </li>
               <li>
@@ -111,11 +111,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Houti') ? 'active' : ''}`}
                   onClick={() => toggleRace('Houti')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Houti') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Houti') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Houti') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Houti"]} - {quantities?.HoutiQuantity}
+                  {RaceTranslations[language]["Houti"]}
                 </a>
               </li>
               <li>
@@ -123,11 +123,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Dmen') ? 'active' : ''}`}
                   onClick={() => toggleRace('Dmen')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Dmen') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Dmen') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Dmen') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Dmen"]} - {quantities?.DmenQuantity}
+                  {RaceTranslations[language]["Dmen"]}
                 </a>
               </li>
               <li>
@@ -135,11 +135,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Sordi') ? 'active' : ''}`}
                   onClick={() => toggleRace('Sordi')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Sordi') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Sordi') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Sordi') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Sordi"]} - {quantities?.SordiQuantity}
+                  {RaceTranslations[language]["Sordi"]}
                 </a>
               </li>
               <li>
@@ -147,11 +147,11 @@ export default function Race({ setRace }) {
                   className={`clickable-element ${selectedRaces.includes('Lacaune') ? 'active' : ''}`}
                   onClick={() => toggleRace('Lacaune')}
                   style={{
-                    backgroundColor: selectedRaces.includes('Lacaune') ? '#f5f5f5' : '',
+                    backgroundColor: selectedRaces.includes('Lacaune') ? '#E5F9DB' : '',
                     color: selectedRaces.includes('Lacaune') ? '#333' : '',
                   }}
                 >
-                  {RaceTranslations[language]["Lacaune"]} - {quantities?.LacauneQuantity}
+                  {RaceTranslations[language]["Lacaune"]}
                 </a>
               </li>
             </ul>

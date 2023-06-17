@@ -9,11 +9,11 @@ export default function AdviceVaccin() {
     "fr": "La vaccination des moutons est essentielle pour prévenir les maladies et assurer leur santé. Consultez un vétérinaire spécialisé en ovins pour élaborer un programme de vaccination adapté à vos moutons. Assurez-vous de respecter les calendriers de vaccination recommandés et de suivre les directives spécifiques pour chaque vaccin. La vaccination régulière aidera à renforcer le système immunitaire des moutons et à réduire les risques de maladies infectieuses.",
     "ar": "تطعيم الأغنام أمر ضروري للوقاية من الأمراض وضمان صحتها. استشر طبيب بيطري متخصص في الأغنام لوضع برنامج تطعيم مناسب لأغنامك. تأكد من احترام جداول التطعيم الموصى بها واتباع التوجيهات الخاصة بكل لقاح. يساعد التطعيم المنتظم في تعزيز جهاز المناعة لدى الأغنام وتقليل مخاطر الأمراض المعدية."
   };
-  const videoId = 'gCfy4tw7hlo';
+  const videoId = '0cV4f5VdC8o';
   const isMobileView = window.innerWidth < 768; 
   const opts = {
-    height: isMobileView ? '240' : '360',
-    width: isMobileView ? '300' : '440',
+    height: isMobileView ? '240' : '460',
+    width: isMobileView ? '300' : '540',
     playerVars: {
       autoplay: 0,
     },
@@ -29,13 +29,13 @@ export default function AdviceVaccin() {
               <p>“{advice[language]}”
               </p>
               <div className="testimonial__author">
-                <div className="testimonial__author__pic">
+                {/* <div className="testimonial__author__pic">
                   <img src="img/about/testimonial-author.jpg" alt="" />
-                </div>
-                <div className="testimonial__author__text">
+                </div> */}
+                {/* <div className="testimonial__author__text">
                   <h5>{language === "fr" ? "Dr. Mohamed Mbarki" : "الدكتور محمد المباركي"}</h5>
                   <p>{language === "fr" ? "Vétérinaire" : "طبيب بيطري"}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
