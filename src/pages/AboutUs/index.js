@@ -103,7 +103,7 @@ export default function AboutUs() {
                         <div className="col-lg-1">
                         </div>
                         <div className="col-lg-4">
-                            <div className="">
+                            <div className="logo-middle">
                                 <Link to={routes.HOME}>
                                     <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354489994_258818066739367_6080175949998551953_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UEjHlc23qeoAX8FectC&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTIL1OR_JFRMcq2hfu7_zVlSTVHGI6b7qbNlb2ZYuf0TQ&oe=64B37E9D" alt="Your Image" />
                                 </Link>
@@ -120,7 +120,7 @@ export default function AboutUs() {
                                     </form>
                                 </div>
                             </div>
-                            <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 000 128 50"}</button>
+                            <button type="submit" className="site-btn" onClick={handlePhoneCall}><div className="site-text">{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 000 128 50"}</div></button>
                         </div>
                         <div className="col-lg-1">
                         </div>
@@ -169,35 +169,34 @@ export default function AboutUs() {
             </section>
 
             <section className="team spad">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="section-title">
-                                <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
-                                <h2>{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-4"></div>
-                    <div className="col-lg-4 d-flex justify-content-center">
-                        <div className="col-lg-12">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
-                                width={mapWidth}
-                                height={mapHeight}
-                                style={{ border: '0' }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-                        </div>
-                    </div>
-                    <div className="col-lg-4"></div>
-                </div>
-            </section>
-
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="section-title">
+              <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
+              <h2 className="maps-text">{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-lg-4"></div>
+        <div className="col-lg-4 d-flex justify-content-center">
+          <div className="col-lg-12">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
+              width={mapWidth}
+              height={mapHeight}
+              style={{ border: '0' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <div className="col-lg-4"></div>
+      </div>
+    </section>
             <section className="clients spad">
                 <div className="container">
                     <div className="row">
@@ -205,7 +204,6 @@ export default function AboutUs() {
                         <div className="col-lg-4 d-flex align-items-center justify-content-center text-center">
                             <div className="section-title">
                                 <span>{language === "fr" ? "Nos Valeurs & Nos Priorités" : "قيمنا و أولوياتنا"}</span>
-                                <h2>{language === "fr" ? "Nos Valeurs & Nos Priorités" : "قيمنا و أولوياتنا"}</h2>
                             </div>
                         </div>
                         <div className="col-lg-4"></div>
@@ -213,7 +211,7 @@ export default function AboutUs() {
                     <div className="row">
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "200px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354936145_6453540241371626_3275048458992088152_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=kmZ0S5o7EDsAX-1Jt_h&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQ7h59OWKFx23tnhJT4BvU4fE4BMQjODOzGmNA6XfMPWg&oe=64B3E1E1" alt="" />
+                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354936145_6453540241371626_3275048458992088152_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=kmZ0S5o7EDsAX-1Jt_h&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQ7h59OWKFx23tnhJT4BvU4fE4BMQjODOzGmNA6XfMPWg&oe=64B3E1E1" alt="" />
                                 <h4 className="title">{language === "fr" ? "Qualité Garantie" : "جودة مضمونة"}</h4>
                                 <p className="description">{
                                     language === "fr" ? "La Qualité Garantie est une valeur essentielle pour notre entreprise. Nous nous engageons à offrir des produits et services d'une qualité exceptionnelle à nos clients. Grâce à notre engagement envers la qualité, nous veillons à ce que chaque produit réponde aux normes les plus élevées et à ce que chaque service soit fourni avec professionnalisme et excellence. Notre objectif est de satisfaire pleinement nos clients et de dépasser leurs attentes en matière de qualité." : "الجودة المضمونة هي قيمة أساسية لشركتنا. نحن ملتزمون بتقديم منتجات وخدمات عالية الجودة لعملائنا. من خلال التزامنا بالجودة، نضمن أن كل منتج يلبي أعلى المعايير وأن كل خدمة تُقدم بمهنية وتفوق. هدفنا هو تحقيق رضا العملاء بشكل كامل وتجاوز توقعاتهم في مجال الجودة."
@@ -222,7 +220,7 @@ export default function AboutUs() {
                         </div>
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "200px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354824959_2390517837794238_3470227392106577514_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=G1IipEC7HuoAX9LXzg6&_nc_ht=scontent.ftun1-2.fna&oh=03_AdS-a_nx48SH2elVN4VUJhn11I4W3jMrRkE1DztL_1H2PQ&oe=64B3C860" alt="" />
+                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354824959_2390517837794238_3470227392106577514_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=G1IipEC7HuoAX9LXzg6&_nc_ht=scontent.ftun1-2.fna&oh=03_AdS-a_nx48SH2elVN4VUJhn11I4W3jMrRkE1DztL_1H2PQ&oe=64B3C860" alt="" />
                                 <h4 className="title">{language === "fr" ? "Service Clientèle" : "العناية بالعملاء"}</h4>
                                 <p className="description">{
                                     language === "fr" ? "Notre Service Clientèle est au cœur de notre entreprise. Nous mettons un point d'honneur à offrir un service exceptionnel à nos clients, en veillant à leur satisfaction et à leur bien-être. Notre équipe de professionnels dévoués est là pour répondre à toutes les questions, résoudre les problèmes et fournir une assistance personnalisée. Nous sommes fiers de notre service clientèle réactif, amical et efficace, et nous nous efforçons constamment de dépasser les attentes de nos clients." : "خدمة العملاء لدينا هي في صميم عملنا. نسعى جاهدين لتقديم خدمة استثنائية لعملائنا، وضمان رضاهم ورفاهيتهم. فريقنا المكرس من المتخصصين هنا للإجابة على جميع الاستفسارات، وحل المشكلات، وتوفير المساعدة الشخصية. نفتخر بخدمة عملاءنا الاستجابة، ودية وفعالة، ونسعى باستمرار لتجاوز توقعات عملائنا."
@@ -231,7 +229,7 @@ export default function AboutUs() {
                         </div>
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "200px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354472375_6650616785025405_7818891988188777947_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ixXcUG0ZPN0AX_EyTnh&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRzE5P5tGa55KYB9hYLDzejcT3YyiRLFQxHusMfsoIbqQ&oe=64B3CEBF" alt="" />
+                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354472375_6650616785025405_7818891988188777947_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ixXcUG0ZPN0AX_EyTnh&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRzE5P5tGa55KYB9hYLDzejcT3YyiRLFQxHusMfsoIbqQ&oe=64B3CEBF" alt="" />
                                 <h4 className="title">{language === "fr" ? "Fiabilité" : "الموثوقية"}</h4>
                                 <p className="description">{language === "fr" ? "La fiabilité est une valeur fondamentale pour notre entreprise. Nous nous engageons à tenir nos promesses envers nos clients et à être un partenaire de confiance. En étant fiables, nous assurons la satisfaction et la fidélité de nos clients, car ils savent qu'ils peuvent compter sur nous pour des produits et services de haute qualité, livrés dans les délais convenus." : "الموثوقية هي قيمة أساسية لشركتنا. نحن نلتزم بأن نكون شريكًا موثوقًا لعملائنا ونضمن توفير منتجات وخدمات عالية الجودة وفقًا للجداول الزمنية المتفق عليها، مما يضمن رضا وولاء عملائنا."}</p>
                             </div>

@@ -111,7 +111,7 @@ ol {
 -----------------------*/
 
 .section-title {
-	margin-bottom: 45px;
+	margin-bottom: 4px;
 	text-align: center;
 }
 
@@ -2201,7 +2201,7 @@ html {
 	color: #3d3d3d;
 	background: transparent;
 	border: none;
-	padding: 15px 0;
+	padding: 5px 0;
 	border-bottom: 2px solid #000000;
 }
 
@@ -2356,7 +2356,7 @@ html {
 
 .testimonial__text {
 	text-align: center;
-	padding: 130px 30px 175px;
+	padding: 200px 30px 300px;
 }
 
 .testimonial__text span {
@@ -3640,6 +3640,9 @@ html {
 	.header__menu.mobile-menu {
 		flex: 6
 	}
+	.testimonial__text {
+		padding: 2px 20px 2px 4px;
+	}
 }
 
 /* Medium Device = 1200px */
@@ -3662,7 +3665,7 @@ html {
 	}
 
 	.testimonial__text {
-		padding: 130px 45px 175px;
+		padding: 8px 4px 8px;
 	}
 
 	.filter__controls {
@@ -3775,7 +3778,7 @@ html {
 	}
 
 	.testimonial__text {
-		padding: 100px 105px 100px;
+		padding: 8px 4px 8px;
 	}
 
 	.blog__details__share {
@@ -3840,7 +3843,13 @@ html {
 	c2 {
 		margin-right: 10px;
 	}
-
+	.logo-middle{
+		width: 250px;
+		height: 70px;
+	}
+	.counter{
+		display: none
+	}
 }
 
 /* Wide Mobile = 480px */
@@ -4161,11 +4170,7 @@ html {
 		padding-right: 0;
 		margin-bottom: 40px;
 	}
-
-	.testimonial__text {
-		padding: 100px 40px 100px;
-	}
-
+  
 	.product__details__breadcrumb {
 		text-align: left;
 	}
@@ -4550,6 +4555,32 @@ html {
 		color: #111111;
 		margin-bottom: 0;
 	}
+
+	.testimonial__text {
+		padding: 8px 4px 8px;
+	}
+	.testimonial__text p {
+		color: #111111;
+		font-size: 14px;
+		font-style: italic;
+		line-height: 30px;
+		padding-top: 1px;
+		margin-bottom: 25px;
+	}
+	.logo-middle{
+		width: 200px;
+		height: 65px;
+	}
+	.counter{
+		display: none
+	}
+	.title{
+		font-size: 18px;
+        font-weight: bold;
+	}
+	.maps-text{
+		font-size:23px
+	}
 }
 
 /* Small Device = 320px */
@@ -4585,11 +4616,6 @@ html {
 	.instagram__pic__item {
 		width: 100%;
 	}
-
-	.testimonial__text {
-		padding: 60px 40px 60px;
-	}
-
 	.product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic {
 		width: 100%;
 	}
@@ -4672,4 +4698,36 @@ html {
 		font-weight: 700;
 		width: 60px;
 	}
+	.testimonial__text {
+		padding:  4px 2px;
+	}
+	.testimonial__text p {
+		color: #111111;
+		font-size: 10px;
+		font-style: italic;
+		line-height: 30px;
+		padding-top: 1px;
+		margin-bottom: 25px;
+	}
+	.logo-middle{
+		width: 150px;
+		height: 45px;
+	}
+	.counter{
+		display: none
+	}
+	.site-text{
+		font-size:11px
+	}
+	.title{
+		font-size: 18px;
+        font-weight: bold;
+	}
+	.description{
+		font-size:10px 
+	}
+	.maps-text{
+		font-size:20px
+	}
 }
+  
