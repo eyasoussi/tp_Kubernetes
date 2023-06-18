@@ -102,13 +102,13 @@ export default function Footer() {
                     <div className="col-lg-12 text-center">
                         <div className="footer__copyright__text">
 
-                            <p>Copyright ©
+                            {/* <p>Copyright ©
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script> 2023
                                 {language==="fr" ? " Tous droits réservés | Ce site web est réalisé avec":"جميع الحقوق محفوظة | هذا الموقع تم إنشاؤه بكل"} <i class="fa fa-heart-o"
                                     aria-hidden="true"></i> {language==="fr" ? "par ":"من قبل"} <a href="" target="_blank">EaglesDevClub.tn</a>
-                            </p>
+                            </p> */}
 
                         </div>
                     </div>

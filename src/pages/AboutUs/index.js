@@ -3,60 +3,24 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
-import Preloader from '../../components/Preloader';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 import { LanguageContext } from '../../LanguageContext';
-import MenuIcon from '@mui/icons-material/Menu';
-import AddIcon from '@mui/icons-material/Add';
-import SearchIcon from '@mui/icons-material/Search';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import YouTube from 'react-youtube';
-import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
-import { useScrollTrigger, Zoom } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import Fab from '@mui/material/Fab';
-import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import GTranslateIcon from '@mui/icons-material/GTranslate';
-import { CoPresent } from '@mui/icons-material';
 import SettingsIcon from '@mui/icons-material/Settings';
+import SimpleDialog from "../../components/SimpleDialog"
+import Alert from '@mui/material/Alert';
 
-
-
-
-
-const useStyles = makeStyles((theme) => ({
-    speedDial: {
-        position: 'fixed',
-        bottom: '0px',
-        right: '50px',
-        zIndex: 999, // Adjust the z-index as needed
-    },
-}));
-
-const StyledFab = styled(Fab)({
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
-  });
-  
 
 export default function AboutUs() {
-    const { language } = useContext(LanguageContext);
+    const { language, updateLanguage } = useContext(LanguageContext);
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
     const videoId3 = 'Z-DF8L_gwHw';
     const videoId2 = "BIDDOO6wo_Y";
@@ -68,27 +32,26 @@ export default function AboutUs() {
             autoplay: 0,
         },
     };
-    const classes = useStyles();
+
+    //Logic for mobile view begins ends here
+
     const [open, setOpen] = useState(false);
-    const [buttonPosition, setButtonPosition] = useState({ bottom: "16px", right: "50px" });
-    const [scrollDirection, setScrollDirection] = useState(null);
-    const [prevScrollY, setPrevScrollY] = useState(0);
-    const translations={
-        "fr":{
-            "langue":"Choisir une langue",
-            "copier":"Copier le Lien",
-            "partager":"Partager le Site"
+    const translations = {
+        "fr": {
+            "langue": "Choisir une langue",
+            "copier": "Copier le Lien",
+            "partager": "Partager le Site"
         },
-        "ar":{
-            "langue":"اختر لغة",
-            "copier":"أنقل رابط الموقع",
-            "partager":"شارك الموقع مع صديق"
+        "ar": {
+            "langue": "اختر لغة",
+            "copier": "أنقل رابط الموقع",
+            "partager": "شارك الموقع مع صديق"
         }
     }
     const actions = [
         { icon: <GTranslateIcon />, key: 1, name: translations[language]["langue"] },
-        { icon: <FileCopyIcon />, key:2,  name: translations[language]["copier"] },
-        { icon: <ShareIcon />, key:3, name: translations[language]["partager"] },
+        { icon: <FileCopyIcon />, key: 2, name: translations[language]["copier"] },
+        { icon: <ShareIcon />, key: 3, name: translations[language]["partager"] },
     ];
 
     const handleClose = () => {
@@ -100,74 +63,52 @@ export default function AboutUs() {
     };
 
     const handleAction = (key) => {
-        if(key===1){
+        if (key === 2) {
             const handleCopyLink = async () => {
                 try {
-                  await navigator.clipboard.writeText("www.allouchi.net");
-                  console.log('Link copied to clipboard!');
+                    await navigator.clipboard.writeText("www.allouchi.net");
+                    console.log('Link copied to clipboard!');
                 } catch (error) {
-                  console.error('Failed to copy link to clipboard:', error);
+                    console.error('Failed to copy link to clipboard:', error);
                 }
-              };
+            };
         }
-        else if (key===2){
+        else if (key === 3) {
             const handleShare = async () => {
                 if (navigator.share) {
-                  try {
-                    const url="www.allouchi.net"
-                    const title="Allouchi"
-                    await navigator.share({ url, title });
-                    console.log('Website shared successfully!');
-                  } catch (error) {
-                    console.error('Failed to share website:', error);
-                  }
+                    try {
+                        const url = "www.allouchi.net"
+                        const title = "Allouchi"
+                        await navigator.share({ url, title });
+                        console.log('Website shared successfully!');
+                    } catch (error) {
+                        console.error('Failed to share website:', error);
+                    }
                 } else {
-                  console.log('Web Share API not supported');
-                  // Provide fallback behavior for browsers that do not support Web Share API
+                    console.log('Web Share API not supported');
+                    // Provide fallback behavior for browsers that do not support Web Share API
                 }
-              };
+            };
         }
-        else{
-
+        else {
+            handleClickOpen();
         }
-        }
+    }
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobileView(window.innerWidth < 768);
-        };
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(language);
 
-        window.addEventListener('resize', handleResize);
-        handleResize();
+    const handleClickOpen = () => {
+        setIsOpen(true);
+    };
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-    
+    const handleClickClose = (value) => {
+        updateLanguage(value === "فرنسية" ? "fr" : value === "Arabe" ? "ar" : value === "Français" ? "fr" : "ar");
+        setIsOpen(false);
+        setSelectedValue(value);
+    };
 
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            setScrollDirection(scrollY > prevScrollY ? 'down' : 'up');
-            setPrevScrollY(scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [prevScrollY]);
-
-    useEffect(() => {
-        const adjustButtonPosition = () => {
-            const bottom = scrollDirection === 'up' ? "108px" : "16px"; // Adjust the top positions as needed
-            setButtonPosition({ bottom, right: '50px' });
-        };
-
-        adjustButtonPosition();
-    }, [scrollDirection]);
+    //Logic for mobile view changes ends here
 
     const mapWidth = isMobileView ? '300px' : '400px';
     const mapHeight = isMobileView ? '240px' : '300px';
@@ -198,58 +139,63 @@ export default function AboutUs() {
 
             <section className="about spad">
                 <div className="container">
+                    <SimpleDialog
+                    selectedValue={selectedValue}
+                    open={isOpen}
+                    onClose={handleClickClose}
+                    />
                 <AppBar position="fixed" sx={{ top: 'auto', bottom: 0 }}>
-        <Toolbar>
-          <SpeedDial
-        ariaLabel="Settings"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
-        icon={<SettingsIcon />}
-        onClose={handleClose}
-        onOpen={handleOpen}
-        open={open}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            key={action.key}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={()=>handleAction(action.key)}
-          />
-        ))}
-      </SpeedDial>
-        </Toolbar>
-      </AppBar>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="about__pic">
-                                <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" alt="" />
-                            </div>
+                    <Toolbar>
+                        <SpeedDial
+                            ariaLabel="Settings"
+                            sx={{ position: 'absolute', bottom: 16, right: 16 }}
+                            icon={<SettingsIcon />}
+                            onClose={handleClose}
+                            onOpen={handleOpen}
+                            open={open}
+                        >
+                            {actions.map((action) => (
+                                <SpeedDialAction
+                                    key={action.key}
+                                    icon={action.icon}
+                                    tooltipTitle={action.name}
+                                    onClick={() => handleAction(action.key)}
+                                />
+                            ))}
+                        </SpeedDial>
+                    </Toolbar>
+                </AppBar>
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="about__pic">
+                            <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" alt="" />
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-                            <div className="about__item">
-                                <h4>{language === "fr" ? "Aalfa - Aalouche Eid 2023" : "علفة علوش العيد 2023"}</h4>
-                                <YouTube videoId={videoId1} opts={opts} />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-                            <div className="about__item">
-                                <h4>{language === "fr" ? "Aalfa Djej" : "علفة الدجاج"}</h4>
-                                <YouTube videoId={videoId2} opts={opts} />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-                            <div className="about__item">
-                                <h4>{language === "fr" ? "Prix Aalfa 2023" : "كلفة علفة علوش العيد 2023"}</h4>
-                                <YouTube videoId={videoId3} opts={opts} />
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
-            </section>
+                <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                        <div className="about__item">
+                            <h4>{language === "fr" ? "Aalfa - Aalouche Eid 2023" : "علفة علوش العيد 2023"}</h4>
+                            <YouTube videoId={videoId1} opts={opts} />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                        <div className="about__item">
+                            <h4>{language === "fr" ? "Aalfa Djej" : "علفة الدجاج"}</h4>
+                            <YouTube videoId={videoId2} opts={opts} />
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                        <div className="about__item">
+                            <h4>{language === "fr" ? "Prix Aalfa 2023" : "كلفة علفة علوش العيد 2023"}</h4>
+                            <YouTube videoId={videoId3} opts={opts} />
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+            </section >
 
             <section className="testimonial">
                 <div className="container-fluid">
@@ -330,6 +276,7 @@ export default function AboutUs() {
                                 <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
                                 <h2 className="maps-text">{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
                             </div>
+                            <Alert severity="info">{language==="fr"? "Ferme Dmen, Ariana 2021" : "2021 ضيعة دمان بأريانة"}</Alert>
                         </div>
                     </div>
                 </div>
@@ -337,15 +284,6 @@ export default function AboutUs() {
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4 d-flex justify-content-center">
                         <div className="col-lg-12">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
-                                width={mapWidth}
-                                height={mapHeight}
-                                style={{ border: '0' }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
                         </div>
                     </div>
                     <div className="col-lg-4"></div>

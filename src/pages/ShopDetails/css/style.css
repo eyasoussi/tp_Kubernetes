@@ -3611,11 +3611,17 @@ html {
 	.testimonial__text {
 		padding: 2px 20px 2px 4px;
 	}
+	.css-1d6a3hl-MuiPaper-root-MuiAppBar-root{
+		display: none !important;
+	}
 }
 
 /* Medium Device = 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.css-1d6a3hl-MuiPaper-root-MuiAppBar-root{
+		display:none !important;
+	}
 	.categories__text h2 {
 		font-size: 26px;
 	}
@@ -4699,7 +4705,7 @@ html {
 	}
 }
 
-#root > div > section.about.spad > div > header{
+/* #root > div > section.about.spad > div > header{
 	background-color: transparent;
     width: 100%;
 }
@@ -4709,8 +4715,33 @@ html {
 	bottom: 48px;
 	max-height: 0px;
 	right: 16px;
+} */
+
+/* .css-hyum1k-MuiToolbar-root{
+	min-height:-23px;
+} */
+
+#root > div > div.MuiBox-root.css-3nawcj > div.MuiBottomNavigation-root.css-16lloyr-MuiBottomNavigation-root > button:nth-child(4) > button > span.MuiBadge-root.css-1to51ap-MuiBadge-root > span{
+	background:#111111;
+}
+
+svg > path{
+	color:#111111;
+}
+.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:hover{
+		background:#E5F9DB !important;
+}
+.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab{
+	background:#E5F9DB !important;
+}
+
+.css-imwso6-MuiBottomNavigationAction-label.Mui-selected{
+	color:#111111;
+	font-weight: bold;
+	scrollbar-highlight-color: #E5F9DB;
 }
 
 .css-hyum1k-MuiToolbar-root{
-	min-height:-23px;
+	background-color: #f2e8e8;
+    width: 100%;
 }
