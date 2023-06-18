@@ -7,11 +7,10 @@ import Type from './Type';
 import Race from './Race';
 import Age from './Age';
 import Search from './Search';
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
-import { Link } from 'react-router-dom';
-import routes from '../../routes';
+import CloseIcon from '@mui/icons-material/Close';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function Sidebar({ setAllFilters, articles }) {
   const { language } = useContext(LanguageContext);
@@ -130,6 +129,10 @@ export default function Sidebar({ setAllFilters, articles }) {
     setMenuOpen(false);
   };
 
+  const handleClick=() => {
+    setMenuOpen(false);
+  }
+
   return (
     <div>
       <div ref={sidebarRef} className="shop__sidebar__accordion">
@@ -161,6 +164,7 @@ export default function Sidebar({ setAllFilters, articles }) {
           style={{ color: menuOpen ? 'red' : 'black', top: topVal }}
         >
           <i className="fa fa-filter"></i>
+          <h6>{language==="fr"? "Filtrer" : "الفرز"}</h6>
         </div>
       </div>
       <div
@@ -168,7 +172,19 @@ export default function Sidebar({ setAllFilters, articles }) {
         ref={offcanvasMenuWrapperRef}
         style={{ backgroundColor: menuOpen ? '#F3F2EE' : 'transparent', top: '21.3%', width: 319, height:"79%" }}
       >
-        <div>
+ <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+      <div>
+        <div style={{ display: 'flex' }}>
+          <Tooltip title={language === 'fr' ? "Fermer l'outil de filtrage" : "أغلق أداة الفرز"} arrow>
+            <CloseIcon style={{ color: 'black', cursor: 'pointer', marginLeft: language==="fr"? "11px":"0px" }} onClick={handleClick} />
+          </Tooltip>
+        </div>
+        <div style={{ display: 'flex' }}>
+          <p>{language === 'fr' ? 'Fermer' : 'أغلق'}</p>
+        </div>
+      </div>
+    </div>
+    <div>
           {filters.Prix && <Price articles={articles} setPrice={setPrice} fromSideMenu={true}/>}
           {filters.Race && <Race setRace={setRace} fromSideMenu={true} />}
           {filters.Type && <Type setType={setType} fromSideMenu={true} />}

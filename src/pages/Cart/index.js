@@ -148,7 +148,6 @@ export default function Cart() {
 
     return (
         <div>
-            <Preloader />
             <Header />
             <section className="breadcrumb-option">
                 <div className="container">

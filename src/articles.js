@@ -1437,3 +1437,9 @@ export const  articles= [
             ]
         }
     ]
+
+    export function sortArticlesByPrice(articles) {
+        articles.sort((a, b) => a.price - b.price);
+        return articles;
+      }
+      

@@ -12,7 +12,7 @@ import Ovin from '../../components/Ovin';
 import Brebis from '../../components/Brebis';
 import PoulesPondeuses from '../../components/PoulesPondeuses';
 import { getObjectsByCategory } from '../../methods';
-import { articles } from '../../articles';
+import { articles, sortArticlesByPrice } from '../../articles';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
@@ -32,7 +32,7 @@ export default function Shop() {
     const handleFilterClick = (filter) => {
         setActiveFilter(filter); // Update the active filter state when a filter is clicked
     };
-    const [data, setData] = useState(articles);
+    const [data, setData] = useState(sortArticlesByPrice(articles));
     const [ovinData, setOvinData] = useState([]);
     const [BrebisData, setBrebisData] = useState([]);
     const [PoulaillerData, setPoulaillerData] = useState([]);
