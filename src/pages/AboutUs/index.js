@@ -8,6 +8,32 @@ import { Link } from 'react-router-dom';
 import routes from '../../routes';
 import { LanguageContext } from '../../LanguageContext';
 import YouTube from 'react-youtube';
+import Box from '@mui/material/Box';
+import Backdrop from '@mui/material/Backdrop';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+import { makeStyles } from '@mui/styles';
+
+const actions = [
+    { icon: <FileCopyIcon />, name: 'Copy' },
+    { icon: <SaveIcon />, name: 'Save' },
+    { icon: <PrintIcon />, name: 'Print' },
+    { icon: <ShareIcon />, name: 'Share' },
+  ];
+
+const useStyles = makeStyles((theme) => ({
+  speedDial: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+    zIndex: theme.zIndex.tooltip, // Adjust the z-index as needed
+  },
+}));
 
 export default function AboutUs() {
     const { language } = useContext(LanguageContext);
@@ -22,6 +48,10 @@ export default function AboutUs() {
             autoplay: 0,
         },
     };
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
 
     useEffect(() => {
         const handleResize = () => {
@@ -65,6 +95,25 @@ export default function AboutUs() {
 
             <section className="about spad">
                 <div className="container">
+                Backdrop open={open} />
+      <SpeedDial
+        ariaLabel="SpeedDial tooltip example"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+        onClose={handleClose}
+        onOpen={handleOpen}
+        open={open}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            tooltipOpen
+            onClick={handleClose}
+          />
+        ))}
+      </SpeedDial>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="about__pic">
@@ -237,6 +286,7 @@ export default function AboutUs() {
                     </div>
 
                 </div>
+              
             </section>
 
             <Footer />

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
@@ -10,10 +10,31 @@ import { LanguageContext } from '../../LanguageContext';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 import { NoEncryption, Style } from '@mui/icons-material';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function Cart() {
     const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
     const { language } = useContext(LanguageContext);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
     const translationTable = {
         fr: {
@@ -34,10 +55,10 @@ export default function Cart() {
         },
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         const selectedItemsIds = cartItems.map(item => item.id);
         localStorage.setItem('selectedItemsIds', JSON.stringify(selectedItemsIds));
-    },[cartItems]);
+    }, [cartItems]);
 
     return (
         <div>
@@ -66,8 +87,15 @@ export default function Cart() {
 
             <section className="shopping-cart spad">
                 <div className="container">
-                    <div className="row">
-                        {cartItems.length !== 0 &&
+                    {cartItems?.length === 0 && (
+                        <Stack sx={{ width: '100%' }} spacing={2}>
+                            <Alert severity="warning">
+                                <AlertTitle>{language==="fr"? "Warning" : ""}</AlertTitle>
+                                {language==="fr"?"Veuillez vous assurer d'ajouter des articles au panier avant de visiter cette page. Pour revenir à la page de magasinage, ":"يرجى التأكد من إضافة المنتجات إلى العربة قبل زيارة هذه الصفحة. للعودة إلى صفحة التسوق، "}  <strong><Link to={routes.SHOP}><a>{language === "fr" ? "cliquez sur ce lien." : "انقر على هذا الرابط"}</a></Link></strong>
+                            </Alert>
+                        </Stack>)}
+                    {cartItems.length !== 0 && (
+                        <div className="row">
                             <div className="col-lg-12">
                                 <div className="shopping__cart__table">
                                     <table>
@@ -87,20 +115,20 @@ export default function Cart() {
                                                 <tr key={index}>
                                                     <td className='product__cart__id'> {item.id}</td>
                                                     <td>
-                                                            <img src={item.thumbnail} alt={item.title} width="40" height="40" />                                                        
+                                                        <img src={item.thumbnail} alt={item.title} width="40" height="40" />
                                                     </td>
                                                     <td className="product__cart__item__text">
-                                                            {item.title}
+                                                        {item.title}
                                                     </td>
                                                     <td className="cart__price">
                                                         {item.price} {language === "fr" ? "Dt" : "دينار"}
                                                     </td>
                                                     <td className='product__cart__categ'>{translationTable[language][item.category]}</td>
                                                     <td className="cart__close">
-                                                        <Link to={`${routes.SHOP}/${item.id}`} style={{width:1}}><i className="fa fa-eye"></i></Link>
+                                                        <Link to={`${routes.SHOP}/${item.id}`} style={{ width: 1 }}><i className="fa fa-eye"></i></Link>
                                                     </td>
                                                     <td className="cart__close">
-                                                        <i onClick={() => removeFromCart(item)} className="fa fa-close"></i>
+                                                        <i onClick={() => { removeFromCart(item); handleClick(); }} className="fa fa-close"></i>
                                                     </td>
                                                 </tr>
                                             ))}
@@ -124,26 +152,32 @@ export default function Cart() {
                                     </div>
                                 </div>
                             </div>}
-                        <br></br>
-                        <br></br>
-                        <div className="col-lg-3" height="10px"></div>
-                        <div className="col-lg-6">
-                            <div className="cart__total">
-                                <h6>{language === "fr" ? "Prix Total" : "الثمن الجملي"}</h6>
-                                <ul>
-                                    <li>{language === "fr" ? "Total" : "المجموع"} <span>
-                                        {cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}
-                                    </span></li>
-                                </ul>
-                                <Link to={routes.CHECKOUT}>
-                                <a href="#" className="primary-btn"> {language === "fr" ? "Passer une commande - Contactez Nous" : "اتصل بنا - أتمم الطلب"}</a>
-                                </Link>
+                            <br></br>
+                            <br></br>
+                            <div className="col-lg-3" height="10px"></div>
+                            <div className="col-lg-6">
+                                <div className="cart__total">
+                                    <h6>{language === "fr" ? "Prix Total" : "الثمن الجملي"}</h6>
+                                    <ul>
+                                        <li>{language === "fr" ? "Total" : "المجموع"} <span>
+                                            {cartItems.reduce((total, item) => total + item.price, 0)} {language === "fr" ? "Dinars" : "دينار"}
+                                        </span></li>
+                                    </ul>
+                                    <Link to={routes.CHECKOUT}>
+                                        <a href="#" className="primary-btn"> {language === "fr" ? "Passer une commande - Contactez Nous" : "اتصل بنا - أتمم الطلب"}</a>
+                                    </Link>
 
+                                </div>
                             </div>
+                            <div className="col-lg-3"></div>
                         </div>
-                        <div className="col-lg-3"></div>
-                    </div>
+                    )}
                 </div>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        {language === "fr" ? "Article supprimé du panier avec succès!" : 'تم حذف المنتج من السلة بنجاح!'}
+                    </Alert>
+                </Snackbar>
             </section >
             <Footer />
             <Modal />
