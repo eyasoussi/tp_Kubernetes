@@ -21,6 +21,12 @@ import MyContext from '../../context';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
 import { articles } from '../../articles';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function ShopDetails() {
     const navigate = useNavigate();
@@ -30,6 +36,26 @@ export default function ShopDetails() {
     const [idP, setIdP] = useState(id);
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [open, setOpen] = React.useState(false);
+    const [isArticleInCart, setIsArticleInCart] = useState(false);
+
+    useEffect(() => {
+        setIsArticleInCart(cartItems.some(item => item.id === article.id));
+    }, [cartItems, article]);
+
+    const handleClickCart = () => {
+        setOpen(true);
+        setIsArticleInCart(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
 
     const shopDetailsTranslations = {
         "en": {
@@ -41,7 +67,7 @@ export default function ShopDetails() {
             "age": 'Age:',
             "poids": 'Poids:',
             "relatedProducts": 'Related Products',
-            "Entre 6mois et 9mois":"Entre 6mois et 9mois"
+            "Entre 6mois et 9mois": "Entre 6mois et 9mois"
         },
         "fr": {
             "addToWishlist": 'AJOUTER AU PANIER',
@@ -58,7 +84,7 @@ export default function ShopDetails() {
             "Brebis": "Brebis",
             "Poulailler Engraissement": "Poulailler Engraissement",
             "Poules Pondeuses": "Poules Pondeuses",
-            "Entre":"Entre 6 mois et 9 mois"
+            "Entre": "Entre 6 mois et 9 mois"
         },
         "ar": {
             "addToWishlist": 'إضافة إلى سلة المقتنيات',
@@ -75,7 +101,7 @@ export default function ShopDetails() {
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
             "Poules Pondeuses": "دجاج البيض",
-            "Entre":"بين 6 شهور و 9 شهور"
+            "Entre": "بين 6 شهور و 9 شهور"
         },
     };
 
@@ -114,7 +140,7 @@ export default function ShopDetails() {
         console.log(id)
         console.log(articles);
         console.log(article);
-    }, [ id, idP]);
+    }, [id, idP]);
 
     useEffect(() => {
         const selectedItemsIds = cartItems.map(item => item.id);
@@ -174,7 +200,7 @@ export default function ShopDetails() {
                                 <div className="col-lg-8">
                                     <div className="product__details__text">
                                         <h4>{article?.title}</h4>
-                                        <h3>{article?.price}<span style={{display:"none"}}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
+                                        <h3>{article?.price}<span style={{ display: "none" }}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
                                         <p>{article?.description}</p>
                                         <div className="product__details__option">
 
@@ -185,9 +211,19 @@ export default function ShopDetails() {
                                                     <input type="text" value="1" disabled />
                                                 </div>
                                             </div>
-                                            <Link to={routes.CART}>
-                                                <a className="primary-btn" onClick={handleAddToCart}>{shopDetailsTranslations[language]["addToWishlist"]}</a>
-                                            </Link>
+                                            {!isArticleInCart ? (
+                                                <a className="primary-btn" onClick={handleClickCart}>
+                                                    {shopDetailsTranslations[language]['addToWishlist']}
+                                                </a>
+                                            ) : (
+                                                <Link to={routes.CART}>
+                                                    <a className="primary-btn" onClick={handleAddToCart}>
+                                                        {language === 'fr'
+                                                            ? 'Article dans le panier - allez au Panier'
+                                                            : 'توجه نحو عربة المقتنيات '}
+                                                    </a>
+                                                </Link>
+                                            )}
                                         </div>
                                         <div className="product__details__btns__option">
                                             <Link to={routes.SHOP}>
@@ -200,7 +236,7 @@ export default function ShopDetails() {
                                             <img src="img/shop-details/details-payment.png" alt="" />
                                             <ul>
                                                 <li><span>{shopDetailsTranslations[language]["category"]} </span>{shopDetailsTranslations[language][article?.category]}</li>
-                                                <li><span>{shopDetailsTranslations[language]["age"]} </span>{(article?.age < 1 && article?.category==="Ovin Engraissement") ? shopDetailsTranslations[language]["Entre"] : article?.age} {article?.age < 1 ? "" : shopDetailsTranslations[language]["ans"]} </li>
+                                                <li><span>{shopDetailsTranslations[language]["age"]} </span>{(article?.age < 1 && article?.category === "Ovin Engraissement") ? shopDetailsTranslations[language]["Entre"] : article?.age} {article?.age < 1 ? "" : shopDetailsTranslations[language]["ans"]} </li>
                                                 <li><span>{shopDetailsTranslations[language]["poids"]} </span>{article?.weight} {shopDetailsTranslations[language]["unitePoids"]}</li>
                                             </ul>
                                         </div>
@@ -219,7 +255,7 @@ export default function ShopDetails() {
                         </div>
                         <div className="row">
                             {randomArticles.map((article, index) => (
-                                <div className="col-lg-3 col-md-6 col-sm-6 col-sm-6" key={index}>
+                                <div onClick={() => handleNavigation(article?.id)} className="col-lg-3 col-md-6 col-sm-6 col-sm-6" key={index} >
                                     <div className="product__item">
                                         <div className="product__item__pic set-bg" data-setbg={article.thumbnail}>
                                             <img src={article.thumbnail} alt="" />
@@ -263,6 +299,11 @@ export default function ShopDetails() {
                             ))}
                         </div>
                     </div>
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                            { language === "fr" ? "Article ajouté avec succès!" : "تمت اضافة المنتج بنجاح!"}
+                        </Alert>
+                    </Snackbar>
                 </section>
                 <Footer />
                 <Modal />
