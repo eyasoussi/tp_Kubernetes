@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from "./Card";
 import { useContext } from 'react';
-import { LanguageContext } from '../../LanguageContext';
+import { LanguageContext } from '../../LanguageContext'
+import Snackbar from '@mui/material/Snackbar';
+
 
 export default function MainShop({ filteredData }) {
   const { language } = useContext(LanguageContext);
@@ -10,7 +12,7 @@ export default function MainShop({ filteredData }) {
   const [data, setData] = useState(filteredData);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-
+  
   useEffect(() => {
     setData(filteredData);
     setCurrentPage(1);
@@ -27,11 +29,37 @@ export default function MainShop({ filteredData }) {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  function scrollToPosition(scrollToY, duration) {
+    const scrollFromY = window.scrollY;
+    const startTime = performance.now();
+  
+    function scrollAnimation(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      const scrollTo = scrollFromY + ((scrollToY - scrollFromY) * progress);
+  
+      window.scrollTo(0, scrollTo);
+  
+      if (progress < 1) {
+        window.requestAnimationFrame(scrollAnimation);
+      }
+    }
+  
+    window.requestAnimationFrame(scrollAnimation);
+  }
+  
+  // Usage example
+  const targetPosition = 150; // Target scroll position
+  const animationDuration = 200; // Animation duration in milliseconds
+  
+ 
+  
 
   // Handle pagination click
   const handlePageClick = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(152, 152);
+    //window.scrollTo(152, 152);
+    scrollToPosition(targetPosition, animationDuration);
   };
 
   return (

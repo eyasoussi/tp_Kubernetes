@@ -1,18 +1,32 @@
-import React from 'react'
-import { useContext } from 'react';
+import React, { useEffect } from 'react'
+import { useContext, useState } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
 import routes from '../../routes';
 import { Link } from 'react-router-dom';
-
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 export default function Card({ item, key, handleShopItemClick }) {
     const { language } = useContext(LanguageContext);
     const { addToCart } = useContext(CartContext);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        let timeoutId;
+          timeoutId = setTimeout(() => {
+            setLoading(false);
+          }, 200);
+
+        return () => {
+          clearTimeout(timeoutId); // Clear the timeout on component unmount
+        };
+      }, []); 
 
     const handleClick = () => {
         addToCart(item);
     }
-    return (
+    return (!loading ? (
         <div className="col-lg-4 col-md-6 col-sm-6" onClick={() => handleShopItemClick(item.id)}>
             <div className="product__item">
                 <div className="product__item__pic set-bg" data-setbg={item.thumbnail}>
@@ -39,6 +53,15 @@ export default function Card({ item, key, handleShopItemClick }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>) :
+        <Box sx={{ width: 210, marginRight: 0.5, my: 5 }}>
+        <Stack spacing={2}>
+            <Skeleton variant="rectangular" width={210} height={200} />
+            <Box sx={{ pt: 0.5 }}>
+                <Skeleton />
+                <Skeleton width="60%" />
+            </Box>
+        </Stack>
+        </Box>
     )
 }

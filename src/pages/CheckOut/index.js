@@ -5,15 +5,24 @@ import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import Preloader from '../../components/Preloader';
 import { CartContext } from '../../CartContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import ShareIcon from '@mui/icons-material/Share';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import GTranslateIcon from '@mui/icons-material/GTranslate';
+import SettingsIcon from '@mui/icons-material/Settings';
+import SimpleDialog from "../../components/SimpleDialog"
 
 
 export default function Checkout() {
     const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
-    const { language } = useContext(LanguageContext);
+    const { language, updateLanguage } = useContext(LanguageContext);
 
     const translation = {
         "fr": {
@@ -25,7 +34,10 @@ export default function Checkout() {
             "state": "Ariana",
             "postcode": "2080",
             "phone": "50 128 000",
-            "email": "falleh.tn@gmail.com"
+            "email": "falleh.tn@gmail.com",
+            "langue": "Choisir une langue",
+            "copier": "Copier le Lien",
+            "partager": "Partager le Site"
         },
         "ar": {
             "contact1": "رياض المدني",
@@ -36,7 +48,10 @@ export default function Checkout() {
             "state": "أريانة",
             "postcode": "2080",
             "phone": "50 128 000",
-            "email": "falleh.tn@gmail.com"
+            "email": "falleh.tn@gmail.com",
+            "langue": "اختر لغة",
+            "copier": "أنقل رابط الموقع",
+            "partager": "شارك الموقع مع صديق"
         }
     }
     const translations = translation[language];
@@ -44,6 +59,71 @@ export default function Checkout() {
     const handlePhoneCall = () => {
         window.location.href = `tel:${50128000}`;
     };
+
+    //Logic for mobile view begins ends here
+
+    const [open, setOpen] = useState(false);
+    const actions = [
+        { icon: <GTranslateIcon />, key: 1, name: translations["langue"] },
+        { icon: <FileCopyIcon />, key: 2, name: translations["copier"] },
+        { icon: <ShareIcon />, key: 3, name: translations["partager"] },
+    ];
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleAction = (key) => {
+        if (key === 2) {
+            const handleCopyLink = async () => {
+                try {
+                    await navigator.clipboard.writeText("www.allouchi.net");
+                    console.log('Link copied to clipboard!');
+                } catch (error) {
+                    console.error('Failed to copy link to clipboard:', error);
+                }
+            };
+        }
+        else if (key === 3) {
+            const handleShare = async () => {
+                if (navigator.share) {
+                    try {
+                        const url = "www.allouchi.net"
+                        const title = "Allouchi"
+                        await navigator.share({ url, title });
+                        console.log('Website shared successfully!');
+                    } catch (error) {
+                        console.error('Failed to share website:', error);
+                    }
+                } else {
+                    console.log('Web Share API not supported');
+                    // Provide fallback behavior for browsers that do not support Web Share API
+                }
+            };
+        }
+        else {
+            handleClickOpen();
+        }
+    }
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(language);
+
+    const handleClickOpen = () => {
+        setIsOpen(true);
+    };
+
+    const handleClickClose = (value) => {
+        updateLanguage(value === "فرنسية" ? "fr" : value === "Arabe" ? "ar" : value === "Français" ? "fr" : "ar");
+        setIsOpen(false);
+        setSelectedValue(value);
+    };
+
+    //Logic for mobile view changes ends here
 
     return (
         <div>
@@ -72,6 +152,32 @@ export default function Checkout() {
 
             <section className="checkout spad">
                 <div className="container">
+                <SimpleDialog
+                    selectedValue={selectedValue}
+                    open={isOpen}
+                    onClose={handleClickClose}
+                    />
+                <AppBar position="fixed" sx={{ top: 'auto', bottom: 0 }}>
+                    <Toolbar>
+                        <SpeedDial
+                            ariaLabel="Settings"
+                            sx={{ position: 'absolute', bottom: 16, right: 16 }}
+                            icon={<SettingsIcon />}
+                            onClose={handleClose}
+                            onOpen={handleOpen}
+                            open={open}
+                        >
+                            {actions.map((action) => (
+                                <SpeedDialAction
+                                    key={action.key}
+                                    icon={action.icon}
+                                    tooltipTitle={action.name}
+                                    onClick={() => handleAction(action.key)}
+                                />
+                            ))}
+                        </SpeedDial>
+                    </Toolbar>
+                </AppBar>
                     <div className="checkout__form">
                         <form action="">
                             <div className="row">
@@ -81,13 +187,7 @@ export default function Checkout() {
                                     <div className="row">
                                     <div className="col-lg-8">
                                     <p>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</p>   
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus" width={600}
-                                            height={450}
-                                            style={{ border: "0" }}
-                                            allowFullScreen=""
-                                            loading="lazy"
-                                            referrerPolicy="no-referrer-when-downgrade"></iframe>
-                                            </div>
+                                    </div>
                                         <div className="col-lg-6">
                                             <div className="checkout__input">
                                                 <p>{language === 'fr' ? 'Contact 1:' : ' :المتواصل 1'}</p>
