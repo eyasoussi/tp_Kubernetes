@@ -3614,6 +3614,9 @@ html {
 	.css-1d6a3hl-MuiPaper-root-MuiAppBar-root{
 		display: none !important;
 	}
+	.css-i6s8oy{
+		display: none !important;
+	}
 }
 
 /* Medium Device = 1200px */
@@ -3621,6 +3624,9 @@ html {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.css-1d6a3hl-MuiPaper-root-MuiAppBar-root{
 		display:none !important;
+	}
+	.css-i6s8oy{
+		display: none !important;
 	}
 	.categories__text h2 {
 		font-size: 26px;
@@ -4744,4 +4750,17 @@ svg > path{
 .css-hyum1k-MuiToolbar-root{
 	background-color: #f2e8e8;
     width: 100%;
+}
+.css-r9uhzn {
+	background-color: #f2e8e8;
+}
+.css-i6s8oy{
+	background-color: #f2e8e8;
+    width: 100%;
+}
+
+.css-sxw2zh.Mui-selected{
+	color: black;
+    font-weight: bold;
+    background: #AAAA;
 }
