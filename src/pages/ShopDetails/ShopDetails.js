@@ -133,13 +133,8 @@ export default function ShopDetails() {
 
     useEffect(() => {
         const newId = idP
-        console.log(newId);
         setArticle(articles.find((article) => Number(article.id) === Number(newId)));
-        console.log(article);
         setIsLoading(false);
-        console.log(id)
-        console.log(articles);
-        console.log(article);
     }, [id, idP]);
 
     useEffect(() => {

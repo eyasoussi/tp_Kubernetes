@@ -39,7 +39,6 @@ export const applyFilters = (data, allFilters) => {
     );
   }
 
-  console.log("price filter: ",filteredResults);
 
   if (allFilters.weight && allFilters.weight[1] !== 80 && allFilters.weight[0] !== 0) {
     const [minWeight, maxWeight] = allFilters.weight;
@@ -47,7 +46,6 @@ export const applyFilters = (data, allFilters) => {
       (item) => (item.weight >= minWeight && item.weight <= maxWeight) || item.weight === 0
     );
   }
-  console.log("weight filter: ",filteredResults);
 
   if (allFilters.race && allFilters.race.length > 0) {
     // Apply race filter logic
@@ -55,7 +53,6 @@ export const applyFilters = (data, allFilters) => {
       (item) => allFilters.race.includes(item.race) 
     );
   }
-  console.log("race filter: ",filteredResults);
 
   if (allFilters.age && allFilters.age.length > 0) {
     filteredResults = filteredResults.filter((item) =>
@@ -64,7 +61,6 @@ export const applyFilters = (data, allFilters) => {
       )
     );
   }
-  console.log("age filter", filteredResults);
 
   if (allFilters.type && allFilters.type.length > 0) {
     // Apply type filter logic
@@ -72,7 +68,6 @@ export const applyFilters = (data, allFilters) => {
       (item) => allFilters.type.includes(item.type)
     );
   }
-  console.log("type filter: ",filteredResults);
 
   const disabled = false;
   if(!disabled){
@@ -90,8 +85,6 @@ export const applyFilters = (data, allFilters) => {
   
 
   filteredResults = filterObjectsByTitle(filteredResults, allFilters.enteredWord);
-
-  console.log("state filter: ",filteredResults);
   
   return filteredResults;
 };

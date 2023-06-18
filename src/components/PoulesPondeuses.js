@@ -11,8 +11,6 @@ export default function PoulesPondeuses({data}) {
     useEffect(() => {
         const filteredRes = applyFilters(data, allFilters);
         setFilteredData(filteredRes);
-        console.log(filteredData); // Accessible, but will log the initial state of filteredData
-        console.log(allFilters);
     }, [allFilters, data]);
 
   return (

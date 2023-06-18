@@ -103,7 +103,6 @@ isMobileView ?  (
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
-        console.log("value", newValue);
       }}
     >
       <BottomNavigationAction
