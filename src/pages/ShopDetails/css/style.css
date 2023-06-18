@@ -4761,3 +4761,9 @@ svg > path{
     background: #AAAA ;
 
 }
+
+.css-sxw2zh.Mui-selected {
+    background: #ffc9c9aa;
+    color: #279340aa!important;
+    font-weight: 700;
+}
