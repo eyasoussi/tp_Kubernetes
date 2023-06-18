@@ -3,6 +3,8 @@ body {
 	height: 100%;
 	font-family: "Nunito Sans", sans-serif;
 	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 h1,
@@ -4728,11 +4730,11 @@ html {
 } */
 
 #root > div > div.MuiBox-root.css-3nawcj > div.MuiBottomNavigation-root.css-16lloyr-MuiBottomNavigation-root > button:nth-child(4) > button > span.MuiBadge-root.css-1to51ap-MuiBadge-root > span{
-	background:#111111 !important;
+	background:#111111;
 }
 
 svg > path{
-	color:#111111 !important;
+	color:#111111 ;
 }
 .css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:hover{
 		background:#E5F9DB !important;
@@ -4742,25 +4744,25 @@ svg > path{
 }
 
 .css-imwso6-MuiBottomNavigationAction-label.Mui-selected{
-	color:#111111 !important;
-	font-weight: bold !important;
-	scrollbar-highlight-color: #E5F9DB !important;
+	color:#111111 ;
+	font-weight: bold;
 }
 
 .css-hyum1k-MuiToolbar-root{
 	background-color: #f2e8e8 !important;
-    width: 100% !important;
 }
 .css-r9uhzn {
 	background-color: #f2e8e8 !important;
 }
 .css-i6s8oy{
 	background-color: #f2e8e8 !important;
-    width: 100% !important;
+	width:80vw;
+	margin:10vw
 }
 
 .css-sxw2zh.Mui-selected{
-	color: black !important;
-    font-weight: bold !important;
-    background: #AAAA !important;
+	color: black ;
+    font-weight: bold ;
+    background: #AAAA ;
+
 }
