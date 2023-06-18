@@ -7,8 +7,11 @@ import Preloader from '../../components/Preloader';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
 import { LanguageContext } from '../../LanguageContext';
+import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
+import MoreIcon from '@mui/icons-material/MoreVert';
 import YouTube from 'react-youtube';
-import Box from '@mui/material/Box';
 import Backdrop from '@mui/material/Backdrop';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
@@ -17,23 +20,40 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
+import { useScrollTrigger, Zoom } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import Fab from '@mui/material/Fab';
+import { styled } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import GTranslateIcon from '@mui/icons-material/GTranslate';
+import { CoPresent } from '@mui/icons-material';
+import SettingsIcon from '@mui/icons-material/Settings';
 
-const actions = [
-    { icon: <FileCopyIcon />, name: 'Copy' },
-    { icon: <SaveIcon />, name: 'Save' },
-    { icon: <PrintIcon />, name: 'Print' },
-    { icon: <ShareIcon />, name: 'Share' },
-  ];
+
+
+
 
 const useStyles = makeStyles((theme) => ({
-  speedDial: {
-    position: 'fixed',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
-    zIndex: theme.zIndex.tooltip, // Adjust the z-index as needed
-  },
+    speedDial: {
+        position: 'fixed',
+        bottom: '0px',
+        right: '50px',
+        zIndex: 999, // Adjust the z-index as needed
+    },
 }));
+
+const StyledFab = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+  });
+  
 
 export default function AboutUs() {
     const { language } = useContext(LanguageContext);
@@ -48,10 +68,69 @@ export default function AboutUs() {
             autoplay: 0,
         },
     };
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-  
+    const classes = useStyles();
+    const [open, setOpen] = useState(false);
+    const [buttonPosition, setButtonPosition] = useState({ bottom: "16px", right: "50px" });
+    const [scrollDirection, setScrollDirection] = useState(null);
+    const [prevScrollY, setPrevScrollY] = useState(0);
+    const translations={
+        "fr":{
+            "langue":"Choisir une langue",
+            "copier":"Copier le Lien",
+            "partager":"Partager le Site"
+        },
+        "ar":{
+            "langue":"اختر لغة",
+            "copier":"أنقل رابط الموقع",
+            "partager":"شارك الموقع مع صديق"
+        }
+    }
+    const actions = [
+        { icon: <GTranslateIcon />, key: 1, name: translations[language]["langue"] },
+        { icon: <FileCopyIcon />, key:2,  name: translations[language]["copier"] },
+        { icon: <ShareIcon />, key:3, name: translations[language]["partager"] },
+    ];
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleAction = (key) => {
+        if(key===1){
+            const handleCopyLink = async () => {
+                try {
+                  await navigator.clipboard.writeText("www.allouchi.net");
+                  console.log('Link copied to clipboard!');
+                } catch (error) {
+                  console.error('Failed to copy link to clipboard:', error);
+                }
+              };
+        }
+        else if (key===2){
+            const handleShare = async () => {
+                if (navigator.share) {
+                  try {
+                    const url="www.allouchi.net"
+                    const title="Allouchi"
+                    await navigator.share({ url, title });
+                    console.log('Website shared successfully!');
+                  } catch (error) {
+                    console.error('Failed to share website:', error);
+                  }
+                } else {
+                  console.log('Web Share API not supported');
+                  // Provide fallback behavior for browsers that do not support Web Share API
+                }
+              };
+        }
+        else{
+
+        }
+        }
 
     useEffect(() => {
         const handleResize = () => {
@@ -65,6 +144,30 @@ export default function AboutUs() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+    
+
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            setScrollDirection(scrollY > prevScrollY ? 'down' : 'up');
+            setPrevScrollY(scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollY]);
+
+    useEffect(() => {
+        const adjustButtonPosition = () => {
+            const bottom = scrollDirection === 'up' ? "108px" : "16px"; // Adjust the top positions as needed
+            setButtonPosition({ bottom, right: '50px' });
+        };
+
+        adjustButtonPosition();
+    }, [scrollDirection]);
 
     const mapWidth = isMobileView ? '300px' : '400px';
     const mapHeight = isMobileView ? '240px' : '300px';
@@ -95,25 +198,27 @@ export default function AboutUs() {
 
             <section className="about spad">
                 <div className="container">
-                Backdrop open={open} />
-      <SpeedDial
-        ariaLabel="SpeedDial tooltip example"
+                <AppBar position="fixed" sx={{ top: 'auto', bottom: 0 }}>
+        <Toolbar>
+          <SpeedDial
+        ariaLabel="Settings"
         sx={{ position: 'absolute', bottom: 16, right: 16 }}
-        icon={<SpeedDialIcon />}
+        icon={<SettingsIcon />}
         onClose={handleClose}
         onOpen={handleOpen}
         open={open}
       >
         {actions.map((action) => (
           <SpeedDialAction
-            key={action.name}
+            key={action.key}
             icon={action.icon}
             tooltipTitle={action.name}
-            tooltipOpen
-            onClick={handleClose}
+            onClick={()=>handleAction(action.key)}
           />
         ))}
       </SpeedDial>
+        </Toolbar>
+      </AppBar>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="about__pic">
@@ -122,25 +227,25 @@ export default function AboutUs() {
                         </div>
                     </div>
                     <div className="row">
-  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-    <div className="about__item">
-      <h4>{language === "fr" ? "Aalfa - Aalouche Eid 2023" : "علفة علوش العيد 2023"}</h4>
-      <YouTube videoId={videoId1} opts={opts} />
-    </div>
-  </div>
-  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-    <div className="about__item">
-      <h4>{language === "fr" ? "Aalfa Djej" : "علفة الدجاج"}</h4>
-      <YouTube videoId={videoId2} opts={opts} />
-    </div>
-  </div>
-  <div className="col-lg-4 col-md-4 col-sm-6 text-center">
-    <div className="about__item">
-      <h4>{language === "fr" ? "Prix Aalfa 2023" : "كلفة علفة علوش العيد 2023"}</h4>
-      <YouTube videoId={videoId3} opts={opts} />
-    </div>
-  </div>
-</div>
+                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                            <div className="about__item">
+                                <h4>{language === "fr" ? "Aalfa - Aalouche Eid 2023" : "علفة علوش العيد 2023"}</h4>
+                                <YouTube videoId={videoId1} opts={opts} />
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                            <div className="about__item">
+                                <h4>{language === "fr" ? "Aalfa Djej" : "علفة الدجاج"}</h4>
+                                <YouTube videoId={videoId2} opts={opts} />
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-4 col-sm-6 text-center">
+                            <div className="about__item">
+                                <h4>{language === "fr" ? "Prix Aalfa 2023" : "كلفة علفة علوش العيد 2023"}</h4>
+                                <YouTube videoId={videoId3} opts={opts} />
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
@@ -218,34 +323,34 @@ export default function AboutUs() {
             </section>
 
             <section className="team spad">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="section-title">
-              <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
-              <h2 className="maps-text">{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg-4"></div>
-        <div className="col-lg-4 d-flex justify-content-center">
-          <div className="col-lg-12">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
-              width={mapWidth}
-              height={mapHeight}
-              style={{ border: '0' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-        <div className="col-lg-4"></div>
-      </div>
-    </section>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title">
+                                <span>{language === 'fr' ? 'Géolocalisation:' : ':احداثياتنا الجغرافية'}</span>
+                                <h2 className="maps-text">{language === 'fr' ? 'Trouvez Nous Sur Google Maps:' : ':توصل الينا عن طريق جوجل مابس'}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-4"></div>
+                    <div className="col-lg-4 d-flex justify-content-center">
+                        <div className="col-lg-12">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1594.1705465128282!2d10.144812522615059!3d36.953909750897665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cf73bb00371f%3A0x104cfc1d7d4c3a3f!2sFerme%20dmen%20Ariana%202021!5e0!3m2!1sen!2sus!4v1686910443808!5m2!1sen!2sus"
+                                width={mapWidth}
+                                height={mapHeight}
+                                style={{ border: '0' }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div className="col-lg-4"></div>
+                </div>
+            </section>
             <section className="clients spad">
                 <div className="container">
                     <div className="row">
@@ -260,7 +365,7 @@ export default function AboutUs() {
                     <div className="row">
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354936145_6453540241371626_3275048458992088152_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=kmZ0S5o7EDsAX-1Jt_h&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQ7h59OWKFx23tnhJT4BvU4fE4BMQjODOzGmNA6XfMPWg&oe=64B3E1E1" alt="" />
+                                <img style={{ width: "50px", marginBottom: "5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354936145_6453540241371626_3275048458992088152_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=kmZ0S5o7EDsAX-1Jt_h&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQ7h59OWKFx23tnhJT4BvU4fE4BMQjODOzGmNA6XfMPWg&oe=64B3E1E1" alt="" />
                                 <h4 className="title">{language === "fr" ? "Qualité Garantie" : "جودة مضمونة"}</h4>
                                 <p className="description">{
                                     language === "fr" ? "La Qualité Garantie est une valeur essentielle pour notre entreprise. Nous nous engageons à offrir des produits et services d'une qualité exceptionnelle à nos clients. Grâce à notre engagement envers la qualité, nous veillons à ce que chaque produit réponde aux normes les plus élevées et à ce que chaque service soit fourni avec professionnalisme et excellence. Notre objectif est de satisfaire pleinement nos clients et de dépasser leurs attentes en matière de qualité." : "الجودة المضمونة هي قيمة أساسية لشركتنا. نحن ملتزمون بتقديم منتجات وخدمات عالية الجودة لعملائنا. من خلال التزامنا بالجودة، نضمن أن كل منتج يلبي أعلى المعايير وأن كل خدمة تُقدم بمهنية وتفوق. هدفنا هو تحقيق رضا العملاء بشكل كامل وتجاوز توقعاتهم في مجال الجودة."
@@ -269,7 +374,7 @@ export default function AboutUs() {
                         </div>
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354824959_2390517837794238_3470227392106577514_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=G1IipEC7HuoAX9LXzg6&_nc_ht=scontent.ftun1-2.fna&oh=03_AdS-a_nx48SH2elVN4VUJhn11I4W3jMrRkE1DztL_1H2PQ&oe=64B3C860" alt="" />
+                                <img style={{ width: "50px", marginBottom: "5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354824959_2390517837794238_3470227392106577514_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=G1IipEC7HuoAX9LXzg6&_nc_ht=scontent.ftun1-2.fna&oh=03_AdS-a_nx48SH2elVN4VUJhn11I4W3jMrRkE1DztL_1H2PQ&oe=64B3C860" alt="" />
                                 <h4 className="title">{language === "fr" ? "Service Clientèle" : "العناية بالعملاء"}</h4>
                                 <p className="description">{
                                     language === "fr" ? "Notre Service Clientèle est au cœur de notre entreprise. Nous mettons un point d'honneur à offrir un service exceptionnel à nos clients, en veillant à leur satisfaction et à leur bien-être. Notre équipe de professionnels dévoués est là pour répondre à toutes les questions, résoudre les problèmes et fournir une assistance personnalisée. Nous sommes fiers de notre service clientèle réactif, amical et efficace, et nous nous efforçons constamment de dépasser les attentes de nos clients." : "خدمة العملاء لدينا هي في صميم عملنا. نسعى جاهدين لتقديم خدمة استثنائية لعملائنا، وضمان رضاهم ورفاهيتهم. فريقنا المكرس من المتخصصين هنا للإجابة على جميع الاستفسارات، وحل المشكلات، وتوفير المساعدة الشخصية. نفتخر بخدمة عملاءنا الاستجابة، ودية وفعالة، ونسعى باستمرار لتجاوز توقعات عملائنا."
@@ -278,7 +383,7 @@ export default function AboutUs() {
                         </div>
                         <div className="col-lg-4 d-flex align-items-start justify-content-center text-center">
                             <div className="box">
-                                <img style={{ width: "50px" , marginBottom:"5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354472375_6650616785025405_7818891988188777947_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ixXcUG0ZPN0AX_EyTnh&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRzE5P5tGa55KYB9hYLDzejcT3YyiRLFQxHusMfsoIbqQ&oe=64B3CEBF" alt="" />
+                                <img style={{ width: "50px", marginBottom: "5px" }} src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/354472375_6650616785025405_7818891988188777947_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ixXcUG0ZPN0AX_EyTnh&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRzE5P5tGa55KYB9hYLDzejcT3YyiRLFQxHusMfsoIbqQ&oe=64B3CEBF" alt="" />
                                 <h4 className="title">{language === "fr" ? "Fiabilité" : "الموثوقية"}</h4>
                                 <p className="description">{language === "fr" ? "La fiabilité est une valeur fondamentale pour notre entreprise. Nous nous engageons à tenir nos promesses envers nos clients et à être un partenaire de confiance. En étant fiables, nous assurons la satisfaction et la fidélité de nos clients, car ils savent qu'ils peuvent compter sur nous pour des produits et services de haute qualité, livrés dans les délais convenus." : "الموثوقية هي قيمة أساسية لشركتنا. نحن نلتزم بأن نكون شريكًا موثوقًا لعملائنا ونضمن توفير منتجات وخدمات عالية الجودة وفقًا للجداول الزمنية المتفق عليها، مما يضمن رضا وولاء عملائنا."}</p>
                             </div>
@@ -286,7 +391,7 @@ export default function AboutUs() {
                     </div>
 
                 </div>
-              
+
             </section>
 
             <Footer />
