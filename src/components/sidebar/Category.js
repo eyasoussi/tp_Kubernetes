@@ -3,8 +3,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 export default function Category({setCategory}) {
     const [quantities, setQuantities] = useState({})
-    const handleClick = () => {
-    }
+
     //This funtion will be used to fetch the quantity of each category on component first mount.
     useEffect(()=>{
         setQuantities ({

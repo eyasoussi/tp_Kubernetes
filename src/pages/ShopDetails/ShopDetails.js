@@ -17,7 +17,6 @@ import './css/slicknav.min.css'
 import './css/style.css.map'
 import './css/elegant-icons.css'
 import './css/font-awesome.min.css'
-import MyContext from '../../context';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
 import { articles } from '../../articles';

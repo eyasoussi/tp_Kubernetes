@@ -7,7 +7,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import AddIcon from '@mui/icons-material/Add';
 import { blue } from '@mui/material/colors';
 import { useContext } from 'react';
 import TranslateIcon from '@mui/icons-material/Translate';
@@ -23,10 +22,19 @@ export default function SimpleDialog(props) {
     };
 
     const handleListItemClick = (value) => {
-        if(value==="Arabe" || value ==="العربية"){
+        if(value==="Arabe"){
             setTable(["عربية","فرنسية"])
         }
-        else{
+        else if (value ==="عربية"){
+            setTable(["عربية","فرنسية"])
+        }
+        else if(value==="Français"){
+            setTable(["Arabe","Français"])
+        }
+        else if(value==="فرنسية"){
+            setTable(["Arabe","Français"])
+        }
+        else {
             setTable(["Arabe","Français"])
         }
         onClose(value);

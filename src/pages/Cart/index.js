@@ -3,13 +3,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
-import Preloader from '../../components/Preloader';
 import { CartContext } from '../../CartContext';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import { Link } from 'react-router-dom';
 import routes from '../../routes';
-import { NoEncryption, Style } from '@mui/icons-material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import AlertTitle from '@mui/material/AlertTitle';
@@ -262,7 +260,7 @@ export default function Cart() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>}
+                            </div>
                             <br></br>
                             <br></br>
                             <div className="col-lg-3" height="10px"></div>

@@ -21,7 +21,7 @@ import SimpleDialog from "../../components/SimpleDialog"
 
 
 export default function Checkout() {
-    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const { cartItems } = useContext(CartContext);
     const { language, updateLanguage } = useContext(LanguageContext);
 
     const translation = {
@@ -118,7 +118,7 @@ export default function Checkout() {
     };
 
     const handleClickClose = (value) => {
-        updateLanguage(value === "فرنسية" ? "fr" : value === "Arabe" ? "ar" : value === "Français" ? "fr" : "ar");
+        updateLanguage(value === "فرنسية" ? "fr" : value === "عربية" ? "ar" : value === "Français" ? "fr" : "ar");
         setIsOpen(false);
         setSelectedValue(value);
     };
