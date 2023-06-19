@@ -32,7 +32,7 @@ export default function Home() {
             "Consultez Notre Shop": "Cliquer Ici Pour Voir Nos Produits",
             "Achetez maintenant": "Consultez Notre Shop",
             "Ovins & Brebis": "Les Avis de Nos Clients",
-            "Poulailler & Poules Pondeuses": "Votre Confiance est Notre Motivation",
+            "Poulailler & Poules Pondeuses": "Votre Confiance Est Notre Motivation",
             "Contactez Nous": "Contactez Nous.",
         },
         "ar": {
