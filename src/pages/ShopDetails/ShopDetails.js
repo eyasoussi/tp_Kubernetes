@@ -45,6 +45,7 @@ export default function ShopDetails() {
 
     const handleClickCart = () => {
         setOpen(true);
+        addToCart(article);
         setIsArticleInCart(true);
     };
 
