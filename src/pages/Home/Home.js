@@ -242,7 +242,7 @@ export default function Home() {
             <Preloader />
             <Header />
             <section className="hero">
-                <Carousel autoPlay={true} showArrows={true} interval={2000}>
+                <Carousel autoPlay={true} showArrows={true} interval={10000}>
                     <div>
                         <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
@@ -319,7 +319,7 @@ export default function Home() {
                         <div className="col-lg-6" style={{ paddingBottom: "0px", marginBottom: "0px" }}>
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <Carousel autoPlay={true} showArrows={true} interval={2000}>
+                                    <Carousel showArrows={true} interval={2000}>
                                         <div>
                                             <img src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.15752-9/355388025_941481710445745_8559209456739488357_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Bh0ugXAaVygAX_WvDvd&_nc_ht=scontent.ftun14-1.fna&oh=03_AdSb6Slx_ATTI5qSD9VZbMjfW7KOp9s_4piPuIDq7ngx2A&oe=64B72841" style={{ width: '300px', maxHeight: '354px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
