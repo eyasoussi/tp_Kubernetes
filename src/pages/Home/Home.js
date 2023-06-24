@@ -319,10 +319,7 @@ export default function Home() {
                         <div className="col-lg-6" style={{ paddingBottom: "0px", marginBottom: "0px" }}>
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <Carousel showArrows={true} interval={2000}>
-                                        <div>
-                                            <img src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.15752-9/355388025_941481710445745_8559209456739488357_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Bh0ugXAaVygAX_WvDvd&_nc_ht=scontent.ftun14-1.fna&oh=03_AdSb6Slx_ATTI5qSD9VZbMjfW7KOp9s_4piPuIDq7ngx2A&oe=64B72841" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
-                                        </div>
+                                    <Carousel showArrows={true}>
                                         <div>
                                             <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/355764545_588987246682425_2385581986172350581_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=oRmtSTxmDzMAX9MZ8mK&_nc_ht=scontent.ftun2-2.fna&oh=03_AdSgnkEcCTQB02gKe_KhkzbeoE9XLELoE34H_3WhSpynkw&oe=64BDE29E" style={{ width: '300px', height: '100%', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
@@ -330,7 +327,7 @@ export default function Home() {
                                             <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/356279976_1323588698514334_5004331889787099663_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=NwZBEnkOSnEAX_hvi9u&_nc_ht=scontent.ftun2-2.fna&oh=03_AdSrw8LJo711cAXfqdh4T3WkUcNt85KmAoKIfuDTRkUAxw&oe=64BDD4D3" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
                                         <div>
-                                            <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/355958397_626953279392414_2392151218209588322_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=lsU_IKK4EqAAX91QEQg&_nc_oc=AQn4k3Ze9_BPKYHNBKeqs8EeNKFZe61OTbRYwBgeYzNdgins2VeL57KYFnIetzdODIM&_nc_ht=scontent.ftun2-2.fna&oh=03_AdTU5zHtFdeARfFZnyddKyIOAD3qZkklIzIOmijKCPckow&oe=64BDC52E" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
+                                            <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t1.15752-9/355811792_676568087617845_5761563132512561663_n.jpg?stp=cp0_dst-jpg_e15_q65_s960x960&_nc_cat=109&ccb=1-7&_nc_sid=58c789&efg=eyJpIjoidCJ9&_nc_ohc=vLeiMn7t0ncAX_Ug-eE&_nc_ht=scontent.fnbe1-2.fna&oh=03_AdSrxdem-fTQn2HdDAj35yYZyXqIWoSaZdQECpsYa5oQQg&oe=64BDE964" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
                                     </Carousel>
                                     {/* <AwesomeSlider>
