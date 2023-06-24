@@ -17,7 +17,6 @@ export const articles = [
         ],
         "videos": [""],
         "vendu": false,
-        "vendu": false
     },
     {
         "id": 101,
