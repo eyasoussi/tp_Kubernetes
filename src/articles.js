@@ -1577,43 +1577,6 @@ export const articles = [
         "vendu": false
     },
     {
-        "id": 3,
-        "title": "Agnelle numero 1",
-        "description": "Agnelle numero 1",
-        "price": 0,
-        "discountPercentage": 0,
-        "race": "Tibar",
-        "age": 0.1,
-        "state": "Chkaf",
-        "category": "Agnelles",
-        "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg",
-        "images": [
-            "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg",
-            "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg"
-        ],
-        "videos": [
-            "DOtf4JQb0Eo"
-        ]
-    },
-    {
-        "id": 4,
-        "title": "Agnelle numero 2",
-        "description": "Agnelle numero 2",
-        "price": 0,
-        "discountPercentage": 0,
-        "race": "Tibar",
-        "age": 0.1,
-        "state": "Chkaf",
-        "category": "Agnelles",
-        "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg",
-        "images": [
-            "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg",
-            "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg"
-        ],
-        "videos": [""],
-        "vendu": false
-    },
-    {
         "id": 431,
         "title": "agnelle référence 431",
         "description": "agnelle référence 431",
