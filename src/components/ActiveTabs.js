@@ -26,7 +26,7 @@ export default function ActiveTabs(props) {
           "Ovin Engraissement":"أغنام التسمين",
           "Brebis":"النعاج",
           "Poulailler Engraissement":"دواجن التسمين",
-          "Agnelles":"أنثى الحمل"
+          "Agnelles":"فطيمة"
         }
       };
     return (

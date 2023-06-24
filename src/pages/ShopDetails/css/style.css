@@ -4767,3 +4767,11 @@ svg > path{
     color: #279340aa!important;
     font-weight: 700;
 }
+
+.carousel .control-next.control-arrow:before {
+    border-left: 40px solid black !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+    border-right: 40px solid black !important;
+}

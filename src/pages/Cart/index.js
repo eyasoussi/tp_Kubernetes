@@ -58,7 +58,7 @@ export default function Cart() {
             "Ovin Engraissement": 'أغنام التسمين',
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
-            "Agnelles": "أنثى الحمل"
+            "Agnelles": "فطيمة"
         },
     };
 
