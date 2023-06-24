@@ -247,7 +247,7 @@ export default function Home() {
                         <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
                     <div>
-                        <YouTube videoId="_bJeu1nHVwU" opts={opts} />
+                        <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/311493749_678030923502945_1668701050765048863_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Oeo2H_gcMncAX8n4OXk&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRaMTNpFTtGFPR9ByKR8ujEEhcoL4bukAbCGCKHF7dHKQ&oe=64B40132" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
                     <div>
                         <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354671672_250588797603709_4163798981858942408_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=jqPBa6NSqrUAX9E19ED&_nc_ht=scontent.ftun4-2.fna&oh=03_AdQ5Q3n_THaFLkcqN3pw5s7ui3F2PPzRUKyt7PtjQSr-9A&oe=64B3690D" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
@@ -270,11 +270,11 @@ export default function Home() {
                         fullWidth={true}
                         maxWidth={"lg"}
                     >
-                        <BootstrapDialogTitle variant="h5" id="customized-dialog-title" onClose={handleDialogClose}>
+                        <BootstrapDialogTitle variant="h6" id="customized-dialog-title" onClose={handleDialogClose}>
                              {language === "fr" ? "Une Experience d'achat en ligne par l'un de nos clients" : "تجربة اشتراء عبر الموقع لأحد من حرفائنا"} <QuizIcon></QuizIcon>
                         </BootstrapDialogTitle>
                         <DialogContent dividers>
-                            <Typography variant="h6">
+                            <Typography>
                                 {language === "fr" ? "Pour acheter un produit sur notre site, il vous suffit de visiter notre page Boutique, de parcourir les différents articles que nous proposons. Une fois que vous avez trouvé ce qui vous plaît, vous pouvez ajouter ces articles à votre panier d'achat ou nous appeler directement sur notre numéro de téléphone: 50 128 000. Pour mieux comprendre tout cela, vous pouvez regarder cette vidéo. Après l'avoir fait, fermez cette fenêtre pour naviguer sur le site." :
                                     "لشراء منتج من موقعنا، كل ما عليك فعله هو زيارة صفحة المتجر الخاصة بنا، والاطلاع على المقالات المختلفة التي لدينا. بمجرد العثور على ما يعجبك، يمكنك إضافة تلك العناصر إلى سلة التسوق الخاصة بك أو الاتصال بنا مباشرة على رقم الهاتف الخاص بنا 000 128 50 لمناقشة المزيد من التفاصيل أو لرؤية المزيد من الصور للمنتج المطلوب. لفهم كل هذا بشكل أفضل، يمكنك مشاهدة هذا الفيديو. بعد ذلك، أغلق هذه النافذة للتنقل في الموقع."}
                             </Typography>
