@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
+
 export default function Card({ item, key, handleShopItemClick }) {
     const { language } = useContext(LanguageContext);
     const { addToCart } = useContext(CartContext);
