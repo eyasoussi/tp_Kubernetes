@@ -9,6 +9,7 @@ import Age from './Age';
 import Search from './Search';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
+import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -175,12 +176,12 @@ export default function Sidebar({ setAllFilters, articles }) {
  <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
       <div>
         <div style={{ display: 'flex' }}>
-          <Tooltip title={language === 'fr' ? "Fermer l'outil de filtrage" : "أغلق أداة الفرز"} arrow>
-            <CloseIcon style={{ color: 'black', cursor: 'pointer', marginLeft: language==="fr"? "11px":"0px" }} onClick={handleClick} />
+          <Tooltip title={language === 'fr' ? "Chercher" : "ابحث"} arrow>
+            <SearchIcon style={{ color: 'black', cursor: 'pointer', marginLeft: language==="fr"? "11px":"0px" }} onClick={handleClick} />
           </Tooltip>
         </div>
         <div style={{ display: 'flex' }}>
-          <p>{language === 'fr' ? 'Fermer' : 'أغلق'}</p>
+          <p>{language === 'fr' ? 'Chercher' : 'ابحث'}</p>
         </div>
       </div>
     </div>
