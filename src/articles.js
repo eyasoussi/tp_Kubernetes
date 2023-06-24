@@ -1525,6 +1525,520 @@ export const  articles= [
             ],
             "videos":[""]
         }
+         // agnelle
+         {
+            "id": 431,
+            "title": "agnelle référence 431",
+            "description": "agnelle référence 431",
+            "price": 590,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 28.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/431.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/431.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/431.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 138,
+            "title": "agnelle référence 138",
+            "description": "agnelle référence 138",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/138.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/138.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/138.jpg"
+            ],
+             "videos":[""]
+        },
+        {
+            "id": 248,
+            "title": "agnelle référence 248",
+            "description": "agnelle référence 248",
+            "price": 520,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 26.8,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/248.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/248.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/248.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 242,
+            "title": "agnelle référence 242",
+            "description": "agnelle référence 242",
+            "price": 660,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 31.3,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/242.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/242.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/242.jpg"
+            ],
+            "videos":[""]
+        },
+       
+        {
+            "id": 447,
+            "title": "agnelle référence 447",
+            "description": "agnelle référence 447",
+            "price": 690,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 32.5,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/447.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/447.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/447.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 432,
+            "title": "agnelle référence 432",
+            "description": "agnelle référence 432",
+            "price": 550,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 28.2,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/432.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/432.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/432.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 245,
+            "title": "agnelle référence 245",
+            "description": "agnelle référence 245",
+            "price": 700,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 36.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/245.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/245.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/245.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 247,
+            "title": "agnelle référence 247",
+            "description": "agnelle référence 247",
+            "price": 720,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 34.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/247.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/247.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/247.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 238,
+            "title": "agnelle référence 238",
+            "description": "agnelle référence 238",
+            "price": 660,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 34.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/238.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/238.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/238.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 441,
+            "title": "agnelle référence 441",
+            "description": "agnelle référence 441",
+            "price": 490,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 25.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/441.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/441.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/441.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 442,
+            "title": "agnelle référence 442",
+            "description": "agnelle référence 442",
+            "price": 540,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 27.4,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/442.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/442.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/442.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 437,
+            "title": "agnelle référence 437",
+            "description": "agnelle référence 437",
+            "price": 500,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 25.4,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/437.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/437.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/437.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 250,
+            "title": "agnelle référence 250",
+            "description": "agnelle référence 250",
+            "price": 670,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 32.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/250.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/250.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/250.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 440,
+            "title": "agnelle référence 440",
+            "description": "agnelle référence 440",
+            "price": 660,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 31.2,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/440.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/440.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/440.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 438,
+            "title": "agnelle référence 438",
+            "description": "agnelle référence 438",
+            "price": 650,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 30.7,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/438.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/438.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/438.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 445,
+            "title": "agnelle référence 445",
+            "description": "agnelle référence 445",
+            "price": 750,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 35.6,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/445.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/445.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/445.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 243,
+            "title": "agnelle référence 243",
+            "description": "agnelle référence 243",
+            "price": 590,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 28.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/243.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/243.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/243.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 244,
+            "title": "agnelle référence 244",
+            "description": "agnelle référence 244",
+            "price": 870,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 41.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/244.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/244.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/244.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 240,
+            "title": "agnelle référence 240",
+            "description": "agnelle référence 240",
+            "price": 740,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 35.1,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/240.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/240.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/240.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 241,
+            "title": "agnelle référence 241",
+            "description": "agnelle référence 241",
+            "price": 760,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 36.0,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/241.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/241.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/241.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 2519,
+            "title": "agnelle référence 2519",
+            "description": "agnelle référence 2519",
+            "price": 530,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 26.8,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2519.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2519.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2519.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 237,
+            "title": "agnelle référence 237",
+            "description": "agnelle référence 237",
+            "price": 840,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 39.8,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/237.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/237.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/237.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 239,
+            "title": "agnelle référence 239",
+            "description": "agnelle référence 239",
+            "price": 790,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 37.2,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/239.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/239.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/239.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 443,
+            "title": "agnelle référence 443",
+            "description": "agnelle référence 443",
+            "price": 660,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.8,
+            "weight": 31.5,
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/443.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/443.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/443.jpg"
+            ],
+            "videos":[""]
+        },
+        //ovin Engraissement
+        {
+            "id": 2521,
+            "title": "mouton gharbi référence 2521",
+            "description": "mouton gharbi référence 2521",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Gharbi",
+            "age": 0.6,
+            "weight": 0,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2521.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2521.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2521.jpg"
+            ],
+            "videos":["f4spFJx5F1A"]  
+        },
+        {
+            "id": 449,
+            "title": "mouton tibar référence 449",
+            "description": "mouton tibar référence 449",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 0 ,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/449.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/449.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/449.jpg"
+            ],
+            "videos":[""]
+        },
+        {
+            "id": 450,
+            "title": "mouton tibar référence 450",
+            "description": "mouton tibar référence 450",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 0 ,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/450.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/450.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/450.jpg"
+            ],
+            "videos":["LsW4hX4R-00"]
+        },
+        {
+            "id": 2520,
+            "title": "mouton tibar référence 2520",
+            "description": "mouton tibar référence 2520",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 0 ,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2520.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2520.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2520.jpg"
+            ],
+            "videos":["OROylReB-7k"]
+        },
+        {
+            "id": 2523,
+            "title": "mouton tibar référence 2523",
+            "description": "mouton tibar référence 2523",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 0 ,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2523.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2523.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2523.jpg"
+            ],
+            "videos":["g8rvNBNj9fc"]
+        },
+        {
+            "id": 2524,
+            "title": "mouton tibar référence 2524",
+            "description": "mouton tibar référence 2524",
+            "price": 0,
+            "discountPercentage": 0,
+            "race": "Tibar",
+            "age": 0.6,
+            "weight": 0 ,
+            "category":"Ovin Engraissement",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2524.jpg",
+            "images": [
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2524.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/2524.jpg"
+            ],
+            "videos":["I3dOO7gWh9U"]
+        },
+        
     ]
 
     export function sortArticlesByPrice(articles) {
