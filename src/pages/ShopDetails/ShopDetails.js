@@ -213,7 +213,9 @@ export default function ShopDetails() {
                                     <div className="product__details__text">
                                         <h4>{article?.title}</h4>
                                         <h3>{article?.price}<span style={{ display: "none" }}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
-                                        {article?.vendu === true? "Vendu!" : ""}
+                                        <span style={{ color: 'red', fontWeight: 'bold' }}>
+                                            {article?.vendu === true ? (language === 'fr' ? 'Vendu!' : 'مباع!') : ''}
+                                        </span>
                                         <p>{article?.description}</p>
                                         <div className="product__details__option">
 
@@ -224,19 +226,27 @@ export default function ShopDetails() {
                                                     <input type="text" value="1" disabled />
                                                 </div>
                                             </div>
-                                            {!isArticleInCart ? (
-                                                <a className="primary-btn" onClick={handleClickCart}>
-                                                    {shopDetailsTranslations[language]['addToWishlist']}
-                                                </a>
-                                            ) : (
-                                                <Link to={routes.CART}>
-                                                    <a className="primary-btn" onClick={handleAddToCart}>
-                                                        {language === 'fr'
-                                                            ? 'Article dans le panier - allez au Panier'
-                                                            : 'توجه نحو عربة المقتنيات '}
+                                            {!article?.vendu && (
+                                                !isArticleInCart ? (
+                                                    <a
+                                                        className="primary-btn"
+                                                        onClick={handleClickCart}
+                                                        disabled={article?.vendu}
+                                                    >
+                                                        {shopDetailsTranslations[language]['addToWishlist']}
                                                     </a>
-                                                </Link>
+                                                ) : (
+                                                    <Link to={routes.CART}>
+                                                        <a className="primary-btn" onClick={handleAddToCart}>
+                                                            {language === 'fr'
+                                                                ? 'Article dans le panier - allez au Panier'
+                                                                : 'توجه نحو عربة المقتنيات '}
+                                                        </a>
+                                                    </Link>
+                                                )
                                             )}
+
+
                                         </div>
                                         <div className="product__details__btns__option">
                                             <Link to={routes.SHOP}>
