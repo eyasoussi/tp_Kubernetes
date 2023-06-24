@@ -103,7 +103,7 @@ export default function ShopDetails() {
             "Ovin Engraissement": 'أغنام التسمين',
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
-            "Agnelles": "أنثى الحمل",
+            "Agnelles": "فطيمة",
             "Entre": "بين 6 شهور و 9 شهور"
         },
     };
@@ -111,8 +111,8 @@ export default function ShopDetails() {
     const isMobileView = window.innerWidth < 768;
 
     const opts = {
-        height: isMobileView ? '1140' : '375',
-        width: isMobileView ? '855' : '281',
+        height: isMobileView ? '375' : '840',
+        width: isMobileView ? '281' : '855',
         playerVars: {
             autoplay: 0,
         },
@@ -194,7 +194,7 @@ export default function ShopDetails() {
                                 </div>
                             </div>
                             <div className="row">
-                                <Carousel>
+                                <Carousel autoPlay={true} showArrows={true} interval={2000}>
                                     <div>
                                         <img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                                     </div>
