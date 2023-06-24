@@ -145,7 +145,7 @@ export default function Home() {
                         <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/351104555_691626939439165_282033389171931222_n.jpg?stp=dst-jpg_s2048x2048&_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=cHEZ1ryA-iEAX9zDM1l&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRvrBuihMjE82nYu0k0SxPuh6WnLgStDFg4MFbyfKXtwg&oe=64B41A58" alt="" />
+                                    <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/353862701_219137197181209_8933645344583722917_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=1J4YhxuEnxAAX9O8-0w&_nc_ht=scontent.ftun2-2.fna&oh=03_AdRWtoCzjdiLqor9akC6gvVZFGugoe1ZwPIlg6pZX2IVJQ&oe=64BDD9FE" alt="" />
 
                                 </div>
                                 <div className="banner__item__text">
