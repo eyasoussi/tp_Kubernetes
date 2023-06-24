@@ -1547,11 +1547,11 @@ export const  articles= [
             "id": 138,
             "title": "agnelle référence 138",
             "description": "agnelle référence 138",
-            "price": 0,
+            "price": 760,
             "discountPercentage": 0,
             "race": "Gharbi",
             "age": 0.8,
-            "weight": 0,
+            "weight": 36.2,
             "category":"Agnelles",
             "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/138.jpg",
             "images": [
