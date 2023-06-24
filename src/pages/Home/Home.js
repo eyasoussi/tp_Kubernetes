@@ -33,6 +33,7 @@ import Typography from '@mui/material/Typography';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box'
+import QuizIcon from '@mui/icons-material/Quiz';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -90,7 +91,7 @@ const MyComponent = ()=>{
           document.head.removeChild(preloadLink);
         };
       }, []);
-      
+
     return(
         <YouTube videoId="_bJeu1nHVwU" opts={opts2} />
     )
@@ -270,7 +271,7 @@ export default function Home() {
                         maxWidth={"lg"}
                     >
                         <BootstrapDialogTitle variant="h5" id="customized-dialog-title" onClose={handleDialogClose}>
-                            {language === "fr" ? "Une Experience d'achat en ligne par l'un de nos clients" : "تجربة اشتراء عبر الموقع لأحد من حرفائنا"}
+                             {language === "fr" ? "Une Experience d'achat en ligne par l'un de nos clients" : "تجربة اشتراء عبر الموقع لأحد من حرفائنا"} <QuizIcon></QuizIcon>
                         </BootstrapDialogTitle>
                         <DialogContent dividers>
                             <Typography variant="h6">
