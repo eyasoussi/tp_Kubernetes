@@ -115,7 +115,7 @@ export default function Age({ articles, setAge, fromSideMenu }) {
       ]
       );
     }
-    else if (articles === "Poules Pondeuses" && language === "fr") {
+    else if (articles === "Agnelles" && language === "fr") {
       setAgeTable([
         "0 - 1 mois",
         "1 mois - 3 mois",
@@ -131,7 +131,7 @@ export default function Age({ articles, setAge, fromSideMenu }) {
       ]
       );
     }
-    else if (articles === "Poules Pondeuses" && language === "ar") {
+    else if (articles === "Agnelles" && language === "ar") {
       setAgeTable([
         "شهر",
         "من شهر الى 3 شهور",

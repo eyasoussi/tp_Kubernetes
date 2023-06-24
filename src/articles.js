@@ -14,7 +14,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/1000.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/1000.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 101,
@@ -30,7 +31,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/101.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/101.jpg"
-            ]
+            ],
+            "videos":[""]
             
         },
         {
@@ -47,7 +49,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/102.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/102.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 103,
@@ -64,7 +67,8 @@ export const  articles= [
                     "https://raw.githubusercontent.com/allouchii/allouchi/main/103.jpg",
                     "https://raw.githubusercontent.com/allouchii/allouchi/main/103.jpg"
 
-                ]
+                ],
+                "videos":[""]
         },
         {
             "id": 104,
@@ -80,7 +84,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/104.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/104.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 107,
@@ -96,7 +101,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/107.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/107.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 108,
@@ -112,7 +118,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/108.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/108.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 109,
@@ -128,7 +135,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/109.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/109.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 110,
@@ -144,7 +152,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/110.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/110.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 111,
@@ -160,7 +169,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/111.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/111.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 112,
@@ -176,7 +186,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/112.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/112.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 113,
@@ -192,7 +203,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/113.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/113.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 114,
@@ -208,7 +220,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/114.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/114.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 115,
@@ -224,7 +237,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/115.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/115.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 116,
@@ -240,7 +254,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/116.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/116.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         
         {
@@ -257,7 +272,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/117.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/117.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 118,
@@ -273,7 +289,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/118.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/118.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 119,
@@ -289,7 +306,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/119.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/119.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 120,
@@ -305,7 +323,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/120.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/120.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 121,
@@ -321,7 +340,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/121.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/121.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 122,
@@ -337,7 +357,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/122.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/122.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 123,
@@ -353,7 +374,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/123.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/123.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         
         {
@@ -370,7 +392,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/124.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/124.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 126,
@@ -386,7 +409,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/126.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/126.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 127,
@@ -402,7 +426,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/127.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/127.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 128,
@@ -418,7 +443,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/128.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/128.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 129,
@@ -434,7 +460,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/129.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/129.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         
         {
@@ -451,7 +478,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/130.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/130.jpg"
-            ]
+            ],
+            "videos":[""]
         },
        {
             "id": 131,
@@ -467,7 +495,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/131.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/131.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 134,
@@ -483,7 +512,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/134.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/134.jpg"
-            ]
+            ],
+            "videos":[""]
         },
          {
             "id": 148,
@@ -499,7 +529,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/148.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/148.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 149,
@@ -515,7 +546,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/149.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/149.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 150,
@@ -531,7 +563,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/150.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/150.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 218,
@@ -547,7 +580,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/218.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/218.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 219,
@@ -563,7 +597,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/219.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/219.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 220,
@@ -579,7 +614,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/220.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/220.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 223,
@@ -595,7 +631,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/223.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/223.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 224,
@@ -611,7 +648,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/224.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/224.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 232,
@@ -627,7 +665,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/232.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/232.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 235,
@@ -643,7 +682,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/235.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/235.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 237,
@@ -659,7 +699,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/237.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/237.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 238,
@@ -675,7 +716,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/238.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/238.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 249,
@@ -691,7 +733,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/249.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/249.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2501,
@@ -707,7 +750,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2501.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2501.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2503,
@@ -723,7 +767,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2503.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2503.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2504,
@@ -739,7 +784,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2504.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2504.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2505,
@@ -755,7 +801,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2505.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2505.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 251,
@@ -771,7 +818,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/251.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/251.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2518,
@@ -787,7 +835,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2518.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2518.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 255,
@@ -803,7 +852,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/255.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/255.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 256,
@@ -819,7 +869,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/256.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/256.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 326,
@@ -835,7 +886,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/326.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/326.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 327,
@@ -851,7 +903,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/327.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/327.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 328,
@@ -867,7 +920,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/328.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/328.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 329,
@@ -883,7 +937,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/329.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/329.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 330,
@@ -899,7 +954,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/330.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/330.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 332,
@@ -915,7 +971,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/332.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/332.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 333,
@@ -931,7 +988,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/333.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/333.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 334,
@@ -947,7 +1005,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/334.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/334.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 335,
@@ -963,7 +1022,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/335.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/335.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 336,
@@ -979,7 +1039,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/336.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/336.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 337,
@@ -995,7 +1056,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/337.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/337.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 338,
@@ -1011,7 +1073,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/338.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/338.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 339,
@@ -1027,7 +1090,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/339.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/339.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 340,
@@ -1043,7 +1107,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/340.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/340.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 341,
@@ -1059,7 +1124,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/341.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/341.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 342,
@@ -1075,7 +1141,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/342.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/342.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 343,
@@ -1091,7 +1158,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/343.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/343.jpg"
-            ]
+            ],
+            "videos":[""]
         },
        {
             "id": 345,
@@ -1107,7 +1175,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/345.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/345.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 346,
@@ -1123,7 +1192,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/346.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/346.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 348,
@@ -1139,7 +1209,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/348.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/348.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 350,
@@ -1155,7 +1226,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/350.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/350.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 449,
@@ -1171,7 +1243,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/449.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/449.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 4985,
@@ -1187,7 +1260,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/4985.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/4985.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 797,
@@ -1203,7 +1277,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/797.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/797.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 805,
@@ -1219,7 +1294,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/805.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/805.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 841,
@@ -1235,7 +1311,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/841.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/841.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 899,
@@ -1251,7 +1328,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/899.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/899.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 912,
@@ -1267,7 +1345,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/912.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/912.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 915,
@@ -1283,7 +1362,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/915.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/915.jpg"
-            ]
+            ],
+            "videos":[""]
         },
 
         {
@@ -1300,7 +1380,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/927.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/927.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 938,
@@ -1316,7 +1397,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/938.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/938.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 958,
@@ -1332,7 +1414,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 975,
@@ -1348,7 +1431,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 9844,
@@ -1364,7 +1448,8 @@ export const  articles= [
             "images": [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/9844.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/9844.jpg"
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 1,
@@ -1382,7 +1467,8 @@ export const  articles= [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg"
          
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 2,
@@ -1400,41 +1486,44 @@ export const  articles= [
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg",
                 "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg"
          
-            ]
+            ],
+            "videos":[""]
         },
         {
             "id": 3,
-            "title": "Poules 3",
-            "description": "Poules 3",
-            "price": 0,
+            "title": "Agnelle numero 1",
+            "description": "Agnelle numero 1",
+            "price":0 ,
             "discountPercentage": 0,
-            "type": "Djej",
-            "age": 0,
-            "state": "0",
-            "category":"Poules Pondeuses",
-            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg",
+            "race": "Tibar",
+            "age": 0.1,
+            "state": "Chkaf",
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg",
             "images": [
-                "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg",
-                "https://raw.githubusercontent.com/allouchii/allouchi/main/1.jpg"
-         
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/975.jpg"
+            ],
+            "videos": [
+                "DOtf4JQb0Eo"
             ]
         },
         {
             "id": 4,
-            "title": "Poules 4",
-            "description": "Poules 4",
-            "price": 0,
+            "title": "Agnelle numero 2",
+            "description": "Agnelle numero 2",
+            "price":0 ,
             "discountPercentage": 0,
-            "type": "Djej",
-            "age": 0,
-            "state": "0",
-            "category":"Poules Pondeuses",
-            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg",
+            "race": "Tibar",
+            "age": 0.1,
+            "state": "Chkaf",
+            "category":"Agnelles",
+            "thumbnail": "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg",
             "images": [
-                "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg",
-                "https://raw.githubusercontent.com/allouchii/allouchi/main/2.jpg"
-         
-            ]
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg",
+                "https://raw.githubusercontent.com/allouchii/allouchi/main/958.jpg"
+            ],
+            "videos":[""]
         }
     ]
 

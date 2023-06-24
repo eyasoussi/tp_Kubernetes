@@ -26,7 +26,7 @@ import { LanguageContext } from '../../LanguageContext';
 
 export default function Shop() {
     const { language, updateLanguage } = useContext(LanguageContext);
-    const myTabs = ["Ovin Engraissement", "Brebis", "Poulailler Engraissement", "Poules Pondeuses"];
+    const myTabs = ["Ovin Engraissement", "Brebis", "Poulailler Engraissement", "Agnelles"];
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter
     const [isLoading, setIsLoading] = useState(false);
     const handleFilterClick = (filter) => {
@@ -45,7 +45,7 @@ export default function Shop() {
         setBrebisData(filteredData);
         filteredData = getObjectsByCategory(data, "Poulailler Engraissement")
         setPoulaillerData(filteredData);
-        filteredData = getObjectsByCategory(data, "Poules Pondeuses");
+        filteredData = getObjectsByCategory(data, "Agnelles");
         setPoulesPondeusesData(filteredData);
         setIsLoading(false);
     }, [data])
@@ -173,7 +173,7 @@ export default function Shop() {
                     {activeFilter === 'Ovin Engraissement' && <Ovin data={ovinData} />}
                     {activeFilter === 'Brebis' && <Brebis data={BrebisData} />}
                     {activeFilter === 'Poulailler Engraissement' && <Poulailler data={PoulaillerData} />}
-                    {activeFilter === 'Poules Pondeuses' && <PoulesPondeuses data={PoulesPondeusesData} />}
+                    {activeFilter === 'Agnelles' && <PoulesPondeuses data={PoulesPondeusesData} />}
                 </div>
             </section>
             <Footer />

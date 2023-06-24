@@ -32,7 +32,7 @@ export default function Home() {
             "Consultez Notre Shop": "Cliquer Ici Pour Voir Nos Produits",
             "Achetez maintenant": "Consultez Notre Shop",
             "Ovins & Brebis": "Les Avis de Nos Clients",
-            "Poulailler & Poules Pondeuses": "Votre Confiance Est Notre Motivation",
+            "Poulailler & Agnelles": "Votre Confiance Est Notre Motivation",
             "Contactez Nous": "Contactez Nous.",
         },
         "ar": {
@@ -40,7 +40,7 @@ export default function Home() {
             "Consultez Notre Shop": "أنقر هنا لترى منتوجاتنا",
             "Achetez maintenant":"تصفح متجرنا",
             "Ovins & Brebis": "أراء حرفائنا",
-            "Poulailler & Poules Pondeuses": "ثقتكم هي سر عزيمتنا لتحسين منتوجاتنا",
+            "Poulailler & Agnelles": "ثقتكم هي سر عزيمتنا لتحسين منتوجاتنا",
             "Contactez Nous": " اتصلوا بنا من أجل اجابة استفساراتكم",
         }
     }
@@ -177,7 +177,7 @@ export default function Home() {
                                     <img src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.15752-9/355385132_931223464829885_5643326160151289013_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=n9piaYL0ddoAX8B6zA1&_nc_ht=scontent.ftun14-1.fna&oh=03_AdQ72f0NROrlKPhvg4lESJh9NzPBivuwUSD_-lLFRbr1DA&oe=64B7296B" alt="" />
                                 </div>
                                 <div className="banner__item__text">
-                                    <h2 style={{background:"#EDF6BD"}}>{HomeTranslations[language]["Poulailler & Poules Pondeuses"]}</h2>
+                                    <h2 style={{background:"#EDF6BD"}}>{HomeTranslations[language]["Poulailler & Agnelles"]}</h2>
                                     <Link to={routes.ABOUTUS} style={{background:"#EDF6BD"}}>
                                         {HomeTranslations[language]["Contactez Nous"]}
                                     </Link>
