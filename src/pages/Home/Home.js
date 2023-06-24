@@ -68,7 +68,7 @@ function BootstrapDialogTitle(props) {
     );
 }
 
-const MyComponent = ()=>{
+const MyComponent = () => {
     const isMobileView = window.innerWidth < 768;
     const opts2 = {
         height: isMobileView ? '375' : '520',
@@ -76,7 +76,7 @@ const MyComponent = ()=>{
         playerVars: {
             autoplay: 0,
         },
-    }; 
+    };
 
     useEffect(() => {
         const videoUrl = `https://www.youtube.com/embed/_bJeu1nHVwU?autoplay=0&controls=0`;
@@ -85,15 +85,18 @@ const MyComponent = ()=>{
         preloadLink.rel = 'preload';
         preloadLink.as = 'iframe';
         document.head.appendChild(preloadLink);
-    
-        return () => {
-          // Clean up the dynamically added link element
-          document.head.removeChild(preloadLink);
-        };
-      }, []);
 
-    return(
-        <YouTube videoId="_bJeu1nHVwU" opts={opts2} />
+        return () => {
+            // Clean up the dynamically added link element
+            document.head.removeChild(preloadLink);
+        };
+    }, []);
+
+    return (
+        <Carousel showArrows={true}>
+            <YouTube videoId="_bJeu1nHVwU" opts={opts2} />
+            <YouTube videoId="HS8xt7VsZSY" opts={opts2} />
+        </Carousel>
     )
 }
 
@@ -108,7 +111,7 @@ export default function Home() {
         let timeoutId;
         timeoutId = setTimeout(() => {
             setLoading(false);
-        }, 4000);
+        }, 1500);
 
         return () => {
             clearTimeout(timeoutId); // Clear the timeout on component unmount
@@ -271,27 +274,27 @@ export default function Home() {
                         maxWidth={"lg"}
                     >
                         <BootstrapDialogTitle variant="h6" id="customized-dialog-title" onClose={handleDialogClose}>
-                             {language === "fr" ? "Une Experience d'achat en ligne par l'un de nos clients" : "تجربة اشتراء عبر الموقع لأحد من حرفائنا"} <QuizIcon></QuizIcon>
+                            {language === "fr" ? "Une Experience d'achat en ligne par l'un de nos clients" : "تجربة اشتراء عبر الموقع لأحد من حرفائنا"} <QuizIcon></QuizIcon>
                         </BootstrapDialogTitle>
                         <DialogContent dividers>
-                            <Typography>
-                                {language === "fr" ? "Pour acheter un produit sur notre site, il vous suffit de visiter notre page Boutique, de parcourir les différents articles que nous proposons. Une fois que vous avez trouvé ce qui vous plaît, vous pouvez ajouter ces articles à votre panier d'achat ou nous appeler directement sur notre numéro de téléphone: 50 128 000. Pour mieux comprendre tout cela, vous pouvez regarder cette vidéo. Après l'avoir fait, fermez cette fenêtre pour naviguer sur le site." :
-                                    "لشراء منتج من موقعنا، كل ما عليك فعله هو زيارة صفحة المتجر الخاصة بنا، والاطلاع على المقالات المختلفة التي لدينا. بمجرد العثور على ما يعجبك، يمكنك إضافة تلك العناصر إلى سلة التسوق الخاصة بك أو الاتصال بنا مباشرة على رقم الهاتف الخاص بنا 000 128 50 لمناقشة المزيد من التفاصيل أو لرؤية المزيد من الصور للمنتج المطلوب. لفهم كل هذا بشكل أفضل، يمكنك مشاهدة هذا الفيديو. بعد ذلك، أغلق هذه النافذة للتنقل في الموقع."}
-                            </Typography>
                             {loading === false ? (
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                                     <MyComponent />
                                 </div>) : (<div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <Box sx={{ width: opts2.width , marginRight: 0.5, my: 5 }}>
-                                    <Stack spacing={2}>
-                                        <Skeleton variant="rectangular" width={opts2.width-10} height={opts2.height-10} />
-                                        <Box sx={{ pt: 0.5 }}>
-                                            <Skeleton />
-                                            <Skeleton width="60%" />
-                                        </Box>
-                                    </Stack>
-                                </Box>
+                                    <Box sx={{ width: opts2.width, marginRight: 0.5, my: 5 }}>
+                                        <Stack spacing={2}>
+                                            <Skeleton variant="rectangular" width={opts2.width - 10} height={opts2.height - 10} />
+                                            <Box sx={{ pt: 0.5 }}>
+                                                <Skeleton />
+                                                <Skeleton width="60%" />
+                                            </Box>
+                                        </Stack>
+                                    </Box>
                                 </div>)}
+                            <Typography>
+                                {language === "fr" ? "Pour acheter un produit sur notre site, il vous suffit de visiter notre page Boutique, de parcourir les différents articles que nous proposons. Une fois que vous avez trouvé ce qui vous plaît, vous pouvez ajouter ces articles à votre panier d'achat ou nous appeler directement sur notre numéro de téléphone: 50 128 000. Pour mieux comprendre tout cela, vous pouvez regarder cette vidéo. Après l'avoir fait, fermez cette fenêtre pour naviguer sur le site." :
+                                    "لشراء منتج من موقعنا، كل ما عليك فعله هو زيارة صفحة المتجر الخاصة بنا، والاطلاع على المقالات المختلفة التي لدينا. بمجرد العثور على ما يعجبك، يمكنك إضافة تلك العناصر إلى سلة التسوق الخاصة بك أو الاتصال بنا مباشرة على رقم الهاتف الخاص بنا 000 128 50 لمناقشة المزيد من التفاصيل أو لرؤية المزيد من الصور للمنتج المطلوب. لفهم كل هذا بشكل أفضل، يمكنك مشاهدة هذا الفيديو. بعد ذلك، أغلق هذه النافذة للتنقل في الموقع."}
+                            </Typography>
                         </DialogContent>
                         <DialogActions>
                             <Button autoFocus onClick={handleDialogClose}>

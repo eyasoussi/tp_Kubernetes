@@ -4,7 +4,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
-import AwesomeSlider from 'react-awesome-slider';
 import { Carousel } from 'react-responsive-carousel';
 import YouTube from 'react-youtube'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -20,6 +19,8 @@ import './css/slicknav.min.css'
 import './css/style.css.map'
 import './css/elegant-icons.css'
 import './css/font-awesome.min.css'
+import Fab from '@mui/material/Fab';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
 import { articles } from '../../articles';
@@ -194,7 +195,7 @@ export default function ShopDetails() {
                                 </div>
                             </div>
                             <div className="row">
-                                <Carousel autoPlay={true} showArrows={true} interval={2000}>
+                                <Carousel showArrows={true}>
                                     <div>
                                         <img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                                     </div>
@@ -211,23 +212,28 @@ export default function ShopDetails() {
                             <div className="row d-flex justify-content-center">
                                 <div className="col-lg-8">
                                     <div className="product__details__text">
+                                        <h1>
+                                            {article?.vendu === true && (<>
+                                                <Fab variant="extended">
+                                                    <ShoppingCartCheckoutIcon sx={{ mr: 1 }} />
+                                                    <h4> {language === 'fr' ? 'ARTICLE DEJA VENDU' : 'لقد تم بيع المنتج'} </h4>
+                                                </Fab><br></br></>)}
+                                        </h1>
                                         <h4>{article?.title}</h4>
                                         <h3>{article?.price}<span style={{ display: "none" }}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
-                                        <span style={{ color: 'red', fontWeight: 'bold' }}>
-                                            {article?.vendu === true ? (language === 'fr' ? 'Vendu!' : 'مباع!') : ''}
-                                        </span>
                                         <p>{article?.description}</p>
                                         <div className="product__details__option">
 
                                         </div>
                                         <div className="product__details__cart__option">
-                                            <div className="quantity">
-                                                <div className="pro-qty">
-                                                    <input type="text" value="1" disabled />
-                                                </div>
-                                            </div>
                                             {!article?.vendu && (
-                                                !isArticleInCart ? (
+                                                <>
+                                                    <div className="quantity">
+                                                        <div className="pro-qty">
+                                                            <input type="text" value="1" disabled />
+                                                        </div>
+                                                    </div>
+                                                    !isArticleInCart ? (
                                                     <a
                                                         className="primary-btn"
                                                         onClick={handleClickCart}
@@ -235,7 +241,7 @@ export default function ShopDetails() {
                                                     >
                                                         {shopDetailsTranslations[language]['addToWishlist']}
                                                     </a>
-                                                ) : (
+                                                    ) : (
                                                     <Link to={routes.CART}>
                                                         <a className="primary-btn" onClick={handleAddToCart}>
                                                             {language === 'fr'
@@ -243,7 +249,8 @@ export default function ShopDetails() {
                                                                 : 'توجه نحو عربة المقتنيات '}
                                                         </a>
                                                     </Link>
-                                                )
+                                                    )
+                                                </>
                                             )}
 
 
@@ -252,6 +259,9 @@ export default function ShopDetails() {
                                             <Link to={routes.SHOP}>
                                                 {shopDetailsTranslations[language]["addToCompare"]}
                                             </Link>
+                                            <br></br>
+                                            <br></br>
+                                            <br></br>
                                             <button type="submit" className="site-btn" onClick={handlePhoneCall}>{language === "fr" ? "Appelez Maintenant : 50 128 000" : "اتصل بنا الان : 000 128 50"}</button>
                                         </div>
                                         <div className="product__details__last__option">
