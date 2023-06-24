@@ -213,6 +213,7 @@ export default function ShopDetails() {
                                     <div className="product__details__text">
                                         <h4>{article?.title}</h4>
                                         <h3>{article?.price}<span style={{ display: "none" }}>{article?.price * article?.discountPercentage + article?.price}</span></h3>
+                                        {article?.vendu === true? "Vendu!" : ""}
                                         <p>{article?.description}</p>
                                         <div className="product__details__option">
 

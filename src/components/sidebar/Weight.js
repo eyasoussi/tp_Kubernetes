@@ -21,7 +21,7 @@ export default function Weight({articles, setWeight,fromSideMenu}) {
             setMinMax([0.1,5]);
         }
         else {
-            setMinMax([0.1,5]);
+            setMinMax([10,50]);
         }
     }, [articles])
 

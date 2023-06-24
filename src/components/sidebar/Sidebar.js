@@ -57,9 +57,9 @@ export default function Sidebar({ setAllFilters, articles }) {
         Race: true,
         Type: false,
         Prix: true,
-        Poids: false,
-        Age: true,
-        State: true,
+        Poids: true,
+        Age: false,
+        State: false,
       });
     } else if (articles === 'Brebis') {
       setFilters({

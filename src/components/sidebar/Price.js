@@ -24,7 +24,7 @@ export default function Price({articles, setPrice, fromSideMenu}) {
             setMinMax([3,50]);
         }
         else {
-            setMinMax([3,50]);
+            setMinMax([500,900]);
         }
     }, [articles])
 
