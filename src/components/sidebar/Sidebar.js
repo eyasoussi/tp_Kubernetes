@@ -51,14 +51,14 @@ export default function Sidebar({ setAllFilters, articles }) {
         Age: true,
         State: false,
       });
-    } else if (articles === 'Poules Pondeuses') {
+    } else if (articles === 'Agnelles') {
       setFilters({
-        Race: false,
-        Type: true,
+        Race: true,
+        Type: false,
         Prix: true,
         Poids: false,
         Age: true,
-        State: true
+        State: true,
       });
     } else if (articles === 'Brebis') {
       setFilters({

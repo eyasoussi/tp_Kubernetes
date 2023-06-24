@@ -17,7 +17,7 @@ export default function ActiveTabs(props) {
           "Ovin Engraissement":"Ovin Engraissement",
           "Brebis":"Brebis",
           "Poulailler Engraissement":"Poulailler Engraissement",
-          "Poules Pondeuses":"Poules Pondeuses"
+          "Agnelles":"Agnelles"
         },
         "ar": {
           "advice_alfa": "نصائح العلفة",
@@ -26,7 +26,7 @@ export default function ActiveTabs(props) {
           "Ovin Engraissement":"أغنام التسمين",
           "Brebis":"النعاج",
           "Poulailler Engraissement":"دواجن التسمين",
-          "Poules Pondeuses":"دجاج البيض"
+          "Agnelles":"أنثى الحمل"
         }
       };
     return (

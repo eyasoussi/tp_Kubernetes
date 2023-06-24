@@ -30,7 +30,7 @@ export default function BlogDetails() {
             "Ovin Engraissement": 'Ovin Engraissement',
             "Brebis": "Brebis",
             "Poulailler Engraissement": "Poulailler Engraissement",
-            "Poules Pondeuses": "Poules Pondeuses"
+            "Agnelles": "Agnelles"
         },
         ar: {
             continueShopping: 'متابعة التسوق',
@@ -38,7 +38,7 @@ export default function BlogDetails() {
             "Ovin Engraissement": 'أغنام التسمين',
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
-            "Poules Pondeuses": "دجاج البيض"
+            "Agnelles": "أنثى الحمل"
         },
     };
 

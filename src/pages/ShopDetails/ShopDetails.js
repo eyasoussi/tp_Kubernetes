@@ -5,6 +5,9 @@ import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 import JsScripts from '../../components/JsScripts';
 import AwesomeSlider from 'react-awesome-slider';
+import { Carousel } from 'react-responsive-carousel';
+import YouTube from 'react-youtube'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Preloader from '../../components/Preloader';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -83,7 +86,7 @@ export default function ShopDetails() {
             "Ovin Engraissement": 'Ovin Engraissement',
             "Brebis": "Brebis",
             "Poulailler Engraissement": "Poulailler Engraissement",
-            "Poules Pondeuses": "Poules Pondeuses",
+            "Agnelles": "Agnelles",
             "Entre": "Entre 6 mois et 9 mois"
         },
         "ar": {
@@ -100,11 +103,20 @@ export default function ShopDetails() {
             "Ovin Engraissement": 'أغنام التسمين',
             "Brebis": "النعاج",
             "Poulailler Engraissement": "دواجن التسمين",
-            "Poules Pondeuses": "دجاج البيض",
+            "Agnelles": "أنثى الحمل",
             "Entre": "بين 6 شهور و 9 شهور"
         },
     };
+    const videoId1 = '0cV4f5VdC8o';
+    const isMobileView = window.innerWidth < 768;
 
+    const opts = {
+        height: isMobileView ? '1140' : '375',
+        width: isMobileView ? '855' : '281',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
 
     const getItemById = (articles, id) => {
         return articles.find((article) => Number(article.id) === Number(id));
@@ -182,10 +194,15 @@ export default function ShopDetails() {
                                 </div>
                             </div>
                             <div className="row">
-                                <AwesomeSlider>
-                                    <div><img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
-                                    <div><img src={article?.images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
-                                </AwesomeSlider>
+                                <Carousel>
+                                    <div>
+                                        <img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                    </div>
+                                    <div>
+                                        <img src={article?.images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                    </div>
+                                    {article?.videos[0] !== "" ? (<YouTube videoId={article?.videos[0]} opts={opts} />) : <></>}
+                                </Carousel>
                             </div>
                         </div>
                     </div>
@@ -296,7 +313,7 @@ export default function ShopDetails() {
                     </div>
                     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                            { language === "fr" ? "Article ajouté avec succès!" : "تمت اضافة المنتج بنجاح!"}
+                            {language === "fr" ? "Article ajouté avec succès!" : "تمت اضافة المنتج بنجاح!"}
                         </Alert>
                     </Snackbar>
                 </section>

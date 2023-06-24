@@ -73,7 +73,7 @@ export const applyFilters = (data, allFilters) => {
   if(!disabled){
   if (allFilters.stat && allFilters.stat.length > 0) {
     filteredResults = filteredResults.filter((item) => {
-      if (item.category === "Poules Pondeuses") {
+      if (item.category === "Agnelles") {
         return true; // Keep the item if it matches the specified conditions
       }
       else{
