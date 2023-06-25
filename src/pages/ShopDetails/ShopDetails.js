@@ -233,7 +233,7 @@ export default function ShopDetails() {
                                                             <input type="text" value="1" disabled />
                                                         </div>
                                                     </div>
-                                                    !isArticleInCart ? (
+                                                    {!isArticleInCart ? (
                                                     <a
                                                         className="primary-btn"
                                                         onClick={handleClickCart}
@@ -249,7 +249,7 @@ export default function ShopDetails() {
                                                                 : 'توجه نحو عربة المقتنيات '}
                                                         </a>
                                                     </Link>
-                                                    )
+                                                    )}
                                                 </>
                                             )}
 
