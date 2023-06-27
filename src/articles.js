@@ -1683,7 +1683,7 @@ export const articles = [
             "https://raw.githubusercontent.com/allouchii/allouchi/main/432.jpg"
         ],
         "videos": [""],
-        "vendu": false
+        "vendu": true
     },
     {
         "id": 245,
@@ -1827,7 +1827,7 @@ export const articles = [
             "https://raw.githubusercontent.com/allouchii/allouchi/main/440.jpg"
         ],
         "videos": [""],
-        "vendu": false
+        "vendu": true
     },
     {
         "id": 438,
@@ -1881,7 +1881,7 @@ export const articles = [
             "https://raw.githubusercontent.com/allouchii/allouchi/main/243.jpg"
         ],
         "videos": [""],
-        "vendu": false
+        "vendu": true
     },
     {
         "id": 244,
