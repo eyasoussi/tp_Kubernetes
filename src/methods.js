@@ -2,9 +2,11 @@
 //This utility function exports articles based on their category
 export const getObjectsByCategory = (data, category) => {
   var objects = [];
-  for (var i = 0; i < data.length; i++) {
-    if (data[i].category === category) {
-      objects.push(data[i]);
+  if (data) {
+    for (var i = 0; i < data?.length; i++) {
+      if (data[i].category === category) {
+        objects.push(data[i]);
+      }
     }
   }
   return objects;
@@ -16,15 +18,15 @@ export const getItemById = (articles, id) => {
 }
 
 function filterObjectsByTitle(objects, searchTerm) {
-  if(searchTerm?.length!==0){
-  const lowercaseSearchTerm = searchTerm?.toLowerCase();
-  return objects.filter((obj) => {
-    const jsonString = JSON.stringify(obj);
-    const lowercaseTitle = jsonString.toLowerCase();
-    return lowercaseTitle?.includes(lowercaseSearchTerm);
-  });
+  if (searchTerm?.length !== 0) {
+    const lowercaseSearchTerm = searchTerm?.toLowerCase();
+    return objects.filter((obj) => {
+      const jsonString = JSON.stringify(obj);
+      const lowercaseTitle = jsonString.toLowerCase();
+      return lowercaseTitle?.includes(lowercaseSearchTerm);
+    });
   }
-  else{
+  else {
     return objects;
   }
 }
@@ -50,7 +52,7 @@ export const applyFilters = (data, allFilters) => {
   if (allFilters.race && allFilters.race.length > 0) {
     // Apply race filter logic
     filteredResults = filteredResults.filter(
-      (item) => allFilters.race.includes(item.race) 
+      (item) => allFilters.race.includes(item.race)
     );
   }
 
@@ -70,21 +72,21 @@ export const applyFilters = (data, allFilters) => {
   }
 
   const disabled = false;
-  if(!disabled){
-  if (allFilters.stat && allFilters.stat.length > 0) {
-    filteredResults = filteredResults.filter((item) => {
-      if (item.category === "Agnelles") {
-        return true; // Keep the item if it matches the specified conditions
-      }
-      else{
-      return allFilters.stat.includes(item.state);
-      }
-    });
+  if (!disabled) {
+    if (allFilters.stat && allFilters.stat.length > 0) {
+      filteredResults = filteredResults.filter((item) => {
+        if (item.category === "Agnelles") {
+          return true; // Keep the item if it matches the specified conditions
+        }
+        else {
+          return allFilters.stat.includes(item.state);
+        }
+      });
+    }
   }
-}
-  
+
 
   filteredResults = filterObjectsByTitle(filteredResults, allFilters.enteredWord);
-  
+
   return filteredResults;
 };

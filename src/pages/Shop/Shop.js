@@ -12,7 +12,7 @@ import Ovin from '../../components/Ovin';
 import Brebis from '../../components/Brebis';
 import PoulesPondeuses from '../../components/PoulesPondeuses';
 import { getObjectsByCategory } from '../../methods';
-import { articles, sortArticlesByPrice } from '../../articles';
+import { sortArticlesByPrice, articlesFetched } from '../../articles';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
@@ -23,6 +23,8 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SimpleDialog from "../../components/SimpleDialog"
 import { LanguageContext } from '../../LanguageContext';
+import { getAllArticles } from '../../admin/adminUtils';
+import { ArticlesContext } from '../../articlesContext';
 
 export default function Shop() {
     const { language, updateLanguage } = useContext(LanguageContext);
@@ -32,7 +34,8 @@ export default function Shop() {
     const handleFilterClick = (filter) => {
         setActiveFilter(filter); // Update the active filter state when a filter is clicked
     };
-    const [data, setData] = useState(sortArticlesByPrice(articles));
+    const { articles } = useContext(ArticlesContext);
+    const data = sortArticlesByPrice(articles);
     const [ovinData, setOvinData] = useState([]);
     const [BrebisData, setBrebisData] = useState([]);
     const [PoulaillerData, setPoulaillerData] = useState([]);

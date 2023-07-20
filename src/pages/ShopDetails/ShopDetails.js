@@ -23,7 +23,9 @@ import Fab from '@mui/material/Fab';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
-import { articles } from '../../articles';
+import { sortArticlesByPrice, articlesFetched } from '../../articles';
+import { getAllArticles } from '../../admin/adminUtils';
+import { ArticlesContext } from '../../articlesContext';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -41,6 +43,10 @@ export default function ShopDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [open, setOpen] = React.useState(false);
     const [isArticleInCart, setIsArticleInCart] = useState(false);
+    const { articles } = useContext(ArticlesContext);
+    const data = sortArticlesByPrice(articles);
+    
+    const [articles1, setArticles] = useState(data);
 
     useEffect(() => {
         setIsArticleInCart(cartItems.some(item => item.id === article.id));

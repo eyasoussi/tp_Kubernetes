@@ -34,7 +34,7 @@ export default function Footer() {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about">
                             <div className="footer__logo">
-                                <a href="#"><img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354489994_258818066739367_6080175949998551953_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=UEjHlc23qeoAX8FectC&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTIL1OR_JFRMcq2hfu7_zVlSTVHGI6b7qbNlb2ZYuf0TQ&oe=64B37E9D" alt="" /></a>
+                                <a href="#"><img src="" alt="" /></a>
                             </div>
                             <p>{language === "fr" ? "Découvrez notre boutique en ligne de vente de moutons et poulets! Nous proposons des produits de haute qualité et une expérience d'achat fluide. Trouvez tout ce dont vous avez besoin dans notre boutique. Contactez-nous maintenant!" : "اكتشف متجرنا الإلكتروني لبيع الأغنام والدجاج! هدفنا الرئيسي هو تقديم أفضل تجربة يمكن أن نقدمها للعملاء. نحن نقدم منتجات عالية الجودة وتجربة تسوق سلسة. ابحث عن كل ما تحتاجه في متجرنا. اتصل بنا الآن!"}</p>
                             <Link to={routes.CART}><img src="img/payment.png" alt="" /></Link>
