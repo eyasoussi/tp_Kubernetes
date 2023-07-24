@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
+import BoolEditor from '@inovua/reactdatagrid-community/BoolEditor'
+import SelectEditor from '@inovua/reactdatagrid-community/SelectEditor'
+import NumericEditor from '@inovua/reactdatagrid-community/NumericEditor'
 
-export default function MainShop({ filteredData }) {
+export default function MainShop({ filteredData, columns }) {
   const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [data, setData] = useState(filteredData);
@@ -13,7 +16,7 @@ export default function MainShop({ filteredData }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredDataSource, setFilteredDataSource] = useState(filteredData);
   const [newlyAddedItemId, setNewlyAddedItemId] = useState(null);
-  const [gridRef, setGridRef] = useState(null)
+  const [gridRef, setGridRef] = useState(null);
 
   useEffect(() => {
     setData(filteredData);
@@ -40,7 +43,7 @@ export default function MainShop({ filteredData }) {
       id: Math.random().toString(), // You can use a more appropriate ID generation method
       title: '',
       price: '',
-      category: '',
+      category: filteredData[0]["category"],
       description: '',
       race: '',
       age: '',
@@ -48,7 +51,6 @@ export default function MainShop({ filteredData }) {
 
     // Add the new empty object to the data source
     setFilteredDataSource((prevData) => [...prevData, newEmptyItem]);
-
     // Set the ID of the newly added item to scroll to it later
     setNewlyAddedItemId(newEmptyItem.id);
   };
@@ -58,30 +60,39 @@ export default function MainShop({ filteredData }) {
     if (newlyAddedItemId) {
       // Scroll to the corresponding row in the data grid
       // Assuming 'gridRef' is a ref to the ReactDataGrid component
-      gridRef.current.scrollToId(newlyAddedItemId, { force: true });
-
       // Reset the newly added item ID state to prevent unnecessary scrolling on subsequent renders
       setNewlyAddedItemId(null);
+       // Calculate the index of the newly added item in the filteredDataSource
+    const lastIndex = filteredDataSource.length;
+
+    // Calculate the page that the last item belongs to based on pageSize
+    const lastItemPage = Math.ceil(lastIndex / pageSize);
+    gridRef.current.scrollToIndex(1000)
     }
   }, [newlyAddedItemId]);
 
+  const raceData = [
+    { id: 'Gharbi', label: 'Gharbi' },
+    { id: 'Arbi', label: 'Arbi' },
+    { id: 'Tibar', label: 'Tibar' },
+    { id: 'Houti', label: 'Houti' },
+    { id: 'Dmen', label: 'Dmen' },
+    { id: 'Lacaune', label: 'Lacaune' }
+  ]
 
-  const columns = [
-    { name: 'title', header: 'Titre', minWidth: 50, defaultFlex: 2, editable: true },
-    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true },
-    { name: 'category', header: 'Catégorie', minWidth: 50, defaultFlex: 2, editable: true },
-    { name: 'description', header: 'Description', maxWidth: 1000, defaultFlex: 1, editable: true },
-    { name: 'race', header: 'Race', minWidth: 50, defaultFlex: 2, editable: true },
-    { name: 'age', header: 'Age', maxWidth: 1000, defaultFlex: 1, editable: true },
-    {
-      name: 'actions',
-      header: 'Actions',
-      maxWidth: 100,
-      render: ({ value, data }) => (
-        <button onClick={() => handleDeleteItem(data.id)}>Delete</button>
-      ),
-    },
-  ];
+  const onEditComplete = useCallback(({ value, columnId, rowId }) => {
+    setFilteredDataSource((prevData) => {
+      // Create a copy of the previous data
+      const newData = [...prevData];
+      // Find the index of the row with the given rowId
+      const rowIndex = newData.findIndex((item) => item.id === rowId);
+      if (rowIndex !== -1) {
+        // Update the value of the specified column in the found row
+        newData[rowIndex][columnId] = value;
+      }
+      return newData;
+    });
+  }, []);
 
   const gridStyle = { minHeight: 550 };
 
@@ -101,13 +112,7 @@ export default function MainShop({ filteredData }) {
         columns={columns}
         dataSource={filteredDataSource}
         style={gridStyle}
-        pagination={{
-          enabled: true,
-          pageSize: pageSize,
-          pageSizeOptions: [5, 10, 20],
-          currentPage: currentPage,
-          onChange: handlePageChange,
-        }}
+        onEditComplete={onEditComplete}
         filter={{
           enabled: true,
           filterValue: (filter) => {
