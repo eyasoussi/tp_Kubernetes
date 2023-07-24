@@ -6,10 +6,13 @@ import { applyFilters } from '../methods';
 import BoolEditor from '@inovua/reactdatagrid-community/BoolEditor'
 import SelectEditor from '@inovua/reactdatagrid-community/SelectEditor'
 import NumericEditor from '@inovua/reactdatagrid-community/NumericEditor'
+import {addArticle, updateArticle, deleteArticle} from '../admin/adminUtils'
 
 export default function Ovin({ data }) {
   const [allFilters, setAllFilters] = useState({});
   const [filteredData, setFilteredData] = useState(data);
+  const [filteredDataSource, setFilteredDataSource] = useState(filteredData);
+  const [newlyAddedItemId, setNewlyAddedItemId] = useState(null);
 
   useEffect(() => {
     const filteredRes = applyFilters(data, allFilters);
@@ -17,8 +20,45 @@ export default function Ovin({ data }) {
   }, [allFilters, data]);
 
 
-  const handleDeleteItem = ()=>{};
-  const handleAddItem = ()=>{};
+  const handleDeleteItem = (id)=>{
+    console.log(id);
+    alert('Item delete successfully!');
+  };
+
+  const handleAddItem = () => {
+    // Create a new empty object for the new item
+    const newEmptyItem = {
+      id: Math.random().toString(), // You can use a more appropriate ID generation method
+      title: '',
+      price: '',
+      category: filteredData[0]["category"],
+      description: '',
+      race: '',
+      age: '',
+    };
+
+    // Add the new empty object to the data source
+    setFilteredData((prevData) => [...prevData, newEmptyItem]);
+    // Set the ID of the newly added item to scroll to it later
+    setNewlyAddedItemId(newEmptyItem.id);
+  };
+
+  const handleSaveItem = (id, item) => {
+    console.log(id,item);
+    const updatedData = data.map((item) => {
+      if (item.id === id) {
+        //implement data validation logic
+        //call updating function
+        updateArticle(id, item);
+        alert('Item updated successfully!');
+      }
+      else{
+        //call adding function
+        addArticle(item);
+      }
+    });
+  }
+
   const raceData = [
     { id: 'Gharbi', label: 'Gharbi' },
     { id: 'Arbi', label: 'Arbi' },
@@ -79,7 +119,7 @@ export default function Ovin({ data }) {
       header: 'Sauvegarde',
       minWidth: 115,
       render: ({ value, data }) => (
-        <button onClick={() => handleDeleteItem(data.id)}>Sauvegarder</button>
+        <button onClick={() => handleSaveItem(data.id, data)}>Sauvegarder</button>
       ),
       defaultFlex: 1,
     },
@@ -106,7 +146,7 @@ export default function Ovin({ data }) {
           )}
         </div>
         <div className="shop__product__option">
-          <MainShop filteredData={filteredData} columns={columns} />
+          <MainShop filteredData={filteredData} columns={columns} handleAddItem={handleAddItem} newlyAddedItemId={newlyAddedItemId}/>
         </div>
         </div>
   );

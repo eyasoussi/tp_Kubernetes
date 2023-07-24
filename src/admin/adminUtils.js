@@ -29,14 +29,10 @@ export async function addArticle(newArticle) {
     try {
         const articles = await getAllArticles();
 
-        const articleWithNewId = {
-            id: articles.length > 0 ? articles[articles.length - 1].id + 1 : 1,
-            ...newArticle,
-        };
 
-        articles.push(articleWithNewId);
+        articles.push(newArticle);
 
-        await updateArticlesInRepo(articles, `Add new article with ID ${articleWithNewId.id}`);
+        await updateArticlesInRepo(articles, `Add new article with ID ${newArticle.id}`);
 
         console.log('New article added successfully.');
     } catch (error) {

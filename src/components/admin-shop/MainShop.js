@@ -8,14 +8,13 @@ import BoolEditor from '@inovua/reactdatagrid-community/BoolEditor'
 import SelectEditor from '@inovua/reactdatagrid-community/SelectEditor'
 import NumericEditor from '@inovua/reactdatagrid-community/NumericEditor'
 
-export default function MainShop({ filteredData, columns }) {
+export default function MainShop({ filteredData, columns, handleAddItem, newlyAddedItemId }) {
   const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [data, setData] = useState(filteredData);
   const [pageSize, setPageSize] = useState(10); // Number of rows per page
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredDataSource, setFilteredDataSource] = useState(filteredData);
-  const [newlyAddedItemId, setNewlyAddedItemId] = useState(null);
   const [gridRef, setGridRef] = useState(null);
 
   useEffect(() => {
@@ -37,36 +36,9 @@ export default function MainShop({ filteredData, columns }) {
     // You may need to update the 'filteredData' and 'filteredDataSource' state
   };
 
-  const handleAddItem = () => {
-    // Create a new empty object for the new item
-    const newEmptyItem = {
-      id: Math.random().toString(), // You can use a more appropriate ID generation method
-      title: '',
-      price: '',
-      category: filteredData[0]["category"],
-      description: '',
-      race: '',
-      age: '',
-    };
-
-    // Add the new empty object to the data source
-    setFilteredDataSource((prevData) => [...prevData, newEmptyItem]);
-    // Set the ID of the newly added item to scroll to it later
-    setNewlyAddedItemId(newEmptyItem.id);
-  };
-
   useEffect(() => {
     // Scroll to the newly added item in the data grid
     if (newlyAddedItemId) {
-      // Scroll to the corresponding row in the data grid
-      // Assuming 'gridRef' is a ref to the ReactDataGrid component
-      // Reset the newly added item ID state to prevent unnecessary scrolling on subsequent renders
-      setNewlyAddedItemId(null);
-       // Calculate the index of the newly added item in the filteredDataSource
-    const lastIndex = filteredDataSource.length;
-
-    // Calculate the page that the last item belongs to based on pageSize
-    const lastItemPage = Math.ceil(lastIndex / pageSize);
     gridRef.current.scrollToIndex(1000)
     }
   }, [newlyAddedItemId]);
