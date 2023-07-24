@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from "./Card";
 import { useContext } from 'react';
-import { LanguageContext } from '../../LanguageContext'
-import Snackbar from '@mui/material/Snackbar';
-
+import { LanguageContext } from '../../LanguageContext';
+import ReactDataGrid from '@inovua/reactdatagrid-community';
+import '@inovua/reactdatagrid-community/index.css';
 
 export default function MainShop({ filteredData }) {
   const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [data, setData] = useState(filteredData);
+  const [pageSize, setPageSize] = useState(10); // Number of rows per page
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
-  
+  const [filteredDataSource, setFilteredDataSource] = useState(filteredData);
+
   useEffect(() => {
     setData(filteredData);
+    setFilteredDataSource(filteredData);
     setCurrentPage(1);
   }, [filteredData]);
 
@@ -22,84 +23,54 @@ export default function MainShop({ filteredData }) {
     navigate(`/boutique/${index}`);
   };
 
-  // Calculate the total number of pages based on the data length and items per page
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
-  // Get the current page's items
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-  function scrollToPosition(scrollToY, duration) {
-    const scrollFromY = window.scrollY;
-    const startTime = performance.now();
-  
-    function scrollAnimation(currentTime) {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      const scrollTo = scrollFromY + ((scrollToY - scrollFromY) * progress);
-  
-      window.scrollTo(0, scrollTo);
-  
-      if (progress < 1) {
-        window.requestAnimationFrame(scrollAnimation);
-      }
-    }
-  
-    window.requestAnimationFrame(scrollAnimation);
-  }
-  
-  // Usage example
-  const targetPosition = 150; // Target scroll position
-  const animationDuration = 200; // Animation duration in milliseconds
-  
- 
-  
-
-  // Handle pagination click
-  const handlePageClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    //window.scrollTo(152, 152);
-    scrollToPosition(targetPosition, animationDuration);
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
   };
+
+  const columns = [
+    { name: 'title', header: 'Title', minWidth: 50, defaultFlex: 2, editable: true },
+    { name: 'price', header: 'prix', maxWidth: 1000, defaultFlex: 1, editable: true },
+  ];
+
+  const gridStyle = { minHeight: 550 };
 
   return (
     <div>
-      <div className="row">
-        <div className="col-lg-6 col-md-6 col-sm-6">
-          <div className="shop__product__option__left">
-            {language === "fr" ? (
-              <p>Affichage de {indexOfFirstItem + 1} à {indexOfLastItem} sur {data.length} résultats</p>
-            ) : (
-              <p>عرض {indexOfFirstItem + 1} إلى {indexOfLastItem} من {data.length} نتيجة</p>
-            )}
-
-          </div>
-        </div>
+      <div className="shop__product__option__left">
+        {language === 'fr' ? (
+          <p>Affichage de {filteredDataSource.length} résultats</p>
+        ) : (
+          <p>عرض {filteredDataSource.length} نتيجة</p>
+        )}
       </div>
 
-      <div className="row">
-        {/* Render the current page's items */}
-        {currentItems.map((item, index) => (
-          <Card key={item.id} item={item} handleShopItemClick={handleShopItemClick} />
-        ))}
-      </div>
+      <ReactDataGrid
+        idProperty="id"
+        columns={columns}
+        dataSource={filteredDataSource}
+        style={gridStyle}
+        pagination={{
+          enabled: true,
+          pageSize: pageSize,
+          pageSizeOptions: [5, 10, 20],
+          currentPage: currentPage,
+          onChange: handlePageChange,
+        }}
+        filter={{
+          enabled: true,
+          filterValue: (filter) => {
+            const filteredData = filteredData.filter((item) => {
+              return (
+                item.title.toLowerCase().includes(filter.toLowerCase()) ||
+                item.price.toLowerCase().includes(filter.toLowerCase())
+              );
+            });
+            setFilteredDataSource(filteredData);
+          },
+        }}
+      />
 
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="product__pagination">
-            {/* Generate pagination links */}
-            {Array.from({ length: totalPages }, (_, index) => (
-              <a
-                key={index}
-                className={currentPage === index + 1 ? 'active clickable-element' : 'clickable-element'}
-                onClick={() => handlePageClick(index + 1)}
-              >
-                {index + 1}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Optional: Render additional components below the data grid if needed */}
     </div>
   );
 }

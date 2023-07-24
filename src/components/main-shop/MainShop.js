@@ -12,7 +12,7 @@ export default function MainShop({ filteredData }) {
   const [data, setData] = useState(filteredData);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-
+  
   useEffect(() => {
     setData(filteredData);
     setCurrentPage(1);
@@ -32,28 +32,28 @@ export default function MainShop({ filteredData }) {
   function scrollToPosition(scrollToY, duration) {
     const scrollFromY = window.scrollY;
     const startTime = performance.now();
-
+  
     function scrollAnimation(currentTime) {
       const elapsedTime = currentTime - startTime;
       const progress = Math.min(elapsedTime / duration, 1);
       const scrollTo = scrollFromY + ((scrollToY - scrollFromY) * progress);
-
+  
       window.scrollTo(0, scrollTo);
-
+  
       if (progress < 1) {
         window.requestAnimationFrame(scrollAnimation);
       }
     }
-
+  
     window.requestAnimationFrame(scrollAnimation);
   }
-
+  
   // Usage example
   const targetPosition = 150; // Target scroll position
   const animationDuration = 200; // Animation duration in milliseconds
-
-
-
+  
+ 
+  
 
   // Handle pagination click
   const handlePageClick = (pageNumber) => {
@@ -64,34 +64,41 @@ export default function MainShop({ filteredData }) {
 
   return (
     <div>
-      <div className="shop__product__option__left">
-        {language === "fr" ? (
-          <p>Affichage de {indexOfFirstItem + 1} à {indexOfLastItem} sur {data.length} résultats</p>
-        ) : (
-          <p>عرض {indexOfFirstItem + 1} إلى {indexOfLastItem} من {data.length} نتيجة</p>
-        )}
+      <div className="row">
+        <div className="col-lg-6 col-md-6 col-sm-6">
+          <div className="shop__product__option__left">
+            {language === "fr" ? (
+              <p>Affichage de {indexOfFirstItem + 1} à {indexOfLastItem} sur {data.length} résultats</p>
+            ) : (
+              <p>عرض {indexOfFirstItem + 1} إلى {indexOfLastItem} من {data.length} نتيجة</p>
+            )}
+
+          </div>
+        </div>
       </div>
 
-      <ul className="product__list">
-        {/* Render the current page's items as list items */}
+      <div className="row">
+        {/* Render the current page's items */}
         {currentItems.map((item, index) => (
-          <li key={item.id}>
-            <Card item={item} handleShopItemClick={handleShopItemClick} />
-          </li>
+          <Card key={item.id} item={item} handleShopItemClick={handleShopItemClick} />
         ))}
-      </ul>
+      </div>
 
-      <div className="product__pagination">
-        {/* Generate pagination links */}
-        {Array.from({ length: totalPages }, (_, index) => (
-          <a
-            key={index}
-            className={currentPage === index + 1 ? 'active clickable-element' : 'clickable-element'}
-            onClick={() => handlePageClick(index + 1)}
-          >
-            {index + 1}
-          </a>
-        ))}
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="product__pagination">
+            {/* Generate pagination links */}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <a
+                key={index}
+                className={currentPage === index + 1 ? 'active clickable-element' : 'clickable-element'}
+                onClick={() => handlePageClick(index + 1)}
+              >
+                {index + 1}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
