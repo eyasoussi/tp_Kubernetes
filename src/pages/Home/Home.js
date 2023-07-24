@@ -352,7 +352,7 @@ export default function Home() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-lg-7 offset-lg-4">
+                        {/* <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
                                     <img src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.15752-9/355385132_931223464829885_5643326160151289013_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=n9piaYL0ddoAX8B6zA1&_nc_ht=scontent.ftun14-1.fna&oh=03_AdQ72f0NROrlKPhvg4lESJh9NzPBivuwUSD_-lLFRbr1DA&oe=64B7296B" alt="" />
@@ -364,7 +364,7 @@ export default function Home() {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section >
