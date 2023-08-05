@@ -4,32 +4,37 @@ import jwtDecode from 'jwt-decode';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-  
+    
     const handleLogin = (e) => {
-        e.preventDefault();
+      e.preventDefault();
     
-        // Simulate a login check (you can add your actual authentication logic here)
-        const validEmail = 'riadhmadani@gmail.com';
-        const validPassword = 'riadhmadani2023!';
+      // Simulate a login check (you can add your actual authentication logic here)
+      const validEmail = 'riadhmadani@gmail.com';
+      const validPassword = 'riadhmadani2023!';
     
-        if (email === validEmail && password === validPassword) {
-          // Create a mock JWT token (for demonstration purposes)
-          const tokenPayload = { email }; // Payload data to be included in the token
-          const token = btoa(JSON.stringify(tokenPayload)); // Encode payload as base64 string
+      if (email === validEmail && password === validPassword) {
+        // Set the token expiration to one hour from the current time
+        const expirationDate = new Date();
+        expirationDate.setHours(expirationDate.getHours() + 1);
     
-          // Save the access token to local storage
-          localStorage.setItem('access_token', token);
+        // Create a mock JWT token (for demonstration purposes)
+        const tokenPayload = { email, exp: Math.floor(expirationDate.getTime() / 1000) }; // Add the 'exp' field with expiration time (in seconds)
+        const token = btoa(JSON.stringify(tokenPayload)); // Encode payload as base64 string
     
-          // Redirect or handle successful login as needed
-          // For example, you can redirect the user to the admin dashboard
-          // using window.location.href or a routing library like React Router.
-          window.location.href = '/admin';
-        } else {
-          // Handle login failure here, show an error message, etc.
-          console.log('Invalid email or password');
-        }
-      };
-  
+        // Save the access token to local storage
+        localStorage.setItem('access_token', token);
+    
+        // Redirect or handle successful login as needed
+        // For example, you can redirect the user to the admin dashboard
+        // using window.location.href or a routing library like React Router.
+        window.location.href = '/admin';
+      } else {
+        // Handle login failure here, show an error message, etc.
+        console.log('Invalid email or password');
+      }
+    };
+    
+    
 
       return (
         <div className="container">

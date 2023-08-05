@@ -39,7 +39,7 @@ export default function MainShop({ filteredData, columns, handleAddItem, newlyAd
   useEffect(() => {
     // Scroll to the newly added item in the data grid
     if (newlyAddedItemId) {
-    gridRef.current.scrollToIndex(1000)
+    gridRef.current.scrollToIndex(0)
     }
   }, [newlyAddedItemId]);
 

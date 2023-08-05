@@ -25,16 +25,11 @@ export async function getAllArticles() {
     }
 }
 
-export async function addArticle(newArticle) {
+export async function addArticle(newArticle, articles) {
     try {
-        const articles = await getAllArticles();
-
-
-        articles.push(newArticle);
-
-        await updateArticlesInRepo(articles, `Add new article with ID ${newArticle.id}`);
-
+        await updateArticlesInRepo(articles, `Added new article with ID ${newArticle.id}`);
         console.log('New article added successfully.');
+
     } catch (error) {
         console.error('Error adding new article:', error);
     }
