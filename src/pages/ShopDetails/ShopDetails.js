@@ -209,7 +209,7 @@ export default function ShopDetails() {
                                             <div>
                                                 <img src={article?.image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                                             </div>
-                                    {article?.videos !== null && article?.video !== "" ? (<YouTube videoId={article?.videos[0]} opts={opts} />) : <></>}
+                                    {article?.videos !== null && article?.video !== "" ? (<YouTube videoId={article?.video} opts={opts} />) : <></>}
                                 </Carousel>
                                 )}
                                 {article && article.image === "" && (
