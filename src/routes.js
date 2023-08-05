@@ -7,6 +7,7 @@ const routes = {
     CHECKOUT: "/paiement",
     BLOG:"/blog",
     BLOGDETAILS:"/blog/:id",
+    ADMIN:"/admin",
     NOT_FOUND_PAGE: "*",
   };
   

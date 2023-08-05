@@ -17,7 +17,7 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SimpleDialog from "../../components/SimpleDialog"
 import Alert from '@mui/material/Alert';
-
+import Login from '../../components/Login';
 
 export default function AboutUs() {
     const { language, updateLanguage } = useContext(LanguageContext);
@@ -121,6 +121,7 @@ export default function AboutUs() {
             <Header />
             <section className="breadcrumb-option">
                 <div className="container">
+                    <Login />
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="breadcrumb__text">

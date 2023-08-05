@@ -1,12 +1,13 @@
-import React, { createContext, useState } from 'react';
-import { articles } from './articles';
+import React, { createContext, useState, useContext } from 'react';
+import { sortArticlesByPrice, articlesFetched } from './articles';
+import { ArticlesContext } from './articlesContext';
 // Create the CartContext
 export const CartContext = createContext();
 
 // Create the CartProvider component
 export const CartProvider = ({ children }) => {
-
-    const data = articles;
+    const { articles } = useContext(ArticlesContext);
+    const data = sortArticlesByPrice(articles);
     const [cartItems, setCartItems] = useState(() => {
         const selectedItemsIds = localStorage.getItem('selectedItemsIds');
         if (selectedItemsIds) {

@@ -23,7 +23,9 @@ import Fab from '@mui/material/Fab';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { LanguageContext } from '../../LanguageContext';
 import { CartContext } from '../../CartContext';
-import { articles } from '../../articles';
+import { sortArticlesByPrice, articlesFetched } from '../../articles';
+import { getAllArticles } from '../../admin/adminUtils';
+import { ArticlesContext } from '../../articlesContext';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
@@ -41,6 +43,10 @@ export default function ShopDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [open, setOpen] = React.useState(false);
     const [isArticleInCart, setIsArticleInCart] = useState(false);
+    const { articles } = useContext(ArticlesContext);
+    const data = sortArticlesByPrice(articles);
+
+    const [articles1, setArticles] = useState(data);
 
     useEffect(() => {
         setIsArticleInCart(cartItems.some(item => item.id === article.id));
@@ -195,15 +201,28 @@ export default function ShopDetails() {
                                 </div>
                             </div>
                             <div className="row">
+                            {article && article.image !== "" && (
                                 <Carousel showArrows={true}>
-                                    <div>
-                                        <img src={article?.images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
-                                    </div>
-                                    <div>
-                                        <img src={article?.images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
-                                    </div>
-                                    {article?.videos[0] !== "" ? (<YouTube videoId={article?.videos[0]} opts={opts} />) : <></>}
+                                        <div>
+                                            <img src={article?.thumbnail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                        </div>
+                                            <div>
+                                                <img src={article?.image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                            </div>
+                                    {article?.videos !== null && article?.video !== "" ? (<YouTube videoId={article?.videos[0]} opts={opts} />) : <></>}
                                 </Carousel>
+                                )}
+                                {article && article.image === "" && (
+                                <Carousel showArrows={true}>
+                                        <div>
+                                            <img src={article?.thumbnail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                        </div>
+                                            <div>
+                                                <img src={article?.thumbnail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                                            </div>
+                                    {article?.videos !== null && article?.video !== "" ? (<YouTube videoId={article?.videos[0]} opts={opts} />) : <></>}
+                                </Carousel>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -234,21 +253,21 @@ export default function ShopDetails() {
                                                         </div>
                                                     </div>
                                                     {!isArticleInCart ? (
-                                                    <a
-                                                        className="primary-btn"
-                                                        onClick={handleClickCart}
-                                                        disabled={article?.vendu}
-                                                    >
-                                                        {shopDetailsTranslations[language]['addToWishlist']}
-                                                    </a>
-                                                    ) : (
-                                                    <Link to={routes.CART}>
-                                                        <a className="primary-btn" onClick={handleAddToCart}>
-                                                            {language === 'fr'
-                                                                ? 'Article dans le panier - allez au Panier'
-                                                                : 'توجه نحو عربة المقتنيات '}
+                                                        <a
+                                                            className="primary-btn"
+                                                            onClick={handleClickCart}
+                                                            disabled={article?.vendu}
+                                                        >
+                                                            {shopDetailsTranslations[language]['addToWishlist']}
                                                         </a>
-                                                    </Link>
+                                                    ) : (
+                                                        <Link to={routes.CART}>
+                                                            <a className="primary-btn" onClick={handleAddToCart}>
+                                                                {language === 'fr'
+                                                                    ? 'Article dans le panier - allez au Panier'
+                                                                    : 'توجه نحو عربة المقتنيات '}
+                                                            </a>
+                                                        </Link>
                                                     )}
                                                 </>
                                             )}

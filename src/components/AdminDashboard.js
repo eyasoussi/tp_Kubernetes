@@ -1,18 +1,18 @@
 import React, { useEffect, useState,useContext } from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Modal from '../../components/Modal';
-import JsScripts from '../../components/JsScripts';
-import Preloader from '../../components/Preloader';
-import MyContext from '../../context';
-import ActiveTabs from '../../components/ActiveTabs';
-import InfoBar from '../../components/InfoBar';
-import Poulailler from '../../components/Poulailler';
-import Ovin from '../../components/Ovin';
-import Brebis from '../../components/Brebis';
-import PoulesPondeuses from '../../components/PoulesPondeuses';
-import { getObjectsByCategory } from '../../methods';
-import { sortArticlesByPrice, articlesFetched } from '../../articles';
+import Header from './Header';
+import Footer from './Footer';
+import Modal from './Modal';
+import JsScripts from './JsScripts';
+import Preloader from './Preloader';
+import MyContext from '../context';
+import ActiveTabs from './ActiveTabs';
+import InfoBar from './InfoBar';
+import Poulailler from './PoulaillerAdmin';
+import Ovin from './OvinAdmin';
+import Brebis from './BrebisAdmin';
+import PoulesPondeuses from './PoulesPondeusesAdmin';
+import { getObjectsByCategory } from '../methods';
+import { sortArticlesByPrice, articlesFetched } from '../articles';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
@@ -21,12 +21,12 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 import SettingsIcon from '@mui/icons-material/Settings';
-import SimpleDialog from "../../components/SimpleDialog"
-import { LanguageContext } from '../../LanguageContext';
-import { getAllArticles } from '../../admin/adminUtils';
-import { ArticlesContext } from '../../articlesContext';
+import SimpleDialog from "./SimpleDialog"
+import { LanguageContext } from '../LanguageContext';
+import { getAllArticles } from '../admin/adminUtils';
+import { ArticlesContext } from '../articlesContext';
 
-export default function Shop() {
+export default function AdminDashboard() {
     const { language, updateLanguage } = useContext(LanguageContext);
     const myTabs = ["Ovin Engraissement", "Brebis", "Poulailler Engraissement", "Agnelles"];
     const [activeFilter, setActiveFilter] = useState(myTabs[0]); // State to keep track of active filter

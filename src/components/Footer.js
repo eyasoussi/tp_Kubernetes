@@ -34,6 +34,7 @@ export default function Footer() {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about">
                             <div className="footer__logo">
+
                                 <a href="#"><img src="https://raw.githubusercontent.com/allouchii/allouchi/main/logoAllouchi.png" alt="" /></a>
                             </div>
                             <p>{language === "fr" ? "Découvrez notre boutique en ligne de vente de moutons et poulets! Nous proposons des produits de haute qualité et une expérience d'achat fluide. Trouvez tout ce dont vous avez besoin dans notre boutique. Contactez-nous maintenant!" : "اكتشف متجرنا الإلكتروني لبيع الأغنام والدجاج! هدفنا الرئيسي هو تقديم أفضل تجربة يمكن أن نقدمها للعملاء. نحن نقدم منتجات عالية الجودة وتجربة تسوق سلسة. ابحث عن كل ما تحتاجه في متجرنا. اتصل بنا الآن!"}</p>
