@@ -247,13 +247,13 @@ export default function Home() {
             <section className="hero">
                 <Carousel autoPlay={true} showArrows={true} interval={10000}>
                     <div>
-                        <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/256779859_213304307500755_4805841473852462713_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=101&ccb=1-7&_nc_sid=ae9488&_nc_ohc=PwGwkKQlBzQAX8PcMS1&_nc_ht=scontent.ftun4-2.fna&oh=03_AdTey-4_3YWe_8inhAV6glbteLoxJc0jlW09YIkwEVziqw&oe=64B37421" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                        <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/ferme1.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
                     <div>
-                        <img src="https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/311493749_678030923502945_1668701050765048863_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Oeo2H_gcMncAX8n4OXk&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRaMTNpFTtGFPR9ByKR8ujEEhcoL4bukAbCGCKHF7dHKQ&oe=64B40132" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                        <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/ferme2.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
                     <div>
-                        <img src="https://scontent.ftun4-2.fna.fbcdn.net/v/t1.15752-9/354671672_250588797603709_4163798981858942408_n.jpg?stp=dst-jpg_p1080x2048&_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=jqPBa6NSqrUAX9E19ED&_nc_ht=scontent.ftun4-2.fna&oh=03_AdQ5Q3n_THaFLkcqN3pw5s7ui3F2PPzRUKyt7PtjQSr-9A&oe=64B3690D" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
+                        <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/129.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Image 1" />
                     </div>
                 </Carousel>
                 {/* <AwesomeSlider>
@@ -308,7 +308,7 @@ export default function Home() {
                         <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
-                                    <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/353862701_219137197181209_8933645344583722917_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=1J4YhxuEnxAAX9O8-0w&_nc_ht=scontent.ftun2-2.fna&oh=03_AdRWtoCzjdiLqor9akC6gvVZFGugoe1ZwPIlg6pZX2IVJQ&oe=64BDD9FE" alt="" />
+                                    <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/avis1.jpg" alt="" />
 
                                 </div>
                                 <div className="banner__item__text">
@@ -324,13 +324,13 @@ export default function Home() {
                                 <div className="banner__item__pic">
                                     <Carousel showArrows={true}>
                                         <div>
-                                            <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/355764545_588987246682425_2385581986172350581_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=oRmtSTxmDzMAX9MZ8mK&_nc_ht=scontent.ftun2-2.fna&oh=03_AdSgnkEcCTQB02gKe_KhkzbeoE9XLELoE34H_3WhSpynkw&oe=64BDE29E" style={{ width: '300px', height: '100%', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
+                                            <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/avis2.jpg" style={{ width: '300px', height: '100%', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
                                         <div>
-                                            <img src="https://scontent.ftun2-2.fna.fbcdn.net/v/t1.15752-9/356279976_1323588698514334_5004331889787099663_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=ae9488&_nc_ohc=NwZBEnkOSnEAX_hvi9u&_nc_ht=scontent.ftun2-2.fna&oh=03_AdSrw8LJo711cAXfqdh4T3WkUcNt85KmAoKIfuDTRkUAxw&oe=64BDD4D3" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
+                                            <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/avis3.jpg" style={{ width: '300px', height: '100%', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
                                         <div>
-                                            <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t1.15752-9/355811792_676568087617845_5761563132512561663_n.jpg?stp=cp0_dst-jpg_e15_q65_s960x960&_nc_cat=109&ccb=1-7&_nc_sid=58c789&efg=eyJpIjoidCJ9&_nc_ohc=vLeiMn7t0ncAX_Ug-eE&_nc_ht=scontent.fnbe1-2.fna&oh=03_AdSrxdem-fTQn2HdDAj35yYZyXqIWoSaZdQECpsYa5oQQg&oe=64BDE964" style={{ width: '300px', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
+                                        <   img src="https://raw.githubusercontent.com/allouchii/allouchi/main/avis4.jpg" style={{ width: '300px', height: '100%', maxHeight: '450px', objectFit: 'cover' }} alt="Image 1" />
                                         </div>
                                     </Carousel>
                                     {/* <AwesomeSlider>
@@ -352,7 +352,7 @@ export default function Home() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="col-lg-7 offset-lg-4">
+                        {/* <div className="col-lg-7 offset-lg-4">
                             <div className="banner__item">
                                 <div className="banner__item__pic">
                                     <img src="https://scontent.ftun14-1.fna.fbcdn.net/v/t1.15752-9/355385132_931223464829885_5643326160151289013_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=n9piaYL0ddoAX8B6zA1&_nc_ht=scontent.ftun14-1.fna&oh=03_AdQ72f0NROrlKPhvg4lESJh9NzPBivuwUSD_-lLFRbr1DA&oe=64B7296B" alt="" />
@@ -364,7 +364,7 @@ export default function Home() {
                                     </Link>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section >

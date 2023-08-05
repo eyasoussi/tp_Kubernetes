@@ -93,7 +93,8 @@ isMobileView ?  (
   <Box sx={{ width: "100%", maxWidth: "100vw", maxHeight:"100vh",overflowY:"hidden", overflowX: "hidden" }}>
     <div className="header__logo">
 <Link to={routes.HOME}>
-    <img src="" alt="Your Image" />
+
+    <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/logoAllouchi.png" alt="Your Image" />
 </Link>
 </div>
     <BottomNavigation
@@ -137,7 +138,7 @@ isMobileView ?  (
                                 <div className="header__logo">
 
                                     <Link to={routes.HOME}>
-                                        <img src="" alt="Your Image" />
+                                        <img src="https://raw.githubusercontent.com/allouchii/allouchi/main/logoAllouchi.png" alt="Your Image" />
                                     </Link>
 
                                 </div>
