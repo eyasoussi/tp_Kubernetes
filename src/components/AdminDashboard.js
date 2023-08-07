@@ -173,10 +173,10 @@ export default function AdminDashboard() {
                             </ActiveTabs>
                         </MyContext.Provider>
                     </div>
-                    {activeFilter === 'Ovin Engraissement' && <Ovin data={ovinData} />}
-                    {activeFilter === 'Brebis' && <Brebis data={BrebisData} />}
-                    {activeFilter === 'Poulailler Engraissement' && <Poulailler data={PoulaillerData} />}
-                    {activeFilter === 'Agnelles' && <PoulesPondeuses data={PoulesPondeusesData} />}
+                    {activeFilter === 'Ovin Engraissement' && <Ovin data={ovinData} articles={articles} />}
+                    {activeFilter === 'Brebis' && <Brebis data={BrebisData} articles={articles} />}
+                    {activeFilter === 'Poulailler Engraissement' && <Poulailler data={PoulaillerData} articles={articles} />}
+                    {activeFilter === 'Agnelles' && <PoulesPondeuses data={PoulesPondeusesData} articles={articles} />}
                 </div>
             </section>
             <Footer />

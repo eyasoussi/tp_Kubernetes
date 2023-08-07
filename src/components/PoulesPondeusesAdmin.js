@@ -8,7 +8,7 @@ import SelectEditor from '@inovua/reactdatagrid-community/SelectEditor'
 import NumericEditor from '@inovua/reactdatagrid-community/NumericEditor'
 import { addArticle, updateArticle, deleteArticle } from '../admin/adminUtils'
 
-export default function PoulesPondeuses({ data }) {
+export default function PoulesPondeuses({ data, articles }) {
   const [allFilters, setAllFilters] = useState({});
   const [filteredData, setFilteredData] = useState(data);
   const [filteredDataSource, setFilteredDataSource] = useState(filteredData);
@@ -23,7 +23,7 @@ export default function PoulesPondeuses({ data }) {
   const handleDeleteItem = (id) => {
     console.log(id);
     deleteArticle(id);
-    alert('Item delete successfully!');
+    alert('Article Supprimé avec Succès!');
     const items = filteredData;
     const indexToDelete = items.findIndex((item) => item.id === id);
 
@@ -71,13 +71,13 @@ setFilteredData(items);
       //implement data validation logic
       //call updating function
       updateArticle(id, item);
-      alert('Item updated successfully!');
+      alert('Article Modifié avec Succès!');
     } else {
       //call adding function
-      const dataClone = data
+      const dataClone = articles;
       dataClone.push(item);
       addArticle(item, dataClone);
-      console.log(dataClone);
+      alert('Article Ajouté avec Succès!')
     }
   };
 
