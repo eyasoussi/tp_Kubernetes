@@ -6,7 +6,7 @@ import JsScripts from './JsScripts';
 import Preloader from './Preloader';
 import MyContext from '../context';
 import ActiveTabs from './ActiveTabs';
-import InfoBar from './InfoBar';
+import InfoBar from './InfoBarAdmin';
 import Poulailler from './PoulaillerAdmin';
 import Ovin from './OvinAdmin';
 import Brebis from './BrebisAdmin';

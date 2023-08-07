@@ -23,13 +23,18 @@ export default function Ovin({ data, articles }) {
   const handleDeleteItem = (id) => {
     console.log(id);
     deleteArticle(id);
-    alert('Article Supprimé avec Succès!');
     const items = filteredData;
     const indexToDelete = items.findIndex((item) => item.id === id);
+    if (indexToDelete !== -1) {
+      items.splice(indexToDelete, 1);
+      alert('Article Supprimé avec Succès!');
+    }
+    else{
+      alert('Article déja Supprimé. Veuillez actualiser la page afin de voir la liste de vos articles la plus recente.')
+    }
+    
+    
 
-if (indexToDelete !== -1) {
-  items.splice(indexToDelete, 1);
-}
 
 setFilteredData(items);
   };
