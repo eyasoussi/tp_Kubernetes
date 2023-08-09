@@ -94,7 +94,6 @@ export default function Brebis({ data, articles }) {
   const columns = [
     { name: 'title', header: 'Titre', minWidth: 200, defaultFlex: 2, editable: true },
     { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
-    { name: 'category', header: 'Catégorie', minWidth: 50, defaultFlex: 2, editable: false },
     {
       name: 'race',
       header: 'Race',
