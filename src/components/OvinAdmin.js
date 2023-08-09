@@ -23,22 +23,14 @@ export default function Ovin({ data, articles }) {
   const handleDeleteItem = (id) => {
     console.log(id);
     deleteArticle(id);
-    const items = filteredData;
-    const indexToDelete = items.findIndex((item) => item.id === id);
-    if (indexToDelete !== -1) {
-      items.splice(indexToDelete, 1);
-      alert('Article Supprimé avec Succès!');
-    }
-    else{
-      alert('Article déja Supprimé. Veuillez actualiser la page afin de voir la liste de vos articles la plus recente.')
-    }
-    
-    
-
-
-setFilteredData(items);
+  
+    // Create a new array with items that should not be deleted
+    const updatedItems = filteredData.filter((item) => item.id !== id);
+  
+    setFilteredData(updatedItems);
+    alert('Article Supprimé avec Succès!');
   };
-
+  
   const handleAddItem = () => {
     // Create a new empty object for the new item
     const newEmptyItem = {
@@ -189,7 +181,7 @@ setFilteredData(items);
         )}
       </div>
       <div className="shop__product__option">
-        <MainShop filteredData={filteredData} columns={columns} handleAddItem={handleAddItem} newlyAddedItemId={newlyAddedItemId} />
+        <MainShop filteredData={filteredData} columns={columns} handleAddItem={handleAddItem} newlyAddedItemId={newlyAddedItemId} handleDeleteItem={handleDeleteItem} />
       </div>
     </div>
   );

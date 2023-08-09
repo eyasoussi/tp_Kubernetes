@@ -5,7 +5,7 @@ import { LanguageContext } from '../../LanguageContext';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
 
-export default function MainShop({ filteredData, columns, handleAddItem }) {
+export default function MainShop({ filteredData, columns, handleAddItem, handleDeleteItem }) {
   const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [pageSize, setPageSize] = useState(10); // Number of rows per page
@@ -26,8 +26,9 @@ export default function MainShop({ filteredData, columns, handleAddItem }) {
   };
 
   useEffect(() => {
+    console.log("hey items have changed");
     setFilteredDataSource(filteredData);
-  }, [filteredData]);
+  }, [filteredData, handleDeleteItem]);
 
   const handleShopItemClick = (index) => {
     navigate(`/boutique/${index}`);

@@ -23,15 +23,12 @@ export default function Poulailler({ data, articles }) {
   const handleDeleteItem = (id) => {
     console.log(id);
     deleteArticle(id);
+  
+    // Create a new array with items that should not be deleted
+    const updatedItems = filteredData.filter((item) => item.id !== id);
+  
+    setFilteredData(updatedItems);
     alert('Article Supprimé avec Succès!');
-    const items = filteredData;
-    const indexToDelete = items.findIndex((item) => item.id === id);
-
-if (indexToDelete !== -1) {
-  items.splice(indexToDelete, 1);
-}
-
-setFilteredData(items);
   };
 
   const handleAddItem = () => {
