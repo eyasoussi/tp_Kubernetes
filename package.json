@@ -30,6 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "minify": "uglifyjs build/static/js/*.js -o build/static/js/js-minified.js",
+    "build:minify": "npm run build && npm run minify",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "uglify-js": "^3.17.4"
   }
 }

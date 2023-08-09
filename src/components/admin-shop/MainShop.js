@@ -93,6 +93,19 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
     gte : 'Plus que ou égal',
   };
 
+  const onEditComplete = useCallback(({ value, columnId, rowId }) => {
+    setFilteredDataSource((prevData) => {
+      // Create a copy of the previous data
+      const newData = [...prevData];
+      // Find the index of the row with the given rowId
+      const rowIndex = newData.findIndex((item) => item.id === rowId);
+      if (rowIndex !== -1) {
+        // Update the value of the specified column in the found row
+        newData[rowIndex][columnId] = value;
+      }
+      return newData;
+    });
+  }, []);
 
 
   return (
@@ -118,6 +131,7 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
           pageSize: pageSize,
           pageSizeOptions: [5, 10, 20]
         }}
+        onEditComplete={onEditComplete}
         filter={{
           enabled: true,
           filterValue: (filter) => {
