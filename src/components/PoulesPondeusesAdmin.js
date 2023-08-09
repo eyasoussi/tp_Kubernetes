@@ -21,7 +21,6 @@ export default function PoulesPondeuses({ data, articles }) {
 
 
   const handleDeleteItem = (id) => {
-    console.log(id);
     deleteArticle(id);
   
     // Create a new array with items that should not be deleted
@@ -63,7 +62,6 @@ export default function PoulesPondeuses({ data, articles }) {
 
 
   const handleSaveItem = (id, item) => {
-    console.log(id, item);
     if (isItemExist(id, data)) {
       //implement data validation logic
       //call updating function

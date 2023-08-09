@@ -28,7 +28,6 @@ async function getAllArticles() {
 
   export let articlesFetched = []
     getAllArticles().then((articles) => {
-        console.log('All articles:', articles);
         articlesFetched = articles
       });
 

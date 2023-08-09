@@ -9,7 +9,6 @@ const ArticlesProvider = ({ children }) => {
 
   useEffect(() => {
     getAllArticles().then((articles) => {
-        console.log('All articles:', articles);
         setArticles(articles)
       });
   }, []);

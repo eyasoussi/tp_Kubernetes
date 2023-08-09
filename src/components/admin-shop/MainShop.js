@@ -26,7 +26,6 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
   };
 
   useEffect(() => {
-    console.log("hey items have changed");
     setFilteredDataSource(filteredData);
   }, [filteredData, handleDeleteItem]);
 

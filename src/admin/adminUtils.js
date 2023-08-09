@@ -28,7 +28,6 @@ export async function getAllArticles() {
 export async function addArticle(newArticle, articles) {
     try {
         await updateArticlesInRepo(articles, `Added new article with ID ${newArticle.id}`);
-        console.log('New article added successfully.');
 
     } catch (error) {
         console.error('Error adding new article:', error);
@@ -44,13 +43,11 @@ export async function updateArticle(articleId, updatedArticle) {
             articles[index] = { ...articles[index], ...updatedArticle };
 
             await updateArticlesInRepo(articles, `Update article with ID ${articleId}`);
-
-            console.log(`Article with ID ${articleId} updated successfully.`);
         } else {
             console.log(`Article with ID ${articleId} not found.`);
         }
     } catch (error) {
-        console.error('Error updating article:', error);
+        console.error('Error updating article');
     }
 }
 
@@ -69,7 +66,7 @@ export async function deleteArticle(articleId) {
             console.log(`Article with ID ${articleId} not found.`);
         }
     } catch (error) {
-        console.error('Error deleting article:', error);
+        console.error('Error deleting article');
     }
 }
 
