@@ -41,13 +41,14 @@ export default function MainShop({ filteredData, columns, handleAddItem }) {
       // Trigger the click event on the selected element
       element.click();
     }
+    gridRef.current.scrollToIndex(0)
   };
   useEffect(() => {
     // Scroll to the newly added item in the data grid
     if (newlyAddedItemId) {
       // Scroll to the corresponding row in the data grid
       // Assuming 'gridRef' is a ref to the ReactDataGrid component
-      gridRef.current.scrollToIndex(56)
+      gridRef.current.scrollToIndex(0)
       // Reset the newly added item ID state to prevent unnecessary scrolling on subsequent renders
       setNewlyAddedItemId(null);
     }
