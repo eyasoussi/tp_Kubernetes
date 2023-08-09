@@ -16,6 +16,11 @@ import { ArticlesProvider } from './articlesContext';
 import Admin from './pages/Admin';
 
 function App() {
+
+  console.log = function () {};
+  console.warn = function () {};
+  console.error = function () {};
+  
   return (
     <LanguageProvider>
       <ArticlesProvider>

@@ -121,7 +121,6 @@ export default function AboutUs() {
             <Header />
             <section className="breadcrumb-option">
                 <div className="container">
-                    <Login />
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="breadcrumb__text">

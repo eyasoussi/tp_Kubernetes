@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import Preloader from './components/Preloader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+  console.log = function () {};
+  console.warn = function () {};
+  console.error = function () {};
+
 root.render(
   <React.StrictMode>
     <App />
