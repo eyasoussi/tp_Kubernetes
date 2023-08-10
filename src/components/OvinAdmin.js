@@ -37,7 +37,7 @@ export default function Ovin({ data, articles }) {
       title: "nouveau mouton",
       description: "",
       price: 0,
-      discountPercentage: 0,
+      discountPercentage: '',
       race: "Tibar",
       age: 0,
       weight: 0,
@@ -87,7 +87,7 @@ export default function Ovin({ data, articles }) {
 
   const columns = [
     { name: 'title', header: 'Titre', minWidth: 200, defaultFlex: 2, editable: true },
-    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number'},
     {
       name: 'race',
       header: 'Race',
@@ -103,8 +103,8 @@ export default function Ovin({ data, articles }) {
       },
       editable: true
     },
-    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
-    { name: 'weight', header: 'Poids', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number' },
+    { name: 'weight', header: 'Poids', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number' },
     {
       name: 'thumbnail', // Name of the data field containing the image URL
       header: 'Image URL', // Header text for the column
@@ -178,7 +178,7 @@ export default function Ovin({ data, articles }) {
         )}
       </div>
       <div className="shop__product__option">
-        <MainShop filteredData={filteredData} columns={columns} handleAddItem={handleAddItem} newlyAddedItemId={newlyAddedItemId} handleDeleteItem={handleDeleteItem} />
+        <MainShop filteredData={filteredData} handleSaveItem={handleSaveItem} raceData={raceData} columns={columns} handleAddItem={handleAddItem} newlyAddedItemId={newlyAddedItemId} handleDeleteItem={handleDeleteItem} />
       </div>
     </div>
   );

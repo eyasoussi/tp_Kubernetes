@@ -4,8 +4,11 @@ import { useContext } from 'react';
 import { LanguageContext } from '../../LanguageContext';
 import ReactDataGrid from '@inovua/reactdatagrid-community';
 import '@inovua/reactdatagrid-community/index.css';
+import BoolEditor from '@inovua/reactdatagrid-community/BoolEditor'
+import SelectEditor from '@inovua/reactdatagrid-community/SelectEditor'
+import NumericEditor from '@inovua/reactdatagrid-community/NumericEditor'
 
-export default function MainShop({ filteredData, columns, handleAddItem, handleDeleteItem }) {
+export default function MainShop({ filteredData, columns, handleAddItem, handleDeleteItem, handleSaveItem, raceData }) {
   const { language } = useContext(LanguageContext);
   const navigate = useNavigate();
   const [pageSize, setPageSize] = useState(10); // Number of rows per page
@@ -107,7 +110,31 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
     });
   }, []);
 
+  const cellDOMProps = (cellProps) => {
+    return {
+      onClick: () => {
+        gridRef.current.startEdit({ columnId: cellProps.id, rowIndex: cellProps.rowIndex })
+      }
+    }
+  }
 
+  const addCellDOMProps = (columns) => {
+    const modifiedColumns = columns.map((column) => {
+      if (column.name !== 'Supression' && column.name !== 'Sauvegarde') {
+        return {
+          ...column,
+          cellDOMProps
+        };
+      }
+      return column;
+    });
+  
+    return modifiedColumns;
+  };
+  
+  // Call the function and get the modified columns array
+  const modifiedColumns = addCellDOMProps(columns);
+  
   return (
     <div>
       <div className="shop__product__option__left">
@@ -121,7 +148,7 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
       <ReactDataGrid
         onReady={setGridRef}
         idProperty="id"
-        columns={columns}
+        columns={modifiedColumns}
         dataSource={filteredDataSource}
         style={gridStyle}
         pagination
@@ -131,6 +158,7 @@ export default function MainShop({ filteredData, columns, handleAddItem, handleD
           pageSize: pageSize,
           pageSizeOptions: [5, 10, 20]
         }}
+        editable={true}
         onEditComplete={onEditComplete}
         filter={{
           enabled: true,

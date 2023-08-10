@@ -93,7 +93,7 @@ export default function Brebis({ data, articles }) {
 
   const columns = [
     { name: 'title', header: 'Titre', minWidth: 200, defaultFlex: 2, editable: true },
-    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number' },
     {
       name: 'race',
       header: 'Race',
@@ -109,7 +109,7 @@ export default function Brebis({ data, articles }) {
       },
       editable: true
     },
-    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number' },
     {
       name: 'state',
       header: 'Etat',

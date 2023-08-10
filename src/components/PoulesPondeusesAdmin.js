@@ -87,7 +87,7 @@ export default function PoulesPondeuses({ data, articles }) {
 
   const columns = [
     { name: 'title', header: 'Titre', minWidth: 200, defaultFlex: 2, editable: true },
-    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'price', header: 'Prix', maxWidth: 1000, defaultFlex: 1, editable: true, type: 'number' },
     {
       name: 'race',
       header: 'Race',
@@ -103,8 +103,8 @@ export default function PoulesPondeuses({ data, articles }) {
       },
       editable: true
     },
-    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
-    { name: 'weight', header: 'Poids', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number', editor: NumericEditor },
+    { name: 'age', header: 'Age', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number' },
+    { name: 'weight', header: 'Poids', maxWidth: 100, defaultFlex: 1, editable: true, type: 'number' },
     {
       name: 'thumbnail', // Name of the data field containing the image URL
       header: 'Image URL', // Header text for the column
