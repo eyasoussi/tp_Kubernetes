@@ -12,7 +12,7 @@ export default function InfoBar() {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="breadcrumb__text">
-                        <h4>{language==="fr" ? "Boutique" : "المتجر"}</h4>
+                        <h4>{language==="fr" ? "TP 3 Kubernetes" : "المتجر"}</h4>
                         <div className="breadcrumb__links">
                             <Link to={routes.HOME}>
                             {language==="fr" ? "Acceuil" : "الصفحة الرئيسية"}
