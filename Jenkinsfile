@@ -29,7 +29,8 @@ pipeline {
                 script {
                     echo "======== executing ========"
                         echo "push to hub"
-                  withCredentials([usernamePassword(credentialsId: 'dockerCredentials')]){
+                  withCredentials([usernamePassword(credentialsId: 'dockerCredentials', usernameVariable:
+'USERNAME', passwordVariable: 'PASSWORD')]){
                         sh "docker tag devopstp eyasoussi/devopstp:v1"
                         sh "docker push eyasoussi/devopstp:v1"
                        }
