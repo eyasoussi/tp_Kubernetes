@@ -2,6 +2,10 @@ pipeline {
 
   agent any
 
+  environment {
+        DOCKER_HUB_CREDENTIALS = credentials('dockerCredentials')
+    }
+
   stages {
 
     stage("getting code") {
@@ -25,11 +29,13 @@ pipeline {
                 script {
                     echo "======== executing ========"
                         echo "push to hub"
+                  withCredentials([usernamePassword(credentialsId: 'dockerCredentials')]){
                         sh "docker tag devopstp eyasoussi/devopstp:v1"
                         sh "docker push eyasoussi/devopstp:v1"
-                           }        
-                        }
-                    }   
+                       }
+                   }        
+              }
+      }   
     stage('Deploying App to Kubernetes') {
       steps {
         script {
